@@ -1,73 +1,174 @@
 {
   "Actor": {
-    "types": ["character", "npc"],
+    "types": ["character", "npc", "villain"],
     "templates": {
       "base": {
         "health": {
-          "value": 10,
-          "min": 0,
-          "max": 10
-        },
-        "power": {
           "value": 5,
           "min": 0,
-          "max": 5
+          "max": 999
         },
-        "biography": ""
+        "mana": {
+          "value": 5,
+          "min": 0,
+          "max": 999
+        },
+        "biography": "",
+        "attributes": {
+          "level": {
+            "value": 5,
+            "min": 5,
+            "max": 60
+          }
+        },
+        "abilities": {
+          "vig": {
+            "value": 10
+          },
+          "dex": {
+            "value": 10
+          },
+          "int": {
+            "value": 10
+          },
+          "vol": {
+            "value": 10
+          }
+        },
+        "statuses": [],
+        "affinities": []
       }
     },
     "character": {
       "templates": ["base"],
-      "attributes": {
-        "level": {
-          "value": 1
-        }
+      "inventory": {
+        "value": 2,
+        "min": 0,
+        "max": 99
       },
-      "abilities": {
-        "str": {
-          "value": 10
-        },
-        "dex": {
-          "value": 10
-        },
-        "con": {
-          "value": 10
-        },
-        "int": {
-          "value": 10
-        },
-        "wis": {
-          "value": 10
-        },
-        "cha": {
-          "value": 10
-        }
-      }
+      "proficiencies": [],
+      "fabulaPoints": 3,
+      "identity": "",
+      "origin": "",
+      "theme": "",
+      "zenit": 0,
+      "equipped": {
+        "mainHand": "",
+        "offHand": "",
+        "accessory": "",
+        "armor": ""
+      },
+      "exp": 0
     },
     "npc": {
       "templates": ["base"],
-      "cr": 0
+      "type": "",
+      "rank": "",
+      "traits": "",
+      "specialRules": ""
+    },
+    "villain": {
+      "templates": ["base"],
+      "type": "",
+      "rank": "",
+      "traits": "",
+      "specialRules": "",
+      "ultimaPoints": "",
+      "ascensionLevel": ""
     }
   },
   "Item": {
-    "types": ["item", "feature", "spell"],
+    "types": ["item", "consumable", "feature", "spell", "class", "bond", "baseAttack", "weapon", "armor", "accessory"],
     "templates": {
       "base": {
-        "description": ""
+        "description": "",
+        "rarity": ""
+      },
+      "buyable": {
+        "zenit": 0
       }
     },
     "item": {
+      "templates": ["base", "buyable"],
+      "quantity": 1
+    },
+    "consumable": {
       "templates": ["base"],
-      "quantity": 1,
-      "weight": 0,
-      "formula": "d20 + @str.mod + ceil(@lvl / 2)"
+      "recover": {
+        "amount": 0,
+        "resource": ""
+      },
+      "damage": {
+        "amount": 0,
+        "type": ""
+      },
+      "inventoryCost": 0
     },
     "feature": {
-      "templates": ["base"]
+      "templates": ["base"],
+      "class": "",
+      "cost": {
+        "amount": 0,
+        "resource": ""
+      }
     },
     "spell": {
       "templates": ["base"],
-      "spellLevel": 1
+      "class": "",
+      "target": "",
+      "duration": "",
+      "formula": "",
+      "cost": {
+        "amount": 0,
+        "resource": ""
+      }
+    },
+    "freeBenefit": {
+      "templates": ["base"],
+      "property": "",
+      "value": "",
+      "class": ""
+    },
+    "class": {
+      "templates": ["base"],
+      "level": 1
+    },
+    "bond": {
+      "who": "",
+      "feeling1": "",
+      "feeling2": "",
+      "feeling3": ""
+    },
+    "baseAttack": {
+      "templates": ["base"],
+      "formula": "",
+      "damage": {
+        "bonus": 0,
+        "type": ""
+      },
+      "type": ""
+    },
+    "weapon": {
+      "templates": ["base", "buyable"],
+      "formula": "",
+      "damage": {
+        "bonus": 0,
+        "type": ""
+      },
+      "type": "",
+      "isMartial": false
+    },
+    "armor": {
+      "templates": ["base", "buyable"],
+      "defense": 0,
+      "magicDefense": 0,
+      "initiative": 0,
+      "type": "",
+      "isMartial": false
+    },
+    "accessory": {
+      "templates": ["base", "buyable"],
+      "effect": ""
     }
   }
 }
