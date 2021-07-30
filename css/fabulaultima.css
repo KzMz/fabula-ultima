@@ -486,3 +486,25 @@
   border-radius: 2px;
   background-size: 35px 20px, 100% 100%, 100% 100%;
 }
+
+.fabulaultima progress[value]#mind-progress::-webkit-progress-value {
+  background-image:
+          -webkit-linear-gradient(top,
+          rgba(255, 255, 255, .25),
+          rgba(0, 0, 0, .25)),
+          -webkit-linear-gradient(left, #008ae6, #ccebff);
+
+  border-radius: 2px;
+  background-size: 35px 20px, 100% 100%, 100% 100%;
+}
+
+.fabulaultima progress[value]#health-progress::-webkit-progress-value {
+  background-image:
+          -webkit-linear-gradient(top,
+          rgba(255, 255, 255, .25),
+          rgba(0, 0, 0, .25)),
+          -webkit-linear-gradient(left, #00cc00, #e6ffe6);
+
+  border-radius: 2px;
+  background-size: 35px 20px, 100% 100%, 100% 100%;
+}
