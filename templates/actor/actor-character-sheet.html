@@ -2,7 +2,7 @@
 
   {{!-- Sheet Header --}}
   <header class="sheet-header">
-    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="150" width="150"/>
+    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="350" width="350"/>
     <div class="header-fields">
       {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
       use both the "grid" and "grid-Ncol" class where "N" can be any number
@@ -37,7 +37,7 @@
         </div>
 
         <div class="resource flex-group-left">
-          <h2 class="charexp"><span>EXP:</span><input name="data.exp" type="text" value="{{data.exp}}" data-dtype="Number"/></h2>
+          <h2 class="charexp"><span style="width: 50%;">EXP:</span><input name="data.exp" type="text" value="{{data.exp}}" data-dtype="Number"/></h2>
           <progress id="exp-progress" value="data.exp" max="10">{{data.exp_progress}}%</progress>
         </div>
       </div>
