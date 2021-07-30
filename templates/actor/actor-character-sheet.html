@@ -24,7 +24,7 @@
             <input type="text" name="data.health.value" value="{{data.health.value}}" data-dtype="Number"/>
             <span>/</span>
             <input type="text" name="data.health.max" value="{{data.health.max}}" data-dtype="Number"/>
-            <progress id="health-progress" value="data.health.value" max="data.health.max">{{data.health_progress}}%</progress>
+            <progress id="health-progress" value="{{data.health.value}}" max="{{data.health.max}}">{{data.health_progress}}%</progress>
           </div>
 
           <label for="data.mind.value" class="resource-label">Power</label>
@@ -32,13 +32,13 @@
             <input type="text" name="data.mind.value" value="{{data.mind.value}}" data-dtype="Number"/>
             <span>/</span>
             <input type="text" name="data.mind.max" value="{{data.mind.max}}" data-dtype="Number"/>
-            <progress id="mind-progress" value="data.mind.value" max="data.mind.max">{{data.mind_progress}}%</progress>
+            <progress id="mind-progress" value="{{data.mind.value}}" max="{{data.mind.max}}">{{data.mind_progress}}%</progress>
           </div>
         </div>
 
         <div class="resource flex-group-left">
           <h2 class="charexp"><span style="width: 50%;">EXP:</span><input name="data.exp" type="text" value="{{data.exp}}" data-dtype="Number"/></h2>
-          <progress id="exp-progress" value="data.exp" max="10">{{data.exp_progress}}%</progress>
+          <progress id="exp-progress" value="{{data.exp}}" max="10">{{data.exp_progress}}%</progress>
         </div>
       </div>
     </div>

@@ -459,7 +459,6 @@
   display: flex;
   align-items: center;
   border-bottom: none;
-  margin: 0;
 }
 
 .fabulaultima progress[value] {
@@ -482,7 +481,7 @@
           -webkit-linear-gradient(top,
           rgba(255, 255, 255, .25),
           rgba(0, 0, 0, .25)),
-          -webkit-linear-gradient(left, #09c, #f44);
+          -webkit-linear-gradient(left, #ffb3d9, #ff80bf);
 
   border-radius: 2px;
   background-size: 35px 20px, 100% 100%, 100% 100%;
