@@ -4,40 +4,42 @@
   <header class="sheet-header">
     <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
     <div class="header-fields">
-      <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
       {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
       use both the "grid" and "grid-Ncol" class where "N" can be any number
       from 1 to 12 and will create that number of columns.  --}}
-      <div class="resources grid grid-3col">
-
+      <div class="resources grid grid-2col">
         {{!-- "flex-group-center" is also defined in the _grid.scss file
         and it will add a small amount of padding, a border, and will
         center all of its child elements content and text. --}}
-        <div class="resource flex-group-center">
-          <label for="data.health.value" class="resource-label">Health</label>
-          <div class="resource-content flexrow flex-center flex-between">
-          <input type="text" name="data.health.value" value="{{data.health.value}}" data-dtype="Number"/>
-          <span> / </span>
-          <input type="text" name="data.health.max" value="{{data.health.max}}" data-dtype="Number"/>
-          </div>
-        </div>
+        <div class="resource flex-group-left">
+          <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
 
-        <div class="resource flex-group-center">
+          <label for="data.attributes.level.value" class="resource-label">LV</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="data.attributes.level.value" value="{{data.attributes.level.value}}" data-dtype="Number"/>
+          </div>
+
+          <label for="data.health.value" class="resource-label">HP</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="data.health.value" value="{{data.health.value}}" data-dtype="Number"/>
+            <span>/</span>
+            <input type="text" name="data.health.max" value="{{data.health.max}}" data-dtype="Number"/>
+            <progress id="health-progress" value="data.health.value" max="data.health.max">{{data.health_progress}}%</progress>
+          </div>
+
           <label for="data.mind.value" class="resource-label">Power</label>
           <div class="resource-content flexrow flex-center flex-between">
-          <input type="text" name="data.power.value" value="{{data.power.value}}" data-dtype="Number"/>
-          <span> / </span>
-          <input type="text" name="data.power.max" value="{{data.power.max}}" data-dtype="Number"/>
+            <input type="text" name="data.mind.value" value="{{data.mind.value}}" data-dtype="Number"/>
+            <span>/</span>
+            <input type="text" name="data.mind.max" value="{{data.mind.max}}" data-dtype="Number"/>
+            <progress id="mind-progress" value="data.mind.value" max="data.mind.max">{{data.mind_progress}}%</progress>
           </div>
         </div>
 
-        <div class="resource flex-group-center">
-          <label for="data.attributes.level.value" class="resource-label">Level</label>
-          <div class="resource-content flexrow flex-center flex-between">
-          <input type="text" name="data.attributes.level.value" value="{{data.attributes.level.value}}" data-dtype="Number"/>
-          </div>
+        <div class="resource flex-group-left">
+          <h1 class="charexp">EXP: <input name="data.exp" type="text" value="{{data.exp}}" data-dtype="Number"/></h1>
+          <progress id="exp-progress" value="data.exp" max="10">{{data.exp_progress}}%</progress>
         </div>
-
       </div>
     </div>
   </header>
@@ -46,10 +48,10 @@
   <nav class="sheet-tabs tabs" data-group="primary">
     {{!-- Default tab is specified in actor-sheet.mjs --}}
     <a class="item" data-tab="features">Features</a>
-    <a class="item" data-tab="description">Description</a>
     <a class="item" data-tab="items">Items</a>
     <a class="item" data-tab="spells">Spells</a>
     <a class="item" data-tab="effects">Effects</a>
+    <a class="item" data-tab="description">Biography</a>
   </nav>
 
   {{!-- Sheet Body --}}

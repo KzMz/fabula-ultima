@@ -1,17 +1,13 @@
 {
-  "FABULAULTIMA.AbilityStr": "Strength",
-  "FABULAULTIMA.AbilityCon": "Constitution",
+  "FABULAULTIMA.AbilityVig": "Vigor",
   "FABULAULTIMA.AbilityDex": "Dexterity",
   "FABULAULTIMA.AbilityInt": "Intelligence",
-  "FABULAULTIMA.AbilityWis": "Wisdom",
-  "FABULAULTIMA.AbilityCha": "Charisma",
+  "FABULAULTIMA.AbilityVol": "Will",
 
-  "FABULAULTIMA.AbilityStrAbbr": "str",
-  "FABULAULTIMA.AbilityConAbbr": "con",
-  "FABULAULTIMA.AbilityDexAbbr": "dex",
-  "FABULAULTIMA.AbilityIntAbbr": "int",
-  "FABULAULTIMA.AbilityWisAbbr": "wis",
-  "FABULAULTIMA.AbilityChaAbbr": "cha",
+  "FABULAULTIMA.AbilityVigAbbr": "VIG",
+  "FABULAULTIMA.AbilityDexAbbr": "DEX",
+  "FABULAULTIMA.AbilityIntAbbr": "INT",
+  "FABULAULTIMA.AbilityVolAbbr": "WIL",
 
   "FABULAULTIMA.EffectCreate": "Create Effect",
   "FABULAULTIMA.EffectToggle": "Toggle Effect",
