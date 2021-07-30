@@ -11,19 +11,15 @@ FABULAULTIMA.foobar = {
  * @type {Object}
  */
  FABULAULTIMA.abilities = {
-  "str": "FABULAULTIMA.AbilityStr",
+  "vig": "FABULAULTIMA.AbilityVig",
   "dex": "FABULAULTIMA.AbilityDex",
-  "con": "FABULAULTIMA.AbilityCon",
   "int": "FABULAULTIMA.AbilityInt",
-  "wis": "FABULAULTIMA.AbilityWis",
-  "cha": "FABULAULTIMA.AbilityCha"
+  "vol": "FABULAULTIMA.AbilityVol",
 };
 
 FABULAULTIMA.abilityAbbreviations = {
-  "str": "FABULAULTIMA.AbilityStrAbbr",
+  "vig": "FABULAULTIMA.AbilityVigAbbr",
   "dex": "FABULAULTIMA.AbilityDexAbbr",
-  "con": "FABULAULTIMA.AbilityConAbbr",
   "int": "FABULAULTIMA.AbilityIntAbbr",
-  "wis": "FABULAULTIMA.AbilityWisAbbr",
-  "cha": "FABULAULTIMA.AbilityChaAbbr"
+  "vol": "FABULAULTIMA.AbilityVolAbbr"
 };

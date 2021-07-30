@@ -8,7 +8,7 @@
           "min": 0,
           "max": 999
         },
-        "mana": {
+        "mind": {
           "value": 5,
           "min": 0,
           "max": 999
@@ -23,16 +23,20 @@
         },
         "abilities": {
           "vig": {
-            "value": 10
+            "value": 10,
+            "max": 10
           },
           "dex": {
-            "value": 10
+            "value": 10,
+            "max": 10
           },
           "int": {
-            "value": 10
+            "value": 10,
+            "max": 10
           },
           "vol": {
-            "value": 10
+            "value": 10,
+            "max": 10
           }
         },
         "statuses": [],

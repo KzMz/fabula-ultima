@@ -49,10 +49,10 @@ export class FabulaUltimaActor extends Actor {
     const data = actorData.data;
 
     // Loop through ability scores, and add their modifiers to our sheet output.
-    for (let [key, ability] of Object.entries(data.abilities)) {
+    //for (let [key, ability] of Object.entries(data.abilities)) {
       // Calculate the modifier using d20 rules.
-      ability.mod = Math.floor((ability.value - 10) / 2);
-    }
+      //ability.mod = Math.floor((ability.value - 10) / 2);
+    //}
   }
 
   /**
@@ -62,8 +62,8 @@ export class FabulaUltimaActor extends Actor {
     if (actorData.type !== 'npc') return;
 
     // Make modifications to data here. For example:
-    const data = actorData.data;
-    data.xp = (data.cr * data.cr) * 100;
+    //const data = actorData.data;
+    //data.xp = (data.cr * data.cr) * 100;
   }
 
   /**
@@ -94,9 +94,9 @@ export class FabulaUltimaActor extends Actor {
     }
 
     // Add level for easier access, or fall back to 0.
-    if (data.attributes.level) {
+    /*if (data.attributes.level) {
       data.lvl = data.attributes.level.value ?? 0;
-    }
+    }*/
   }
 
   /**
