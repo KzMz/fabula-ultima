@@ -454,3 +454,8 @@
 .fabulaultima .effects .item .effect-controls {
   border: none;
 }
+
+.fabulaultima .charexp {
+  display: flex;
+  align-items: center;
+}
