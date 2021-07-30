@@ -250,9 +250,9 @@
 
 .fabulaultima .sheet-header .profile-img {
   -webkit-box-flex: 0;
-  -ms-flex: 0 0 100px;
-  flex: 0 0 100px;
-  height: 100px;
+  -ms-flex: 0 0 200px;
+  flex: 0 0 200px;
+  height: 200px;
   margin-right: 10px;
 }
 
