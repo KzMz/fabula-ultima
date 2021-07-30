@@ -297,6 +297,12 @@
 
 .fabulaultima .resource-label {
   font-weight: bold;
+
+  flex: 0;
+  display: flex;
+  align-items: center;
+  max-width: 50px;
+  min-width: 50px;
 }
 
 .fabulaultima .items-header {
