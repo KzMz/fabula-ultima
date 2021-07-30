@@ -14,30 +14,30 @@
         <div class="resource flex-group-left">
           <h2 class="charname" style="border: none"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h2>
 
-          <label for="data.attributes.level.value" class="resource-label">LV</label>
           <div class="resource-content flexrow flex-center flex-between">
+            <label for="data.attributes.level.value" class="resource-label">LV</label>
             <input type="text" name="data.attributes.level.value" value="{{data.attributes.level.value}}" data-dtype="Number"/>
           </div>
 
-          <label for="data.health.value" class="resource-label">HP</label>
           <div class="resource-content flexrow flex-center flex-between">
+            <label for="data.health.value" class="resource-label">HP</label>
             <input class="points-input-right" type="text" name="data.health.value" value="{{data.health.value}}" data-dtype="Number"/>
             <span style="flex: 0; margin-left: 5px; margin-right: 5px;">/</span>
             <input class="points-input-right" type="text" name="data.health.max" value="{{data.health.max}}" data-dtype="Number"/>
           </div>
 
-          <div class="resource-content flexrow flex-center flex-between">
+          <div class="resource-content flexrow flex-center flex-between" style="margin-top: 4px">
             <progress id="health-progress" value="{{data.health.value}}" max="{{data.health.max}}">{{data.health_progress}}%</progress>
           </div>
 
-          <label for="data.mind.value" class="resource-label">Power</label>
           <div class="resource-content flexrow flex-center flex-between">
+            <label for="data.mind.value" class="resource-label">MP</label>
             <input class="points-input-right" type="text" name="data.mind.value" value="{{data.mind.value}}" data-dtype="Number"/>
             <span style="flex: 0; margin-left: 5px; margin-right: 5px;">/</span>
             <input class="points-input-right" type="text" name="data.mind.max" value="{{data.mind.max}}" data-dtype="Number"/>
           </div>
 
-          <div class="resource-content flexrow flex-center flex-between">
+          <div class="resource-content flexrow flex-center flex-between" style="margin-top: 4px">
             <progress id="mind-progress" value="{{data.mind.value}}" max="{{data.mind.max}}">{{data.mind_progress}}%</progress>
           </div>
         </div>
