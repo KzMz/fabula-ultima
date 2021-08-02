@@ -509,11 +509,11 @@
 }
 
 .fabulaultima progress[value]#health-progress::-webkit-progress-bar {
-  background-color: #330000;
+  background-color: #4d0000;
 }
 
 .fabulaultima progress[value]#mind-progress::-webkit-progress-bar {
-  background-color: #330000;
+  background-color: #4d0000;
 }
 
 .fabulaultima progress[value]#health-progress::-webkit-progress-value {
@@ -529,8 +529,10 @@
 
 .fabulaultima .points-input-left {
   text-align: right;
+  max-width: 45px;
 }
 
 .fabulaultima .points-input-right {
   text-align: right;
+  max-width: 45px;
 }

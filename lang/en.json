@@ -18,5 +18,6 @@
   "FABULAULTIMA.LevelAbbr": "LV",
   "FABULAULTIMA.ExpAbbr": "EXP",
   "FABULAULTIMA.HealthAbbr": "HP",
-  "FABULAULTIMA.MindAbbr": "MP"
+  "FABULAULTIMA.MindAbbr": "MP",
+  "FABULAULTIMA.Crisis": "Crisis"
 }
