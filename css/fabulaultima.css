@@ -478,7 +478,6 @@
 
 .fabulaultima progress[value]::-webkit-progress-bar {
   background-color: #a6a6a6;
-  border-radius: 2px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
 }
 
@@ -489,7 +488,6 @@
           rgba(0, 0, 0, .25)),
           -webkit-linear-gradient(left, #ffb3d9, #ff80bf);
 
-  border-radius: 2px;
   background-size: 35px 20px, 100% 100%, 100% 100%;
 }
 
@@ -500,7 +498,6 @@
           rgba(0, 0, 0, .25)),
           -webkit-linear-gradient(left, #008ae6, #66c2ff);
 
-  border-radius: 2px;
   background-size: 35px 20px, 100% 100%, 100% 100%;
 }
 
@@ -523,7 +520,6 @@
           rgba(0, 0, 0, .25)),
           -webkit-linear-gradient(left, #00cc00, #66ff66);
 
-  border-radius: 2px;
   background-size: 35px 20px, 100% 100%, 100% 100%;
 }
 

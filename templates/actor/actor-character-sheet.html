@@ -22,10 +22,10 @@
           <div class="resource-content flexrow flex-center flex-between">
             <label for="data.health.value" class="resource-label">{{localize "FABULAULTIMA.HealthAbbr"}}</label>
             <input class="points-input-right" type="text" name="data.health.value" value="{{data.health.value}}" data-dtype="Number"/>
-            <span style="flex: 0; margin-left: 5px; margin-right: 5px;">/</span>
+            <span style="flex: 0; margin-left: 5px; margin-right: 5px; display: flex; align-items: center;">/</span>
             <input class="points-input-right" type="text" name="data.health.max" value="{{data.health.max}}" data-dtype="Number"/>
-            <span>♦️</span>
-            <span class="points-crisis">57</span>
+            <span style="flex: 0; margin-left: 15px; margin-right: 15px; display: flex; align-items: center; font-size: 15pt;">♦️</span>
+            <span class="points-crisis" style="flex: 0; margin-left: 5px; margin-right: 5px; display: flex; align-items: center;">57</span>
             <span class="resource-label">{{localize "FABULAULTIMA.Crisis"}}</span>
           </div>
 
@@ -33,10 +33,10 @@
             <progress id="health-progress" value="{{data.health.value}}" max="{{data.health.max}}">{{data.health_progress}}%</progress>
           </div>
 
-          <div class="resource-content flexrow flex-center flex-between">
+          <div class="resource-content flexrow flex-center flex-between" style="max-width: 156px;">
             <label for="data.mind.value" class="resource-label">{{localize "FABULAULTIMA.MindAbbr"}}</label>
             <input class="points-input-right" type="text" name="data.mind.value" value="{{data.mind.value}}" data-dtype="Number"/>
-            <span style="flex: 0; margin-left: 5px; margin-right: 5px;">/</span>
+            <span style="flex: 0; margin-left: 5px; margin-right: 5px; display: flex; align-items: center;">/</span>
             <input class="points-input-right" type="text" name="data.mind.max" value="{{data.mind.max}}" data-dtype="Number"/>
           </div>
 
