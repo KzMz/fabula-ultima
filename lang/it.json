@@ -14,5 +14,9 @@
   "FABULAULTIMA.EffectEdit": "Edit Effect",
   "FABULAULTIMA.EffectDelete": "Delete Effect",
 
-  "FABULAULTIMA.Add": "Add"
+  "FABULAULTIMA.Add": "Add",
+  "FABULAULTIMA.LevelAbbr": "LV",
+  "FABULAULTIMA.ExpAbbr": "EXP",
+  "FABULAULTIMA.HealthAbbr": "PV",
+  "FABULAULTIMA.MindAbbr": "PM"
 }
