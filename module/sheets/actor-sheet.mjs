@@ -73,15 +73,22 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       v.abbrLabel = game.i18n.localize(CONFIG.FABULAULTIMA.abilityAbbreviations[k]) ?? k;
     }
 
-    const statuses = {};
+    const statuses1 = {};
+    const statuses2 = {};
     for (let [k, v] of Object.entries(CONFIG.FABULAULTIMA.statuses)) {
-      if (v.affects.length > 1) continue;
+      if (v.affects.length > 1)
+      {
+        statuses2[k] = v;
+        statuses2[k].label = game.i18n.localize(v.label);
+        continue;
+      }
 
-      statuses[k] = v;
-      statuses[k].label = game.i18n.localize(v.label);
+      statuses1[k] = v;
+      statuses1[k].label = game.i18n.localize(v.label);
     }
 
-    context.data.statuses = statuses;
+    context.data.statuses1 = statuses1;
+    context.data.statuses2 = statuses2;
   }
 
   /**

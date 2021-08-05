@@ -70,12 +70,12 @@
     {{!-- Owned Features Tab --}}
     <div class="tab stats" data-group="primary" data-tab="stats">
       <section class="grid grid-4col">
-        <section class="stats grid-span-2 grid grid-2col">
+        <section class="stats grid-span-2 grid grid-4col">
 
           {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
           use both the "grid" and "grid-Ncol" class where "N" can be any number
           from 1 to 12 and will create that number of columns.  --}}
-          <div class="abilities flexcol">
+          <div class="abilities flexcol grid-span-2">
             {{#each data.abilities as |ability key|}}
             <div class="ability flexrow flex-group-center">
               <label for="data.abilities.{{key}}.value" class="resource-label stat flexlarge align-left" data-label="{{ability.label}}">{{ability.label}}</label>
@@ -84,7 +84,15 @@
             {{/each}}
           </div>
           <div class="statuses flexcol">
-            {{#each data.statuses as |status key|}}
+            {{#each data.statuses1 as |status key|}}
+            <div class="ability flexrow flex-group-center">
+              <input type="checkbox" name="status.{{key}}" data-dtype="Boolean"/>
+              <label for="status.{{key}}" class="resource-label stat flexlarge align-left" data-label="{{status.label}}">{{status.label}}</label>
+            </div>
+            {{/each}}
+          </div>
+          <div class="statuses flexcol">
+            {{#each data.statuses2 as |status key|}}
             <div class="ability flexrow flex-group-center">
               <input type="checkbox" name="status.{{key}}" data-dtype="Boolean"/>
               <label for="status.{{key}}" class="resource-label stat flexlarge align-left" data-label="{{status.label}}">{{status.label}}</label>
