@@ -74,7 +74,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
     }
 
     const statuses = {};
-    for (let [k, v] of CONFIG.FABULAULTIMA.statuses) {
+    for (let [k, v] of Object.entries(CONFIG.FABULAULTIMA.statuses)) {
       if (v.affects.length > 1) continue;
 
       statuses[k] = v;
