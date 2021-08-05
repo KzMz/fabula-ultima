@@ -7,7 +7,7 @@ FABULAULTIMA.foobar = {
 };
 
 /**
- * The set of Ability Scores used within the sytem.
+ * The set of Ability Scores used within the system.
  * @type {Object}
  */
  FABULAULTIMA.abilities = {
@@ -23,3 +23,34 @@ FABULAULTIMA.abilityAbbreviations = {
   "int": "FABULAULTIMA.AbilityIntAbbr",
   "vol": "FABULAULTIMA.AbilityVolAbbr"
 };
+
+FABULAULTIMA.statuses = {
+    "slow": {
+        "label": "FABULAULTIMA.Slow",
+        "affects": ["dex"]
+    },
+    "dazed": {
+        "label": "FABULAULTIMA.Dazed",
+        "affects": ["int"]
+    },
+    "weak": {
+        "label": "FABULAULTIMA.Weak",
+        "affects": ["vig"]
+    },
+    "shaken": {
+        "label": "FABULAULTIMA.Shaken",
+        "affects": ["vol"]
+    },
+    "enraged": {
+        "label": "FABULAULTIMA.Enraged",
+        "affects": [
+            "dex", "int"
+        ]
+    },
+    "poisoned": {
+        "label": "FABULAULTIMA.Poisoned",
+        "affects": [
+            "vol", "vig"
+        ]
+    }
+}

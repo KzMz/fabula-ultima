@@ -9,6 +9,13 @@
   "FABULAULTIMA.AbilityIntAbbr": "INT",
   "FABULAULTIMA.AbilityVolAbbr": "WIL",
 
+  "FABULAULTIMA.Slow": "Slow",
+  "FABULAULTIMA.Dazed": "Dazed",
+  "FABULAULTIMA.Weak": "Weak",
+  "FABULAULTIMA.Shaken": "Shaken",
+  "FABULAULTIMA.Enraged": "Enraged",
+  "FABULAULTIMA.Poisoned": "Poisoned",
+
   "FABULAULTIMA.EffectCreate": "Create Effect",
   "FABULAULTIMA.EffectToggle": "Toggle Effect",
   "FABULAULTIMA.EffectEdit": "Edit Effect",
@@ -20,5 +27,11 @@
   "FABULAULTIMA.NextLevel": "Next level",
   "FABULAULTIMA.HealthAbbr": "HP",
   "FABULAULTIMA.MindAbbr": "MP",
-  "FABULAULTIMA.Crisis": "Crisis"
+  "FABULAULTIMA.Crisis": "Crisis",
+
+  "FABULAULTIMA.Biography": "Biography",
+  "FABULAULTIMA.Stats": "Stats",
+  "FABULAULTIMA.Equipment": "Equipment",
+  "FABULAULTIMA.Spells": "Spells",
+  "FABULAULTIMA.Effects": "Effects"
 }

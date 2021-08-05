@@ -461,10 +461,14 @@
   border: none;
 }
 
-.fabulaultima .charexp {
+.fabulaultima .charexp, .fabulaultima .charnextexp {
   display: flex;
   align-items: center;
   border-bottom: none;
+}
+
+.fabulaultima .charnextexp {
+  margin-bottom: 0;
 }
 
 .fabulaultima progress[value] {
