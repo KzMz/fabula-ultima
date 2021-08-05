@@ -70,12 +70,12 @@
     {{!-- Owned Features Tab --}}
     <div class="tab stats" data-group="primary" data-tab="stats">
       <section class="grid grid-4col">
-        <section class="stats grid-span-2 grid grid-4col">
+        <section class="stats grid-span-2" style="display: flex;">
 
           {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
           use both the "grid" and "grid-Ncol" class where "N" can be any number
           from 1 to 12 and will create that number of columns.  --}}
-          <div class="abilities flexcol grid-span-2">
+          <div class="abilities flexcol">
             {{#each data.abilities as |ability key|}}
             <div class="ability flexrow flex-group-center">
               <label for="data.abilities.{{key}}.value" class="resource-label stat flexlarge align-left" data-label="{{ability.label}}">{{ability.label}}</label>
@@ -104,16 +104,16 @@
 
         {{!-- For the main features list, span the right two columns --}}
         <section class="traits grid-span-2 grid grid-2col">
-          <div class="flexcol">
+          <div class="flexcol flex-group-center"">
             <div class="trait flexrow flex-group-center">
               <label for="data.identity" class="resource-label flexlarge align-left">{{localize "FABULAULTIMA.Identity"}}</label>
-              <input class="points-input-right" type="text" name="data.identity" value="{{data.identity}}" data-dtype="String"/>
+              <input type="text" name="data.identity" value="{{data.identity}}" data-dtype="String"/>
             </div>
             <div class="trait flexrow flex-group-center">
               <label for="data.origin" class="resource-label flexlarge align-left">{{localize "FABULAULTIMA.Origin"}}</label>
-              <input class="points-input-right" type="text" name="data.origin" value="{{data.origin}}" data-dtype="String"/>
+              <input type="text" name="data.origin" value="{{data.origin}}" data-dtype="String"/>
               <label for="data.theme" class="resource-label flexlarge align-left">{{localize "FABULAULTIMA.Theme"}}</label>
-              <input class="points-input-right" type="text" name="data.theme" value="{{data.theme}}" data-dtype="String"/>
+              <input type="text" name="data.theme" value="{{data.theme}}" data-dtype="String"/>
             </div>
           </div>
         </section>
