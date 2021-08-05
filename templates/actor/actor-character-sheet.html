@@ -80,6 +80,7 @@
             <div class="ability flexrow flex-group-center">
               <label for="data.abilities.{{key}}.value" class="resource-label stat flexlarge align-left" data-label="{{ability.label}}">{{ability.label}}</label>
               <input class="points-input-right" type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"/>
+              <input class="points-input-right" type="text" name="data.abilities.{{key}}.max" value="{{ability.max}}" data-dtype="Number"/>
             </div>
             {{/each}}
           </div>
@@ -102,11 +103,25 @@
         </section>
 
         {{!-- For the main features list, span the right two columns --}}
-        <section class="features grid-span-2">
-          {{!-- This is a Handlebars partial. They're stored in the `/parts` folder next to this sheet, and defined in module/helpers/templates.mjs --}}
-          {{> "systems/fabulaultima/templates/actor/parts/actor-features.html"}}
+        <section class="traits grid-span-2 grid grid-2col">
+          <div class="flexcol">
+            <div class="trait flexrow flex-group-center">
+              <label for="data.identity" class="resource-label flexlarge align-left">{{localize "FABULAULTIMA.Identity"}}</label>
+              <input class="points-input-right" type="text" name="data.identity" value="{{data.identity}}" data-dtype="String"/>
+            </div>
+            <div class="trait flexrow flex-group-center">
+              <label for="data.origin" class="resource-label flexlarge align-left">{{localize "FABULAULTIMA.Origin"}}</label>
+              <input class="points-input-right" type="text" name="data.origin" value="{{data.origin}}" data-dtype="String"/>
+              <label for="data.theme" class="resource-label flexlarge align-left">{{localize "FABULAULTIMA.Theme"}}</label>
+              <input class="points-input-right" type="text" name="data.theme" value="{{data.theme}}" data-dtype="String"/>
+            </div>
+          </div>
         </section>
 
+      </section>
+      <section class="features">
+        {{!-- This is a Handlebars partial. They're stored in the `/parts` folder next to this sheet, and defined in module/helpers/templates.mjs --}}
+        {{> "systems/fabulaultima/templates/actor/parts/actor-features.html"}}
       </section>
     </div>
 
