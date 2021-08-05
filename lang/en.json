@@ -16,6 +16,15 @@
   "FABULAULTIMA.Enraged": "Enraged",
   "FABULAULTIMA.Poisoned": "Poisoned",
 
+  "FABULAULTIMA.Identity": "Identity",
+  "FABULAULTIMA.Theme": "Theme",
+  "FABULAULTIMA.Origin": "Origin",
+
+  "FABULAULTIMA.Who": "Who/What",
+  "FABULAULTIMA.Feelings": "Feelings",
+  "FABULAULTIMA.AddBond": "Add Bond",
+  "FABULAULTIMA.DeleteBond": "Delete Bond",
+
   "FABULAULTIMA.EffectCreate": "Create Effect",
   "FABULAULTIMA.EffectToggle": "Toggle Effect",
   "FABULAULTIMA.EffectEdit": "Edit Effect",
