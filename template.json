@@ -82,7 +82,7 @@
     }
   },
   "Item": {
-    "types": ["item", "consumable", "feature", "spell", "class", "bond", "baseAttack", "weapon", "armor", "accessory"],
+    "types": ["item", "consumable", "feature", "spell", "class", "bond", "baseAttack", "weapon", "armor", "accessory", "damageType", "artifact"],
     "templates": {
       "base": {
         "description": "",
@@ -173,6 +173,12 @@
     "accessory": {
       "templates": ["base", "buyable"],
       "effect": ""
+    },
+    "damageType": {
+      "description": ""
+    },
+    "artifact": {
+      "templates": ["base"]
     }
   }
 }

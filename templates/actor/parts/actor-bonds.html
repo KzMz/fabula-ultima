@@ -1,16 +1,17 @@
+<span class="resource-label">{{localize "FABULAULTIMA.Bonds"}}</span>
 <ol class="items-list">
     <li class="item flexrow items-header">
         <div class="item-name">{{localize "FABULAULTIMA.Who"}}</div>
         <div class="item-name">{{localize "FABULAULTIMA.Feelings"}}</div>
         <div class="item-controls">
-            <a class="item-control item-create" title="Create item" data-type="feature"><i class="fas fa-plus"></i> {{localize "FABULAULTIMA.AddBond"}}</a>
+            <a class="item-control item-create" title="Create item" data-type="bond"><i class="fas fa-plus"></i> {{localize "FABULAULTIMA.AddBond"}}</a>
         </div>
     </li>
     {{#each bonds as |bond id|}}
     <li class="item flexrow" data-item-id="{{bond._id}}">
         <div class="item-name">
             <div class="item-image">
-                <a class="rollable" data-roll-type="item"><img src="{{item.img}}" title="{{bond.name}}" width="24" height="24"/></a>
+                <img src="{{item.img}}" title="{{bond.name}}" width="24" height="24"/>
             </div>
             <h4>{{bond.who}}</h4>
         </div>

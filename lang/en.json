@@ -20,6 +20,7 @@
   "FABULAULTIMA.Theme": "Theme",
   "FABULAULTIMA.Origin": "Origin",
 
+  "FABULAULTIMA.Bonds": "Bonds",
   "FABULAULTIMA.Who": "Who/What",
   "FABULAULTIMA.Feelings": "Feelings",
   "FABULAULTIMA.AddBond": "Add Bond",
@@ -37,9 +38,11 @@
   "FABULAULTIMA.HealthAbbr": "HP",
   "FABULAULTIMA.MindAbbr": "MP",
   "FABULAULTIMA.Crisis": "Crisis",
+  "FABULAULTIMA.InventoryAbbr": "IP",
+  "FABULAULTIMA.Zenit": "Zenit",
 
   "FABULAULTIMA.Biography": "Biography",
-  "FABULAULTIMA.Stats": "Stats",
+  "FABULAULTIMA.Stats": "Main Info",
   "FABULAULTIMA.Equipment": "Equipment",
   "FABULAULTIMA.Spells": "Spells",
   "FABULAULTIMA.Effects": "Effects"
