@@ -100,6 +100,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
    */
   _prepareItems(context) {
     // Initialize containers.
+    const bonds = [];
     const gear = [];
     const features = [];
     const spells = {
@@ -132,9 +133,13 @@ export class FabulaUltimaActorSheet extends ActorSheet {
           spells[i.data.spellLevel].push(i);
         }
       }
+      else if (i.type === 'bond') {
+        bonds.push(i);
+      }
     }
 
     // Assign and return
+    context.bonds = bonds;
     context.gear = gear;
     context.features = features;
     context.spells = spells;

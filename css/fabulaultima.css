@@ -460,7 +460,7 @@
   border: none;
 }
 
-.fabulaultima .charexp, .fabulaultima .charnextexp {
+.fabulaultima .charexp, .fabulaultima .charnextexp, .fabulaultima .fabulapoints, .fabulaultima .zenit {
   display: flex;
   align-items: center;
   border-bottom: none;
@@ -504,7 +504,7 @@
   background-size: 35px 20px, 100% 100%, 100% 100%;
 }
 
-.fabulaultima progress[value]#health-progress, .fabulaultima progress[value]#mind-progress {
+.fabulaultima progress[value]#health-progress, .fabulaultima progress[value]#mind-progress, .fabulaultima progress[value]#inventory-progress {
   height: 5px;
 }
 
@@ -516,12 +516,26 @@
   background-color: #4d0000;
 }
 
+.fabulaultima progress[value]#inventory-progress::-webkit-progress-bar {
+  background-color: #4d0000;
+}
+
 .fabulaultima progress[value]#health-progress::-webkit-progress-value {
   background-image:
           -webkit-linear-gradient(top,
           rgba(255, 255, 255, .25),
           rgba(0, 0, 0, .25)),
           -webkit-linear-gradient(left, #00cc00, #66ff66);
+
+  background-size: 35px 20px, 100% 100%, 100% 100%;
+}
+
+.fabulaultima progress[value]#inventory-progress::-webkit-progress-value {
+  background-image:
+          -webkit-linear-gradient(top,
+          rgba(255, 255, 255, .25),
+          rgba(0, 0, 0, .25)),
+          -webkit-linear-gradient(left, #ffcc00, #ffe066);
 
   background-size: 35px 20px, 100% 100%, 100% 100%;
 }
