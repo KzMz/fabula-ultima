@@ -228,6 +228,10 @@
   font-family: "Roboto", sans-serif;
 }
 
+.fabulaultima {
+  min-width: 820px;
+}
+
 .fabulaultima .sheet-header {
   -webkit-box-flex: 0;
   -ms-flex: 0 auto;
@@ -250,9 +254,9 @@
 
 .fabulaultima .sheet-header .profile-img {
   -webkit-box-flex: 0;
-  -ms-flex: 0 0 150px;
-  flex: 0 0 150px;
-  height: 150px;
+  -ms-flex: 0 0 190px;
+  flex: 0 0 190px;
+  height: 190px;
   margin-right: 10px;
 }
 

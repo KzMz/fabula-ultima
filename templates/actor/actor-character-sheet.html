@@ -2,7 +2,7 @@
 
   {{!-- Sheet Header --}}
   <header class="sheet-header">
-    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="150" width="150"/>
+    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="190" width="190"/>
     <div class="header-fields">
       <div class="resources grid grid-2col" style="max-width: 600px;">
         <div class="resource flex-group-left">
@@ -97,7 +97,7 @@
           <div class="abilities flexcol">
             {{#each data.abilities as |ability key|}}
             <div class="ability flexrow flex-group-center">
-              <label for="data.abilities.{{key}}.value" class="resource-label stat flexlarge align-left" data-label="{{ability.label}}">{{ability.label}}</label>
+              <label for="data.abilities.{{key}}.value" class="resource-label stat flexlarge align-left" data-label="{{ability.label}}" style="max-width: 80px;">{{ability.label}}</label>
               <input class="points-input-right" type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"/>
               <input class="points-input-right" type="text" name="data.abilities.{{key}}.max" value="{{ability.max}}" data-dtype="Number"/>
             </div>
