@@ -10,37 +10,61 @@
     {{#each bonds as |bond id|}}
     <li class="item flexrow" data-item-id="{{bond._id}}">
         <div class="item-name">
-            <h4><input name="bond.who" type="text" value="{{bond.who}}" placeholder="Name"/></h4>
+            <h4><input name="bond.who" type="text" value="{{bond.data.who}}" placeholder="Name"/></h4>
         </div>
         <div class="item-name">
             <div class="flexcol">
                 <div class="flexrow">
-                    <input type="checkbox" name="feelings.admiration" class="feeling-checkbox" data-dtype="Boolean" data-prop="feeling1" />
-                    <label for="feelings.admiration" class="resource-label feeling flexlarge align-left" data-label="{{localize 'FABULAULTIMA.Admiration'}}">{{localize 'FABULAULTIMA.Admiration'}}</label>
+                    {{#if bond.data.feelings.admiration}}
+                    <input type="checkbox" name="bond.data.feelings.admiration" class="feeling-checkbox" data-dtype="Boolean" checked="checked" data-prop="feeling1" />
+                    {{else}}
+                    <input type="checkbox" name="bond.data.feelings.admiration" class="feeling-checkbox" data-dtype="Boolean" data-prop="feeling1" />
+                    {{/if}}
+                    <label for="bond.data.feelings.admiration" class="resource-label feeling flexlarge align-left" data-label="{{localize 'FABULAULTIMA.Admiration'}}">{{localize 'FABULAULTIMA.Admiration'}}</label>
                 </div>
                 <div class="flexrow">
-                    <input type="checkbox" name="feelings.inferiority" class="feeling-checkbox" data-dtype="Boolean" data-prop="feeling1"/>
-                    <label for="feelings.inferiority" class="resource-label feeling flexlarge align-left" data-label="{{localize 'FABULAULTIMA.Inferiority'}}">{{localize 'FABULAULTIMA.Inferiority'}}</label>
-                </div>
-            </div>
-            <div class="flexcol">
-                <div class="flexrow">
-                    <input type="checkbox" name="feelings.loyalty" class="feeling-checkbox" data-dtype="Boolean" data-prop="feeling2"/>
-                    <label for="feelings.loyalty" class="resource-label feeling flexlarge align-left" data-label="{{localize 'FABULAULTIMA.Loyalty'}}">{{localize 'FABULAULTIMA.Loyalty'}}</label>
-                </div>
-                <div class="flexrow">
-                    <input type="checkbox" name="feelings.mistrust" class="feeling-checkbox" data-dtype="Boolean" data-prop="feeling2"/>
-                    <label for="feelings.mistrust" class="resource-label feeling flexlarge align-left" data-label="{{localize 'FABULAULTIMA.Mistrust'}}">{{localize 'FABULAULTIMA.Mistrust'}}</label>
+                    {{#if bond.data.feelings.inferiority}}
+                    <input type="checkbox" name="bond.data.feelings.inferiority" class="feeling-checkbox" data-dtype="Boolean" checked="checked" data-prop="feeling1"/>
+                    {{else}}
+                    <input type="checkbox" name="bond.data.feelings.inferiority" class="feeling-checkbox" data-dtype="Boolean" data-prop="feeling1" />
+                    {{/if}}
+                    <label for="bond.data.feelings.inferiority" class="resource-label feeling flexlarge align-left" data-label="{{localize 'FABULAULTIMA.Inferiority'}}">{{localize 'FABULAULTIMA.Inferiority'}}</label>
                 </div>
             </div>
             <div class="flexcol">
                 <div class="flexrow">
-                    <input type="checkbox" name="feelings.affection" class="feeling-checkbox" data-dtype="Boolean" data-prop="feeling3"/>
-                    <label for="feelings.affection" class="resource-label feeling flexlarge align-left" data-label="{{localize 'FABULAULTIMA.Affection'}}">{{localize 'FABULAULTIMA.Affection'}}</label>
+                    {{#if bond.data.feelings.loyalty}}
+                    <input type="checkbox" name="bond.data.feelings.loyalty" class="feeling-checkbox" data-dtype="Boolean" checked="checked" data-prop="feeling2"/>
+                    {{else}}
+                    <input type="checkbox" name="bond.data.feelings.loyalty" class="feeling-checkbox" data-dtype="Boolean" data-prop="feeling2" />
+                    {{/if}}
+                    <label for="bond.data.feelings.loyalty" class="resource-label feeling flexlarge align-left" data-label="{{localize 'FABULAULTIMA.Loyalty'}}">{{localize 'FABULAULTIMA.Loyalty'}}</label>
                 </div>
                 <div class="flexrow">
-                    <input type="checkbox" name="feelings.hatred" class="feeling-checkbox" data-dtype="Boolean" data-prop="feeling3"/>
-                    <label for="feelings.hatred" class="resource-label feeling flexlarge align-left" data-label="{{localize 'FABULAULTIMA.Hatred'}}">{{localize 'FABULAULTIMA.Hatred'}}</label>
+                    {{#if bond.data.feelings.mistrust}}
+                    <input type="checkbox" name="bond.data.feelings.mistrust" class="feeling-checkbox" data-dtype="Boolean" checked="checked" data-prop="feeling2"/>
+                    {{else}}
+                    <input type="checkbox" name="bond.data.feelings.mistrust" class="feeling-checkbox" data-dtype="Boolean" data-prop="feeling2" />
+                    {{/if}}
+                    <label for="bond.data.feelings.mistrust" class="resource-label feeling flexlarge align-left" data-label="{{localize 'FABULAULTIMA.Mistrust'}}">{{localize 'FABULAULTIMA.Mistrust'}}</label>
+                </div>
+            </div>
+            <div class="flexcol">
+                <div class="flexrow">
+                    {{#if bond.data.feelings.affection}}
+                    <input type="checkbox" name="bond.data.feelings.affection" class="feeling-checkbox" data-dtype="Boolean" checked="checked" data-prop="feeling3"/>
+                    {{else}}
+                    <input type="checkbox" name="bond.data.feelings.affection" class="feeling-checkbox" data-dtype="Boolean" data-prop="feeling3" />
+                    {{/if}}
+                    <label for="bond.data.feelings.affection" class="resource-label feeling flexlarge align-left" data-label="{{localize 'FABULAULTIMA.Affection'}}">{{localize 'FABULAULTIMA.Affection'}}</label>
+                </div>
+                <div class="flexrow">
+                    {{#if bond.data.feelings.hatred}}
+                    <input type="checkbox" name="bond.data.feelings.hatred" class="feeling-checkbox" data-dtype="Boolean" checked="checked" data-prop="feeling3"/>
+                    {{else}}
+                    <input type="checkbox" name="bond.data.feelings.hatred" class="feeling-checkbox" data-dtype="Boolean" data-prop="feeling3" />
+                    {{/if}}
+                    <label for="bond.data.feelings.hatred" class="resource-label feeling flexlarge align-left" data-label="{{localize 'FABULAULTIMA.Hatred'}}">{{localize 'FABULAULTIMA.Hatred'}}</label>
                 </div>
             </div>
         </div>

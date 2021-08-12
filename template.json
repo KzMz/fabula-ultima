@@ -139,9 +139,14 @@
     },
     "bond": {
       "who": "",
-      "feeling1": "",
-      "feeling2": "",
-      "feeling3": ""
+      "feelings": {
+        "admiration": false,
+        "inferiority": false,
+        "mistrust": false,
+        "affection": false,
+        "loyalty": false,
+        "hatred": false
+      }
     },
     "baseAttack": {
       "templates": ["base"],
