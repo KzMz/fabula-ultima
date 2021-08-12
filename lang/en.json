@@ -46,5 +46,12 @@
   "FABULAULTIMA.Stats": "Main Info",
   "FABULAULTIMA.Equipment": "Equipment",
   "FABULAULTIMA.Spells": "Spells",
-  "FABULAULTIMA.Effects": "Effects"
+  "FABULAULTIMA.Effects": "Effects",
+
+  "FABULAULTIMA.Admiration": "Admiration",
+  "FABULAULTIMA.Inferiority": "Inferiority",
+  "FABULAULTIMA.Loyalty": "Loyalty",
+  "FABULAULTIMA.Mistrust": "Mistrust",
+  "FABULAULTIMA.Affection": "Affection",
+  "FABULAULTIMA.Hatred": "Hatred"
 }

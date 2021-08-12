@@ -55,6 +55,7 @@
           <h3 class="charnextexp"><span style="width: 50%;">{{localize "FABULAULTIMA.NextLevel"}}:</span><input type="text" value="10" data-dtype="Number" readonly="readonly"/></h3>
           <progress id="exp-progress" value="{{data.exp}}" max="10">{{data.exp_progress}}%</progress>
 
+          <br>
           <h3 class="fabulapoints"><span style="width: 50%;">{{localize "FABULAULTIMA.FabulaPoints"}}:</span><input name="data.fabulaPoints" type="text" value="{{data.fabulaPoints}}" data-dtype="Number"/></h3>
           <h3 class="zenit"><span style="width: 50%;">{{localize "FABULAULTIMA.Zenit"}}:</span><input name="data.zenit" type="text" value="{{data.zenit}}" data-dtype="Number"/></h3>
         </div>
@@ -97,7 +98,7 @@
           <div class="abilities flexcol">
             {{#each data.abilities as |ability key|}}
             <div class="ability flexrow flex-group-center">
-              <label for="data.abilities.{{key}}.value" class="resource-label stat flexlarge align-left" data-label="{{ability.label}}" style="max-width: 80px;">{{ability.label}}</label>
+              <label for="data.abilities.{{key}}.value" class="resource-label stat flexlarge align-left" data-label="{{ability.label}}" style="min-width: 80px;">{{ability.label}}</label>
               <input class="points-input-right" type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"/>
               <input class="points-input-right" type="text" name="data.abilities.{{key}}.max" value="{{ability.max}}" data-dtype="Number"/>
             </div>
