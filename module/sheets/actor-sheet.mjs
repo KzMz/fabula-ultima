@@ -140,7 +140,6 @@ export class FabulaUltimaActorSheet extends ActorSheet {
 
     // Assign and return
     context.bonds = bonds;
-    console.log(bonds);
     context.gear = gear;
     context.features = features;
     context.spells = spells;
@@ -178,7 +177,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       ev.preventDefault();
       const li = $(ev.currentTarget).parents(".item");
       const item = this.actor.items.get(li.data("itemId"));
-      
+
       await item.update({
           "data.who": $(ev.currentTarget).val()
       });
@@ -193,12 +192,10 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       const feeling = checkbox.attr('name');
 
       $("[data-prop='" + prop + "']").not("[name='" + feeling + "']")[0].checked = false;
-      checkbox[0].checked = true;
 
       const values = {};
       values["data." + prop] = feeling;
 
-      console.log(values);
       await item.update(values);
     });
 
