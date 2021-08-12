@@ -178,8 +178,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       ev.preventDefault();
       const li = $(ev.currentTarget).parents(".item");
       const item = this.actor.items.get(li.data("itemId"));
-
-      console.log($(ev.currentTarget).val());
+      
       await item.update({
           "data.who": $(ev.currentTarget).val()
       });
@@ -193,7 +192,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       const prop = ev.currentTarget.dataset.prop;
       const feeling = checkbox.attr('name');
 
-      $("[data-prop='" + prop + "']")[0].checked = false;
+      $("[data-prop='" + prop + "']").not("[name='" + feeling + "']")[0].checked = false;
       checkbox[0].checked = true;
 
       const values = {};
