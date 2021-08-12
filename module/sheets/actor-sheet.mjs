@@ -191,7 +191,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       const prop = "data." + ev.currentTarget.dataset.prop;
       const feeling = checkbox.attr('name');
 
-      $("[data-prop='" + prop + "']").not("[name='" + feeling + "']")[0].checked = false;
+      $("[data-prop='" + ev.currentTarget.dataset.prop + "']").not("[name='" + feeling + "']")[0].checked = false;
 
       const values = {};
 
