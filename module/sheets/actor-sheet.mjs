@@ -181,7 +181,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
 
       console.log($(ev.currentTarget).val());
       await item.update({
-          who: $(ev.currentTarget).val()
+          "data.who": $(ev.currentTarget).val()
       });
     });
     html.find('.feeling-checkbox').click(async ev => {
@@ -197,7 +197,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       checkbox[0].checked = true;
 
       const values = {};
-      values[prop] = feeling;
+      values["data." + prop] = feeling;
 
       console.log(values);
       await item.update(values);
