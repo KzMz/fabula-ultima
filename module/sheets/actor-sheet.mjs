@@ -173,6 +173,32 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       li.slideUp(200, () => this.render(false));
     });
 
+    html.find('[name="bond.who"]').change(async ev => {
+      ev.preventDefault();
+      const li = $(ev.currentTarget).parents(".item");
+      const item = this.actor.items.get(li.data("itemId"));
+
+      await item.update({
+          who: $(ev.currentTarget).val()
+      });
+    });
+    html.find('.feeling-checkbox').click(async ev => {
+      ev.preventDefault();
+      const li = $(ev.currentTarget).parents(".item");
+      const item = this.actor.items.get(li.data("itemId"));
+      const checkbox = $(ev.currentTarget);
+
+      const prop = ev.currentTarget.dataset.prop;
+      const feeling = checkbox.attr('name');
+
+      $("[data-prop='" + prop + "']")[0].checked = false;
+      ev.currentTarget.checked = true;
+
+      const values = {};
+      values[prop] = feeling;
+      await item.update(values);
+    });
+
     // Active Effect management
     html.find(".effect-control").click(ev => onManageActiveEffect(ev, this.actor));
 
