@@ -291,4 +291,19 @@ export class FabulaUltimaActorSheet extends ActorSheet {
     }
   }
 
+  /** @override */
+  async _onDrop(event) {
+    event.preventDefault();
+
+    let data;
+    try {
+      data = JSON.parse(event.dataTransfer.getData("text/plain"));
+    } catch (err) {
+      return false;
+    }
+
+    console.log(data);
+
+    return super._onDrop(event);
+  }
 }

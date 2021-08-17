@@ -39,7 +39,14 @@
             "max": 10
           }
         },
-        "statuses": [],
+        "status": {
+          "slow": false,
+          "dazed": false,
+          "weak": false,
+          "shaken": false,
+          "enraged": false,
+          "poisoned": false
+        },
         "affinities": []
       }
     },
