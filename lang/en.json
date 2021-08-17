@@ -64,5 +64,8 @@
   "FABULAULTIMA.SkillLevel": "Skill Level",
   "FABULAULTIMA.Cost": "Cost",
 
+  "FABULAULTIMA.ClassAbbr": "Class Abbreviation",
+  "FABULAULTIMA.Details": "Details",
+
   "FABULAULTIMA.DeleteClass": "Delete Class"
 }

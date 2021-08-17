@@ -142,7 +142,7 @@
       "class": ""
     },
     "class": {
-      "templates": ["base"],
+      "description": "",
       "level": 1,
       "abbr": ""
     },
