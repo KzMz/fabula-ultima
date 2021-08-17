@@ -108,9 +108,9 @@
             {{#each data.statuses1 as |status key|}}
             <div class="ability flexrow flex-group-center">
               {{#if status.value}}
-              <input type="checkbox" name="data.status.{{key}}" data-dtype="Boolean" checked="checked"/>
+              <input type="checkbox" class="status-checkbox" name="data.status.{{key}}" data-dtype="Boolean" checked="checked"/>
               {{else}}
-              <input type="checkbox" name="data.status.{{key}}" data-dtype="Boolean"/>
+              <input type="checkbox" class="status-checkbox" name="data.status.{{key}}" data-dtype="Boolean"/>
               {{/if}}
               <label for="data.status.{{key}}" class="resource-label stat flexlarge align-left" data-label="{{status.label}}">{{status.label}}</label>
             </div>
@@ -120,9 +120,9 @@
             {{#each data.statuses2 as |status key|}}
             <div class="ability flexrow flex-group-center">
               {{#if status.value}}
-              <input type="checkbox" name="data.status.{{key}}" data-dtype="Boolean" checked="checked"/>
+              <input type="checkbox" class="status-checkbox" name="data.status.{{key}}" data-dtype="Boolean" checked="checked"/>
               {{else}}
-              <input type="checkbox" name="data.status.{{key}}" data-dtype="Boolean"/>
+              <input type="checkbox" class="status-checkbox" name="data.status.{{key}}" data-dtype="Boolean"/>
               {{/if}}
               <label for="data.status.{{key}}" class="resource-label stat flexlarge align-left" data-label="{{status.label}}">{{status.label}}</label>
             </div>

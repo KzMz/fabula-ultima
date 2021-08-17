@@ -222,6 +222,16 @@ export class FabulaUltimaActorSheet extends ActorSheet {
 
       await item.update(values);
     });
+    html.find('.status-checkbox').click(async ev => {
+      ev.preventDefault();
+      const checkbox = $(ev.currentTarget);
+      const status = checkbox.attr('name');
+
+      const values = {};
+      values[status] = checkbox[0].checked;
+
+      await this.actor.update(values);
+    });
 
     // Active Effect management
     html.find(".effect-control").click(ev => onManageActiveEffect(ev, this.actor));
