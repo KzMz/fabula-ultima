@@ -80,11 +80,13 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       {
         statuses2[k] = v;
         statuses2[k].label = game.i18n.localize(v.label);
+        statuses2[k].value = context.data.status[k];
         continue;
       }
 
       statuses1[k] = v;
       statuses1[k].label = game.i18n.localize(v.label);
+      statuses1[k].value = context.data.status[k];
     }
 
     context.data.statuses1 = statuses1;
