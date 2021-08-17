@@ -302,8 +302,17 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       return false;
     }
 
-    console.log(data);
-
+    if (this.actor.data.type === "character") {
+      return this._onDropCharacter(event, data);
+    }
     return super._onDrop(event);
+  }
+
+  _onDropCharacter(event, data) {
+    const item = game.items.get(data["id"]);
+    if (item.type === "class") {
+      const other = this.actor.items.filter(i => i.id === item.id);
+      console.log(other);
+    }
   }
 }
