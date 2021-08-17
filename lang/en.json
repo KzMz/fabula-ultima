@@ -33,6 +33,7 @@
 
   "FABULAULTIMA.Add": "Add",
   "FABULAULTIMA.LevelAbbr": "LV",
+  "FABULAULTIMA.Level": "Level",
   "FABULAULTIMA.ExpAbbr": "EXP",
   "FABULAULTIMA.NextLevel": "Next level",
   "FABULAULTIMA.HealthAbbr": "HP",
@@ -53,5 +54,11 @@
   "FABULAULTIMA.Loyalty": "Loyalty",
   "FABULAULTIMA.Mistrust": "Mistrust",
   "FABULAULTIMA.Affection": "Affection",
-  "FABULAULTIMA.Hatred": "Hatred"
+  "FABULAULTIMA.Hatred": "Hatred",
+
+  "FABULAULTIMA.Features": "Class Skills",
+  "FABULAULTIMA.AddSkill": "Add Skill",
+  "FABULAULTIMA.EditSkill": "Edit Skill",
+  "FABULAULTIMA.DeleteSkill": "Delete Skill",
+  "FABULAULTIMA.Name": "Name"
 }

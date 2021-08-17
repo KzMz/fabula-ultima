@@ -111,6 +111,7 @@
     "feature": {
       "templates": ["base"],
       "class": "",
+      "level": 0,
       "cost": {
         "amount": 0,
         "resource": ""
@@ -135,7 +136,8 @@
     },
     "class": {
       "templates": ["base"],
-      "level": 1
+      "level": 1,
+      "abbr": ""
     },
     "bond": {
       "who": "",

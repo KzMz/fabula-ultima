@@ -102,7 +102,8 @@ export class FabulaUltimaActorSheet extends ActorSheet {
     // Initialize containers.
     const bonds = [];
     const gear = [];
-    const features = [];
+    const classes = [];
+    const skills = {};
     const spells = {
       0: [],
       1: [],
@@ -124,8 +125,15 @@ export class FabulaUltimaActorSheet extends ActorSheet {
         gear.push(i);
       }
       // Append to features.
+      else if (i.type === 'class') {
+        classes.push(i);
+      }
       else if (i.type === 'feature') {
-        features.push(i);
+        const cls = i.data.class;
+        if (!skills.hasOwnProperty(cls))
+          skills[cls] = [];
+
+        skills[cls].push(i);
       }
       // Append to spells.
       else if (i.type === 'spell') {
@@ -138,10 +146,14 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       }
     }
 
+    for (let c of classes) {
+      c.skills = skills[c.data.abbr];
+    }
+
     // Assign and return
     context.bonds = bonds;
     context.gear = gear;
-    context.features = features;
+    context.classes = classes;
     context.spells = spells;
    }
 
