@@ -60,5 +60,9 @@
   "FABULAULTIMA.AddSkill": "Add Skill",
   "FABULAULTIMA.EditSkill": "Edit Skill",
   "FABULAULTIMA.DeleteSkill": "Delete Skill",
-  "FABULAULTIMA.Name": "Name"
+  "FABULAULTIMA.Name": "Name",
+  "FABULAULTIMA.SkillLevel": "Skill Level",
+  "FABULAULTIMA.Cost": "Cost",
+
+  "FABULAULTIMA.DeleteClass": "Delete Class"
 }

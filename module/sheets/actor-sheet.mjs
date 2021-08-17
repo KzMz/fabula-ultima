@@ -186,7 +186,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
     });
     html.find('.class-delete').click(ev => {
       const li = $(ev.currentTarget).parents(".item");
-      const item = this.actor.items.get(li.data("itemId"));
+      const item = this.actor.items.get(li.data("classId"));
       item.delete();
       li.slideUp(200, () => this.render(false));
     });
@@ -318,7 +318,15 @@ export class FabulaUltimaActorSheet extends ActorSheet {
     const item = game.items.get(data["id"]);
     if (item.type === "class") {
       const other = this.actor.items.filter(i => i.name === item.name);
-      console.log(other);
+      if (other.length === 0) {
+        return super._onDrop(event);
+      } else {
+        other[0].update({
+          "data.level": other[0].data.data.level + 1
+        });
+      }
     }
+
+    return false;
   }
 }
