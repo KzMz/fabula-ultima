@@ -258,13 +258,9 @@ export class FabulaUltimaActorSheet extends ActorSheet {
   async _onItemCreate(event) {
     event.preventDefault();
     const header = event.currentTarget;
-    // Get the type of item to create.
     const type = header.dataset.type;
-    // Grab any data associated with this control.
     const data = duplicate(header.dataset);
-    // Initialize a default name.
     const name = `New ${type.capitalize()}`;
-    // Prepare the item object.
     const itemData = {
       name: name,
       type: type,
