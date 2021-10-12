@@ -79,7 +79,7 @@ Hooks.once("ready", async function() {
   $("#hud").append(battleHud);
 });
 
-Hooks.on("renderSceneControls", async function() {
+Hooks.on("renderCombatTracker", async function() {
   const battleHud = $('<div id="battle-hud"></div>');
   console.log($("div#hud"));
   $("div#hud").append(battleHud);
