@@ -76,7 +76,7 @@ Hooks.once("ready", async function() {
   Hooks.on("hotbarDrop", (bar, data, slot) => createItemMacro(data, slot));
 
   const battleHud = $('<div id="battle-hud"></div>');
-  $("#" + game.canvas.hud.id).appendChild(battleHud);
+  $("#" + game.canvas.hud.id).append(battleHud);
 });
 
 /* -------------------------------------------- */
