@@ -553,3 +553,10 @@
   text-align: right;
   max-width: 45px;
 }
+
+#battle-hud {
+  height: 100%;
+  color: white;
+  display: flex;
+  align-items: end;
+}
