@@ -80,7 +80,11 @@ Hooks.once("ready", async function() {
 });
 
 Hooks.once("canvasReady", async function(canvas) {
+  console.log(canvas);
+
   const battleHud = $('<div id="battle-hud"></div>');
+
+  console.log(canvas.hud.element);
   $(canvas.hud.element).append(battleHud);
 });
 
