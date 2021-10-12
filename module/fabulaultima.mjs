@@ -79,13 +79,13 @@ Hooks.once("ready", async function() {
   $("#hud").append(battleHud);
 });
 
-Hooks.once("canvasReady", async function(canvas) {
-  console.log(canvas);
+Hooks.once("canvasReady", async function() {
+  console.log(game.canvas);
 
   const battleHud = $('<div id="battle-hud"></div>');
 
-  console.log(canvas.hud.element);
-  $(canvas.hud.element).append(battleHud);
+  console.log(game.canvas.hud.element);
+  $(game.canvas.hud.element).append(battleHud);
 });
 
 /* -------------------------------------------- */
