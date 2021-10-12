@@ -79,7 +79,7 @@ Hooks.once("ready", async function() {
   $("#hud").append(battleHud);
 });
 
-Hooks.on("canvasReady", async function() {
+Hooks.on("renderSceneControls", async function() {
   const battleHud = $('<div id="battle-hud"></div>');
   console.log($("div#hud"));
   $("div#hud").append(battleHud);
