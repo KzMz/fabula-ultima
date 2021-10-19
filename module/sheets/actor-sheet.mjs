@@ -91,6 +91,8 @@ export class FabulaUltimaActorSheet extends ActorSheet {
 
     context.data.statuses1 = statuses1;
     context.data.statuses2 = statuses2;
+
+    context.data.crisisHealth = Math.floor(context.data.health.max / 2);
   }
 
   /**
@@ -324,8 +326,8 @@ export class FabulaUltimaActorSheet extends ActorSheet {
 
   _onDropCharacter(event, data) {
     const item = game.items.get(data["id"]);
+    const other = this.actor.items.filter(i => i.name === item.name);
     if (item.type === "class") {
-      const other = this.actor.items.filter(i => i.name === item.name);
       if (other.length === 0) {
         return super._onDrop(event);
       } else {
@@ -333,6 +335,8 @@ export class FabulaUltimaActorSheet extends ActorSheet {
           "data.level": other[0].data.data.level + 1
         });
       }
+    } else if (item.type === "feature") {
+      return super._onDrop(event);
     }
 
     return false;

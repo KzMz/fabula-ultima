@@ -23,6 +23,11 @@
     {{!-- Attributes Tab --}}
     <div class="tab attributes" data-group="primary" data-tab="attributes">
       {{!-- As you add new fields, add them in here! --}}
+      <select name="data.class" class="class-select">
+        {{#each data.classes as |class key|}}
+          <option value="{{class.data.abbr}}">{{class.name}}</option>
+        {{/each}}
+      </select>
     </div>
   </section>
 

@@ -82,7 +82,6 @@ Hooks.once("ready", async function() {
 Hooks.on("renderCombatTracker", async function() {
   const battleHud = $('<div id="battle-hud"></div>');
   setTimeout( () => {
-    console.log($("div#hud"));
     $("div#hud").append(battleHud);
   }, 500);
 });

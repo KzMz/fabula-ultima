@@ -30,7 +30,7 @@ export class FabulaUltimaItemSheet extends ItemSheet {
   /** @override */
   getData() {
     // Retrieve base data structure.
-    const context = super.getData();
+    let context = super.getData();
 
     // Use a safe clone of the item data for further operations.
     const itemData = context.item.data;
@@ -45,6 +45,17 @@ export class FabulaUltimaItemSheet extends ItemSheet {
     // Add the actor's data to context.data for easier access, as well as flags.
     context.data = itemData.data;
     context.flags = itemData.flags;
+
+    if (context.item.type === "feature") {
+      context = this.getFeatureData(context);
+    }
+
+    return context;
+  }
+
+  getFeatureData(context) {
+    context.data.classes = game.items.filter(item => item.type === "class");
+    console.log(context.data.classes);
 
     return context;
   }
