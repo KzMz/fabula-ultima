@@ -70,9 +70,11 @@ export class FabulaUltimaItemSheet extends ItemSheet {
     if (!this.isEditable) return;
 
     const $context = this.getData();
+    console.log($context);
     html.find("select").change(ev => function () {
       // Use a safe clone of the item data for further operations.
-      $context.item.data.class = this.value;
+      $context.item.data.class = $(ev.currentTarget).val();
+      console.log($context.item.data);
     });
   }
 }
