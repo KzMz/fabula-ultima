@@ -37,9 +37,12 @@
   "FABULAULTIMA.ExpAbbr": "EXP",
   "FABULAULTIMA.NextLevel": "Next level",
   "FABULAULTIMA.HealthAbbr": "HP",
+  "FABULAULTIMA.MindPoints": "Mind Points",
+  "FABULAULTIMA.HealthPoints": "Health Points",
   "FABULAULTIMA.MindAbbr": "MP",
   "FABULAULTIMA.Crisis": "Crisis",
   "FABULAULTIMA.InventoryAbbr": "IP",
+  "FABULAULTIMA.InventoryPoints": "Inventory Points",
   "FABULAULTIMA.Zenit": "Zenit",
   "FABULAULTIMA.FabulaPoints": "Fabula Points",
 

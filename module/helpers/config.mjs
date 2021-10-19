@@ -1,11 +1,5 @@
 export const FABULAULTIMA = {};
 
-// Define constants here, such as:
-FABULAULTIMA.foobar = {
-  'bas': 'FABULAULTIMA.bas',
-  'bar': 'FABULAULTIMA.bar'
-};
-
 /**
  * The set of Ability Scores used within the system.
  * @type {Object}
@@ -23,6 +17,13 @@ FABULAULTIMA.abilityAbbreviations = {
   "int": "FABULAULTIMA.AbilityIntAbbr",
   "vol": "FABULAULTIMA.AbilityVolAbbr"
 };
+
+FABULAULTIMA.costResources = {
+    "mp": "FABULAULTIMA.MindPoints",
+    "hp": "FABULAULTIMA.HealthPoints",
+    "fp": "FABULAULTIMA.FabulaPoints",
+    "ip": "FABULAULTIMA.InventoryPoints"
+}
 
 FABULAULTIMA.statuses = {
     "slow": {

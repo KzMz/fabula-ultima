@@ -55,7 +55,7 @@ export class FabulaUltimaItemSheet extends ItemSheet {
 
   getFeatureData(context) {
     context.data.classes = game.items.filter(item => item.type === "class");
-    console.log(context.data.classes);
+    context.data.costResources = CONFIG.FABULAULTIMA.costResources;
 
     return context;
   }
@@ -69,6 +69,10 @@ export class FabulaUltimaItemSheet extends ItemSheet {
     // Everything below here is only needed if the sheet is editable
     if (!this.isEditable) return;
 
-    // Roll handlers, click handlers, etc. would go here.
+    const $context = this.getData();
+    html.find("select").change(ev => function () {
+      // Use a safe clone of the item data for further operations.
+      $context.item.data.class = this.value;
+    });
   }
 }
