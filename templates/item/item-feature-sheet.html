@@ -23,7 +23,7 @@
     {{!-- Attributes Tab --}}
     <div class="tab attributes" data-group="primary" data-tab="attributes">
       {{!-- As you add new fields, add them in here! --}}
-      <select name="data.class" class="class-select">
+      <select name="data.class" id="class-select">
         {{#each data.classes as |class key|}}
           <option value="{{class.data.data.abbr}}" {{#if (eq class.data.data.abbr data.class)}} selected {{/if}}>{{class.name}}</option>
         {{/each}}
@@ -31,7 +31,7 @@
       <label for="data.class" class="resource-label stat flexlarge align-left">{{localize "FABULAULTIMA.Class"}}</label>
       <div class="resource-content flexrow flex-center flex-between">
         <label for="data.cost.resource" class="resource-label" style="max-width: 50px;">{{localize "FABULAULTIMA.FeatureResource"}}</label>
-        <select name="data.cost.resource" class="class-select">
+        <select name="data.cost.resource">
           {{#each data.costResources as |resource key|}}
           <option value="{{key}}">{{localize resource}}</option>
           {{/each}}
