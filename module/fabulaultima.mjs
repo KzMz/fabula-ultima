@@ -86,6 +86,14 @@ Hooks.on("deleteCombat", async function () {
   game.fabulaultima.combatHud.deleteFromScreen();
 });
 
+Hooks.on("createCombatant", async function () {
+  game.fabulaultima.combatHud.update();
+});
+
+Hooks.on("deleteCombatant", async function () {
+  game.fabulaultima.combatHud.update();
+});
+
 /* -------------------------------------------- */
 /*  Hotbar Macros                               */
 /* -------------------------------------------- */
