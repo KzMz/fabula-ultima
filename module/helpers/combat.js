@@ -57,15 +57,21 @@ export class FabulaUltimaCombatHud {
         let p = "<div class='player-wrapper' data-player='" + player.id + "'><span class='combatant-name'>" + player.name + "</span>";
         p += '<div class="player-stat-wrapper">';
         p += '<div style="flex: 0 0 33%; margin: 0; padding: 0; display: flex; flex-direction: column;">';
-        p += '<div style="height: 12px; display: flex; justify-content: end; padding-right: 10px;"><span>50</span><span>/</span><span>50</span></div>';
+        p += '<div style="display: flex; justify-content: end; padding-right: 10px;  font-size: 0.6em !important; margin: 0; margin-bottom: -3px;"><span>' +
+            player.actor.data.data.health.value + '</span><span>/</span><span>' +
+            player.actor.data.data.health.max + '</span></div>';
         p += '<progress class="health-progress" value="' + player.actor.data.data.health.value + '" max="' + player.actor.data.data.health.max + '"></progress>';
         p += '</div>';
         p += '<div style="flex: 0 0 33%; margin: 0; padding: 0; display: flex; flex-direction: column;">';
-        p += '<div style="height: 12px; display: flex; justify-content: end; padding-right: 10px;"><span>50</span><span>/</span><span>50</span></div>';
+        p += '<div style="display: flex; justify-content: end; padding-right: 10px;  font-size: 0.6em !important; margin: 0; margin-bottom: -3px;"><span>' +
+            player.actor.data.data.mind.value + '</span><span>/</span><span>' +
+            player.actor.data.data.mind.max + '</span></div>';
         p += '<progress class="mind-progress" value="' + player.actor.data.data.mind.value + '" max="' + player.actor.data.data.mind.max + '"></progress>';
         p += '</div>';
         p += '<div style="flex: 0 0 33%; margin: 0; padding: 0; display: flex; flex-direction: column;">';
-        p += '<div style="height: 12px; display: flex; justify-content: end; padding-right: 10px;"><span>50</span><span>/</span><span>50</span></div>';
+        p += '<div style="display: flex; justify-content: end; padding-right: 10px;  font-size: 0.6em !important; margin: 0; margin-bottom: -3px;"><span>' +
+            player.actor.data.data.inventory.value + '</span><span>/</span><span>' +
+            player.actor.data.data.inventory.max + '</span></div>';
         p += '<progress class="inventory-progress" value="' + player.actor.data.data.inventory.value + '" max="' + player.actor.data.data.inventory.max + '"></progress>';
         p += '</div>';
         p += '</div>';
