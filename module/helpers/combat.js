@@ -32,10 +32,10 @@ export class FabulaUltimaCombatHud {
 
     _getFF7EnemyList() {
         let list = '<div class="ff7 enemy-list">';
-        for (const enemy in game.combat.combatants.filter(c => c.actor.type === "villain")) {
+        for (let enemy in game.combat.combatants.contents.filter(c => c.actor.type === "villain")) {
             list += enemy.name + "<br>";
         }
-        for (const enemy in game.combat.combatants.filter(c => c.actor.type === "npc")) {
+        for (let enemy in game.combat.combatants.contents.filter(c => c.actor.type === "npc")) {
             list += enemy.name + "<br>";
         }
         list += '</div>';
@@ -45,8 +45,8 @@ export class FabulaUltimaCombatHud {
 
     _getFF7PlayerList() {
         let list = '<div class="ff7 player-list">';
-        for (const enemy in game.combat.combatants.filter(c => c.actor.type === "character")) {
-            list += enemy.name + "<br>";
+        for (let player in game.combat.combatants.contents.filter(c => c.actor.type === "character")) {
+            list += player.name + "<br>";
         }
         list += '</div>';
 
