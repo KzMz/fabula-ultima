@@ -50,6 +50,8 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       this._prepareItems(context);
     }
 
+    context.data.crisisHealth = Math.floor(context.data.health.max / 2);
+
     // Add roll data for TinyMCE editors.
     context.rollData = context.actor.getRollData();
 
@@ -91,8 +93,6 @@ export class FabulaUltimaActorSheet extends ActorSheet {
 
     context.data.statuses1 = statuses1;
     context.data.statuses2 = statuses2;
-
-    context.data.crisisHealth = Math.floor(context.data.health.max / 2);
   }
 
   /**

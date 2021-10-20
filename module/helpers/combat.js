@@ -36,13 +36,13 @@ export class FabulaUltimaCombatHud {
             list += "<span class='enemy-name";
             if (enemy.actor.isCrisis())
                 list += " crisis";
-            list += "'>" + enemy.name + "</span><br>";
+            list += "'>" + enemy.name + "</span>";
         }
         for (let enemy of game.combat.combatants.contents.filter(c => c.actor.type === "npc")) {
             list += "<span class='enemy-name";
             if (enemy.actor.isCrisis())
                 list += " crisis";
-            list += "'>" + enemy.name + "</span><br>";
+            list += "'>" + enemy.name + "</span>";
         }
         list += '</div>';
 
