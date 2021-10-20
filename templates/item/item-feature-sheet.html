@@ -25,7 +25,11 @@
       {{!-- As you add new fields, add them in here! --}}
       <select name="data.class" id="class-select">
         {{#each data.classes as |class key|}}
-          <option value="{{class.data.data.abbr}}" {{#if (eq class.data.data.abbr data.class)}} selected {{/if}}>{{class.name}}</option>
+          {{#if (eq class.data.data.abbr data.class)}}
+            <option value="{{class.data.data.abbr}}" selected="selected">{{class.name}}</option>
+          {{else}}
+            <option value="{{class.data.data.abbr}}" >{{class.name}}</option>
+          {{/if}}
         {{/each}}
       </select>
       <label for="data.class" class="resource-label stat flexlarge align-left">{{localize "FABULAULTIMA.Class"}}</label>
