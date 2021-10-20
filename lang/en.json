@@ -70,5 +70,10 @@
   "FABULAULTIMA.ClassAbbr": "Class Abbreviation",
   "FABULAULTIMA.Details": "Details",
 
-  "FABULAULTIMA.DeleteClass": "Delete Class"
+  "FABULAULTIMA.DeleteClass": "Delete Class",
+
+  "FABULAULTIMA.Class": "Class",
+  "FABULAULTIMA.FeatureResource": "Resource",
+  "FABULAULTIMA.FeatureAmount": "Amount",
+  "FABULAULTIMA.FeatureCost": "Cost"
 }
