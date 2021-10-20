@@ -594,10 +594,16 @@ progress[value].inventory-progress::-webkit-progress-value {
 
 #battle-hud .ff7.enemy-list {
   width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 #battle-hud .ff7.player-list {
   width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 #battle-hud .ff7 * {
