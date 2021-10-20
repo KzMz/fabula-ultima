@@ -646,7 +646,7 @@ progress[value].inventory-progress::-webkit-progress-value {
 }
 
 .enemy-name {
-  font-size: 1.2em;
+  font-size: 1.2em !important;
 }
 
 #battle-hud .crisis {
