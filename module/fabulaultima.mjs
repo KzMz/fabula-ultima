@@ -97,6 +97,10 @@ Hooks.on("deleteCombatant", async function () {
   game.fabulaultima.combatHud.update();
 });
 
+Hooks.on("updateActor", async function (actor) {
+  game.fabulaultima.combatHud.update();
+});
+
 /* -------------------------------------------- */
 /*  Hotbar Macros                               */
 /* -------------------------------------------- */

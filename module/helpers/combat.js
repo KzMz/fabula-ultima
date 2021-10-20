@@ -76,7 +76,6 @@ export class FabulaUltimaCombatHud {
                 p += '</div>';
             p += '</div>';
         p += '</div>';
-        p += "<br>";
 
         return p;
     }

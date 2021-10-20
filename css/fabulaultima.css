@@ -607,7 +607,7 @@ progress[value].inventory-progress::-webkit-progress-value {
   font-family: Verdana, sans-serif;
   font-size: 20px;
   font-weight: normal;
-  margin: 5px 0;
+  margin: 1.5px 0;
 }
 
 #battle-hud .ff7 .combatant-name {
