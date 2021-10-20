@@ -54,7 +54,7 @@ export class FabulaUltimaCombatHud {
     }
 
     _getFF7PlayerHud(player) {
-        let p = "<div data-player='" + player.id + "'><span class='combatant-name'>" + player.name + "</span>";
+        let p = "<div class='player-wrapper' data-player='" + player.id + "'><span class='combatant-name'>" + player.name + "</span>";
         p += '<progress class="health-progress" value="' + player.actor.data.data.health.value + '" max="' + player.actor.data.data.health.max + '"></progress>';
         p += '<progress class="mind-progress" value="' + player.actor.data.data.mind.value + '" max="' + player.actor.data.data.mind.max + '"></progress>';
         p += '<progress class="inventory-progress" value="' + player.actor.data.data.inventory.value + '" max="' + player.actor.data.data.inventory.max + '"></progress>';

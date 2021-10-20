@@ -611,5 +611,20 @@ progress[value].inventory-progress::-webkit-progress-value {
 }
 
 #battle-hud .ff7 .combatant-name {
-  font-size: 1.4em;
+  font-size: 0.9em;
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+  flex: 0 0 25%;
+}
+
+.player-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.player-wrapper progress {
+  height: 7px;
+  padding-right: 10px;
 }
