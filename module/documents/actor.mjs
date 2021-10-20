@@ -79,6 +79,10 @@ export class FabulaUltimaActor extends Actor {
     return data;
   }
 
+  isCrisis() {
+    return this.data.data.health.value <= Math.floor(this.data.data.health.max / 2);
+  }
+
   /**
    * Prepare character roll data.
    */

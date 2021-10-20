@@ -638,3 +638,11 @@ progress[value].inventory-progress::-webkit-progress-value {
 .player-stat-wrapper span {
   font-size: 0.6em !important;
 }
+
+.enemy-name {
+  font-size: 1.2em;
+}
+
+#battle-hud .crisis {
+  color: yellow;
+}
