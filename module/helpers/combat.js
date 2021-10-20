@@ -13,7 +13,11 @@ export class FabulaUltimaCombatHud {
     }
 
     _getFF7Hud() {
-        return '<div class="ff7">' +
+        return '<div>' +
+            '<div class="ff7 enemy-list">' +
+            'TEST' +
+            '</div>' +
+            '<div class="ff7 player-list">' +
             'TEST' +
             '</div>';
     }

@@ -561,7 +561,7 @@
   align-items: end;
 }
 
-#battle-hud .ff7{
+#battle-hud .ff7 {
   border: solid 1px #424542;
   box-shadow: 1px 1px #e7dfe7,
     -1px -1px #e7dfe7,
@@ -570,9 +570,8 @@
     0 -2px #9c9a9c,
     -2px 0 #7b757b,
     0 2px #424542;
-  width: 500px;
+  height: 23%;
   padding: 5px 10px;
-  margin: 50px 50px;
 
   background: #04009d;
   background: -moz-linear-gradient(top,  #04009d 0%, #06004d 100%);
@@ -586,6 +585,14 @@
   -webkit-border-radius: 7px;
   -moz-border-radius: 7px;
   border-radius: 7px;
+}
+
+#battle-hud .ff7.enemy-list {
+  width: 30%;
+}
+
+#battle-hud .ff7.player-list {
+  width: 70%;
 }
 
 #battle-hud .ff7 * {
