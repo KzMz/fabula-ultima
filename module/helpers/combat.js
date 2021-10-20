@@ -64,7 +64,11 @@ export class FabulaUltimaCombatHud {
         if (player.actor.isCrisis())
             add = " class='crisis'";
 
-        let p = "<div class='player-wrapper' data-player='" + player.id + "'><span class='combatant-name'>" + player.name + "</span>";
+        let p = "<div class='player-wrapper' data-player='" + player.id + "'><span class='combatant-name";
+            if (player.actor.isCrisis())
+                p += " crisis";
+
+            p += "'>" + player.name + "</span>";
             p += '<div class="player-stat-wrapper">';
                 p += '<div style="flex: 0 0 33%; margin: 0; padding: 0; display: flex; flex-direction: column;">';
                     p += '<div style="display: flex; justify-content: end; padding-right: 10px; margin: 0; margin-bottom: -3px;">' +

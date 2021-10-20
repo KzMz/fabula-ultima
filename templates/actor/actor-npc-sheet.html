@@ -2,44 +2,42 @@
 
   {{!-- Sheet Header --}}
   <header class="sheet-header">
-    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="190" width="190"/>
     <div class="header-fields">
-      <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
-      {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
-      use both the "grid" and "grid-Ncol" class where "N" can be any number
-      from 1 to 12 and will create that number of columns.  --}}
-      <div class="resources grid grid-3col">
+      <div class="resources grid grid-2col" style="max-width: 600px;">
+        <div class="resource flex-group-left">
+          <h2 class="charname" style="border: none"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h2>
 
-        {{!-- "flex-group-center" is also defined in the _grid.scss file
-        and it will add a small amount of padding, a border, and will
-        center all of its child elements content and text. --}}
-        <div class="resource flex-group-center">
-          <label for="data.health.value" class="resource-label">Health</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="data.health.value" value="{{data.health.value}}" data-dtype="Number"/>
-            <span> / </span>
-            <input type="text" name="data.health.max" value="{{data.health.max}}" data-dtype="Number"/>
+            <label for="data.attributes.level.value" class="resource-label" style="max-width: 50px;">{{localize "FABULAULTIMA.LevelAbbr"}}</label>
+            <input type="text" name="data.attributes.level.value" value="{{data.attributes.level.value}}" data-dtype="Number" readonly="readonly"/>
+          </div>
+
+          <div class="resource-content flexrow flex-center flex-between" style="max-width: 275px;">
+            <label for="data.health.value" class="resource-label" style="max-width: 50px;">{{localize "FABULAULTIMA.HealthAbbr"}}</label>
+            <input class="points-input-right" type="text" name="data.health.value" value="{{data.health.value}}" data-dtype="Number"/>
+            <span style="flex: 0; margin-left: 5px; margin-right: 5px; display: flex; align-items: center;">/</span>
+            <input class="points-input-right" type="text" name="data.health.max" value="{{data.health.max}}" data-dtype="Number"/>
+            <span style="flex: 0; margin-left: 15px; margin-right: 15px; display: flex; align-items: center; font-size: 15pt;">♦️</span>
+            <span class="points-crisis" style="flex: 0; margin-left: 5px; margin-right: 5px; display: flex; align-items: center;">{{data.crisisHealth}}</span>
+            <span class="resource-label">{{localize "FABULAULTIMA.Crisis"}}</span>
+          </div>
+
+          <div class="resource-content flexrow flex-center flex-between" style="margin-top: 4px; margin-bottom: 4px">
+            <progress class="health-progress" value="{{data.health.value}}" max="{{data.health.max}}">{{data.health_progress}}%</progress>
+          </div>
+
+          <div class="resource-content flexrow flex-center flex-between" style="max-width: 156px;">
+            <label for="data.mind.value" class="resource-label">{{localize "FABULAULTIMA.MindAbbr"}}</label>
+            <input class="points-input-right" type="text" name="data.mind.value" value="{{data.mind.value}}" data-dtype="Number"/>
+            <span style="flex: 0; margin-left: 5px; margin-right: 5px; display: flex; align-items: center;">/</span>
+            <input class="points-input-right" type="text" name="data.mind.max" value="{{data.mind.max}}" data-dtype="Number"/>
+          </div>
+
+          <div class="resource-content flexrow flex-center flex-between" style="margin-top: 4px; margin-bottom: 4px">
+            <progress class="mind-progress" value="{{data.mind.value}}" max="{{data.mind.max}}">{{data.mind_progress}}%</progress>
           </div>
         </div>
-
-        <div class="resource flex-group-center">
-          <label for="data.mind.value" class="resource-label">Power</label>
-          <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="data.power.value" value="{{data.power.value}}" data-dtype="Number"/>
-            <span> / </span>
-            <input type="text" name="data.power.max" value="{{data.power.max}}" data-dtype="Number"/>
-          </div>
-        </div>
-
-        <!--div class="resource flex-group-center">
-          <label for="data.cr" class="resource-label">CR / XP</label>
-          <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="data.cr" value="{{data.cr}}" data-dtype="Number"/>
-            <span> / </span>
-            <input type="text" disabled="true" name="data.xp" value="{{data.xp}}" data-dtype="Number"/>
-          </div>
-        </div-->
-
       </div>
     </div>
   </header>
