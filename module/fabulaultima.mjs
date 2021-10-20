@@ -7,6 +7,7 @@ import { FabulaUltimaItemSheet } from "./sheets/item-sheet.mjs";
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
 import { FABULAULTIMA } from "./helpers/config.mjs";
+import {FabulaUltimaCombatHud} from "./helpers/combat.js";
 
 /* -------------------------------------------- */
 /*  Init Hook                                   */
@@ -19,7 +20,8 @@ Hooks.once('init', async function() {
   game.fabulaultima = {
     FabulaUltimaActor,
     FabulaUltimaItem,
-    rollItemMacro
+    rollItemMacro,
+    combatHud: new FabulaUltimaCombatHud()
   };
 
   // Add custom constants for configuration.
@@ -74,16 +76,10 @@ Handlebars.registerHelper('toLowerCase', function(str) {
 Hooks.once("ready", async function() {
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
   Hooks.on("hotbarDrop", (bar, data, slot) => createItemMacro(data, slot));
-
-  const battleHud = $('<div id="battle-hud"></div>');
-  $("#hud").append(battleHud);
 });
 
 Hooks.on("renderCombatTracker", async function() {
-  const battleHud = $('<div id="battle-hud"></div>');
-  setTimeout( () => {
-    $("div#hud").append(battleHud);
-  }, 500);
+  game.fabulaultima.combatHud.addToScreen();
 });
 
 /* -------------------------------------------- */

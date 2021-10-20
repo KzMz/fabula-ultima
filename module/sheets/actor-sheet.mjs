@@ -137,6 +137,8 @@ export class FabulaUltimaActorSheet extends ActorSheet {
         if (!skills.hasOwnProperty(cls))
           skills[cls] = [];
 
+        i.data.cost.resource = game.i18n.localize(CONFIG.FABULAULTIMA.costResources[i.data.cost.resource]);
+
         skills[cls].push(i);
       }
       // Append to spells.
@@ -336,7 +338,13 @@ export class FabulaUltimaActorSheet extends ActorSheet {
         });
       }
     } else if (item.type === "feature") {
-      return super._onDrop(event);
+      if (other.length === 0) {
+        return super._onDrop(event);
+      } else {
+        other[0].update({
+          "data.level": other[0].data.data.level + 1
+        });
+      }
     }
 
     return false;
