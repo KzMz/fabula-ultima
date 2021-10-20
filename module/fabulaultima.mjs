@@ -78,8 +78,12 @@ Hooks.once("ready", async function() {
   Hooks.on("hotbarDrop", (bar, data, slot) => createItemMacro(data, slot));
 });
 
-Hooks.on("renderCombatTracker", async function() {
+Hooks.on("createCombat", async function() {
   game.fabulaultima.combatHud.addToScreen();
+});
+
+Hooks.on("deleteCombat", async function () {
+  game.fabulaultima.combatHud.deleteFromScreen();
 });
 
 /* -------------------------------------------- */

@@ -6,19 +6,34 @@ export class FabulaUltimaCombatHud {
     }
 
     addToScreen() {
+        const exists = $("#battle-hud");
+        if (exists.length) return;
+
         const battleHud = this._getBattleElement();
         setTimeout( () => {
             $("div#hud").append(battleHud);
         }, 500);
     }
 
+    deleteFromScreen() {
+        $("#battle-hud").remove();
+    }
+
     _getFF7Hud() {
-        return '<div>' +
-            '<div class="ff7 enemy-list">' +
-            'TEST' +
-            '</div>' +
-            '<div class="ff7 player-list">' +
-            'TEST' +
-            '</div>';
+        return '<div style="width: 100%">' +
+            this._getFF7EnemyList() +
+            this._getFF7PlayerList();
+    }
+
+    _getFF7EnemyList() {
+        return '<div class="ff7 enemy-list">' +
+        'TEST' +
+        '</div>';
+    }
+
+    _getFF7PlayerList() {
+        return '<div class="ff7 player-list">' +
+        'TEST' +
+        '</div>';
     }
 }
