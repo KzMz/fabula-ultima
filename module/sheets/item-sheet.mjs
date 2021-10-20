@@ -74,8 +74,7 @@ export class FabulaUltimaItemSheet extends ItemSheet {
   }
 
   _activateFeatureListeners(html, context) {
-    console.log(context);
-    if (context.type !== "feature") return;
+    if (context.item.type !== "feature") return;
 
     console.log(html.find('#class-select'));
 
