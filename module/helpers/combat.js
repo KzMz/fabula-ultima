@@ -46,10 +46,20 @@ export class FabulaUltimaCombatHud {
     _getFF7PlayerList() {
         let list = '<div class="ff7 player-list">';
         for (let player of game.combat.combatants.contents.filter(c => c.actor.type === "character")) {
-            list += player.name + "<br>";
+            list += this._getFF7PlayerHud(player);
         }
         list += '</div>';
 
         return list;
+    }
+
+    _getFF7PlayerHud(player) {
+        let p = "<div data-player='" + player.id + "'><span class='combatant-name'>" + player.name + "</span>";
+        p += '<progress class="health-progress" value="' + player.data.data.health.value + '" max="' + player.data.data.health.max + '"></progress>';
+        p += '<progress class="mind-progress" value="' + player.data.data.mind.value + '" max="' + player.data.data.mind.max + '"></progress>';
+        p += '<progress class="inventory-progress" value="' + player.data.data.inventory.value + '" max="' + player.data.data.inventory.max + '"></progress>';
+        p += "<br>";
+
+        return p;
     }
 }

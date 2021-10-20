@@ -474,7 +474,7 @@
   margin-bottom: 0;
 }
 
-.fabulaultima progress[value] {
+progress[value] {
   width: 100%;
   height: 10px;
   margin: 0;
@@ -483,12 +483,12 @@
   -webkit-appearance: none;
 }
 
-.fabulaultima progress[value]::-webkit-progress-bar {
+progress[value]::-webkit-progress-bar {
   background-color: #a6a6a6;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
 }
 
-.fabulaultima progress[value]#exp-progress::-webkit-progress-value {
+progress[value]#exp-progress::-webkit-progress-value {
   background-image:
           -webkit-linear-gradient(top,
           rgba(255, 255, 255, .25),
@@ -498,7 +498,7 @@
   background-size: 35px 20px, 100% 100%, 100% 100%;
 }
 
-.fabulaultima progress[value]#mind-progress::-webkit-progress-value {
+progress[value].mind-progress::-webkit-progress-value {
   background-image:
           -webkit-linear-gradient(top,
           rgba(255, 255, 255, .25),
@@ -508,23 +508,23 @@
   background-size: 35px 20px, 100% 100%, 100% 100%;
 }
 
-.fabulaultima progress[value]#health-progress, .fabulaultima progress[value]#mind-progress, .fabulaultima progress[value]#inventory-progress {
+progress[value].health-progress, progress[value].mind-progress, progress[value].inventory-progress {
   height: 5px;
 }
 
-.fabulaultima progress[value]#health-progress::-webkit-progress-bar {
+progress[value].health-progress::-webkit-progress-bar {
   background-color: #4d0000;
 }
 
-.fabulaultima progress[value]#mind-progress::-webkit-progress-bar {
+progress[value].mind-progress::-webkit-progress-bar {
   background-color: #4d0000;
 }
 
-.fabulaultima progress[value]#inventory-progress::-webkit-progress-bar {
+progress[value].inventory-progress::-webkit-progress-bar {
   background-color: #4d0000;
 }
 
-.fabulaultima progress[value]#health-progress::-webkit-progress-value {
+progress[value].health-progress::-webkit-progress-value {
   background-image:
           -webkit-linear-gradient(top,
           rgba(255, 255, 255, .25),
@@ -534,7 +534,7 @@
   background-size: 35px 20px, 100% 100%, 100% 100%;
 }
 
-.fabulaultima progress[value]#inventory-progress::-webkit-progress-value {
+progress[value].inventory-progress::-webkit-progress-value {
   background-image:
           -webkit-linear-gradient(top,
           rgba(255, 255, 255, .25),
@@ -608,4 +608,8 @@
   font-size: 20px;
   font-weight: normal;
   margin: 5px 0;
+}
+
+#battle-hud .ff7 .combatant-name {
+  font-size: 1.4em;
 }
