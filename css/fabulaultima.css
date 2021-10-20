@@ -628,3 +628,8 @@ progress[value].inventory-progress::-webkit-progress-value {
   height: 7px;
   padding-right: 10px;
 }
+
+.player-stat-wrapper {
+  font-size: 0.6em;
+  flex: 0 0 75%;
+}
