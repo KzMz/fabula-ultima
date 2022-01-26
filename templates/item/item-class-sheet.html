@@ -20,6 +20,13 @@
             <label for="data.abbr" class="resource-label flexlarge align-left">{{localize "FABULAULTIMA.ClassAbbr"}}</label>
             <input type="text" name="data.abbr" value="{{data.abbr}}" data-dtype="String"/>
 
+            <label for="data.healthBonus" class="resource-label flexlarge align-left">{{localize "FABULAULTIMA.HealthBonus"}}</label>
+            <input type="text" name="data.healthBonus" value="{{data.healthBonus}}" data-dtype="String"/>
+            <label for="data.mindBonus" class="resource-label flexlarge align-left">{{localize "FABULAULTIMA.MindBonus"}}</label>
+            <input type="text" name="data.mindBonus" value="{{data.mindBonus}}" data-dtype="String"/>
+            <label for="data.inventoryBonus" class="resource-label flexlarge align-left">{{localize "FABULAULTIMA.InventoryBonus"}}</label>
+            <input type="text" name="data.inventoryBonus" value="{{data.inventoryBonus}}" data-dtype="String"/>
+
             {{editor content=data.description target="data.description" rollData=rollData button=true owner=owner editable=editable}}
         </div>
     </section>

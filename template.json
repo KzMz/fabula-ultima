@@ -144,7 +144,10 @@
     "class": {
       "description": "",
       "level": 1,
-      "abbr": ""
+      "abbr": "",
+      "healthBonus": 0,
+      "mindBonus": 0,
+      "inventoryBonus": 0
     },
     "bond": {
       "who": "",
