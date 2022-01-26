@@ -93,6 +93,8 @@ export class FabulaUltimaActorSheet extends ActorSheet {
 
     context.data.statuses1 = statuses1;
     context.data.statuses2 = statuses2;
+
+    this._updateCharacterLevel(context);
   }
 
   /**
@@ -161,7 +163,20 @@ export class FabulaUltimaActorSheet extends ActorSheet {
     context.gear = gear;
     context.classes = classes;
     context.spells = spells;
-   }
+  }
+
+  _updateCharacterLevel(context) {
+    let level = 0;
+
+    for (let c of context.classes) {
+      console.log(c);
+      level += c.data.data.level;
+    }
+
+    console.log(level);
+
+    context.data.attributes.level = level;
+  }
 
   /* -------------------------------------------- */
 
