@@ -62,6 +62,8 @@
       "identity": "",
       "origin": "",
       "theme": "",
+      "healthBonus": 0,
+      "mindBonus": 0,
       "zenit": 0,
       "equipped": {
         "mainHand": "",
