@@ -169,13 +169,10 @@ export class FabulaUltimaActorSheet extends ActorSheet {
     let level = 0;
 
     for (let c of context.classes) {
-      console.log(c);
       level += c.data.level;
     }
 
-    console.log(level);
-
-    context.data.attributes.level = level;
+    context.data.attributes.level.value = level;
   }
 
   /* -------------------------------------------- */
