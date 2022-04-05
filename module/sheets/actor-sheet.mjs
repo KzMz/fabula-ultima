@@ -96,7 +96,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
 
     this._updateCharacterLevel(context);
     this._updateCharacterPoints(context);
-    this._updateCharacterAttributes(context, statuses1, statuses2);
+    this._updateCharacterAttributes(context);
   }
 
   /**
@@ -182,13 +182,11 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       startingMind += Number(c.data.mindBonus);
       startingInventory += Number(c.data.inventoryBonus);
 
-      console.log(context.classes);
-      //for (let key in c.skills) {
-        //const f = c.skills[key]
-        //startingHealth += Number(f.data.passive.hpBonus);
-        //startingMind += Number(f.data.passive.mpBonus);
-        //startingInventory += Number(f.data.passive.ipBonus);
-      //}
+      for (let f of c.skills) {
+        startingHealth += Number(f.data.passive.hpBonus);
+        startingMind += Number(f.data.passive.mpBonus);
+        startingInventory += Number(f.data.passive.ipBonus);
+      }
     }
 
     context.data.health.max = startingHealth;
@@ -196,16 +194,20 @@ export class FabulaUltimaActorSheet extends ActorSheet {
     context.data.inventory.max = startingInventory;
   }
 
-  _updateCharacterAttributes(context, statuses1, statuses2) {
+  _updateCharacterAttributes(context) {
     console.log(context);
-    for (let status of statuses1) {
-      for (let affected of status.affects) {
+    for (let status in context.data.statuses1) {
+      const s = context.data.statuses1[status];
+
+      for (let affected of s.affects) {
         context.data.abilities[affected].value -= 2;
       }
     }
 
-    for (let status of statuses2) {
-      for (let affected of status.affects) {
+    for (let status in context.data.statuses2) {
+      const s = context.data.statuses2[status];
+
+      for (let affected of s.affects) {
         context.data.abilities[affected].value -= 2;
       }
     }
