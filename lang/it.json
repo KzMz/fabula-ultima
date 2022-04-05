@@ -14,11 +14,39 @@
   "FABULAULTIMA.EffectEdit": "Edit Effect",
   "FABULAULTIMA.EffectDelete": "Delete Effect",
 
-  "FABULAULTIMA.Add": "Add",
+  "FABULAULTIMA.Add": "Aggiungi",
   "FABULAULTIMA.LevelAbbr": "LV",
   "FABULAULTIMA.ExpAbbr": "EXP",
-  "FABULAULTIMA.NextLevel": "Next",
+  "FABULAULTIMA.NextLevel": "Prossimo:",
   "FABULAULTIMA.HealthAbbr": "PV",
   "FABULAULTIMA.MindAbbr": "PM",
-  "FABULAULTIMA.Crisis": "Crisi"
+  "FABULAULTIMA.Crisis": "Crisi",
+  "FABULAULTIMA.InventoryAbbr": "PI",
+  "FABULAULTIMA.InventoryPoints": "Punti Inventario",
+  "FABULAULTIMA.Zenit": "Zenit",
+  "FABULAULTIMA.FabulaPoints": "Punti Fabula",
+
+  "FABULAULTIMA.Slow": "Lento",
+  "FABULAULTIMA.Dazed": "Confuso",
+  "FABULAULTIMA.Weak": "Debole",
+  "FABULAULTIMA.Shaken": "Scosso",
+  "FABULAULTIMA.Enraged": "Furente",
+  "FABULAULTIMA.Poisoned": "Avvelenato",
+
+  "FABULAULTIMA.Identity": "Identità",
+  "FABULAULTIMA.Theme": "Tema",
+  "FABULAULTIMA.Origin": "Origine",
+
+  "FABULAULTIMA.Bonds": "Legami",
+  "FABULAULTIMA.Who": "Chi/Cosa",
+  "FABULAULTIMA.Feelings": "Sentimenti",
+  "FABULAULTIMA.AddBond": "Aggiungi Legame",
+  "FABULAULTIMA.DeleteBond": "Cancella Legame",
+
+  "FABULAULTIMA.Admiration": "Ammirazione",
+  "FABULAULTIMA.Inferiority": "Inferiorità",
+  "FABULAULTIMA.Loyalty": "Lealtà",
+  "FABULAULTIMA.Mistrust": "Sfiducia",
+  "FABULAULTIMA.Affection": "Affetto",
+  "FABULAULTIMA.Hatred": "Odio"
 }
