@@ -70,9 +70,13 @@ export class FabulaUltimaActorSheet extends ActorSheet {
    */
   _prepareCharacterData(context) {
     // Handle ability scores.
+    context.data.orderedAbilities = {};
+
     for (const k in CONFIG.FABULAULTIMA.abilities) {
       context.data.abilities[k].label = game.i18n.localize(CONFIG.FABULAULTIMA.abilities[k]) ?? k;
       context.data.abilities[k].abbrLabel = game.i18n.localize(CONFIG.FABULAULTIMA.abilityAbbreviations[k]) ?? k;
+
+      context.data.orderedAbilities[k] = context.data.abilities[k];
     }
 
     const statuses1 = {};
@@ -96,7 +100,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
 
     this._updateCharacterLevel(context);
     this._updateCharacterPoints(context);
-    //this._updateCharacterAttributes(context);
+    this._updateCharacterAttributes(context);
   }
 
   /**

@@ -96,7 +96,7 @@
 
         <section class="stats grid-span-2" style="display: flex;">
           <div class="abilities flexcol">
-            {{#each data.abilities as |ability key|}}
+            {{#each data.orderedAbilities as |ability key|}}
             <div class="ability flexrow flex-group-center">
               <label for="data.abilities.{{key}}.value" class="resource-label stat flexlarge align-left" data-label="{{ability.label}}" style="min-width: 80px;">{{ability.label}}</label>
 
