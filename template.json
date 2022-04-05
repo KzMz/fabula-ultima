@@ -62,8 +62,6 @@
       "identity": "",
       "origin": "",
       "theme": "",
-      "healthBonus": 0,
-      "mindBonus": 0,
       "zenit": 0,
       "equipped": {
         "mainHand": "",
@@ -124,6 +122,11 @@
       "cost": {
         "amount": 0,
         "resource": ""
+      },
+      "passive": {
+        "hpBonus": 0,
+        "mpBonus": 0,
+        "ipBonus": 0
       }
     },
     "spell": {

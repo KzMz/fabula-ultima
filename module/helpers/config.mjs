@@ -5,17 +5,17 @@ export const FABULAULTIMA = {};
  * @type {Object}
  */
  FABULAULTIMA.abilities = {
-  "vig": "FABULAULTIMA.AbilityVig",
-  "dex": "FABULAULTIMA.AbilityDex",
-  "int": "FABULAULTIMA.AbilityInt",
-  "vol": "FABULAULTIMA.AbilityVol",
+    "dex": "FABULAULTIMA.AbilityDex",
+    "int": "FABULAULTIMA.AbilityInt",
+    "vig": "FABULAULTIMA.AbilityVig",
+    "vol": "FABULAULTIMA.AbilityVol",
 };
 
 FABULAULTIMA.abilityAbbreviations = {
-  "vig": "FABULAULTIMA.AbilityVigAbbr",
-  "dex": "FABULAULTIMA.AbilityDexAbbr",
-  "int": "FABULAULTIMA.AbilityIntAbbr",
-  "vol": "FABULAULTIMA.AbilityVolAbbr"
+    "vig": "FABULAULTIMA.AbilityVigAbbr",
+    "dex": "FABULAULTIMA.AbilityDexAbbr",
+    "int": "FABULAULTIMA.AbilityIntAbbr",
+    "vol": "FABULAULTIMA.AbilityVolAbbr"
 };
 
 FABULAULTIMA.costResources = {

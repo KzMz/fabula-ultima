@@ -32,7 +32,6 @@
             <input class="points-input-right" type="text" name="data.mind.value" value="{{data.mind.value}}" data-dtype="Number"/>
             <span style="flex: 0; margin-left: 5px; margin-right: 5px; display: flex; align-items: center;">/</span>
             <input class="points-input-right" type="text" name="data.mind.max" value="{{data.mind.max}}" data-dtype="Number" readonly="readonly"/>
-            <input class="points-input-right" type="text" name="data.mindBonus" value="{{data.mindBonus}}" data-dtype="Number"/>
           </div>
 
           <div class="resource-content flexrow flex-center flex-between" style="margin-top: 4px; margin-bottom: 4px">
@@ -100,8 +99,58 @@
             {{#each data.abilities as |ability key|}}
             <div class="ability flexrow flex-group-center">
               <label for="data.abilities.{{key}}.value" class="resource-label stat flexlarge align-left" data-label="{{ability.label}}" style="min-width: 80px;">{{ability.label}}</label>
-              <input class="points-input-right" type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"/>
-              <input class="points-input-right" type="text" name="data.abilities.{{key}}.max" value="{{ability.max}}" data-dtype="Number"/>
+
+              <select name="data.abilities.{{key}}.value">
+                {{#if (eq ability.value 6)}}
+                  <option value="6" selected="selected">d6</option>
+                {{else}}
+                  <option value="6">d6</option>
+                {{/if}}
+
+                {{#if (eq ability.value 8)}}
+                  <option value="8" selected="selected">d8</option>
+                {{else}}
+                  <option value="8">d8</option>
+                {{/if}}
+
+                {{#if (eq ability.value 10)}}
+                  <option value="10" selected="selected">d10</option>
+                {{else}}
+                  <option value="10">d10</option>
+                {{/if}}
+                
+                {{#if (eq ability.value 12)}}
+                  <option value="12" selected="selected">d12</option>
+                {{else}}
+                  <option value="12">d12</option>
+                {{/if}}
+              </select>
+
+              <select name="data.abilities.{{key}}.max">
+                {{#if (eq ability.max 6)}}
+                  <option value="6" selected="selected">d6</option>
+                {{else}}
+                  <option value="6">d6</option>
+                {{/if}}
+
+                {{#if (eq ability.max 8)}}
+                  <option value="8" selected="selected">d8</option>
+                {{else}}
+                  <option value="8">d8</option>
+                {{/if}}
+
+                {{#if (eq ability.max 10)}}
+                  <option value="10" selected="selected">d10</option>
+                {{else}}
+                  <option value="10">d10</option>
+                {{/if}}
+                
+                {{#if (eq ability.max 12)}}
+                  <option value="12" selected="selected">d12</option>
+                {{else}}
+                  <option value="12">d12</option>
+                {{/if}}
+              </select>
             </div>
             {{/each}}
           </div>
