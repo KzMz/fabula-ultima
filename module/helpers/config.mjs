@@ -12,9 +12,9 @@ export const FABULAULTIMA = {};
 };
 
 FABULAULTIMA.abilityAbbreviations = {
-    "vig": "FABULAULTIMA.AbilityVigAbbr",
     "dex": "FABULAULTIMA.AbilityDexAbbr",
     "int": "FABULAULTIMA.AbilityIntAbbr",
+    "vig": "FABULAULTIMA.AbilityVigAbbr",
     "vol": "FABULAULTIMA.AbilityVolAbbr"
 };
 

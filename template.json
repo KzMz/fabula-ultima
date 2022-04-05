@@ -22,15 +22,15 @@
           }
         },
         "abilities": {
-          "vig": {
-            "value": 10,
-            "max": 10
-          },
           "dex": {
             "value": 10,
             "max": 10
           },
           "int": {
+            "value": 10,
+            "max": 10
+          },
+          "vig": {
             "value": 10,
             "max": 10
           },

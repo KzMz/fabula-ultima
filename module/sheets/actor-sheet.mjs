@@ -96,7 +96,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
 
     this._updateCharacterLevel(context);
     this._updateCharacterPoints(context);
-    this._updateCharacterAttributes(context);
+    //this._updateCharacterAttributes(context);
   }
 
   /**
@@ -169,10 +169,10 @@ export class FabulaUltimaActorSheet extends ActorSheet {
   }
 
   _updateCharacterPoints(context) {
-    let startingHealth = context.data.abilities.vig.value * 5;
+    let startingHealth = context.data.abilities.vig.max * 5;
     startingHealth += context.data.attributes.level.value;
 
-    let startingMind = context.data.abilities.vol.value * 5;
+    let startingMind = context.data.abilities.vol.max * 5;
     startingMind += context.data.attributes.level.value;
 
     let startingInventory = 6;
