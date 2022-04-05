@@ -73,6 +73,10 @@ export class FabulaUltimaActorSheet extends ActorSheet {
     context.data.orderedAbilities = {};
 
     for (const k in CONFIG.FABULAULTIMA.abilities) {
+      if (context.data.abilities[k].value > context.data.abilities[k].max) {
+        context.data.abilities[k].value = context.data.abilities[k].max;
+      }
+
       context.data.abilities[k].label = game.i18n.localize(CONFIG.FABULAULTIMA.abilities[k]) ?? k;
       context.data.abilities[k].abbrLabel = game.i18n.localize(CONFIG.FABULAULTIMA.abilityAbbreviations[k]) ?? k;
 
@@ -199,13 +203,12 @@ export class FabulaUltimaActorSheet extends ActorSheet {
   }
 
   _updateCharacterAttributes(context) {
-    console.log(context);
     for (let status in context.data.statuses1) {
       const s = context.data.statuses1[status];
       if (!s.value) continue; 
 
       for (let affected of s.affects) {
-        context.data.abilities[affected].value -= 2;
+        context.data.abilities[affected].value = (Number(context.data.abilities[affected].value) - 2) + "";
       }
     }
 
@@ -214,7 +217,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       if (!s.value) continue;
 
       for (let affected of s.affects) {
-        context.data.abilities[affected].value -= 2;
+        context.data.abilities[affected].value = (Number(context.data.abilities[affected].value) - 2) + "";
       }
     }
   }
