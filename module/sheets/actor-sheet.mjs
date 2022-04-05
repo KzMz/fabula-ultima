@@ -198,6 +198,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
     console.log(context);
     for (let status in context.data.statuses1) {
       const s = context.data.statuses1[status];
+      if (!s.value) continue; 
 
       for (let affected of s.affects) {
         context.data.abilities[affected].value -= 2;
@@ -206,6 +207,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
 
     for (let status in context.data.statuses2) {
       const s = context.data.statuses2[status];
+      if (!s.value) continue;
 
       for (let affected of s.affects) {
         context.data.abilities[affected].value -= 2;
