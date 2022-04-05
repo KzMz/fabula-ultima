@@ -96,7 +96,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
 
     this._updateCharacterLevel(context);
     this._updateCharacterPoints(context);
-    this._updateCharacterAttributes(context);
+    this._updateCharacterAttributes(context, statuses1, statuses2);
   }
 
   /**
@@ -111,7 +111,6 @@ export class FabulaUltimaActorSheet extends ActorSheet {
     const bonds = [];
     const gear = [];
     const classes = [];
-    const skills = {};
     const spells = {};
 
     // Iterate through items, allocating to containers
@@ -123,16 +122,24 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       }
       // Append to features.
       else if (i.type === 'class') {
+        i.skills = [];
         classes.push(i);
       }
-      else if (i.type === 'feature') {
-        const cls = i.data.class;
-        if (!skills.hasOwnProperty(cls))
-          skills[cls] = [];
+      else if (i.type === 'bond') {
+        bonds.push(i);
+      }
+    }
 
+    for (let i of context.items) {
+      i.img = i.img || DEFAULT_TOKEN;
+      if (i.type === 'feature') { 
         i.data.cost.resource = game.i18n.localize(CONFIG.FABULAULTIMA.costResources[i.data.cost.resource]);
 
-        skills[cls].push(i);
+        const cls = i.data.class;
+        const c = classes.find(cl => cl.data.abbr === cls);
+        if (c) {
+          c.skills.push(i);
+        }
       }
       // Append to spells.
       else if (i.type === 'spell') {
@@ -141,9 +148,6 @@ export class FabulaUltimaActorSheet extends ActorSheet {
           spells[cls] = [];
 
         spells[cls].push(i);
-      }
-      else if (i.type === 'bond') {
-        bonds.push(i);
       }
     }
 
@@ -196,14 +200,15 @@ export class FabulaUltimaActorSheet extends ActorSheet {
     context.data.inventory.max = startingInventory;
   }
 
-  _updateCharacterAttributes(context) {
-    for (let status of context.data.statuses1) {
+  _updateCharacterAttributes(context, statuses1, statuses2) {
+    console.log(context);
+    for (let status of statuses1) {
       for (let affected of status.affects) {
         context.data.abilities[affected].value -= 2;
       }
     }
 
-    for (let status of context.data.statuses2) {
+    for (let status of statuses2) {
       for (let affected of status.affects) {
         context.data.abilities[affected].value -= 2;
       }
