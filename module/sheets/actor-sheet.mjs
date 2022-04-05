@@ -182,13 +182,13 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       startingMind += Number(c.data.mindBonus);
       startingInventory += Number(c.data.inventoryBonus);
 
-      console.log(c.skills);
-      for (let key in c.skills) {
+      console.log(context.classes);
+      //for (let key in c.skills) {
         //const f = c.skills[key]
         //startingHealth += Number(f.data.passive.hpBonus);
         //startingMind += Number(f.data.passive.mpBonus);
         //startingInventory += Number(f.data.passive.ipBonus);
-      }
+      //}
     }
 
     context.data.health.max = startingHealth;
