@@ -151,10 +151,6 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       }
     }
 
-    for (let c of classes) {
-      c.skills = skills[c.data.abbr];
-    }
-
     // Assign and return
     context.bonds = bonds;
     context.gear = gear;
