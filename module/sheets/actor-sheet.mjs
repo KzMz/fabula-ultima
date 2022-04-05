@@ -73,7 +73,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
     context.data.orderedAbilities = {};
 
     for (const k in CONFIG.FABULAULTIMA.abilities) {
-      if (context.data.abilities[k].value > context.data.abilities[k].max) {
+      if (Number(context.data.abilities[k].value) > Number(context.data.abilities[k].max)) {
         context.data.abilities[k].value = context.data.abilities[k].max;
       }
 
