@@ -70,6 +70,8 @@ Handlebars.registerHelper('toLowerCase', function(str) {
 });
 
 Handlebars.registerHelper('if_eq', function (a, b, opts) {
+  console.log(a);
+  console.log(b);
   if (a.includes(b))
     return opts.fn(this);
   else
