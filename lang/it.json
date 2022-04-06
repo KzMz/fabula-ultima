@@ -19,6 +19,8 @@
   "FABULAULTIMA.ExpAbbr": "EXP",
   "FABULAULTIMA.NextLevel": "Prossimo",
   "FABULAULTIMA.HealthAbbr": "PV",
+  "FABULAULTIMA.MindPoints": "Punti Mente",
+  "FABULAULTIMA.HealthPoints": "Punti Vita",
   "FABULAULTIMA.MindAbbr": "PM",
   "FABULAULTIMA.Crisis": "Crisi",
   "FABULAULTIMA.InventoryAbbr": "PI",
@@ -59,6 +61,25 @@
   "FABULAULTIMA.HealthBonus": "PV Bonus x LA",
   "FABULAULTIMA.MindBonus": "PM Bonus x LA",
   "FABULAULTIMA.InventoryBonus": "PI Bonus",
+  "FABULAULTIMA.OpenBonus": "Bonus Test Aperti x LA",
+  "FABULAULTIMA.MeleePrecisionBonus": "Bonus Precisione Mischia x LA",
+  "FABULAULTIMA.RangedPrecisionBonus": "Bonus Precisione Distanza x LA",
+  "FABULAULTIMA.MeleeDamageBonus":  "Bonus Danno Mischia x LA",
+  "FABULAULTIMA.RangedDamageBonus": "Bonus Danno Distanza x LA",
 
-  "FABULAULTIMA.None": "Nessuno"
+  "FABULAULTIMA.ActiveEffects": "Effetti Attivi",
+  "FABULAULTIMA.CustomFormula": "Formula Tiro Personalizzata",
+  "FABULAULTIMA.ActionType": "Tipo Azione",
+  "FABULAULTIMA.GivesFreeAttack": "Attacco Gratuito?",
+
+  "FABULAULTIMA.None": "Nessuno",
+
+  "FABULAULTIMA.Timing": "Timing",
+  "FABULAULTIMA.Action": "Azione",
+  "FABULAULTIMA.Reaction": "Reazione",
+  "FABULAULTIMA.Free": "Libero",
+  "FABULAULTIMA.BeforeConflict": "Prima del Conflitto",
+  "FABULAULTIMA.BeforeDamage": "Prima di subire Danno",
+  "FABULAULTIMA.OnGuard": "Guardia",
+  "FABULAULTIMA.OnCrisis": "Crisi"
 }
