@@ -81,5 +81,13 @@
   "FABULAULTIMA.BeforeConflict": "Prima del Conflitto",
   "FABULAULTIMA.BeforeDamage": "Prima di subire Danno",
   "FABULAULTIMA.OnGuard": "Guardia",
-  "FABULAULTIMA.OnCrisis": "Crisi"
+  "FABULAULTIMA.OnCrisis": "Crisi",
+
+  "FABULAULTIMA.Attack": "Attacco",
+  "FABULAULTIMA.Guard": "Guardia",
+  "FABULAULTIMA.Skill": "Abilità",
+  "FABULAULTIMA.Study": "Studio",
+  "FABULAULTIMA.Inventory": "Inventario",
+  "FABULAULTIMA.Hinder": "Intralcio",
+  "FABULAULTIMA.Objective": "Obiettivo"
 }
