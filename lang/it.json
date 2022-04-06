@@ -58,5 +58,7 @@
   "FABULAULTIMA.PassiveBonuses": "Bonus Passivi",
   "FABULAULTIMA.HealthBonus": "PV Bonus x LA",
   "FABULAULTIMA.MindBonus": "PM Bonus x LA",
-  "FABULAULTIMA.InventoryBonus": "PI Bonus"
+  "FABULAULTIMA.InventoryBonus": "PI Bonus",
+
+  "FABULAULTIMA.None": "Nessuno"
 }
