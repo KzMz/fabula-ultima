@@ -23,9 +23,6 @@
     {{!-- Attributes Tab --}}
     {{ data.class }}
     <br>
-    {{#each data.classes as |class key|}}
-      {{class.data.data.abbr}}
-    {{/each}}
 
     <div class="tab attributes" data-group="primary" data-tab="attributes">
       {{!-- As you add new fields, add them in here! --}}
@@ -33,11 +30,11 @@
         <label for="data.class" class="resource-label">{{localize "FABULAULTIMA.Class"}}</label>
         <select name="data.class" id="class-select">
           {{#each data.classes as |class key|}}
-            {{#if (eq class.data.data.abbr data.class)}}
+            {{#if_eq class.data.data.abbr data.class}}
               <option value="{{class.data.data.abbr}}" selected="selected">{{class.name}}</option>
             {{else}}
-              <option value="{{class.data.data.abbr}}" >{{class.name}}</option>
-            {{/if}}
+              <option value="{{class.data.data.abbr}}">{{class.name}}</option>
+            {{/if_eq}}
           {{/each}}
         </select>
       </div>
