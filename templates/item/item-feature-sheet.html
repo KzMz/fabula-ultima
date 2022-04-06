@@ -26,7 +26,11 @@
       {{!-- As you add new fields, add them in here! --}}
       <div class="resource-content flexrow flex-center flex-between">
         <label for="data.class" class="resource-label">{{localize "FABULAULTIMA.Class"}}</label>
-        <input type="text" name="data.class" value="{{data.class}}" data-dtype="String"/>
+        <select name="data.class" id="class-select">
+          {{#each data.classes as |class key|}}
+            {{option class.data.data.abbr class.name ../data.class}}
+          {{/each}}
+        </select>
       </div>
       <span class="resource-label">{{localize "FABULAULTIMA.FeatureCost"}}</span>
       <div class="resource-content flexrow flex-center flex-between">
