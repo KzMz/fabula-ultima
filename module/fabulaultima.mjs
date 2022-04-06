@@ -69,19 +69,6 @@ Handlebars.registerHelper('toLowerCase', function(str) {
   return str.toLowerCase();
 });
 
-Handlebars.registerHelper('if_eq', function (a, b, opts) {
-  console.log(a);
-  console.log(b);
-  if (a.includes(b))
-    return opts.fn(this);
-  else
-    return opts.inverse(this);
-});
-
-Handlebars.registerHelper('setVar', function (a, b, options) {
-  options.data.root[a] = b;
-});
-
 /* -------------------------------------------- */
 /*  Ready Hook                                  */
 /* -------------------------------------------- */
