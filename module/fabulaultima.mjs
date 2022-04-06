@@ -69,6 +69,13 @@ Handlebars.registerHelper('toLowerCase', function(str) {
   return str.toLowerCase();
 });
 
+Handlebars.registerHelper('option', function (value, label, selectedValue) {
+  console.log(value + " " + label + " " + selectedValue);
+
+  var selectedProp = value == selectedValue ? 'selected="selected"' : '';
+  return new Handlebars.SafeString('<option value="' + value + '" ' + selectedProp + '>' + label + "</option>");
+});
+
 /* -------------------------------------------- */
 /*  Ready Hook                                  */
 /* -------------------------------------------- */
