@@ -164,6 +164,8 @@ export class FabulaUltimaActorSheet extends ActorSheet {
     context.gear = gear;
     context.classes = classes;
     context.spells = spells;
+
+    console.log(context);
   }
 
   _updateCharacterLevel(context) {

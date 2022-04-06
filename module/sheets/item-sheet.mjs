@@ -57,8 +57,6 @@ export class FabulaUltimaItemSheet extends ItemSheet {
     context.data.classes = game.items.filter(item => item.type === "class");
     context.data.costResources = CONFIG.FABULAULTIMA.costResources;
 
-    console.log(context);
-
     return context;
   }
 

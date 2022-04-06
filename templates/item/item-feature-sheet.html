@@ -27,10 +27,10 @@
         <label for="data.class" class="resource-label">{{localize "FABULAULTIMA.Class"}}</label>
         <select name="data.class" id="class-select">
           {{#each data.classes as |class key|}}
-            {{#if (eq class.data.data.abbr data.class)}}
-              <option value="{{class.data.data.abbr}}" selected="selected">{{class.name}}</option>
+            {{#if (eq class.name data.class)}}
+              <option value="{{class.name}}" selected="selected">{{class.name}}</option>
             {{else}}
-              <option value="{{class.data.data.abbr}}" >{{class.name}}</option>
+              <option value="{{class.name}}" >{{class.name}}</option>
             {{/if}}
           {{/each}}
         </select>
