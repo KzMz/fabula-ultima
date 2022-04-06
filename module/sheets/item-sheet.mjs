@@ -56,6 +56,8 @@ export class FabulaUltimaItemSheet extends ItemSheet {
   getFeatureData(context) {
     context.data.classes = game.items.filter(item => item.type === "class");
     context.data.costResources = CONFIG.FABULAULTIMA.costResources;
+    context.data.timings = CONFIG.FABULAULTIMA.timings;
+    context.data.actionTypes = CONFIG.FABULAULTIMA.actionTypes;
 
     return context;
   }

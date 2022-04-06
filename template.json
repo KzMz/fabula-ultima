@@ -118,7 +118,8 @@
     "feature": {
       "templates": ["base"],
       "class": "",
-      "level": 0,
+      "level": 1,
+      "timing": "",
       "cost": {
         "amount": 0,
         "resource": ""
@@ -126,7 +127,17 @@
       "passive": {
         "hpBonus": 0,
         "mpBonus": 0,
-        "ipBonus": 0
+        "ipBonus": 0,
+        "openTestBonus": 0,
+        "meleePrecisionBonus": 0,
+        "rangedPrecisionBonus": 0,
+        "meleeDamageBonus": 0,
+        "rangedDamageBonus": 0
+      },
+      "active": {
+        "customFormula": "",
+        "givesFreeAttack": false,
+        "actionType": ""
       }
     },
     "spell": {

@@ -25,6 +25,27 @@ FABULAULTIMA.costResources = {
     "ip": "FABULAULTIMA.InventoryPoints"
 }
 
+FABULAULTIMA.timings = {
+    "action": "FABULAULTIMA.Action",
+    "reaction": "FABULAULTIMA.Reaction",
+    "free": "FABULAULTIMA.Free",
+    "beforeConflict": "FABULAULTIMA.BeforeConflict",
+    "beforeDamage": "FABULAULTIMA.BeforeDamage",
+    "guard": "FABULAULTIMA.OnGuard",
+    "crisis": "FABULAULTIMA.OnCrisis"
+}
+
+FABULAULTIMA.actionTypes = {
+    "none": "FABULAULTIMA.None",
+    "attack": "FABULAULTIMA.Attack",
+    "skill": "FABULAULTIMA.Skill",
+    "study": "FABULAULTIMA.Study",
+    "guard": "FABULAULTIMA.Guard",
+    "inventory": "FABULAULTIMA.Inventory",
+    "objective": "FABULAULTIMA.Objective",
+    "hinder": "FABULAULTIMA.Hinder"
+}
+
 FABULAULTIMA.statuses = {
     "slow": {
         "label": "FABULAULTIMA.Slow",

@@ -32,6 +32,17 @@
           {{/each}}
         </select>
       </div>
+
+      <div class="resource-content flexrow flex-center flex-between">
+        <label for="data.timing" class="resource-label long">{{localize "FABULAULTIMA.Timing"}}</label>
+        <select name="data.timing" id="class-select">
+          {{#each data.timings as |timing key|}}
+            {{option key (localize timing) ../data.timing}}
+          {{/each}}
+        </select>
+      </div>
+
+      <br>
       <span class="resource-label">{{localize "FABULAULTIMA.FeatureCost"}}</span>
       <div class="resource-content flexrow flex-center flex-between">
         <label for="data.cost.resource" class="resource-label long">{{localize "FABULAULTIMA.FeatureResource"}}</label>
@@ -44,6 +55,7 @@
         <label for="data.cost.amount" class="resource-label long">{{localize "FABULAULTIMA.FeatureAmount"}}</label>
         <input type="text" name="data.cost.amount" value="{{data.cost.amount}}" data-dtype="Number"/>
       </div>
+      <br>
       <span class="resource-label">{{localize "FABULAULTIMA.PassiveBonuses"}}</span>
       <div class="resource-content flexrow flex-center flex-between">
         <label for="data.passive.hpBonus" class="resource-label long">{{localize "FABULAULTIMA.HealthBonus"}}</label>
@@ -57,6 +69,51 @@
         <label for="data.passive.ipBonus" class="resource-label long">{{localize "FABULAULTIMA.InventoryBonus"}}</label>
         <input type="text" name="data.passive.ipBonus" value="{{data.passive.ipBonus}}" data-dtype="Number"/>
       </div>
+      <div class="resource-content flexrow flex-center flex-between">
+        <label for="data.passive.openTestBonus" class="resource-label long">{{localize "FABULAULTIMA.OpenBonus"}}</label>
+        <input type="text" name="data.passive.openTestBonus" value="{{data.passive.openTestBonus}}" data-dtype="Number"/>
+      </div>
+      <div class="resource-content flexrow flex-center flex-between">
+        <label for="data.passive.meleePrecisionBonus" class="resource-label long">{{localize "FABULAULTIMA.MeleePrecisionBonus"}}</label>
+        <input type="text" name="data.passive.meleePrecisionBonus" value="{{data.passive.meleePrecisionBonus}}" data-dtype="Number"/>
+      </div>
+      <div class="resource-content flexrow flex-center flex-between">
+        <label for="data.passive.rangedPrecisionBonus" class="resource-label long">{{localize "FABULAULTIMA.RangedPrecisionBonus"}}</label>
+        <input type="text" name="data.passive.rangedPrecisionBonus" value="{{data.passive.rangedPrecisionBonus}}" data-dtype="Number"/>
+      </div>
+      <div class="resource-content flexrow flex-center flex-between">
+        <label for="data.passive.meleePrecisionBonus" class="resource-label long">{{localize "FABULAULTIMA.MeleeDamageBonus"}}</label>
+        <input type="text" name="data.passive.meleePrecisionBonus" value="{{data.passive.meleePrecisionBonus}}" data-dtype="Number"/>
+      </div>
+      <div class="resource-content flexrow flex-center flex-between">
+        <label for="data.passive.rangedPrecisionBonus" class="resource-label long">{{localize "FABULAULTIMA.RangedDamageBonus"}}</label>
+        <input type="text" name="data.passive.rangedPrecisionBonus" value="{{data.passive.rangedPrecisionBonus}}" data-dtype="Number"/>
+      </div>
+
+      <br>
+      <span class="resource-label">{{localize "FABULAULTIMA.ActiveEffects"}}</span>
+      <div class="resource-content flexrow flex-center flex-between">
+        <label for="data.active.customFormula" class="resource-label long">{{localize "FABULAULTIMA.CustomFormula"}}</label>
+        <input type="text" name="data.active.customFormula" value="{{data.active.customFormula}}" data-dtype="String"/>
+      </div>
+
+      <div class="resource-content flexrow flex-center flex-between">
+        <label for="data.active.actionType" class="resource-label long">{{localize "FABULAULTIMA.ActionType"}}</label>
+        <select name="data.active.actionType" id="class-select">
+          {{#each data.actionTypes as |actionType key|}}
+            {{option key (localize actionType) ../data.active.actionType}}
+          {{/each}}
+        </select>
+      </div>
+
+      <div class="resource-content flexrow flex-center flex-between">
+        <label for="data.active.givesFreeAttack" class="resource-label long">{{localize "FABULAULTIMA.GivesFreeAttack"}}</label>
+        {{#if data.active.givesFreeAttack}}
+          <input type="checkbox" checked="checked" name="data.active.givesFreeAttack" data-dtype="Boolean"/>
+        {{else}}
+          <input type="checkbox" name="data.active.givesFreeAttack" data-dtype="Boolean"/>
+        {{/if}}
+        </div>
     </div>
   </section>
 
