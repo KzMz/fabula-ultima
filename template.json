@@ -119,6 +119,7 @@
       "templates": ["base"],
       "class": "",
       "level": 1,
+      "maxLevel": 1,
       "timing": "",
       "cost": {
         "amount": 0,
