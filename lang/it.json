@@ -48,5 +48,10 @@
   "FABULAULTIMA.Loyalty": "Lealtà",
   "FABULAULTIMA.Mistrust": "Sfiducia",
   "FABULAULTIMA.Affection": "Affetto",
-  "FABULAULTIMA.Hatred": "Odio"
+  "FABULAULTIMA.Hatred": "Odio",
+
+  "FABULAULTIMA.Class": "Classe",
+  "FABULAULTIMA.FeatureResource": "Risorsa",
+  "FABULAULTIMA.FeatureAmount": "Quantità",
+  "FABULAULTIMA.FeatureCost": "Costo"
 }
