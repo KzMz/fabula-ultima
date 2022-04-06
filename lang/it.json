@@ -53,5 +53,10 @@
   "FABULAULTIMA.Class": "Classe",
   "FABULAULTIMA.FeatureResource": "Risorsa",
   "FABULAULTIMA.FeatureAmount": "Quantità",
-  "FABULAULTIMA.FeatureCost": "Costo"
+  "FABULAULTIMA.FeatureCost": "Costo",
+
+  "FABULAULTIMA.PassiveBonuses": "Bonus Passivi",
+  "FABULAULTIMA.HealthBonus": "PV Bonus x LA",
+  "FABULAULTIMA.MindBonus": "PM Bonus x LA",
+  "FABULAULTIMA.InventoryBonus": "PI Bonus"
 }

@@ -21,35 +21,17 @@
     </div>
 
     {{!-- Attributes Tab --}}
-    {{setVar "abbr" data.class}}
-    {{abbr}}
 
     <div class="tab attributes" data-group="primary" data-tab="attributes">
       {{!-- As you add new fields, add them in here! --}}
       <div class="resource-content flexrow flex-center flex-between">
         <label for="data.class" class="resource-label">{{localize "FABULAULTIMA.Class"}}</label>
-        <select name="data.class" id="class-select">
-          {{#each data.classes as |class key|}}
-            {{#if_eq abbr class.data.data.abbr}}
-              <option value="{{class.data.data.abbr}}" selected="selected">{{class.name}}</option>
-            {{else}}
-              <option value="{{class.data.data.abbr}}">{{class.name}}</option>
-            {{/if_eq}}
-          {{/each}}
-        </select>
+        <input type="text" name="data.class" value="{{data.class}}" data-dtype="String"/>
       </div>
       <span class="resource-label">{{localize "FABULAULTIMA.FeatureCost"}}</span>
       <div class="resource-content flexrow flex-center flex-between">
         <label for="data.cost.resource" class="resource-label" style="max-width: 50px;">{{localize "FABULAULTIMA.FeatureResource"}}</label>
-        <select name="data.cost.resource">
-          {{#each data.costResources as |resource key|}}
-            {{#if (eq key data.cost.resource)}}
-            <option value="{{key}}" selected="selected">{{localize resource}}</option>
-            {{else}}
-            <option value="{{key}}">{{localize resource}}</option>
-            {{/if}}
-          {{/each}}
-        </select>
+        <input type="text" name="data.cost.resource" value="{{data.cost.resource}}" data-dtype="String"/>
 
         <label for="data.cost.amount" class="resource-label" style="max-width: 50px;">{{localize "FABULAULTIMA.FeatureAmount"}}</label>
         <input type="text" name="data.cost.amount" value="{{data.cost.amount}}" data-dtype="Number"/>
