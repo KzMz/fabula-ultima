@@ -306,6 +306,11 @@
   display: flex;
   align-items: center;
   min-width: 50px;
+  width: auto;
+}
+
+.fabulaultima .resource-label.long {
+  flex: 0 0 20%;
 }
 
 .fabulaultima .items-header {
