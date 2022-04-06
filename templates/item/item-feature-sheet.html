@@ -21,6 +21,8 @@
     </div>
 
     {{!-- Attributes Tab --}}
+    {{setVar "abbr" data.class}}
+    {{abbr}}
 
     <div class="tab attributes" data-group="primary" data-tab="attributes">
       {{!-- As you add new fields, add them in here! --}}
@@ -28,8 +30,7 @@
         <label for="data.class" class="resource-label">{{localize "FABULAULTIMA.Class"}}</label>
         <select name="data.class" id="class-select">
           {{#each data.classes as |class key|}}
-          {{ data.class }}
-            {{#if_eq class.data.data.abbr data.class}}
+            {{#if_eq class.data.data.abbr abbr}}
               <option value="{{class.data.data.abbr}}" selected="selected">{{class.name}}</option>
             {{else}}
               <option value="{{class.data.data.abbr}}">{{class.name}}</option>

@@ -78,6 +78,10 @@ Handlebars.registerHelper('if_eq', function (a, b, opts) {
     return opts.inverse(this);
 });
 
+Handlebars.registerHelper('setVar', function (a, b, options) {
+  options.data.root[a] = b;
+});
+
 /* -------------------------------------------- */
 /*  Ready Hook                                  */
 /* -------------------------------------------- */
