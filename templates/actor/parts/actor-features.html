@@ -35,7 +35,11 @@
           {{skill.data.level}}
         </div>
         <div class="item-name">
-          {{skill.data.cost.amount}} {{skill.data.cost.resource}}
+          {{#if (eq skill.data.cost.amount 0)}}
+            {{localize "FABULAULTIMA.None"}}
+          {{else}}
+            {{skill.data.cost.amount}} {{skill.data.cost.resource}}
+          {{/if}}
         </div>
         <div class="item-controls">
           <a class="item-control item-delete" title="{{localize 'FABULAULTIMA.DeleteSkill'}}"><i class="fas fa-trash"></i></a>
