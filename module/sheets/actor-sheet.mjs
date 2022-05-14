@@ -128,6 +128,21 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       i.img = i.img || DEFAULT_TOKEN;
       // Append to gear.
       if (i.type === 'weapon') {
+        i.formula = i.getFormula();
+ 
+        if (context.data.equipped.mainHand === i._id) {
+          if (i.data.twoHanded) {
+            i.status = "twoHanded";
+            context.data.equipped.offHand = context.data.equipped.mainHand;
+          } else {
+            i.status = "mainHand";
+          }
+        } else if (context.data.equipped.offHand === i._id) {
+          i.status = "offHand";
+        } else {
+          i.status = "";
+        }
+
         weapons.push(i);
       }
       else if (i.type === "armor") {
@@ -252,7 +267,36 @@ export class FabulaUltimaActorSheet extends ActorSheet {
     if (!this.isEditable) return;
 
     // Add Inventory Item
-    html.find('.item-create').click(this._onItemCreate.bind(this));
+    //html.find('.item-create').click(this._onItemCreate.bind(this));
+
+    html.find('.item-equipMain').click(async ev => {
+      const li = $(ev.currentTarget).parents(".item");
+      const item = this.actor.items.get(li.data("itemId"));
+
+      const values = {
+        "data.equipped.mainHand": item._id
+      };
+
+      if (item.data.twoHanded) {
+        values["data.equipped.offHand"] = item._id;
+      }
+
+      await this.actor.update(values);
+    });
+    html.find('.item-equipOff').click(ev => {
+      const li = $(ev.currentTarget).parents(".item");
+      const item = this.actor.items.get(li.data("itemId"));
+
+      const values = {
+        "data.equipped.offHand": item._id
+      };
+
+      if (item.data.twoHanded) {
+        values["data.equipped.mainHand"] = item._id;
+      }
+
+      await this.actor.update(values);
+    });
 
     // Delete Inventory Item
     html.find('.item-delete').click(ev => {

@@ -104,6 +104,11 @@
   "FABULAULTIMA.DefenseBonus": "Bonus Difesa",
   "FABULAULTIMA.MagicDefenseBonus": "Bonus Difesa Magica",
 
+  "FABULAULTIMA.WeaponName": "Arma",
+  "FABULAULTIMA.PrecisionTest": "Test Precisione",
+  "FABULAULTIMA.Damage": "Danno",
+  "FABULAULTIMA.EquipStatus": "Equipaggiato?",
+
   "FABULAULTIMA.Arcane": "Arcana",
   "FABULAULTIMA.Bow": "Arco",
   "FABULAULTIMA.Flail": "Flagello",
