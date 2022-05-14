@@ -283,7 +283,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
 
       await this.actor.update(values);
     });
-    html.find('.item-equipOff').click(ev => {
+    html.find('.item-equipOff').click(async ev => {
       const li = $(ev.currentTarget).parents(".item");
       const item = this.actor.items.get(li.data("itemId"));
 
