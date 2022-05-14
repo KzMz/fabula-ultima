@@ -117,7 +117,9 @@ export class FabulaUltimaActorSheet extends ActorSheet {
   _prepareItems(context) {
     // Initialize containers.
     const bonds = [];
-    const gear = [];
+    const weapons = [];
+    const armor = [];
+    const accessories = [];
     const classes = [];
     const spells = {};
 
@@ -125,8 +127,14 @@ export class FabulaUltimaActorSheet extends ActorSheet {
     for (let i of context.items) {
       i.img = i.img || DEFAULT_TOKEN;
       // Append to gear.
-      if (i.type === 'item') {
-        gear.push(i);
+      if (i.type === 'weapon') {
+        weapons.push(i);
+      }
+      else if (i.type === "armor") {
+        armor.push(i);
+      }
+      else if (i.type === "accessory") {
+        accessories.push(i);
       }
       // Append to features.
       else if (i.type === 'class') {
@@ -161,7 +169,11 @@ export class FabulaUltimaActorSheet extends ActorSheet {
 
     // Assign and return
     context.bonds = bonds;
-    context.gear = gear;
+    
+    context.weapons = weapons;
+    context.armor = armor;
+    context.accessories = accessories;
+
     context.classes = classes;
     context.spells = spells;
   }
