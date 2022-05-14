@@ -118,6 +118,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
     // Initialize containers.
     const bonds = [];
     const weapons = [];
+    const shields = [];
     const armor = [];
     const accessories = [];
     const classes = [];
@@ -149,10 +150,36 @@ export class FabulaUltimaActorSheet extends ActorSheet {
 
         weapons.push(i);
       }
+      else if (i.type === "shield") {
+        if (context.data.equipped.mainHand === i._id) {
+          i.status = game.i18n.localize("FABULAULTIMA.MainHand");
+        } else if (context.data.equipped.offHand === i._id) {
+          i.status = game.i18n.localize("FABULAULTIMA.OffHand");
+        } else {
+          i.status = "";
+        }
+
+        shields.push(i);
+      }
       else if (i.type === "armor") {
+        i.data.defenseFormula = this.actor.getArmorFormula(i, false);
+        i.data.magicDefenseFormula = this.actor.getArmorFormula(i, true);
+
+        if (context.data.equipped.armor === i._id) {
+          i.status = game.i18n.localize("FABULAULTIMA.Equipped");
+        } else {
+          i.status = "";
+        }
+
         armor.push(i);
       }
       else if (i.type === "accessory") {
+        if (context.data.equipped.accessory === i._id) {
+          i.status = game.i18n.localize("FABULAULTIMA.Equipped");
+        } else {
+          i.status = "";
+        }
+
         accessories.push(i);
       }
       // Append to features.
@@ -299,6 +326,24 @@ export class FabulaUltimaActorSheet extends ActorSheet {
         values["data.equipped.mainHand"] = item.id;
       }
 
+      await this.actor.update(values);
+    });
+    html.find('.item-equipArmor').click(async ev => {
+      const li = $(ev.currentTarget).parents(".item");
+      const item = this.actor.items.get(li.data("itemId"));
+
+      const values = {
+        "data.equipped.armor": item.id
+      };
+      await this.actor.update(values);
+    });
+    html.find('.item-equipAccessory').click(async ev => {
+      const li = $(ev.currentTarget).parents(".item");
+      const item = this.actor.items.get(li.data("itemId"));
+
+      const values = {
+        "data.equipped.accessory": item.id
+      };
       await this.actor.update(values);
     });
 
@@ -471,7 +516,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
           "data.level": other[0].data.data.level + 1
         });
       }
-    } else if (item.type === "weapon") {
+    } else if (item.type === "weapon" || item.type === "armor" || item.type === "accessory" || item.type === "shield") {
       return super._onDrop(event);
     }
 

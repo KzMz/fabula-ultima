@@ -154,5 +154,20 @@
   "FABULAULTIMA.OffHand": "Mano Secondaria",
   "FABULAULTIMA.Delete": "Cancella",
 
-  "FABULAULTIMA.RollPrecisionTest": "effettua un Test Precisione!"
+  "FABULAULTIMA.RollPrecisionTest": "effettua un Test Precisione!",
+  "FABULAULTIMA.Quality": "Qualità",
+  "FABULAULTIMA.InitiativeBonus": "Bonus Iniziativa",
+  "FABULAULTIMA.Price": "Prezzo",
+  "FABULAULTIMA.MagicDefenseFormula": "Formula Difesa Magica",
+  "FABULAULTIMA.DefenseFormula": "Formula Difesa",
+
+  "FABULAULTIMA.Shields": "Scudi",
+  "FABULAULTIMA.Armor": "Armature",
+  "FABULAULTIMA.Accessories": "Accessori",
+
+  "FABULAULTIMA.ShieldName": "Scudo",
+  "FABULAULTIMA.ArmorName": "Armatura",
+  "FABULAULTIMA.AccessoryName": "Accessorio",
+  "FABULAULTIMA.Equip": "Equipaggia",
+  "FABULAULTIMA.Equipped": "Equipaggiato"
 }

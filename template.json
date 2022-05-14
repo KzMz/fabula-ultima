@@ -89,7 +89,7 @@
     }
   },
   "Item": {
-    "types": ["item", "consumable", "feature", "spell", "class", "bond", "baseAttack", "weapon", "armor", "accessory", "artifact"],
+    "types": ["item", "consumable", "feature", "spell", "class", "bond", "baseAttack", "weapon", "armor", "shield", "accessory", "artifact"],
     "templates": {
       "base": {
         "description": ""
@@ -99,7 +99,13 @@
       },
       "rareable": { 
         "rarity": "",
-        "quality": ""
+        "quality": {
+          "description": "",
+          "initiativeBonus": 0,
+          "defenseBonus": 0,
+          "magicDefenseBonus": 0,
+          "overrideDamageType": ""
+        }
       }
     },
     "item": {
@@ -202,10 +208,15 @@
     },
     "armor": {
       "templates": ["base", "buyable", "rareable"],
-      "defense": "",
-      "magicDefense": "",
-      "initiative": 0,
-      "type": "",
+      "defenseFormula": "",
+      "magicDefenseFormula": "",
+      "initiativeBonus": 0,
+      "isMartial": false
+    },
+    "shield": {
+      "templates": ["base", "buyable", "rareable"],
+      "defenseBonus": 0,
+      "magicDefenseBonus": 0,
       "isMartial": false
     },
     "accessory": {

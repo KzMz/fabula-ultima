@@ -140,10 +140,31 @@ export class FabulaUltimaActor extends Actor {
   }
 
   getItemFormula(item) {
+    if (item.type === "weapon")
+      return this.getWeaponFormula(item);
+
+    return "";
+  }
+
+  getWeaponFormula(item) {
     let base = "【" + item.data.firstAbility.toUpperCase() + " + " + item.data.secondAbility.toUpperCase() + "】"; 
     if (item.data.precisionBonus !== 0) {
       base += " + " + item.data.precisionBonus;
     }
+    return base;
+  }
+
+  getArmorFormula(item, magic) {
+    let base = item.data.defenseFormula;
+    if (magic)
+      base = item.data.magicDefenseFormula;
+
+    if (base.includes("@")) {
+      for (const ability in CONFIG.FABULAULTIMA.abilities) {
+        base = base.replace("@" + ability, ability.toUpperCase());
+      }
+    }
+
     return base;
   }
 

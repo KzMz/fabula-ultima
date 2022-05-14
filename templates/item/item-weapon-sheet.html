@@ -100,6 +100,13 @@
           <label for="data.magicDefenseBonus" class="resource-label long">{{localize "FABULAULTIMA.MagicDefenseBonus"}}</label>
           <input type="text" name="data.magicDefenseBonus" value="{{data.magicDefenseBonus}}" data-dtype="Number"/>
         </div>
+
+        {{> "systems/fabulaultima/templates/item/parts/item-quality.html"}}
+
+        <div class="resource-content flexrow flex-center flex-between">
+          <label for="data.zenit" class="resource-label long">{{localize "FABULAULTIMA.Price"}}</label>
+          <input type="text" name="data.zenit" value="{{data.zenit}}" data-dtype="Number"/>
+        </div>
       </div>
     </section>
   
