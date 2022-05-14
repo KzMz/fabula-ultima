@@ -142,7 +142,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
             i.status = game.i18n.localize("FABULAULTIMA.MainHand");
           }
         } else if (context.data.equipped.offHand === i._id) {
-          i.status = gmae.i18n.localize("FABULAULTIMA.OffHand");
+          i.status = game.i18n.localize("FABULAULTIMA.OffHand");
         } else {
           i.status = "";
         }
@@ -285,7 +285,6 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       const li = $(ev.currentTarget).parents(".item");
       const item = this.actor.items.get(li.data("itemId"));
 
-      console.log(item);
       const values = {
         "data.equipped.mainHand": item.id
       };
