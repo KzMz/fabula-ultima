@@ -95,9 +95,8 @@ export class FabulaUltimaActor extends Actor {
       flavor: flavour
     };
     
-    let formula = this.getItemFormula(weapon);
+    let formula = this.getItemFormula(weapon.data);
     for (const ability in CONFIG.FABULAULTIMA.abilities) {
-      console.log(ability);
       formula = formula.replace(`@${ability}`, `1d@${ability}.value`);
       formula = formula.replace(`@${ability}`, `1d@${ability}.value`);
       console.log(formula);
@@ -108,7 +107,7 @@ export class FabulaUltimaActor extends Actor {
 
     console.log(d);
 
-    templateData["formula"] = this.getItemFormula(weapon);
+    templateData["formula"] = this.getItemFormula(weapon.data);
     templateData["total"] = roll.total;
     templateData["dice"] = roll.dice;
     templateData["damageType"] = weapon.data.data.damage.type;
