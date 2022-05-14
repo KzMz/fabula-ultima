@@ -95,9 +95,7 @@ export class FabulaUltimaActor extends Actor {
       flavor: flavour
     };
     
-    let formula = this.getItemFormula(weapon.data);
-    console.log(formula);
-    console.log(weapon);
+    let formula = this.getRollFormula(weapon.data);
 
     const roll = new Roll(formula).roll();
     const d = roll.dice;
@@ -108,8 +106,6 @@ export class FabulaUltimaActor extends Actor {
 
     const isFumble = d.every(die => die.number === 1);
     const isCrit = d.every(die => die.number === d[0].number && die.number !== 1 && die.number > 5); // TODO frenesia
-
-    console.log(d);
 
     templateData["formula"] = this.getItemFormula(weapon.data);
     templateData["total"] = roll.total;
@@ -139,6 +135,14 @@ export class FabulaUltimaActor extends Actor {
 
   getItemFormula(item) {
     let base = "@" + item.data.firstAbility + " + @" + item.data.secondAbility; 
+    if (item.data.precisionBonus !== 0) {
+      base += " + " + item.data.precisionBonus;
+    }
+    return base;
+  }
+
+  getRollFormula(item) {
+    let base = "1d@" + item.data.firstAbility + " + 1d@" + item.data.secondAbility; 
     if (item.data.precisionBonus !== 0) {
       base += " + " + item.data.precisionBonus;
     }
