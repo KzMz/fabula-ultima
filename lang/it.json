@@ -148,5 +148,9 @@
   "FABULAULTIMA.SkillLevel": "Livello Abilità (LA)",
   "FABULAULTIMA.Cost": "Costo",
 
-  "FABULAULTIMA.Weapons": "Armi"
+  "FABULAULTIMA.Weapons": "Armi",
+  "FABULAULTIMA.EquipTwoHanded": "Due Mani",
+  "FABULAULTIMA.MainHand": "Mano Principale",
+  "FABULAULTIMA.OffHand": "Mano Secondaria",
+  "FABULAULTIMA.Delete": "Cancella"
 }

@@ -22,11 +22,10 @@
       <div class="item-formula item-prop">{{weapon.formula}}</div>
       <div class="item-damage item-prop">【TM + {{weapon.data.damage.bonus}}】 {{weapon.data.damage.type}}</div>
       <div clasS="item-status item-prop">{{weapon.status}}</div>
-      <div class="item-controls item-prop"></div>
       <div class="item-controls">
-        <a class="item-control item-equipMain" title="Edit Item"><i class="fas fa-edit"></i></a>
-        <a class="item-control item-equipOff" title="Edit Item"><i class="fas fa-edit"></i></a>
-        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+        <a class="item-control item-equipMain" title="{{localize "FABULAULTIMA.MainHand"}}"><i class="fas fa-edit"></i></a>
+        <a class="item-control item-equipOff" title="{{localize "FABULAULTIMA.OffHand"}}"><i class="fas fa-edit"></i></a>
+        <a class="item-control item-delete" title="{{localize "FABULAULTIMA.Delete"}}"><i class="fas fa-trash"></i></a>
       </div>
     </li>
   {{/each}}
