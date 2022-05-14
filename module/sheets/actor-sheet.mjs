@@ -128,17 +128,21 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       i.img = i.img || DEFAULT_TOKEN;
       // Append to gear.
       if (i.type === 'weapon') {
-        i.formula = this._getItemFormula(i);
+        i.formula = "【" + this._getItemFormula(i) + "】";
  
+        i.data.category = game.i18n.localize(CONFIG.FABULAULTIMA.weaponCategories[i.data.category]);
+        i.data.type = game.i18n.localize(CONFIG.FABULAULTIMA.weaponTypes[i.data.type]);
+        i.data.damage.type = game.i18n.localize(CONFIG.FABULAULTIMA.damageTypes[i.data.damage.type]);
+
         if (context.data.equipped.mainHand === i._id) {
           if (i.data.twoHanded) {
-            i.status = "twoHanded";
+            i.status = game.i18n.localize("FABULAULTIMA.EquipTwoHanded");
             context.data.equipped.offHand = context.data.equipped.mainHand;
           } else {
-            i.status = "mainHand";
+            i.status = game.i18n.localize("FABULAULTIMA.MainHand");
           }
         } else if (context.data.equipped.offHand === i._id) {
-          i.status = "offHand";
+          i.status = gmae.i18n.localize("FABULAULTIMA.OffHand");
         } else {
           i.status = "";
         }
