@@ -97,10 +97,13 @@ export class FabulaUltimaActor extends Actor {
     
     let formula = this.getItemFormula(weapon);
     for (const ability in CONFIG.FABULAULTIMA.abilities) {
+      console.log(ability);
       formula = formula.replace(`@${ability}`, `1d@${ability}.value`);
+      formula = formula.replace(`@${ability}`, `1d@${ability}.value`);
+      console.log(formula);
     }
 
-    const roll = new Roll(formula).roll();
+    const roll = await (new Roll(formula)).roll();
     const d = roll.dice;
 
     console.log(d);
@@ -112,7 +115,7 @@ export class FabulaUltimaActor extends Actor {
     templateData["damageTypeLoc"] = game.i18n.localize(CONFIG.FABULAULTIMA.damageTypes[templateData["damageType"]]);
     templateData["damage"] = 10;
 
-    const template = "systems/fabula-ultima/templates/chat/weapon-card.html";
+    const template = "systems/fabulaultima/templates/chat/weapon-card.html";
     const html = await renderTemplate(template, templateData);
 
     const chatData = {
