@@ -105,11 +105,11 @@ export class FabulaUltimaActor extends Actor {
     console.log(d);
 
     const maxVal = d.reduce(function (a, b) {
-      return Math.max(a.number, b.number);
+      return Math.max(a.total, b.total);
     });
 
-    const isFumble = d.every(die => die.number === 1);
-    const isCrit = d.every(die => die.number === d[0].number && die.number !== 1 && die.number > 5); // TODO frenesia
+    const isFumble = d.every(die => die.total === 1);
+    const isCrit = d.every(die => die.total === d[0].total && die.total !== 1 && die.total > 5); // TODO frenesia
 
     templateData["formula"] = this.getItemFormula(weapon.data);
     templateData["total"] = roll.total;
