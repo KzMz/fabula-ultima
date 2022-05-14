@@ -219,6 +219,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
     context.weapons = weapons;
     context.armor = armor;
     context.accessories = accessories;
+    context.shields = shields;
 
     context.classes = classes;
     context.spells = spells;
