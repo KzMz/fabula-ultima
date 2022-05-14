@@ -286,11 +286,11 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       const item = this.actor.items.get(li.data("itemId"));
 
       const values = {
-        "data.equipped.mainHand": item._id
+        "data.data.equipped.mainHand": item._id
       };
 
       if (item.data.twoHanded) {
-        values["data.equipped.offHand"] = item._id;
+        values["data.data.equipped.offHand"] = item._id;
       }
 
       await this.actor.update(values);
@@ -300,11 +300,11 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       const item = this.actor.items.get(li.data("itemId"));
 
       const values = {
-        "data.equipped.offHand": item._id
+        "data.data.equipped.offHand": item._id
       };
 
       if (item.data.twoHanded) {
-        values["data.equipped.mainHand"] = item._id;
+        values["data.data.equipped.mainHand"] = item._id;
       }
 
       await this.actor.update(values);

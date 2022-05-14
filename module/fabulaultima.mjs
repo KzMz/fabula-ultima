@@ -103,7 +103,8 @@ Hooks.on("deleteCombatant", async function () {
 });
 
 Hooks.on("updateActor", async function (actor) {
-  game.fabulaultima.combatHud.update();
+  if (game.combat)
+    game.fabulaultima.combatHud.update();
 });
 
 /* -------------------------------------------- */
