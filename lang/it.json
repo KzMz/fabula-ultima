@@ -103,6 +103,7 @@
   "FABULAULTIMA.WeaponDamage": "Danno Bonus",
   "FABULAULTIMA.DefenseBonus": "Bonus Difesa",
   "FABULAULTIMA.MagicDefenseBonus": "Bonus Difesa Magica",
+  "FABULAULTIMA.PrecisionBonus": "Bonus Precisione",
 
   "FABULAULTIMA.WeaponName": "Arma",
   "FABULAULTIMA.PrecisionTest": "Test Precisione",
@@ -132,5 +133,20 @@
   "FABULAULTIMA.DamageFire": "fuoco",
   "FABULAULTIMA.DamageIce": "ghiaccio",
   "FABULAULTIMA.DamageLight": "luce",
-  "FABULAULTIMA.DamagePoison": "veleno"
+  "FABULAULTIMA.DamagePoison": "veleno",
+
+  "FABULAULTIMA.Stats": "Principale",
+  "FABULAULTIMA.Equipment": "Equipaggiamento",
+  "FABULAULTIMA.Spells": "Incantesimi",
+  "FABULAULTIMA.Effects": "Effetti",
+  "FABULAULTIMA.Biography": "Biografia & Info",
+
+  "FABULAULTIMA.Features": "Abilità",
+  "FABULAULTIMA.Name": "Nome",
+  "FABULAULTIMA.Level": "Livello",
+  "FABULAULTIMA.DeleteClass": "Cancella",
+  "FABULAULTIMA.SkillLevel": "Livello Abilità (LA)",
+  "FABULAULTIMA.Cost": "Costo",
+
+  "FABULAULTIMA.Weapons": "Armi"
 }
