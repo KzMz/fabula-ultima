@@ -130,7 +130,7 @@ export class FabulaUltimaActor extends Actor {
       speaker: {
         actor: this._id,
         token: this.token,
-        alias: this.token.displayName
+        alias: this.name
       }
     };
 
