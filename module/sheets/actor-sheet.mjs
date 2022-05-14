@@ -310,6 +310,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       const item = this.actor.items.get(li.data("itemId"));
 
       const equipped = this.actor.items.get(this.actor.data.data.equipped.mainHand);
+      const other = this.actor.items.get(this.actor.data.data.equipped.offHand);
       const values = {
         "data.equipped.mainHand": item.id
       };
@@ -317,6 +318,10 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       if (item.data.data.twoHanded) {
         values["data.equipped.offHand"] = item.id;
       } else if (equipped && equipped.data.data.twoHanded) {
+        values["data.equipped.offHand"] = "";
+      }
+      
+      if (other && other.id === item.id) {
         values["data.equipped.offHand"] = "";
       }
 
@@ -327,6 +332,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       const item = this.actor.items.get(li.data("itemId"));
 
       const equipped = this.actor.items.get(this.actor.data.data.equipped.offHand);
+      const other = this.actor.items.get(this.actor.data.data.equipped.mainHand);
       const values = {
         "data.equipped.offHand": item.id
       };
@@ -334,6 +340,10 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       if (item.data.data.twoHanded) {
         values["data.equipped.mainHand"] = item.id;
       } else if (equipped && equipped.data.data.twoHanded) {
+        values["data.equipped.mainHand"] = "";
+      } 
+
+      if (other && other.id === item.id) {
         values["data.equipped.mainHand"] = "";
       }
 
