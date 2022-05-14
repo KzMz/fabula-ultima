@@ -96,6 +96,8 @@ export class FabulaUltimaActor extends Actor {
     };
     
     let formula = this.getItemFormula(weapon.data);
+    console.log(formula);
+    console.log(weapon);
 
     const roll = new Roll(formula).roll();
     const d = roll.dice;
