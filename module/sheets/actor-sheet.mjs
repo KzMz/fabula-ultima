@@ -135,17 +135,21 @@ export class FabulaUltimaActorSheet extends ActorSheet {
         i.data.type = game.i18n.localize(CONFIG.FABULAULTIMA.weaponTypes[i.data.type]);
         i.data.damage.type = game.i18n.localize(CONFIG.FABULAULTIMA.damageTypes[i.data.damage.type]);
 
-        if (context.data.equipped.mainHand === i._id) {
-          if (i.data.twoHanded) {
+        if (i.data.twoHanded) {
+          if (context.data.equipped.mainHand === i._id) {
             i.status = game.i18n.localize("FABULAULTIMA.EquipTwoHanded");
             context.data.equipped.offHand = context.data.equipped.mainHand;
           } else {
-            i.status = game.i18n.localize("FABULAULTIMA.MainHand");
+            i.status = "";
           }
-        } else if (context.data.equipped.offHand === i._id) {
-          i.status = game.i18n.localize("FABULAULTIMA.OffHand");
         } else {
-          i.status = "";
+          if (context.data.equipped.mainHand === i._id) {
+            i.status = game.i18n.localize("FABULAULTIMA.MainHand");
+          } else if (context.data.equipped.offHand === i._id) {
+            i.status = game.i18n.localize("FABULAULTIMA.OffHand");
+          } else {
+            i.status = "";
+          }
         }
 
         weapons.push(i);
@@ -305,12 +309,15 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       const li = $(ev.currentTarget).parents(".item");
       const item = this.actor.items.get(li.data("itemId"));
 
+      const equipped = this.actor.items.get(this.actor.data.data.equipped.mainHand);
       const values = {
         "data.equipped.mainHand": item.id
       };
 
       if (item.data.data.twoHanded) {
         values["data.equipped.offHand"] = item.id;
+      } else if (equipped && equipped.data.data.twoHanded) {
+        values["data.equipped.offHand"] = "";
       }
 
       await this.actor.update(values);
@@ -319,12 +326,15 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       const li = $(ev.currentTarget).parents(".item");
       const item = this.actor.items.get(li.data("itemId"));
 
+      const equipped = this.actor.items.get(this.actor.data.data.equipped.offHand);
       const values = {
         "data.equipped.offHand": item.id
       };
 
       if (item.data.data.twoHanded) {
         values["data.equipped.mainHand"] = item.id;
+      } else if (equipped && equipped.data.data.twoHanded) {
+        values["data.equipped.mainHand"] = "";
       }
 
       await this.actor.update(values);
