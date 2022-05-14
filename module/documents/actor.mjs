@@ -96,10 +96,12 @@ export class FabulaUltimaActor extends Actor {
     };
     
     let formula = this.getRollFormula(weapon.data);
+    console.log(formula);
 
-    const roll = new Roll(formula).roll();
+    const roll = await new Roll(formula, this.getRollData()).roll();
     const d = roll.dice;
 
+    console.log(roll);
     console.log(d);
 
     const maxVal = d.reduce(function (a, b) {
