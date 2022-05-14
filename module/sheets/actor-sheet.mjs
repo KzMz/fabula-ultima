@@ -128,7 +128,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       i.img = i.img || DEFAULT_TOKEN;
       // Append to gear.
       if (i.type === 'weapon') {
-        i.formula = i.getFormula();
+        i.formula = this._getItemFormula(i);
  
         if (context.data.equipped.mainHand === i._id) {
           if (i.data.twoHanded) {
@@ -191,6 +191,14 @@ export class FabulaUltimaActorSheet extends ActorSheet {
 
     context.classes = classes;
     context.spells = spells;
+  }
+
+  _getItemFormula(item) {
+    let base = "@" + item.data.firstAbility + " + @" + item.data.secondAbility; 
+    if (item.data.precisionBonus !== 0) {
+      base += " + " + item.data.precisionBonus;
+    }
+    return base;
   }
 
   _updateCharacterLevel(context) {

@@ -25,17 +25,6 @@ export class FabulaUltimaItem extends Item {
     return rollData;
   }
 
-  getFormula() {
-    const item = this.data;
-    if (item.type !== "weapon") return "";
-
-    let base = "@" + item.data.firstAbility + " + @" + item.data.secondAbility; 
-    if (item.data.precisionBonus !== 0) {
-      base += " + " + item.data.precisionBonus;
-    }
-    return base;
-  }
-
   /**
    * Handle clickable rolls.
    * @param {Event} event   The originating click event
