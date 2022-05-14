@@ -169,5 +169,9 @@
   "FABULAULTIMA.ArmorName": "Armatura",
   "FABULAULTIMA.AccessoryName": "Accessorio",
   "FABULAULTIMA.Equip": "Equipaggia",
-  "FABULAULTIMA.Equipped": "Equipaggiato"
+  "FABULAULTIMA.Equipped": "Equipaggiato",
+
+  "FABULAULTIMA.Peculiarity": "Peculiarità",
+  "FABULAULTIMA.Defense": "Difesa",
+  "FABULAULTIMA.MagicDefense": "Difesa Magica"
 }

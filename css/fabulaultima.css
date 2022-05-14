@@ -332,7 +332,7 @@
 .fabulaultima .resource-label {
   font-weight: bold;
 
-  flex: 0;
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
   min-width: 50px;

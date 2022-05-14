@@ -116,8 +116,6 @@ export class FabulaUltimaActorSheet extends ActorSheet {
     if (context.data.equipped.armor !== "") {
       const armor = this.actor.items.get(context.data.equipped.armor);
       if (armor) {
-        console.log(armor);
-
         context.data.initiativeBonus = parseInt(armor.data.data.initiativeBonus);
         
         if (armor.data.data.defenseFormula.includes("@")) {
@@ -127,8 +125,6 @@ export class FabulaUltimaActorSheet extends ActorSheet {
         } else {
           context.data.defense = parseInt(armor.data.data.defenseFormula);
         }
-
-        console.log(context.data.defense);
 
         if (armor.data.data.magicDefenseFormula.includes("@")) {
           const roll = await new Roll(armor.data.data.magicDefenseFormula, this.actor.getRollData()).roll();
@@ -143,11 +139,11 @@ export class FabulaUltimaActorSheet extends ActorSheet {
     if (context.data.equipped.mainHand !== "") {
       mainHand = this.actor.items.get(context.data.equipped.mainHand);
       if (mainHand) {
-        console.log(mainHand);
-
-        context.data.initiativeBonus += parseInt(mainHand.data.data.quality.initiativeBonus);
-        context.data.defense += parseInt(mainHand.data.data.quality.defenseBonus);
-        context.data.magicDefense += parseInt(mainHand.data.data.quality.magicDefenseBonus);
+        if (mainHand.data.data.quality) {
+          context.data.initiativeBonus += parseInt(mainHand.data.data.quality.initiativeBonus);
+          context.data.defense += parseInt(mainHand.data.data.quality.defenseBonus);
+          context.data.magicDefense += parseInt(mainHand.data.data.quality.magicDefenseBonus);
+        }
 
         context.data.defense += parseInt(mainHand.data.data.defenseBonus);
         context.data.magicDefense += parseInt(mainHand.data.data.magicDefenseBonus);
@@ -157,9 +153,11 @@ export class FabulaUltimaActorSheet extends ActorSheet {
     if (context.data.equipped.offHand !== "") {
       const offHand = this.actor.items.get(context.data.equipped.offHand);
       if (offHand && mainHand.id !== offHand.id) {
-        context.data.initiativeBonus += parseInt(offHand.data.data.quality.initiativeBonus);
-        context.data.defense += parseInt(offHand.data.data.quality.defenseBonus);
-        context.data.magicDefense += parseInt(offHand.data.data.quality.magicDefenseBonus);
+        if (offHand.data.data.quality) {
+          context.data.initiativeBonus += parseInt(offHand.data.data.quality.initiativeBonus);
+          context.data.defense += parseInt(offHand.data.data.quality.defenseBonus);
+          context.data.magicDefense += parseInt(offHand.data.data.quality.magicDefenseBonus);
+        }
 
         context.data.defense += parseInt(offHand.data.data.defenseBonus);
         context.data.magicDefense += parseInt(offHand.data.data.magicDefenseBonus);
@@ -168,7 +166,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
 
     if (context.data.equipped.accessory !== "") {
       const acc = this.actor.items.get(context.data.equipped.accessory);
-      if (acc) {
+      if (acc && acc.data.data.quality) {
         context.data.initiativeBonus += parseInt(acc.data.data.quality.initiativeBonus);
         context.data.defense += parseInt(acc.data.data.quality.defenseBonus);
         context.data.magicDefense += parseInt(acc.data.data.quality.magicDefenseBonus);

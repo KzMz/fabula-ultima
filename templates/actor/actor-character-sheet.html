@@ -182,24 +182,24 @@
 
         <section class="stats grid-span-2" style="display: flex;">
           <div class="flexcol">
-            <div class="trait flexrow flex-group-center">
+            <div class="trait flexrow">
               <label for="data.peculiarity" class="resource-label flexlarge align-left">{{localize "FABULAULTIMA.Peculiarity"}}</label>
               <input type="text" name="data.peculiarity" value="{{data.peculiarity}}" data-dtype="String"/>
             </div>
           </div>
         </section>
         <section class="stats grid-span-2" style="display: flex;">
-          <div class="flexcol">
-            <div class="trait flexrow flex-group-center" style="margin-bottom: 10px;">
-              <label for="data.defense" class="resource-label flexlarge align-left">{{localize "FABULAULTIMA.Defense"}}</label>
+          <div class="flexcol" style="width: 100%">
+            <div class="trait flexrow" style="margin-bottom: 10px;">
+              <label for="data.defense" class="resource-label flexlarge align-left" style="max-width: 150px;">{{localize "FABULAULTIMA.Defense"}}</label>
               {{data.defense}}
             </div>
-            <div class="trait flexrow flex-group-center" style="margin-bottom: 10px;">
-              <label for="data.magicDefense" class="resource-label flexlarge align-left">{{localize "FABULAULTIMA.MagicDefense"}}</label>
+            <div class="trait flexrow" style="margin-bottom: 10px;">
+              <label for="data.magicDefense" class="resource-label flexlarge align-left" style="max-width: 150px;">{{localize "FABULAULTIMA.MagicDefense"}}</label>
               {{data.magicDefense}}
             </div>
-            <div class="trait flexrow flex-group-center">
-              <label for="data.initiativeBonus" class="resource-label flexlarge align-left">{{localize "FABULAULTIMA.InitiativeBonus"}}</label>
+            <div class="trait flexrowr">
+              <label for="data.initiativeBonus" class="resource-label flexlarge align-left" style="max-width: 150px;">{{localize "FABULAULTIMA.InitiativeBonus"}}</label>
               {{data.initiativeBonus}}
             </div>
           </div>
