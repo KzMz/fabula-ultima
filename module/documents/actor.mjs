@@ -96,14 +96,16 @@ export class FabulaUltimaActor extends Actor {
     };
     
     let formula = this.getItemFormula(weapon.data);
-    for (const ability in CONFIG.FABULAULTIMA.abilities) {
-      formula = formula.replace(`@${ability}`, `1d@${ability}.value`);
-      formula = formula.replace(`@${ability}`, `1d@${ability}.value`);
-      console.log(formula);
-    }
 
     const roll = await (new Roll(formula)).roll();
     const d = roll.dice;
+
+    const maxVal = d.reduce(function (a, b) {
+      return Math.max(a.number, b.number);
+    });
+
+    const isFumble = d.every(die => die.number === 1);
+    const isCrit = d.every(die => die.number === d[0].number && die.number !== 1 && die.number > 5); // TODO frenesia
 
     console.log(d);
 
@@ -112,7 +114,9 @@ export class FabulaUltimaActor extends Actor {
     templateData["dice"] = roll.dice;
     templateData["damageType"] = weapon.data.data.damage.type;
     templateData["damageTypeLoc"] = game.i18n.localize(CONFIG.FABULAULTIMA.damageTypes[templateData["damageType"]]);
-    templateData["damage"] = 10;
+    templateData["damage"] = maxVal + weapon.data.data.damage.bonus;
+    templateData["isCritical"] = isCrit;
+    templateData["isFumble"] = isFumble;
 
     const template = "systems/fabulaultima/templates/chat/weapon-card.html";
     const html = await renderTemplate(template, templateData);
@@ -149,7 +153,7 @@ export class FabulaUltimaActor extends Actor {
     // formulas like `@str.mod + 4`.
     if (data.abilities) {
       for (let [k, v] of Object.entries(data.abilities)) {
-        data[k] = foundry.utils.deepClone(v);
+        data[k] = (foundry.utils.deepClone(v)).value;
       }
     }
 
