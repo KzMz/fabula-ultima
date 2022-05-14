@@ -1,0 +1,87 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+      <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+      <div class="header-fields">
+        <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+      </div>
+    </header>
+  
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+      <a class="item" data-tab="description">Description</a>
+      <a class="item" data-tab="attributes">Attributes</a>
+    </nav>
+  
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+  
+      {{!-- Description Tab --}}
+      <div class="tab" data-group="primary" data-tab="description">
+        {{editor content=data.description target="data.description" rollData=rollData button=true owner=owner editable=editable}}
+      </div>
+  
+      {{!-- Attributes Tab --}}
+  
+      <div class="tab attributes" data-group="primary" data-tab="attributes">
+        {{!-- As you add new fields, add them in here! --}}
+        <div class="resource-content flexrow flex-center flex-between">
+          <label for="data.type" class="resource-label long">{{localize "FABULAULTIMA.WeaponType"}}</label>
+          <select name="data.type" id="type-select">
+            {{#each data.weaponType as |type key|}}
+              {{option key (localize type) ../data.type}}
+            {{/each}}
+          </select>
+        </div>
+  
+        <div class="resource-content flexrow flex-center flex-between">
+          <label for="data.firstAbility" class="resource-label long">{{localize "FABULAULTIMA.FirstAbility"}}</label>
+          <select name="data.firstAbility" id="first-ability">
+            {{#each data.abilities as |ability key|}}
+              {{option key (localize ability) ../data.firstAbility}}
+            {{/each}}
+          </select>
+        </div>
+
+        <div class="resource-content flexrow flex-center flex-between">
+            <label for="data.secondAbility" class="resource-label long">{{localize "FABULAULTIMA.SecondAbility"}}</label>
+            <select name="data.secondAbility" id="first-ability">
+                {{#each data.abilities as |ability key|}}
+                {{option key (localize ability) ../data.secondAbility}}
+                {{/each}}
+            </select>
+        </div>
+
+        <div class="resource-content flexrow flex-center flex-between">
+            <label for="data.isMartial" class="resource-label long">{{localize "FABULAULTIMA.IsMartial"}}</label>
+            {{#if data.isMartial}}
+              <input type="checkbox" checked="checked" name="data.isMartial" data-dtype="Boolean"/>
+            {{else}}
+              <input type="checkbox" name="data.isMartial" data-dtype="Boolean"/>
+            {{/if}}
+        </div>
+
+        <div class="resource-content flexrow flex-center flex-between">
+            <label for="data.twoHanded" class="resource-label long">{{localize "FABULAULTIMA.TwoHanded"}}</label>
+            {{#if data.twoHanded}}
+              <input type="checkbox" checked="checked" name="data.twoHanded" data-dtype="Boolean"/>
+            {{else}}
+              <input type="checkbox" name="data.twoHanded" data-dtype="Boolean"/>
+            {{/if}}
+        </div>
+  
+        <div class="resource-content flexrow flex-center flex-between">
+          <label for="data.damage.type" class="resource-label long">{{localize "FABULAULTIMA.DamageType"}}</label>
+          <select name="data.damage.type">
+            {{#each data.damageTypes as |damageType key|}}
+              {{option key (localize damageType) ../data.damage.type}}
+            {{/each}}
+          </select>
+  
+          <label for="data.damage.bonus" class="resource-label long">{{localize "FABULAULTIMA.WeaponDamage"}}</label>
+          <input type="text" name="data.damage.bonus" value="{{data.damage.bonus}}" data-dtype="Number"/>
+        </div>
+      </div>
+    </section>
+  
+  </form>
+  

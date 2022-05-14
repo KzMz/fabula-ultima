@@ -48,6 +48,8 @@ export class FabulaUltimaItemSheet extends ItemSheet {
 
     if (context.item.type === "feature") {
       context = this.getFeatureData(context);
+    } else if (context.item.type === "weapon") {
+      context = this.getWeaponData(context);
     }
 
     return context;
@@ -58,6 +60,14 @@ export class FabulaUltimaItemSheet extends ItemSheet {
     context.data.costResources = CONFIG.FABULAULTIMA.costResources;
     context.data.timings = CONFIG.FABULAULTIMA.timings;
     context.data.actionTypes = CONFIG.FABULAULTIMA.actionTypes;
+
+    return context;
+  }
+
+  getWeaponData(context) {
+    context.data.abilities = CONFIG.FABULAULTIMA.abilities;
+    context.data.weaponTypes = CONFIG.FABULAULTIMA.weaponTypes;
+    context.data.damageTypes = CONFIG.FABULAULTIMA.damageTypes;
 
     return context;
   }
@@ -76,10 +86,21 @@ export class FabulaUltimaItemSheet extends ItemSheet {
   }
 
   _activateFeatureListeners(html, context) {
-    if (context.item.type !== "feature") return;
+    if (context.item.type === "feature") {
+      html.find('#class-select').on('change', function () {
+        context.item.data.class = $('#class-select').val();
+      });
+    } else if (context.item.type === "weapon") {
+      /*html.find('#first-ability').on('change', function () {
+        context.item.data.firstAbility = $('#first-ability').val();
+      });
+      html.find('#second-ability').on('change', function () {
+        context.item.data.secondAbility = $('#second-ability').val();
+      });
+      html.find('#type-select').on('change', function () {
+        context.item.data.type = $('#type-select').val();
+      });*/
+    }
 
-    html.find('#class-select').on('change', function () {
-      context.item.data.class = $('#class-select').val();
-    });
   }
 }

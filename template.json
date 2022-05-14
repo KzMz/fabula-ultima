@@ -47,7 +47,13 @@
           "enraged": false,
           "poisoned": false
         },
-        "affinities": []
+        "affinities": [],
+        "equipped": {
+          "mainHand": "",
+          "offHand": "",
+          "accessory": "",
+          "armor": ""
+        }
       }
     },
     "character": {
@@ -63,12 +69,6 @@
       "origin": "",
       "theme": "",
       "zenit": 0,
-      "equipped": {
-        "mainHand": "",
-        "offHand": "",
-        "accessory": "",
-        "armor": ""
-      },
       "exp": 0
     },
     "npc": {
@@ -92,11 +92,14 @@
     "types": ["item", "consumable", "feature", "spell", "class", "bond", "baseAttack", "weapon", "armor", "accessory", "damageType", "artifact"],
     "templates": {
       "base": {
-        "description": "",
-        "rarity": ""
+        "description": ""
       },
       "buyable": {
         "zenit": 0
+      },
+      "rareable": { 
+        "rarity": "",
+        "quality": ""
       }
     },
     "item": {
@@ -182,8 +185,10 @@
       "type": ""
     },
     "weapon": {
-      "templates": ["base", "buyable"],
-      "formula": "",
+      "templates": ["base", "buyable", "rareable"],
+      "firstAbility": "",
+      "secondAbility": "",
+      "twoHanded": false,
       "damage": {
         "bonus": 0,
         "type": ""
@@ -192,16 +197,15 @@
       "isMartial": false
     },
     "armor": {
-      "templates": ["base", "buyable"],
-      "defense": 0,
-      "magicDefense": 0,
+      "templates": ["base", "buyable", "rareable"],
+      "defense": "",
+      "magicDefense": "",
       "initiative": 0,
       "type": "",
       "isMartial": false
     },
     "accessory": {
-      "templates": ["base", "buyable"],
-      "effect": ""
+      "templates": ["base", "buyable", "rareable"]
     },
     "damageType": {
       "description": ""

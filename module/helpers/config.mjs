@@ -43,7 +43,34 @@ FABULAULTIMA.actionTypes = {
     "guard": "FABULAULTIMA.Guard",
     "inventory": "FABULAULTIMA.Inventory",
     "objective": "FABULAULTIMA.Objective",
-    "hinder": "FABULAULTIMA.Hinder"
+    "hinder": "FABULAULTIMA.Hinder",
+    "spell": "FABULAULTIMA.Spell"
+}
+
+FABULAULTIMA.weaponTypes = {
+    "arcane": "FABULAULTIMA.Arcane",
+    "bow": "FABULAULTIMA.Bow",
+    "flail": "FABULAULTIMA.Flail",
+    "firearm": "FABULAULTIMA.Firearm",
+    "spear": "FABULAULTIMA.Spear",
+    "throw": "FABULAULTIMA.Throw",
+    "heavy": "FABULAULTIMA.Heavy",
+    "dagger": "FABULAULTIMA.Dagger",
+    "fist": "FABULAULTIMA.Fist",
+    "sword": "FABULAULTIMA.Sword"
+}
+
+FABULAULTIMA.damageTypes = {
+    "none": "FABULAULTIMA.DamageType.None",
+    "normal": "FABULAULTIMA.DamageType.Normal",
+    "wind": "FABULAULTIMA.DamageType.Wind",
+    "lightning": "FABULAULTIMA.DamageType.Lightning",
+    "dark": "FABULAULTIMA.DamageType.Dark",
+    "earth": "FABULAULTIMA.DamageType.Earth",
+    "fire": "FABULAULTIMA.DamageType.Fire",
+    "ice": "FABULAULTIMA.DamageType.Ice",
+    "light": "FABULAULTIMA.DamageType.Light",
+    "poison": "FABULAULTIMA.DamageType.Poison"
 }
 
 FABULAULTIMA.statuses = {
