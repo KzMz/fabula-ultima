@@ -105,6 +105,67 @@ export class FabulaUltimaActorSheet extends ActorSheet {
     this._updateCharacterLevel(context);
     this._updateCharacterPoints(context);
     this._updateCharacterAttributes(context);
+    this._updateEquipmentBasedStats(context);
+  }
+
+  _updateEquipmentBasedStats(context) {
+    context.data.initiativeBonus = 0;
+    context.data.defense = context.data.abilities.dex.value;
+    context.data.magicDefense = context.data.abilities.int.value;
+
+    if (context.data.equipped.armor !== "") {
+      const armor = this.actor.items.get(context.data.equipped.armor);
+      if (armor) {
+        context.data.initiativeBonus = armor.data.data.initiativeBonus;
+        
+        if (armor.data.data.defenseFormula.includes("@")) {
+          const roll = await new Roll(armor.data.data.defenseFormula, this.actor.getRollData()).roll();
+          context.data.defense = roll.result;
+        } else {
+          context.data.defense = parseInt(armor.data.data.defenseFormula);
+        }
+
+        if (armor.data.data.magicDefenseFormula.includes("@")) {
+          const roll = await new Roll(armor.data.data.magicDefenseFormula, this.actor.getRollData()).roll();
+          context.data.magicDefense = roll.result;
+        } else {
+          context.data.magicDefense = parseInt(armor.data.data.defenseFormula);
+        }
+      }
+    }
+
+    if (context.data.equipped.mainHand !== "") {
+      const mainHand = this.actor.items.get(context.data.equipped.mainHand);
+      if (mainHand) {
+        context.data.initiativeBonus += parseInt(mainHand.data.data.quality.initiativeBonus);
+        context.data.defense += parseInt(mainHand.data.data.quality.defenseBonus);
+        context.data.magicDefense += parseInt(mainHand.data.data.quality.magicDefenseBonus);
+
+        context.data.defense += parseInt(mainHand.data.data.defenseBonus);
+        context.data.magicDefense += parseInt(mainHand.data.data.magicDefenseBonus);
+      }
+    }
+
+    if (context.data.equipped.offHand !== "") {
+      const offHand = this.actor.items.get(context.data.equipped.offHand);
+      if (offHand) {
+        context.data.initiativeBonus += parseInt(offHand.data.data.quality.initiativeBonus);
+        context.data.defense += parseInt(offHand.data.data.quality.defenseBonus);
+        context.data.magicDefense += parseInt(offHand.data.data.quality.magicDefenseBonus);
+
+        context.data.defense += parseInt(offHand.data.data.defenseBonus);
+        context.data.magicDefense += parseInt(offHand.data.data.magicDefenseBonus);
+      }
+    }
+
+    if (context.data.equipped.accessory !== "") {
+      const acc = this.actor.items.get(context.data.equipped.accessory);
+      if (acc) {
+        context.data.initiativeBonus += parseInt(acc.data.data.quality.initiativeBonus);
+        context.data.defense += parseInt(acc.data.data.quality.defenseBonus);
+        context.data.magicDefense += parseInt(acc.data.data.quality.magicDefenseBonus);
+      }
+    }
   }
 
   /**
