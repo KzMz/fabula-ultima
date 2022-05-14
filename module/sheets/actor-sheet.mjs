@@ -460,6 +460,8 @@ export class FabulaUltimaActorSheet extends ActorSheet {
           "data.level": other[0].data.data.level + 1
         });
       }
+    } else if (item.type === "weapon") {
+      return super._onDrop(event);
     }
 
     return false;
