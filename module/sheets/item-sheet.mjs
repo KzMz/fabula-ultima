@@ -66,6 +66,7 @@ export class FabulaUltimaItemSheet extends ItemSheet {
 
   getWeaponData(context) {
     context.data.abilities = CONFIG.FABULAULTIMA.abilities;
+    context.data.weaponCategories = CONFIG.FABULAULTIMA.weaponCategories;
     context.data.weaponTypes = CONFIG.FABULAULTIMA.weaponTypes;
     context.data.damageTypes = CONFIG.FABULAULTIMA.damageTypes;
 

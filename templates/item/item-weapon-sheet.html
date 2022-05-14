@@ -27,11 +27,20 @@
         <div class="resource-content flexrow flex-center flex-between">
           <label for="data.type" class="resource-label long">{{localize "FABULAULTIMA.WeaponType"}}</label>
           <select name="data.type" id="type-select">
-            {{#each data.weaponType as |type key|}}
+            {{#each data.weaponTypes as |type key|}}
               {{option key (localize type) ../data.type}}
             {{/each}}
           </select>
         </div>
+
+        <div class="resource-content flexrow flex-center flex-between">
+            <label for="data.category" class="resource-label long">{{localize "FABULAULTIMA.WeaponCategory"}}</label>
+            <select name="data.category" id="type-select">
+              {{#each data.weaponCategories as |category key|}}
+                {{option key (localize category) ../data.category}}
+              {{/each}}
+            </select>
+          </div>
   
         <div class="resource-content flexrow flex-center flex-between">
           <label for="data.firstAbility" class="resource-label long">{{localize "FABULAULTIMA.FirstAbility"}}</label>
@@ -79,6 +88,14 @@
   
           <label for="data.damage.bonus" class="resource-label long">{{localize "FABULAULTIMA.WeaponDamage"}}</label>
           <input type="text" name="data.damage.bonus" value="{{data.damage.bonus}}" data-dtype="Number"/>
+        </div>
+
+        <div class="resource-content flexrow flex-center flex-between">
+          <label for="data.defenseBonus" class="resource-label long">{{localize "FABULAULTIMA.DefenseBonus"}}</label>
+          <input type="text" name="data.defenseBonus" value="{{data.defenseBonus}}" data-dtype="Number"/>
+  
+          <label for="data.magicDefenseBonus" class="resource-label long">{{localize "FABULAULTIMA.MagicDefenseBonus"}}</label>
+          <input type="text" name="data.magicDefenseBonus" value="{{data.magicDefenseBonus}}" data-dtype="Number"/>
         </div>
       </div>
     </section>

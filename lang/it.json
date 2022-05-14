@@ -90,5 +90,41 @@
   "FABULAULTIMA.Inventory": "Inventario",
   "FABULAULTIMA.Hinder": "Intralcio",
   "FABULAULTIMA.Objective": "Obiettivo",
-  "FABULAULTIMA.MaxLevel": "LA Massimo"
+  "FABULAULTIMA.Spell": "Incantesimo",
+  "FABULAULTIMA.MaxLevel": "LA Massimo",
+
+  "FABULAULTIMA.IsMartial": "E' Marziale?",
+  "FABULAULTIMA.TwoHanded": "E' a due mani?",
+  "FABULAULTIMA.WeaponType": "Tipo Arma",
+  "FABULAULTIMA.FirstAbility": "Prima Caratteristica",
+  "FABULAULTIMA.SecondAbility": "Seconda Caratteristica",
+  "FABULAULTIMA.DamageType": "Tipo Danno",
+  "FABULAULTIMA.WeaponDamage": "Danno Bonus",
+  "FABULAULTIMA.DefenseBonus": "Bonus Difesa",
+  "FABULAULTIMA.MagicDefenseBonus": "Bonus Difesa Magica",
+
+  "FABULAULTIMA.Arcane": "Arcana",
+  "FABULAULTIMA.Bow": "Arco",
+  "FABULAULTIMA.Flail": "Flagello",
+  "FABULAULTIMA.Firearm": "Arma da Fuoco",
+  "FABULAULTIMA.Spear": "Lancia",
+  "FABULAULTIMA.Throw": "Arma da Lancio",
+  "FABULAULTIMA.Heavy": "Arma Pesante",
+  "FABULAULTIMA.Dagger": "Pugnale",
+  "FABULAULTIMA.Fist": "Arma da Rissa",
+  "FABULAULTIMA.Sword": "Spada",
+
+  "FABULAULTIMA.Melee": "Mischia",
+  "FABULAULTIMA.Ranged": "Distanza",
+
+  "FABULAULTIMA.DamageType.None": "senza tipo",
+  "FABULAULTIMA.DamageType.Normal": "fisico",
+  "FABULAULTIMA.DamageType.Wind": "aria",
+  "FABULAULTIMA.DamageType.Lightning": "fulmine",
+  "FABULAULTIMA.DamageType.Dark": "ombra",
+  "FABULAULTIMA.DamageType.Earth": "terra",
+  "FABULAULTIMA.DamageType.Fire": "fuoco",
+  "FABULAULTIMA.DamageType.Ice": "ghiaccio",
+  "FABULAULTIMA.DamageType.Light": "luce",
+  "FABULAULTIMA.DamageType.Poison": "veleno"
 }

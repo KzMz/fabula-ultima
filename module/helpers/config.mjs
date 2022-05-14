@@ -47,7 +47,7 @@ FABULAULTIMA.actionTypes = {
     "spell": "FABULAULTIMA.Spell"
 }
 
-FABULAULTIMA.weaponTypes = {
+FABULAULTIMA.weaponCategories = {
     "arcane": "FABULAULTIMA.Arcane",
     "bow": "FABULAULTIMA.Bow",
     "flail": "FABULAULTIMA.Flail",
@@ -58,6 +58,11 @@ FABULAULTIMA.weaponTypes = {
     "dagger": "FABULAULTIMA.Dagger",
     "fist": "FABULAULTIMA.Fist",
     "sword": "FABULAULTIMA.Sword"
+}
+
+FABULAULTIMA.weaponTypes = {
+    "melee": "FABULAULTIMA.Melee",
+    "ranged": "FABULAULTIMA.Ranged"
 }
 
 FABULAULTIMA.damageTypes = {

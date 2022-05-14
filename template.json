@@ -89,7 +89,7 @@
     }
   },
   "Item": {
-    "types": ["item", "consumable", "feature", "spell", "class", "bond", "baseAttack", "weapon", "armor", "accessory", "damageType", "artifact"],
+    "types": ["item", "consumable", "feature", "spell", "class", "bond", "baseAttack", "weapon", "armor", "accessory", "artifact"],
     "templates": {
       "base": {
         "description": ""
@@ -189,10 +189,14 @@
       "firstAbility": "",
       "secondAbility": "",
       "twoHanded": false,
+      "category": "",
       "damage": {
         "bonus": 0,
         "type": ""
       },
+      "precisionBonus": 0,
+      "defenseBonus": 0,
+      "magicDefenseBonus": 0,
       "type": "",
       "isMartial": false
     },
@@ -206,9 +210,6 @@
     },
     "accessory": {
       "templates": ["base", "buyable", "rareable"]
-    },
-    "damageType": {
-      "description": ""
     },
     "artifact": {
       "templates": ["base"]
