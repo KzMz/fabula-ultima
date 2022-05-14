@@ -139,8 +139,9 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       }
     }
 
+    let mainHand;
     if (context.data.equipped.mainHand !== "") {
-      const mainHand = this.actor.items.get(context.data.equipped.mainHand);
+      mainHand = this.actor.items.get(context.data.equipped.mainHand);
       if (mainHand) {
         console.log(mainHand);
 
