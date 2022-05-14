@@ -89,7 +89,6 @@ export class FabulaUltimaActor extends Actor {
 
     const templateData = {
       actor: this,
-      tokenId: token ? `${token.scene._id}.${token.id}` : null,
       item: weapon.data,
       type: this.type,
       flavor: flavour
