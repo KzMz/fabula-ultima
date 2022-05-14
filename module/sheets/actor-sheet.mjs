@@ -110,24 +110,24 @@ export class FabulaUltimaActorSheet extends ActorSheet {
 
   async _updateEquipmentBasedStats(context) {
     context.data.initiativeBonus = 0;
-    context.data.defense = context.data.abilities.dex.value;
-    context.data.magicDefense = context.data.abilities.int.value;
+    context.data.defense = parseInt(context.data.abilities.dex.value);
+    context.data.magicDefense = parseInt(context.data.abilities.int.value);
 
     if (context.data.equipped.armor !== "") {
       const armor = this.actor.items.get(context.data.equipped.armor);
       if (armor) {
-        context.data.initiativeBonus = armor.data.data.initiativeBonus;
+        context.data.initiativeBonus = parseInt(armor.data.data.initiativeBonus);
         
         if (armor.data.data.defenseFormula.includes("@")) {
           const roll = await new Roll(armor.data.data.defenseFormula, this.actor.getRollData()).roll();
-          context.data.defense = roll.result;
+          context.data.defense = parseInt(roll.total);
         } else {
           context.data.defense = parseInt(armor.data.data.defenseFormula);
         }
 
         if (armor.data.data.magicDefenseFormula.includes("@")) {
           const roll = await new Roll(armor.data.data.magicDefenseFormula, this.actor.getRollData()).roll();
-          context.data.magicDefense = roll.result;
+          context.data.magicDefense = parseInt(roll.total);
         } else {
           context.data.magicDefense = parseInt(armor.data.data.defenseFormula);
         }
