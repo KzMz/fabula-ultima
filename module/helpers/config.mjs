@@ -66,16 +66,16 @@ FABULAULTIMA.weaponTypes = {
 }
 
 FABULAULTIMA.damageTypes = {
-    "none": "FABULAULTIMA.DamageType.None",
-    "normal": "FABULAULTIMA.DamageType.Normal",
-    "wind": "FABULAULTIMA.DamageType.Wind",
-    "lightning": "FABULAULTIMA.DamageType.Lightning",
-    "dark": "FABULAULTIMA.DamageType.Dark",
-    "earth": "FABULAULTIMA.DamageType.Earth",
-    "fire": "FABULAULTIMA.DamageType.Fire",
-    "ice": "FABULAULTIMA.DamageType.Ice",
-    "light": "FABULAULTIMA.DamageType.Light",
-    "poison": "FABULAULTIMA.DamageType.Poison"
+    "none": "FABULAULTIMA.DamageNone",
+    "normal": "FABULAULTIMA.DamageNormal",
+    "wind": "FABULAULTIMA.DamageWind",
+    "lightning": "FABULAULTIMA.DamageLightning",
+    "dark": "FABULAULTIMA.DamageDark",
+    "earth": "FABULAULTIMA.DamageEarth",
+    "fire": "FABULAULTIMA.DamageFire",
+    "ice": "FABULAULTIMA.DamageIce",
+    "light": "FABULAULTIMA.DamageLight",
+    "poison": "FABULAULTIMA.DamagePoison"
 }
 
 FABULAULTIMA.statuses = {

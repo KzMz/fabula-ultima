@@ -117,14 +117,14 @@
   "FABULAULTIMA.Melee": "Mischia",
   "FABULAULTIMA.Ranged": "Distanza",
 
-  "FABULAULTIMA.DamageType.None": "senza tipo",
-  "FABULAULTIMA.DamageType.Normal": "fisico",
-  "FABULAULTIMA.DamageType.Wind": "aria",
-  "FABULAULTIMA.DamageType.Lightning": "fulmine",
-  "FABULAULTIMA.DamageType.Dark": "ombra",
-  "FABULAULTIMA.DamageType.Earth": "terra",
-  "FABULAULTIMA.DamageType.Fire": "fuoco",
-  "FABULAULTIMA.DamageType.Ice": "ghiaccio",
-  "FABULAULTIMA.DamageType.Light": "luce",
-  "FABULAULTIMA.DamageType.Poison": "veleno"
+  "FABULAULTIMA.DamageNone": "senza tipo",
+  "FABULAULTIMA.DamageNormal": "fisico",
+  "FABULAULTIMA.DamageWind": "aria",
+  "FABULAULTIMA.DamageLightning": "fulmine",
+  "FABULAULTIMA.DamageDark": "ombra",
+  "FABULAULTIMA.DamageEarth": "terra",
+  "FABULAULTIMA.DamageFire": "fuoco",
+  "FABULAULTIMA.DamageIce": "ghiaccio",
+  "FABULAULTIMA.DamageLight": "luce",
+  "FABULAULTIMA.DamagePoison": "veleno"
 }
