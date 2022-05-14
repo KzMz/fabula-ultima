@@ -107,7 +107,7 @@
 
   "FABULAULTIMA.WeaponName": "Arma",
   "FABULAULTIMA.PrecisionTest": "Test Precisione",
-  "FABULAULTIMA.Damage": "Danno",
+  "FABULAULTIMA.Damage": "Danni",
   "FABULAULTIMA.EquipStatus": "Equipaggiato?",
 
   "FABULAULTIMA.Arcane": "Arcana",
@@ -125,15 +125,15 @@
   "FABULAULTIMA.Ranged": "Distanza",
 
   "FABULAULTIMA.DamageNone": "senza tipo",
-  "FABULAULTIMA.DamageNormal": "fisico",
-  "FABULAULTIMA.DamageWind": "aria",
-  "FABULAULTIMA.DamageLightning": "fulmine",
-  "FABULAULTIMA.DamageDark": "ombra",
-  "FABULAULTIMA.DamageEarth": "terra",
-  "FABULAULTIMA.DamageFire": "fuoco",
-  "FABULAULTIMA.DamageIce": "ghiaccio",
-  "FABULAULTIMA.DamageLight": "luce",
-  "FABULAULTIMA.DamagePoison": "veleno",
+  "FABULAULTIMA.DamageNormal": "fisici",
+  "FABULAULTIMA.DamageWind": "da aria",
+  "FABULAULTIMA.DamageLightning": "da fulmine",
+  "FABULAULTIMA.DamageDark": "da ombra",
+  "FABULAULTIMA.DamageEarth": "da terra",
+  "FABULAULTIMA.DamageFire": "da fuoco",
+  "FABULAULTIMA.DamageIce": "da ghiaccio",
+  "FABULAULTIMA.DamageLight": "da luce",
+  "FABULAULTIMA.DamagePoison": "da veleno",
 
   "FABULAULTIMA.Stats": "Principale",
   "FABULAULTIMA.Equipment": "Equipaggiamento",

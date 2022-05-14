@@ -128,7 +128,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       i.img = i.img || DEFAULT_TOKEN;
       // Append to gear.
       if (i.type === 'weapon') {
-        i.formula = "【" + this.actor.getItemFormula(i) + "】";
+        i.formula = this.actor.getItemFormula(i);
  
         i.data.category = game.i18n.localize(CONFIG.FABULAULTIMA.weaponCategories[i.data.category]);
         i.data.type = game.i18n.localize(CONFIG.FABULAULTIMA.weaponTypes[i.data.type]);
