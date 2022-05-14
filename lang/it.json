@@ -152,5 +152,7 @@
   "FABULAULTIMA.EquipTwoHanded": "Due Mani",
   "FABULAULTIMA.MainHand": "Mano Principale",
   "FABULAULTIMA.OffHand": "Mano Secondaria",
-  "FABULAULTIMA.Delete": "Cancella"
+  "FABULAULTIMA.Delete": "Cancella",
+
+  "FABULAULTIMA.RollPrecisionTest": "effettua un Test Precisione!"
 }

@@ -83,6 +83,60 @@ export class FabulaUltimaActor extends Actor {
     return this.data.data.health.value <= Math.floor(this.data.data.health.max / 2);
   }
 
+  async rollWeapon(weapon) {
+    const token = this.token;
+    const flavour = game.i18n.localize("FABULAULTIMA.RollPrecisionTest");
+
+    const templateData = {
+      actor: this,
+      tokenId: token ? `${token.scene._id}.${token.id}` : null,
+      item: weapon.data,
+      type: this.type,
+      flavor: flavour
+    };
+    
+    let formula = this.getItemFormula(item);
+    for (const ability in CONFIG.FABULAULTIMA.abilities) {
+      formula = formula.replace(`@${ability}`, `1d@${ability}.value`);
+    }
+
+    const roll = new Roll(formula).roll();
+    const d = roll.dice;
+
+    console.log(d);
+
+    templateData["formula"] = this.getItemFormula(item);
+    templateData["total"] = roll.total;
+    templateData["dice"] = roll.dice;
+    templateData["damageType"] = weapon.data.data.damage.type;
+    templateData["damageTypeLoc"] = game.i18n.localize(CONFIG.FABULAULTIMA.damageTypes[templateData["damageType"]]);
+    templateData["damage"] = 10;
+
+    const template = "systems/fabula-ultima/templates/chat/weapon-card.html";
+    const html = await renderTemplate(template, templateData);
+
+    const chatData = {
+      user: game.user._id,
+      type: CONST.CHAT_MESSAGE_TYPES.OTHER,
+      content: html,
+      speaker: {
+        actor: this._id,
+        token: this.token,
+        alias: this.name
+      }
+    };
+
+    return ChatMessage.create(chatData);
+  }
+
+  getItemFormula(item) {
+    let base = "@" + item.data.firstAbility + " + @" + item.data.secondAbility; 
+    if (item.data.precisionBonus !== 0) {
+      base += " + " + item.data.precisionBonus;
+    }
+    return base;
+  }
+
   /**
    * Prepare character roll data.
    */

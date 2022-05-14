@@ -128,7 +128,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       i.img = i.img || DEFAULT_TOKEN;
       // Append to gear.
       if (i.type === 'weapon') {
-        i.formula = "【" + this._getItemFormula(i) + "】";
+        i.formula = "【" + this.actor.getItemFormula(i) + "】";
  
         i.data.category = game.i18n.localize(CONFIG.FABULAULTIMA.weaponCategories[i.data.category]);
         i.data.type = game.i18n.localize(CONFIG.FABULAULTIMA.weaponTypes[i.data.type]);
@@ -195,14 +195,6 @@ export class FabulaUltimaActorSheet extends ActorSheet {
 
     context.classes = classes;
     context.spells = spells;
-  }
-
-  _getItemFormula(item) {
-    let base = "@" + item.data.firstAbility + " + @" + item.data.secondAbility; 
-    if (item.data.precisionBonus !== 0) {
-      base += " + " + item.data.precisionBonus;
-    }
-    return base;
   }
 
   _updateCharacterLevel(context) {
@@ -416,15 +408,22 @@ export class FabulaUltimaActorSheet extends ActorSheet {
 
     // Handle item rolls.
     if (dataset.rollType) {
-      if (dataset.rollType == 'item') {
+      /*if (dataset.rollType == 'item') {
         const itemId = element.closest('.item').dataset.itemId;
         const item = this.actor.items.get(itemId);
         if (item) return item.roll();
+      } */
+      
+      if (dataset.rollType === "weapon") {
+        const itemId = element.closest('.item').dataset.itemId;
+        const item = this.actor.items.get(itemId);
+
+        return this.actor.rollWeapon(item);
       }
     }
 
     // Handle rolls that supply the formula directly.
-    if (dataset.roll) {
+    /*if (dataset.roll) {
       let label = dataset.label ? `[roll] ${dataset.label}` : '';
       let roll = new Roll(dataset.roll, this.actor.getRollData()).roll();
       roll.toMessage({
@@ -433,7 +432,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
         rollMode: game.settings.get('core', 'rollMode'),
       });
       return roll;
-    }
+    }*/
   }
 
   /** @override */
