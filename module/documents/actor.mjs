@@ -100,6 +100,8 @@ export class FabulaUltimaActor extends Actor {
     const roll = new Roll(formula).roll();
     const d = roll.dice;
 
+    console.log(d);
+
     const maxVal = d.reduce(function (a, b) {
       return Math.max(a.number, b.number);
     });
