@@ -25,7 +25,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
   /* -------------------------------------------- */
 
   /** @override */
-  getData() {
+  async getData() {
     // Retrieve the data structure from the base sheet. You can inspect or log
     // the context variable to see the structure, but some key properties for
     // sheets are the actor object, the data object, whether or not it's
@@ -42,7 +42,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
     // Prepare character data and items.
     if (actorData.type == 'character') {
       this._prepareItems(context);
-      this._prepareCharacterData(context);
+      await this._prepareCharacterData(context);
     }
 
     // Prepare NPC data and items.
@@ -68,7 +68,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
    *
    * @return {undefined}
    */
-  _prepareCharacterData(context) {
+  async _prepareCharacterData(context) {
     // Handle ability scores.
     context.data.orderedAbilities = {};
 
@@ -105,10 +105,10 @@ export class FabulaUltimaActorSheet extends ActorSheet {
     this._updateCharacterLevel(context);
     this._updateCharacterPoints(context);
     this._updateCharacterAttributes(context);
-    this._updateEquipmentBasedStats(context);
+    await this._updateEquipmentBasedStats(context);
   }
 
-  _updateEquipmentBasedStats(context) {
+  async _updateEquipmentBasedStats(context) {
     context.data.initiativeBonus = 0;
     context.data.defense = context.data.abilities.dex.value;
     context.data.magicDefense = context.data.abilities.int.value;
