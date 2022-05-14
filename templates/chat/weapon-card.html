@@ -20,9 +20,7 @@
                             <div class="dice">
                                 <ol class="dice-rolls">
                                     {{#each die.results as |result id|}}
-                                        <li class="roll die d{{die.faces}} {{#if result.discarded}}discarded{{/if}} {{#if (eq result.result 1)}}min{{/if}} {{#if (eq result.result die.faces)}}max{{/if}}">
-                                            {{result.result}}
-                                        </li>
+                                        <li class="roll die d{{die.faces}} {{#if result.discarded}}discarded{{/if}} {{#if (eq result.result 1)}}min{{/if}} {{#if (eq result.result die.faces)}}max{{/if}}">{{result.result}}</li>
                                     {{/each}}
                                 </ol>
                             </div>

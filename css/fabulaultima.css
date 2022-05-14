@@ -232,6 +232,36 @@
   min-width: 820px;
 }
 
+.critical {
+  color: green;
+}
+.fumble {
+  color: red;
+}
+.health-recover {
+  color: red !important;
+}
+.mana-recover {
+  color: blue !important;
+}
+
+.chat-card .card-header {
+  padding-bottom: 10px;
+}
+.chat-card .card-header img {
+  flex: 0 0 36px;
+  margin-right: 10px;
+}
+.chat-card .card-header h3 {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  font-size: 1.3em;
+}
+.chat-card .card-buttons button:hover {
+  cursor: pointer;
+}
+
 .fabulaultima .sheet-header {
   -webkit-box-flex: 0;
   -ms-flex: 0 auto;
