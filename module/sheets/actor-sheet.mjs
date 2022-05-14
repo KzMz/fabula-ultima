@@ -370,7 +370,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
     if (!this.isEditable) return;
 
     // Add Inventory Item
-    //html.find('.item-create').click(this._onItemCreate.bind(this));
+    html.find('.item-create').click(this._onItemCreate.bind(this));
 
     html.find('.item-equipMain').click(async ev => {
       const li = $(ev.currentTarget).parents(".item");
