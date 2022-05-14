@@ -101,7 +101,33 @@
           <input type="text" name="data.magicDefenseBonus" value="{{data.magicDefenseBonus}}" data-dtype="Number"/>
         </div>
 
-        {{> "systems/fabulaultima/templates/item/parts/item-quality.html"}}
+        <span class="resource-label">{{localize "FABULAULTIMA.Quality"}}</span>
+        <div class="resource-content flexrow flex-center flex-between">
+            {{editor content=data.quality.description target="data.quality.description" rollData=rollData button=true owner=owner editable=editable}}
+        </div>
+        
+        <div class="resource-content flexrow flex-center flex-between">
+            <label for="data.quality.overrideDamageType" class="resource-label long">{{localize "FABULAULTIMA.DamageType"}}</label>
+            <select name="data.quality.overrideDamageType">
+                {{#each data.damageTypes as |damageType key|}}
+                {{option key (localize damageType) ../data.damage.type}}
+                {{/each}}
+            </select>
+        </div>
+        
+        <div class="resource-content flexrow flex-center flex-between">
+            <label for="data.quality.initiativeBonus" class="resource-label long">{{localize "FABULAULTIMA.InitiativeBonus"}}</label>
+            <input type="text" name="data.quality.initiativeBonus" value="{{data.quality.initiativeBonus}}" data-dtype="Number"/>
+        
+            <label for="data.quality.precisionBonus" class="resource-label long">{{localize "FABULAULTIMA.PrecisionBonus"}}</label>
+            <input type="text" name="data.quality.precisionBonus" value="{{data.quality.precisionBonus}}" data-dtype="Number"/>
+        
+            <label for="data.quality.defenseBonus" class="resource-label long">{{localize "FABULAULTIMA.DefenseBonus"}}</label>
+            <input type="text" name="data.quality.defenseBonus" value="{{data.quality.defenseBonus}}" data-dtype="Number"/>
+        
+            <label for="data.quality.magicDefenseBonus" class="resource-label long">{{localize "FABULAULTIMA.MagicDefenseBonus"}}</label>
+            <input type="text" name="data.quality.magicDefenseBonus" value="{{data.quality.magicDefenseBonus}}" data-dtype="Number"/>
+        </div>
 
         <div class="resource-content flexrow flex-center flex-between">
           <label for="data.zenit" class="resource-label long">{{localize "FABULAULTIMA.Price"}}</label>
