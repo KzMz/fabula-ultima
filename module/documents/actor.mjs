@@ -98,7 +98,7 @@ export class FabulaUltimaActor extends Actor {
     let formula = this.getRollFormula(weapon.data);
     console.log(formula);
 
-    const roll = await new Roll(formula, this.getRollData()).roll();
+    const roll = await new Roll(formula, this.getRollData()).roll({async: true});
     const d = roll.dice;
 
     console.log(roll);
@@ -125,8 +125,10 @@ export class FabulaUltimaActor extends Actor {
 
     const chatData = {
       user: game.user._id,
-      type: CONST.CHAT_MESSAGE_TYPES.OTHER,
+      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
       content: html,
+      rollMode: game.settings.get("core", "rollMode"),
+      roll: roll,
       speaker: {
         actor: this._id,
         token: this.token,
