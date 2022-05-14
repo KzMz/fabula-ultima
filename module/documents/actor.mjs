@@ -129,7 +129,6 @@ export class FabulaUltimaActor extends Actor {
       rollMode: game.settings.get("core", "rollMode"),
       roll: roll,
       speaker: {
-        actor: this._id,
         token: this.token.id,
       }
     };
