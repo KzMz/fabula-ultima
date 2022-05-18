@@ -101,7 +101,7 @@ export class FabulaUltimaActor extends Actor {
     const isFumble = d.every(die => die.total === 1);
     const isCrit = d.every(die => die.total === d[0].total && die.total !== 1 && die.total > 5); // TODO frenesia
 
-    templateData["formula"] = this.getItemFormula(weapon.data);
+    templateData["formula"] = this.getGenericFormula(firstAbility, secondAbility, bonus);
     templateData["total"] = roll.total;
     templateData["dice"] = roll.dice;
     templateData["isCritical"] = isCrit;
@@ -203,6 +203,14 @@ export class FabulaUltimaActor extends Actor {
       }
     }
 
+    return base;
+  }
+
+  getGenericFormula(firstAbility, secondAbility, bonus = 0) {
+    let base = "【" + firstAbility.toUpperCase() + " + " + secondAbility.toUpperCase() + "】"; 
+    if (bonus !== 0) {
+      base += " + " + bonus;
+    }
     return base;
   }
 

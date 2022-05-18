@@ -7,9 +7,15 @@ export class FabulaUltimaGroupRollRoller extends Application {
         this.dc = data.dc;
         this.firstAbility = data.firstAbility;
         this.secondAbility = data.secondAbility;
+
+        console.log(data.leader);
+
+
         if (game.user.character)
             this.isLeader = game.user.character.id === data.leader;
         
+        console.log(game.user.character);
+
         this.bondBonus = 0;
 
         if (data.title) {

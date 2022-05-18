@@ -64,7 +64,7 @@ export class FabulaUltimaGroupRoll {
             return null;
         });
 
-        console.log(actors);
+        console.log(message);
 
         actors = actors.filter(a => a);
         if (actors.length === 0) 
