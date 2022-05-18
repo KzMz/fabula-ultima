@@ -49,7 +49,7 @@ export class FabulaUltimaGroupRoll {
     }
 
     static ready() {
-        FabulaUltimaGroupRoll.Socket = socketlib.registerModule("fabulaultima");
+        FabulaUltimaGroupRoll.Socket = socketlib.registerSystem("fabulaultima");
         FabulaUltimaGroupRoll.Socket.register("grouproll", (message) => {
           console.log(message);
           FabulaUltimaGroupRoll.onMessage(message);
