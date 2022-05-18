@@ -3,6 +3,7 @@ import { FabulaUltimaGroupRollRoller } from "./groupRoll.roller.mjs";
 
 export class FabulaUltimaGroupRoll {
     static MSG_ID = "system.fabulaultima.grouproll";
+    static Socket;
 
     static fromUuid(uuid) {
         let parts = uuid.split(".");
@@ -48,9 +49,11 @@ export class FabulaUltimaGroupRoll {
     }
 
     static ready() {
-        console.log("Fabula Ultima | Ready");
-
-        game.socket.on(FabulaUltimaGroupRoll.MSG_ID, FabulaUltimaGroupRoll.onMessage);
+        FabulaUltimaGroupRoll.Socket = socketlib.registerModule("fabulaultima");
+        FabulaUltimaGroupRoll.Socket.register("grouproll", (message) => {
+          console.log(message);
+          FabulaUltimaGroupRoll.onMessage(message);
+        });
     }
 
     static onMessage(message) {
@@ -68,7 +71,7 @@ export class FabulaUltimaGroupRoll {
         else if (message.user === "tokens")
             actors = canvas.tokens.controlled.map(t => t.actor).filter(a => message.actors.includes(a.id));
         else
-            actors = message.actors.map(aid => LMRTFY.fromUuid(aid));
+            actors = message.actors.map(aid => FabulaUltimaGroupRoll.fromUuid(aid));
 
         actors = actors.filter(a => a);
         if (actors.length === 0) 

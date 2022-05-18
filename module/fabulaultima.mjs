@@ -83,10 +83,14 @@ Hooks.once("ready", async function() {
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
   Hooks.on("hotbarDrop", (bar, data, slot) => createItemMacro(data, slot));
 
-  FabulaUltimaGroupRoll.ready();
-
   if (game.combat)
     game.fabulaultima.combatHud.addToScreen();
+});
+
+Hooks.once("socketlib.ready", () => {
+  console.log("Fabula Ultima | Ready");
+
+  FabulaUltimaGroupRoll.ready();
 });
 
 Hooks.on("createCombat", async function() {
