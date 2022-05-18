@@ -57,7 +57,11 @@ export class FabulaUltimaGroupRoll {
 
     static onMessage(message) {
         let actors = message.actors.map(aid => {
-            return game.users.find(u => u.character && u.character.id === aid);
+            const user = game.users.find(u => u.character && u.character.id === aid);
+            if (user)
+                return user.character;
+            
+            return null;
         });
 
         console.log(actors);
@@ -66,7 +70,7 @@ export class FabulaUltimaGroupRoll {
         if (actors.length === 0) 
             return;
 
-        new FabulaUltimaGroupRollRoller(actors, message);
+        new FabulaUltimaGroupRollRoller(actors, message).render(true);
     }
 
     static groupRoll() {
