@@ -52,25 +52,25 @@ export class FabulaUltimaGroupRoll {
     }
 
     static onMessage(message) {
-        if (data.user === "character" &&
-            (!game.user.character || !data.actors.includes(game.user.character.id)))
+        if (message.user === "character" &&
+            (!game.user.character || !message.actors.includes(game.user.character.id)))
             return;
-        else if (!["character", "tokens"].includes(data.user) && data.user !== game.user.id)
+        else if (!["character", "tokens"].includes(message.user) && message.user !== game.user.id)
             return;
 
         let actors = [];
-        if (data.user === "character")
+        if (message.user === "character")
             actors = [game.user.character];
-        else if (data.user === "tokens")
-            actors = canvas.tokens.controlled.map(t => t.actor).filter(a => data.actors.includes(a.id));
+        else if (message.user === "tokens")
+            actors = canvas.tokens.controlled.map(t => t.actor).filter(a => message.actors.includes(a.id));
         else
-            actors = data.actors.map(aid => LMRTFY.fromUuid(aid));
+            actors = message.actors.map(aid => LMRTFY.fromUuid(aid));
 
         actors = actors.filter(a => a);
         if (actors.length === 0) 
             return;
 
-        new FabulaUltimaGroupRollRoller(actors, data);
+        new FabulaUltimaGroupRollRoller(actors, message);
     }
 
     static groupRoll() {
