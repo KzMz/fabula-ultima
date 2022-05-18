@@ -107,6 +107,7 @@ export class FabulaUltimaGroupRollRequestor extends FormApplication {
             message: formData.message,
             leader: actors[0]
         };
+
         game.socket.emit(FabulaUltimaGroupRoll.MSG_ID, socketData);
 
         FabulaUltimaGroupRoll.onMessage(socketData);

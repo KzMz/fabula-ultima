@@ -48,6 +48,8 @@ export class FabulaUltimaGroupRoll {
     }
 
     static ready() {
+        console.log("Fabula Ultima | Ready");
+
         game.socket.on(FabulaUltimaGroupRoll.MSG_ID, FabulaUltimaGroupRoll.onMessage);
     }
 
