@@ -40,6 +40,7 @@ export class FabulaUltimaGroupRollRoller extends Application {
             actors: this.actors,
             abilities: this.abilities,
             message: this.message,
+            isLeader: this.isLeader
         };
 
         return data;
@@ -63,7 +64,7 @@ export class FabulaUltimaGroupRollRoller extends Application {
         if (this.isLeader) {
             let bonus = 0;
             for (const actor of this.actors) {
-                const messageList = game.messages.filter(i => i.roll && ((i.data.speaker.actor && i.data.speaker.actor.id === actor.id) || (i.data.speaker.token && i.data.speaker.token === actor.token.id)));
+                const messageList = game.messages.filter(i => i.roll && ((i.data.speaker.actor && i.data.speaker.actor.id === actor) || (i.data.speaker.token && i.data.speaker.token.actor.id === actor)));
                 console.log(messageList);
 
                 const last = messageList.length - 1;

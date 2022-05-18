@@ -117,8 +117,8 @@ export class FabulaUltimaActor extends Actor {
       rollMode: game.settings.get("core", "rollMode"),
       roll: roll,
       speaker: {
-        token: this.token.id,
-        alias: this.token.name,
+        token: this.token ? this.token.id : null,
+        alias: this.token ? this.token.name : this.name,
         actor: this._id
       }
     };
@@ -168,8 +168,8 @@ export class FabulaUltimaActor extends Actor {
       rollMode: game.settings.get("core", "rollMode"),
       roll: roll,
       speaker: {
-        token: this.token.id,
-        alias: this.token.name,
+        token: this.token ? this.token.id : null,
+        alias: this.token ? this.token.name : this.name,
         actor: this._id
       }
     };
