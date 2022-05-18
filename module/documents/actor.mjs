@@ -127,7 +127,6 @@ export class FabulaUltimaActor extends Actor {
   }  
 
   async rollWeapon(weapon) {
-    const token = this.token;
     const flavour = game.i18n.localize("FABULAULTIMA.RollPrecisionTest");
 
     const templateData = {
@@ -161,6 +160,11 @@ export class FabulaUltimaActor extends Actor {
     const template = "systems/fabulaultima/templates/chat/weapon-card.html";
     const html = await renderTemplate(template, templateData);
 
+    let token = this.token;
+    if (!token) {
+      token = this.getActiveTokens()[0];
+    }
+
     const chatData = {
       user: game.user._id,
       type: CONST.CHAT_MESSAGE_TYPES.ROLL,
@@ -170,7 +174,7 @@ export class FabulaUltimaActor extends Actor {
       speaker: {
         token: this.token ? this.token.id : null,
         alias: this.token ? this.token.name : this.name,
-        actor: this._id
+        actor: this.id
       }
     };
 
