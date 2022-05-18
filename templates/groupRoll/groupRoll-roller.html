@@ -1,21 +1,25 @@
-<div class="lmrtfy-dialog">
-    <div class="lmrtfy-roller-intro">
-        <span>{{localize "LMRTFY.RollerIntro"}}</span>
-    </div>
-    <div class="lmrtfy-actor-list">
-        {{#each actors}}
-            <div class="lmrtfy-avatar">
-                <img src="{{this.img}}"/>
-                <strong><em>{{this.name}}</em></strong>
-            </div>
-        {{/each}}
+<div class="grouproll-dialog">
+    <div class="grouproll-roller-intro">
+        <span>{{localize "FABULAULTIMA.RollerIntro"}}</span>
     </div>
     {{#if message}}
-    <div class="lmrtfy-reason">
-        <span><strong>{{localize "LMRTFY.Reason"}}</strong> {{message}}</span>
+    <div class="grouproll-reason">
+        <span><strong>{{localize "FABULAULTIMA.Reason"}}</strong> {{message}}</span>
     </div>
     {{/if}}
+    {{#if isLeader}}
+    <div class="grouproll-leader">
+        <span><strong>{{localize "FABULAULTIMA.YouReLeader}}</strong></span>
+    </div>
+
+    <fieldset>
+        <div class="form-group">
+            <label>{{localize "FABULAULTIMA.BondBonus"}}</label>
+            <input type="number" name="bondbonus" value="" placeholder="0" data-dtype="Integer"/>
+        </div>
+    </fieldset>
+    {{/if}}
     <div>
-        <button type="button" class="lmrtfy-ability-check" data-ability={{ability}}>{{localize "LMRTFY.AbilityCheck"}} {{localize name}}</button>
+        <button type="button" class="group-roll-check">{{localize "FABULAULTIMA.GroupRollCheck"}}</button>
     </div>
 </div>

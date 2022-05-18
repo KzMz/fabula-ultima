@@ -1,0 +1,34 @@
+<div class="base-card" data-actor-id="{{actor._id}}" data-item-id="{{#if overrideId}}{{overrideId}}{{else}}{{item._id}}{{/if}}"
+    {{#if tokenId}}data-token-id="{{tokenId}}"{{/if}}>
+
+    <div class="card-result dice-roll">
+        <div class="dice-result">
+            <div class="dice-formula">{{formula}}</div>
+            {{#if dice.length}}
+                <div class="dice-tooltip" style="display: none;">
+                    <section class="tooltip-part">
+                        {{#each dice as |die id|}}
+                            <div class="dice">
+                                <ol class="dice-rolls">
+                                    {{#each die.results as |result id|}}
+                                        <li class="roll die d{{die.faces}} {{#if result.discarded}}discarded{{/if}} {{#if (eq result.result 1)}}min{{/if}} {{#if (eq result.result die.faces)}}max{{/if}}">{{result.result}}</li>
+                                    {{/each}}
+                                </ol>
+                            </div>
+                        {{/each}}
+                    </section>
+                </div>
+            {{/if}}
+
+            <h3>{{localize "FABULAULTIMA.GenericTest"}}</h3>
+            <h4 class="dice-total {{#if isCritical}}critical{{/if}} {{#if isFumble}}fumble{{/if}} {{#if isHealth}}health-recover{{/if}} {{#if isMana}}mana-recover{{/if}}">
+                {{total}} {{#if custom}}{{custom}}{{/if}}
+            </h4>
+
+            <div class="card-buttons">
+                <!-- TODO fabula points usage -->
+                <!-- <button data-action="XXX"> -->
+            </div>
+        </div>
+    </div>
+</div>

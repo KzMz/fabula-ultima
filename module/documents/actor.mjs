@@ -83,6 +83,49 @@ export class FabulaUltimaActor extends Actor {
     return this.data.data.health.value <= Math.floor(this.data.data.health.max / 2);
   }
 
+  async roll(firstAbility, secondAbility, bonus = 0) {
+    const templateData = {
+      actor: this,
+      type: this.type
+    };
+
+    let formula = this.getBaseRollFormula(firstAbility, secondAbility, bonus);
+
+    const roll = await new Roll(formula, this.getRollData()).roll({async: true});
+    const d = roll.dice;
+
+    const maxVal = d.reduce(function (a, b) {
+      return Math.max(a.total, b.total);
+    });
+
+    const isFumble = d.every(die => die.total === 1);
+    const isCrit = d.every(die => die.total === d[0].total && die.total !== 1 && die.total > 5); // TODO frenesia
+
+    templateData["formula"] = this.getItemFormula(weapon.data);
+    templateData["total"] = roll.total;
+    templateData["dice"] = roll.dice;
+    templateData["isCritical"] = isCrit;
+    templateData["isFumble"] = isFumble;
+
+    const template = "systems/fabulaultima/templates/chat/base-card.html";
+    const html = await renderTemplate(template, templateData);
+
+    const chatData = {
+      user: game.user._id,
+      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+      content: html,
+      rollMode: game.settings.get("core", "rollMode"),
+      roll: roll,
+      speaker: {
+        token: this.token.id,
+        alias: this.token.name,
+        actor: this._id
+      }
+    };
+
+    return ChatMessage.create(chatData);
+  }  
+
   async rollWeapon(weapon) {
     const token = this.token;
     const flavour = game.i18n.localize("FABULAULTIMA.RollPrecisionTest");
@@ -95,20 +138,16 @@ export class FabulaUltimaActor extends Actor {
     };
     
     let formula = this.getRollFormula(weapon.data);
-    console.log(formula);
 
     const roll = await new Roll(formula, this.getRollData()).roll({async: true});
     const d = roll.dice;
-
-    console.log(roll);
-    console.log(d);
 
     const maxVal = d.reduce(function (a, b) {
       return Math.max(a.total, b.total);
     });
 
     const isFumble = d.every(die => die.total === 1);
-    const isCrit = d.every(die => die.total === d[0].total && die.total !== 1 && die.total > 5); // TODO frenesia
+    const isCrit = d.every(die => die.total === d[0].total && die.total !== 1 && die.total > 5);
 
     templateData["formula"] = this.getItemFormula(weapon.data);
     templateData["total"] = roll.total;
@@ -130,7 +169,8 @@ export class FabulaUltimaActor extends Actor {
       roll: roll,
       speaker: {
         token: this.token.id,
-        alias: this.token.name
+        alias: this.token.name,
+        actor: this._id
       }
     };
 
@@ -167,9 +207,13 @@ export class FabulaUltimaActor extends Actor {
   }
 
   getRollFormula(item) {
-    let base = "1d@" + item.data.firstAbility + " + 1d@" + item.data.secondAbility; 
-    if (item.data.precisionBonus !== 0) {
-      base += " + " + item.data.precisionBonus;
+    return this.getBaseRollFormula(item.data.firstAbility, item.data.secondAbility, item.data.precisionBonus);
+  }
+
+  getBaseRollFormula(firstAbility, secondAbility, bonus = 0) {
+    let base = "1d@" + firstAbility + " + 1d@" + secondAbility;
+    if (bonus !== 0) {
+      base += " + " + bonus;
     }
     return base;
   }
