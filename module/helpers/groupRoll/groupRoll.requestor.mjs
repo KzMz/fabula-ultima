@@ -95,8 +95,6 @@ export class FabulaUltimaGroupRollRequestor extends FormApplication {
             return acc;
         }, []);
 
-        console.log(formData);
-
         const gameActors = game.actors.contents || game.actors.entities;
 
         const socketData = {

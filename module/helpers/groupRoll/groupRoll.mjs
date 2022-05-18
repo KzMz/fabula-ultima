@@ -52,6 +52,8 @@ export class FabulaUltimaGroupRoll {
     }
 
     static onMessage(message) {
+        console.log(message);
+
         if (message.user === "character" &&
             (!game.user.character || !message.actors.includes(game.user.character.id)))
             return;
