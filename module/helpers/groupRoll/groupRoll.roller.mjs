@@ -65,7 +65,7 @@ export class FabulaUltimaGroupRollRoller extends Application {
             let bonus = 0;
             for (const actor of this.actors) {
                 console.log(actor);
-                const messageList = game.messages.filter(i => i.roll && (i.data.speaker.actor === actor));
+                const messageList = game.messages.filter(i => i.roll && (i.data.speaker.actor === actor.id));
                 console.log(messageList);
 
                 const last = messageList.length - 1;
