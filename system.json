@@ -24,6 +24,7 @@
   ],
   "gridDistance": 1,
   "gridUnits": "m",
+  "socket": true,
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "mana",
   "url": "This is auto replaced",
