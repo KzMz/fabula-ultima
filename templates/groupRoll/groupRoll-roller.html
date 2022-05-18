@@ -1,0 +1,21 @@
+<div class="lmrtfy-dialog">
+    <div class="lmrtfy-roller-intro">
+        <span>{{localize "LMRTFY.RollerIntro"}}</span>
+    </div>
+    <div class="lmrtfy-actor-list">
+        {{#each actors}}
+            <div class="lmrtfy-avatar">
+                <img src="{{this.img}}"/>
+                <strong><em>{{this.name}}</em></strong>
+            </div>
+        {{/each}}
+    </div>
+    {{#if message}}
+    <div class="lmrtfy-reason">
+        <span><strong>{{localize "LMRTFY.Reason"}}</strong> {{message}}</span>
+    </div>
+    {{/if}}
+    <div>
+        <button type="button" class="lmrtfy-ability-check" data-ability={{ability}}>{{localize "LMRTFY.AbilityCheck"}} {{localize name}}</button>
+    </div>
+</div>

@@ -7,7 +7,8 @@ import { FabulaUltimaItemSheet } from "./sheets/item-sheet.mjs";
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
 import { FABULAULTIMA } from "./helpers/config.mjs";
-import {FabulaUltimaCombatHud} from "./helpers/combat.js";
+import { FabulaUltimaCombatHud } from "./helpers/combat.js";
+import { FabulaUltimaGroupRoll } from "./helpers/groupRoll/groupRoll.mjs";
 
 /* -------------------------------------------- */
 /*  Init Hook                                   */
@@ -105,6 +106,10 @@ Hooks.on("deleteCombatant", async function () {
 Hooks.on("updateActor", async function (actor) {
   if (game.combat)
     game.fabulaultima.combatHud.update();
+});
+
+Hooks.on('getSceneControlButtons', async function (buttons) {
+  FabulaUltimaGroupRoll.getSceneControlButtons(buttons);
 });
 
 /* -------------------------------------------- */

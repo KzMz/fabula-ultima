@@ -1,0 +1,61 @@
+<form autocomplete="off" onsubmit="event.preventDefault();">
+    <fieldset>
+        <div class="form-group">
+            <label>{{localize "FABULAULTIMA.SelectLeader"}}</label>
+
+            <select name="user" data-dtype="String">
+                <option value="tokens" selected>{{localize "FABULAULTIMA.ControlledTokens"}}</option>
+                <option vlaue="character">{{localize "FABULAULTIMA.AssignedCharacters"}}</option>
+                {{#each users}}
+                    <option value="{{this.id}}">{{this.name}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="form-group group-roll-actor-avatars">
+            {{#each actors}}
+                <div class="group-roll-actor" data-id="{{this.id}}">
+                    <input type="checkbox" name="actor-{{this.id}}" id="group-roll-{{this.id}}" data-dtype="Boolean" />
+                    <label for="group-roll-{{this.id}}"><img src="{{this.img}}" /></label>
+                </div>
+            {{/each}}
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <div class="form-group">
+            <label>{{localize "FABULAULTIMA.WindowTitle"}}</label>
+            <input type="text" name="title" value='{{localize "FABULAULTIMA.WindowTitleValue"}}' placeholder='{{localize "FABULAULTIMA.WindowTitlePlaceholder"}}' data-dtype="String"/>
+        </div>
+        <div class="form-group">
+            <label>{{localize "FABULAULTIMA.Message"}}</label>
+            <input type="text" name="message" value='' placeholder='{{localize "FABULAULTIMA.MessagePlaceholder"}}' data-dtype="String"/>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <div class="form-group">
+            <label>{{localize "FABULAULTIMA.DC"}}</label>
+            <input type="number" name="dc" value="" placeholder="20" data-dtype="Integer"/>
+        </div>
+        <div class="form-group">
+            <label>{{localize "FABULAULTIMA.FirstAbility"}}</label>
+            <select name="firstAbility">
+                {{#each abilities as |ability key|}}
+                    {{option key (localize ability) ../firstAbility}}
+                {{/each}}
+            </select>
+        </div>
+        <div class="form-group">
+            <label>{{localize "FABULAULTIMA.SecondAbility"}}</label>
+            <select name="secondAbility">
+                {{#each abilities as |ability key|}}
+                    {{option key (localize ability) ../secondAbility}}
+                {{/each}}
+            </select>
+        </div>
+    </fieldset>
+
+    <div class="group-roll-submit">
+        <button type="submit" class="group-roll-request-roll" name="submit" value="1"><i class="fas fa-dice"></i>{{localize "FABULAULTIMA.RequestRolls"}}</button>
+    </div>
+</form>
