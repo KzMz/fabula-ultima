@@ -51,27 +51,16 @@ export class FabulaUltimaGroupRoll {
     static ready() {
         FabulaUltimaGroupRoll.Socket = socketlib.registerSystem("fabulaultima");
         FabulaUltimaGroupRoll.Socket.register("grouproll", (message) => {
-          console.log(message);
           FabulaUltimaGroupRoll.onMessage(message);
         });
     }
 
     static onMessage(message) {
-        console.log(message);
+        let actors = message.actors.map(aid => {
+            return game.users.find(u => u.character && u.character.id === aid);
+        });
 
-        if (message.user === "character" &&
-            (!game.user.character || !message.actors.includes(game.user.character.id)))
-            return;
-        else if (!["character", "tokens"].includes(message.user) && message.user !== game.user.id)
-            return;
-
-        let actors = [];
-        if (message.user === "character")
-            actors = [game.user.character];
-        else if (message.user === "tokens")
-            actors = canvas.tokens.controlled.map(t => t.actor).filter(a => message.actors.includes(a.id));
-        else
-            actors = message.actors.map(aid => FabulaUltimaGroupRoll.fromUuid(aid));
+        console.log(actors);
 
         actors = actors.filter(a => a);
         if (actors.length === 0) 
