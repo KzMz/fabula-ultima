@@ -173,5 +173,24 @@
 
   "FABULAULTIMA.Peculiarity": "Peculiarità",
   "FABULAULTIMA.Defense": "Difesa Fisica",
-  "FABULAULTIMA.MagicDefense": "Difesa Magica"
+  "FABULAULTIMA.MagicDefense": "Difesa Magica",
+
+  "FABULAULTIMA.GroupRollNotification": "Test di Gruppo inviato!",
+  "FABULAULTIMA.GroupRoll": "Test di Gruppo",
+
+  "FABULAULTIMA.SelectLeader": "Scegli il leader",
+  "FABULAULTIMA.ControlledTokens": "Token Controllati",
+  "FABULAULTIMA.AssignedCharacters": "Personaggi Assegnati",
+  "FABULAULTIMA.WindowTitle": "Titolo Finestra",
+  "FABULAULTIMA.WindowTitleValue": "Tiro di Gruppo",
+  "FABULAULTIMA.Message": "Messaggio",
+  "FABULAULTIMA.MessagePlaceholder": "",
+  "FABULAULTIMA.DC": "Difficoltà",
+  "FABULAULTIMA.RequestRolls": "Chiedi Tiro",
+  "FABULAULTIMA.Title": "Titolo",
+  "FABULAULTIMA.RollerIntro": "Effettua il tiro di gruppo!",
+  "FABULAULTIMA.Reason": "Motivo:",
+  "FABULAULTIMA.YouReLeader": "Sei il leader! Aspetta che gli altri compino i loro tiri.",
+  "FABULAULTIMA.BondBonus": "Bonus fornito dal legame più alto con te",
+  "FABULAULTIMA.GroupRollCheck": "Tiro di Gruppo!"
 }
