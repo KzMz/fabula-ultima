@@ -93,7 +93,8 @@
     "types": ["item", "consumable", "feature", "spell", "class", "bond", "baseAttack", "weapon", "armor", "shield", "accessory", "artifact"],
     "templates": {
       "base": {
-        "description": ""
+        "description": "",
+        "formula": ""
       },
       "buyable": {
         "zenit": 0

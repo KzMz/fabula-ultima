@@ -118,6 +118,7 @@
 <ol class="items-list">
   <li class="item flexrow items-header">
     <div class="item-name">{{localize "FABULAULTIMA.GenericItem"}}</div>
+    <div class="item-description">{{localize "FABULAULTIMA.Description"}}</div>
     <div class="item-status">{{localize "FABULAULTIMA.CustomFormula"}}</div>
     <div class="item-controls"></div>
   </li>
@@ -129,7 +130,8 @@
         </div>
         <h4>{{o.name}}</h4>
       </div>
-      <div clasS="item-status item-prop">{{o.formula}}</div>
+      <div class="item-description item-prop">{{o.data.description}}</div>
+      <div clasS="item-status item-prop">{{o.data.formula}}</div>
       <div class="item-controls">
         <a class="item-control item-delete" title="{{localize "FABULAULTIMA.Delete"}}"><i class="fas fa-trash"></i></a>
       </div>
