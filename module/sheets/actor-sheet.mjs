@@ -262,8 +262,9 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       else if (i.type === 'bond') {
         bonds.push(i);
       }
-      else {
+      else if (i.type !== "feature" && i.type !== "spell") {
         other.push(i);
+        console.log(i);
       }
     }
 
