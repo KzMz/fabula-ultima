@@ -192,5 +192,10 @@
   "FABULAULTIMA.Reason": "Motivo:",
   "FABULAULTIMA.YouReLeader": "Sei il leader! Aspetta che gli altri compino i loro tiri.",
   "FABULAULTIMA.BondBonus": "Bonus fornito dal legame più alto con te",
-  "FABULAULTIMA.GroupRollCheck": "Tiro di Gruppo!"
+  "FABULAULTIMA.GroupRollCheck": "Tiro di Gruppo!",
+  "FABULAULTIMA.GenericRoll": "Tiro Generico",
+  "FABULAULTIMA.GenericItem": "Oggetto",
+  
+
+  "FABULAULTIMA.Other": "Altro"
 }

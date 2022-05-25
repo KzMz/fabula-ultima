@@ -190,6 +190,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
     const accessories = [];
     const classes = [];
     const spells = {};
+    const other = [];
 
     // Iterate through items, allocating to containers
     for (let i of context.items) {
@@ -261,6 +262,9 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       else if (i.type === 'bond') {
         bonds.push(i);
       }
+      else {
+        other.push(i);
+      }
     }
 
     for (let i of context.items) {
@@ -291,6 +295,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
     context.armor = armor;
     context.accessories = accessories;
     context.shields = shields;
+    context.other = other;
 
     context.classes = classes;
     context.spells = spells;
@@ -333,12 +338,17 @@ export class FabulaUltimaActorSheet extends ActorSheet {
   }
 
   _updateCharacterAttributes(context) {
+    const maxAbilities = {};
+    for (const ability in context.data.abilities) {
+      maxAbilities[ability] = context.data.abilities[ability].max;
+    }
+
     for (let status in context.data.statuses1) {
       const s = context.data.statuses1[status];
       if (!s.value) continue; 
 
       for (let affected of s.affects) {
-        context.data.abilities[affected].value = (Number(context.data.abilities[affected].value) - 2) + "";
+        maxAbilities[affected] = (Number(maxAbilities[affected]) - 2) + "";
       }
     }
 
@@ -347,8 +357,12 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       if (!s.value) continue;
 
       for (let affected of s.affects) {
-        context.data.abilities[affected].value = (Number(context.data.abilities[affected].value) - 2) + "";
+        maxAbilities[affected] = (Number(maxAbilities[affected]) - 2) + "";
       }
+    }
+
+    for (const ability in context.data.abilities) {
+      context.data.abilities[ability].value = maxAbilities[ability];
     }
   }
 
@@ -541,13 +555,11 @@ export class FabulaUltimaActorSheet extends ActorSheet {
 
     // Handle item rolls.
     if (dataset.rollType) {
-      /*if (dataset.rollType == 'item') {
+      if (dataset.rollType == 'item') {
         const itemId = element.closest('.item').dataset.itemId;
         const item = this.actor.items.get(itemId);
         if (item) return item.roll();
-      } */
-      
-      if (dataset.rollType === "weapon") {
+      } else if (dataset.rollType === "weapon") {
         const itemId = element.closest('.item').dataset.itemId;
         const item = this.actor.items.get(itemId);
 

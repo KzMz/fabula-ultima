@@ -211,7 +211,7 @@ export class FabulaUltimaActor extends Actor {
   }
 
   getGenericFormula(firstAbility, secondAbility, bonus = 0) {
-    let base = "【" + firstAbility.toUpperCase() + " + " + secondAbility.toUpperCase() + "】"; 
+    let base = "【" + firstAbility.toUpperCase() + "+ " + secondAbility.toUpperCase() + "】"; 
     if (bonus !== 0) {
       base += " + " + bonus;
     }
