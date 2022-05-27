@@ -152,7 +152,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
 
     if (context.data.equipped.offHand !== "") {
       const offHand = this.actor.items.get(context.data.equipped.offHand);
-      if (offHand && mainHand.id !== offHand.id) {
+      if (offHand && mainHand && mainHand.id !== offHand.id) {
         if (offHand.data.data.quality) {
           context.data.initiativeBonus += parseInt(offHand.data.data.quality.initiativeBonus);
           context.data.defense += parseInt(offHand.data.data.quality.defenseBonus);
