@@ -78,12 +78,12 @@ export class FabulaUltimaGroupRollRequestor extends FormApplication {
     }
 
     _onIsInitiativeChange() {
-        const isInitiative = this.element.find('input[name=isInitiative]').val();
+        const isInitiative = this.element.find('input[name=isInitiative]').is(":checked");
         console.log(isInitiative);
 
         if (isInitiative) {
-            this.element.find("input[name=firstAbility]").val("dex");
-            this.element.find("input[name=secondAbility]").val("int");
+            this.element.find("input[name=firstAbility]").val("dex").change();
+            this.element.find("input[name=secondAbility]").val("int").change();
         }
     }
 
