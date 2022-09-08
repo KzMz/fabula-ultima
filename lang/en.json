@@ -69,6 +69,8 @@
   "FABULAULTIMA.Condition": "Condizione",
   
   "FABULAULTIMA.IsInitiative": "E' un Tiro Initiativa?",
+  "FABULAULTIMA.GenericTest": "Test Generico",
+  "FABULAULTIMA.InitiativeTest": "Test Iniziativa",
 
   "FABULAULTIMA.ActiveEffects": "Effetti Attivi",
   "FABULAULTIMA.CustomFormula": "Formula Tiro Personalizzata",

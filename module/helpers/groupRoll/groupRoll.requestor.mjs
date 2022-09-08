@@ -50,6 +50,7 @@ export class FabulaUltimaGroupRollRequestor extends FormApplication {
     activateListeners(html) {
         super.activateListeners(html);
         this.element.find('select[name=user]').change(this._onUserChange.bind(this));
+        this.element.find('input[name=isInitiative]').change(this._onIsInitiativeChange.bind(this));
 
         this._onUserChange();
     }
@@ -74,6 +75,16 @@ export class FabulaUltimaGroupRollRequestor extends FormApplication {
             }
         }
         return actors;
+    }
+
+    _onIsInitiativeChange() {
+        const isInitiative = this.element.find('input[name=isInitiative]').val();
+        console.log(isInitiative);
+
+        if (isInitiative) {
+            this.element.find("input[name=firstAbility]").val("dex");
+            this.element.find("input[name=secondAbility]").val("int");
+        }
     }
 
     _onUserChange() {

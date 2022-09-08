@@ -83,7 +83,11 @@ export class FabulaUltimaActor extends Actor {
     return this.data.data.health.value <= Math.floor(this.data.data.health.max / 2);
   }
 
-  async roll(firstAbility, secondAbility, bonus = 0) {
+  async initiativeRoll(bondBonus = 0) {
+    return this.roll("dex", "int", bondBonus + this.getInitiativeBonus(), "FABULAULTIMA.InitiativeTest");
+  }
+
+  async roll(firstAbility, secondAbility, bonus = 0, label = "FABULAULTIMA.GenericTest") {
     const templateData = {
       actor: this,
       type: this.type
@@ -106,6 +110,7 @@ export class FabulaUltimaActor extends Actor {
     templateData["dice"] = roll.dice;
     templateData["isCritical"] = isCrit;
     templateData["isFumble"] = isFumble;
+    templateData["label"] = game.i18n.localize(label);
 
     const template = "systems/fabulaultima/templates/chat/base-card.html";
     const html = await renderTemplate(template, templateData);

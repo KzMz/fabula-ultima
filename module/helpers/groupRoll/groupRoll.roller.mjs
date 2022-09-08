@@ -46,7 +46,7 @@ export class FabulaUltimaGroupRollRoller extends Application {
         super.activateListeners(html);
 
         this.element.find(".group-roll-check").click(this._onGroupRoll.bind(this));
-        this.bondBonus = parseInt(this.element.find('[name=bondbonus]').value);
+        this.bondBonus = parseInt(this.element.find('[name=bondbonus]').val());
     }
 
     _tagMessage(candidate, data, options) {
@@ -71,19 +71,21 @@ export class FabulaUltimaGroupRollRoller extends Application {
                 }
             }
 
-            this.bondBonus = parseInt(this.element.find('[name=bondbonus]').value);
+            this.bondBonus = parseInt(this.element.find('[name=bondbonus]').val());
             if (!isNaN(this.bondBonus))
                 bonus += this.bondBonus;
-            if (this.isInitiative)
-                bonus += game.user.character.getInitiativeBonus();
 
-            await game.user.character.roll(this.firstAbility, this.secondAbility, bonus);
+            if (this.isInitiative) {
+                await game.user.character.initiativeRoll(bonus);
+            } else {
+                await game.user.character.roll(this.firstAbility, this.secondAbility, bonus);
+            }
         } else {
-            let bonus = 0;
-            if (this.isInitiative)
-                bonus = game.user.character.getInitiativeBonus();
-
-            await game.user.character.roll(this.firstAbility, this.secondAbility, bonus);
+            if (this.isInitiative) {   
+                await game.user.character.initiativeRoll(0);
+            } else {
+                await game.user.character.roll(this.firstAbility, this.secondAbility);
+            }
         }
 
         evt.currentTarget.disabled = true;

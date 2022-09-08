@@ -56,6 +56,8 @@ export class FabulaUltimaGroupRoll {
     }
 
     static onMessage(message) {
+        if (game.user.isGM) return;
+
         let actors = message.actors.map(aid => {
             const user = game.users.find(u => u.character && u.character.id === aid);
             if (user)
@@ -63,8 +65,6 @@ export class FabulaUltimaGroupRoll {
             
             return null;
         });
-
-        console.log(message);
 
         actors = actors.filter(a => a);
         if (actors.length === 0) 
