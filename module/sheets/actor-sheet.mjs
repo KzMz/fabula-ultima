@@ -172,6 +172,15 @@ export class FabulaUltimaActorSheet extends ActorSheet {
         context.data.magicDefense += parseInt(acc.data.data.quality.magicDefenseBonus);
       }
     }
+
+    if (context.data.equipped.accessory2 !== "") {
+      const acc = this.actor.items.get(context.data.equipped.accessory2);
+      if (acc && acc.data.data.quality) {
+        context.data.initiativeBonus += parseInt(acc.data.data.quality.initiativeBonus);
+        context.data.defense += parseInt(acc.data.data.quality.defenseBonus);
+        context.data.magicDefense += parseInt(acc.data.data.quality.magicDefenseBonus);
+      }
+    }
   }
 
   /**
