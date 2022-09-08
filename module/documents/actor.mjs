@@ -274,7 +274,7 @@ export class FabulaUltimaActor extends Actor {
     let bonus = 0;
 
     if (this.data.data.equipped.armor !== "") {
-      const armor = this.actor.items.get(this.data.data.equipped.armor);
+      const armor = this.items.get(this.data.data.equipped.armor);
       if (armor) {
         bonus += parseInt(armor.data.data.initiativeBonus);
       }
@@ -282,7 +282,7 @@ export class FabulaUltimaActor extends Actor {
 
     let mainHand;
     if (this.data.data.equipped.mainHand !== "") {
-      mainHand = this.actor.items.get(this.data.data.equipped.mainHand);
+      mainHand = this.items.get(this.data.data.equipped.mainHand);
       if (mainHand) {
         if (mainHand.data.data.quality) {
           bonus += parseInt(mainHand.data.data.quality.initiativeBonus);
@@ -291,7 +291,7 @@ export class FabulaUltimaActor extends Actor {
     }
 
     if (this.data.data.equipped.offHand !== "") {
-      const offHand = this.actor.items.get(this.data.data.equipped.offHand);
+      const offHand = this.items.get(this.data.data.equipped.offHand);
       if (offHand && mainHand && mainHand.id !== offHand.id) {
         if (offHand.data.data.quality) {
           bonus += parseInt(offHand.data.data.quality.initiativeBonus);
@@ -300,14 +300,14 @@ export class FabulaUltimaActor extends Actor {
     }
 
     if (this.data.data.equipped.accessory !== "") {
-      const acc = this.actor.items.get(this.data.data.equipped.accessory);
+      const acc = this.items.get(this.data.data.equipped.accessory);
       if (acc && acc.data.data.quality) {
         bonus += parseInt(acc.data.data.quality.initiativeBonus);
       }
     }
 
     if (this.data.data.equipped.accessory2 !== "") {
-      const acc = this.actor.items.get(this.data.data.equipped.accessory2);
+      const acc = this.items.get(this.data.data.equipped.accessory2);
       if (acc && acc.data.data.quality) {
         bonus += parseInt(acc.data.data.quality.initiativeBonus);
       }
