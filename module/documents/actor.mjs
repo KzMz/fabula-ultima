@@ -187,10 +187,10 @@ export class FabulaUltimaActor extends Actor {
 
     const features = this.items.filter(i => i.type === "feature");
     for (const feature of features) {
-      console.log(feature.name);
-      console.log("damage: " + feature.data.data.passive.meleeDamageBonus);
       const bonus = Number(isMelee ? feature.data.data.passive.meleeDamageBonus : feature.data.data.passive.rangedDamageBonus);
-      if (isNaN(bonus)) continue;
+      const level = Number(feature.data.data.level);
+      if (isNaN(bonus) || isNaN(level)) continue;
+      if (!this.checkFeatureCondition(feature)) continue;
 
       baseDamage += bonus;
     }
@@ -241,15 +241,19 @@ export class FabulaUltimaActor extends Actor {
 
     const features = this.items.filter(i => i.type === "feature");
     for (const feature of features) {
-      console.log(feature.name);
-      console.log("bonus: " + feature.data.data.passive.meleePrecisionBonus);
       const bonus = Number(isMelee ? feature.data.data.passive.meleePrecisionBonus : feature.data.data.passive.rangedPrecisionBonus);
-      if (isNaN(bonus)) continue;
+      const level = Number(feature.data.data.level);
+      if (isNaN(bonus) || isNaN(level)) continue;
+      if (!this.checkFeatureCondition(feature)) continue;
 
-      weaponBonus += bonus;
+      weaponBonus += (bonus * level);
     }
 
-    return this.getBaseRollFormula(item.data.firstAbility, item.data.secondAbility, item.data.precisionBonus);
+    return this.getBaseRollFormula(item.data.firstAbility, item.data.secondAbility, weaponBonus);
+  }
+
+  checkFeatureCondition(feature) {
+    return feature.data.data.condition === "";
   }
 
   getBaseRollFormula(firstAbility, secondAbility, bonus = 0) {
