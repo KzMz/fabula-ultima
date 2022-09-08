@@ -260,7 +260,7 @@ export class FabulaUltimaActor extends Actor {
       return this.isCrisis();
 
     if (feature.data.data.passive.condition.includes("effect:")) {
-      const effect = feature.data.data.condition.split(":")[1];
+      const effect = feature.data.data.passive.condition.split(":")[1];
       if (effect && effect !== "")
         return this.effects.some(e => e.name === effect || e.data.label === effect);
     }
