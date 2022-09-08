@@ -253,13 +253,13 @@ export class FabulaUltimaActor extends Actor {
   }
 
   checkFeatureCondition(feature) {
-    if (!feature.data.data.condition || feature.data.data.condition === "")
+    if (!feature.data.data.passive.condition || feature.data.data.passive.condition === "")
       return true;
 
-    if (feature.data.data.condition === "crisis")
+    if (feature.data.data.passive.condition === "crisis")
       return this.isCrisis();
 
-    if (feature.data.data.condition.includes("effect:")) {
+    if (feature.data.data.passive.condition.includes("effect:")) {
       const effect = feature.data.data.condition.split(":")[1];
       if (effect && effect !== "")
         return this.effects.some(e => e.name === effect || e.data.label === effect);
