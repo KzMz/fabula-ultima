@@ -258,6 +258,8 @@ export class FabulaUltimaActor extends Actor {
 
     if (feature.data.data.passive.condition === "crisis")
       return this.isCrisis();
+    if (feature.data.data.passive.condition === "fullhealth")
+      return this.data.data.health.value === this.data.data.health.max;
 
     if (feature.data.data.passive.condition.includes("effect:")) {
       const effect = feature.data.data.passive.condition.split(":")[1];
@@ -266,6 +268,11 @@ export class FabulaUltimaActor extends Actor {
     }
 
     return false;
+  }
+
+  getInitiativeBonus() {
+    console.log(this.sheet.data);
+    return this.sheet.data.data.initiativeBonus;
   }
 
   getBaseRollFormula(firstAbility, secondAbility, bonus = 0) {

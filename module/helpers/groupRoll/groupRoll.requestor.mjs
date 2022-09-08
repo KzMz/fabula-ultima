@@ -86,6 +86,7 @@ export class FabulaUltimaGroupRollRequestor extends FormApplication {
         const dc = parseInt(formData.dc);
         const firstAbility = formData.firstAbility;
         const secondAbility = formData.secondAbility;
+        const isInitiative = formData.isInitiative;
 
         const keys = Object.keys(formData);
         const user_actors = this._getUserActorIds(formData.user).map(id => `actor-${id}`);
@@ -103,6 +104,7 @@ export class FabulaUltimaGroupRollRequestor extends FormApplication {
             dc: dc,
             firstAbility: firstAbility,
             secondAbility: secondAbility,
+            isInitiative: isInitiative,
             title: formData.title,
             message: formData.message,
             leader: actors[0]

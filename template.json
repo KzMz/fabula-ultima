@@ -52,6 +52,7 @@
           "mainHand": "",
           "offHand": "",
           "accessory": "",
+          "accessory2": "",
           "armor": ""
         }
       }
@@ -106,7 +107,12 @@
           "initiativeBonus": 0,
           "defenseBonus": 0,
           "magicDefenseBonus": 0,
-          "overrideDamageType": ""
+          "overrideDamageType": "",
+          "meleeDamageBonus": 0,
+          "rangedDamageBonus": 0,
+          "meleePrecisionBonus": 0,
+          "rangedPrecisionBonus": 0,
+          "condition": ""
         }
       }
     },
@@ -145,7 +151,8 @@
         "rangedPrecisionBonus": 0,
         "meleeDamageBonus": 0,
         "rangedDamageBonus": 0,
-        "condition": ""
+        "condition": "",
+        "givesAdditionalAccessorySlot": false
       },
       "active": {
         "customFormula": "",

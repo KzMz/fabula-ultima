@@ -7,14 +7,10 @@ export class FabulaUltimaGroupRollRoller extends Application {
         this.dc = data.dc;
         this.firstAbility = data.firstAbility;
         this.secondAbility = data.secondAbility;
-
-        console.log(data.leader);
-
+        this.isInitiative = data.isInitiative;
 
         if (game.user.character)
             this.isLeader = game.user.character.id === data.leader;
-        
-        console.log(game.user.character);
 
         this.bondBonus = 0;
 
@@ -75,12 +71,19 @@ export class FabulaUltimaGroupRollRoller extends Application {
                 }
             }
 
+            this.bondBonus = parseInt(this.element.find('[name=bondbonus]').value);
             if (!isNaN(this.bondBonus))
                 bonus += this.bondBonus;
+            if (this.isInitiative)
+                bonus += game.user.character.getInitiativeBonus();
 
             await game.user.character.roll(this.firstAbility, this.secondAbility, bonus);
         } else {
-            await game.user.character.roll(this.firstAbility, this.secondAbility);
+            let bonus = 0;
+            if (this.isInitiative)
+                bonus = game.user.character.getInitiativeBonus();
+
+            await game.user.character.roll(this.firstAbility, this.secondAbility, bonus);
         }
 
         evt.currentTarget.disabled = true;

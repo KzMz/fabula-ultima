@@ -15,7 +15,7 @@
             {{#each actors}}
                 <div class="group-roll-actor" data-id="{{this.id}}">
                     <input type="checkbox" name="actor-{{this.id}}" id="group-roll-{{this.id}}" data-dtype="Boolean" />
-                    <label for="group-roll-{{this.id}}"><img src="{{this.img}}" /></label>
+                    <label for="group-roll-{{this.id}}"><img src="{{this.img}}" style="object-fit: cover; width: 100px; height: 100px;" /></label>
                 </div>
             {{/each}}
         </div>
@@ -52,6 +52,10 @@
                     {{option key (localize ability) ../secondAbility}}
                 {{/each}}
             </select>
+        </div>
+        <div class="form-group">
+            <label>{{localize "FABULAULTIMA.IsInitiative"}}</label>
+            <input type="checkbox" name="isInitiative" data-dtype="Boolean" />
         </div>
     </fieldset>
 
