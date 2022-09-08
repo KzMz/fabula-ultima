@@ -181,15 +181,16 @@ export class FabulaUltimaActor extends Actor {
     return ChatMessage.create(chatData);
   }
 
-  getWeaponTotalDamage(weapon, isMelee = true) {
+  getWeaponTotalDamage(weapon) {
     let baseDamage = weapon.data.data.damage.bonus;
+    const isMelee = weapon.data.data.type === "melee";
 
     const features = this.items.filter(i => i.type === "feature");
     for (const feature of features) {
       const bonus = Number(isMelee ? feature.data.data.passive.meleeDamageBonus : feature.data.data.passive.rangedDamageBonus);
       if (isNaN(bonus)) continue;
 
-      weaponBonus += bonus;
+      baseDamage += bonus;
     }
 
     return baseDamage;
@@ -232,8 +233,9 @@ export class FabulaUltimaActor extends Actor {
     return base;
   }
 
-  getRollFormula(item, isMelee = true) {
+  getRollFormula(item) {
     let weaponBonus = item.data.precisionBonus;
+    const isMelee = item.data.type === "melee";
 
     const features = this.items.filter(i => i.type === "feature");
     for (const feature of features) {
