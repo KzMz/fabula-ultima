@@ -153,7 +153,7 @@ export class FabulaUltimaActor extends Actor {
     templateData["dice"] = roll.dice;
     templateData["damageType"] = weapon.data.data.damage.type;
     templateData["damageTypeLoc"] = game.i18n.localize(CONFIG.FABULAULTIMA.damageTypes[templateData["damageType"]]);
-    templateData["damage"] = maxVal + weapon.data.data.damage.bonus;
+    templateData["damage"] = maxVal + this.getWeaponTotalDamage(weapon);
     templateData["isCritical"] = isCrit;
     templateData["isFumble"] = isFumble;
 
@@ -179,6 +179,20 @@ export class FabulaUltimaActor extends Actor {
     };
 
     return ChatMessage.create(chatData);
+  }
+
+  getWeaponTotalDamage(weapon, isMelee = true) {
+    let baseDamage = weapon.data.data.damage.bonus;
+
+    const features = this.items.filter(i => i.type === "feature");
+    for (const feature of features) {
+      const bonus = Number(isMelee ? feature.data.data.passive.meleeDamageBonus : feature.data.data.passive.rangedDamageBonus);
+      if (isNaN(bonus)) continue;
+
+      weaponBonus += bonus;
+    }
+
+    return baseDamage;
   }
 
   getItemFormula(item) {
@@ -218,7 +232,17 @@ export class FabulaUltimaActor extends Actor {
     return base;
   }
 
-  getRollFormula(item) {
+  getRollFormula(item, isMelee = true) {
+    let weaponBonus = item.data.precisionBonus;
+
+    const features = this.items.filter(i => i.type === "feature");
+    for (const feature of features) {
+      const bonus = Number(isMelee ? feature.data.data.passive.meleePrecisionBonus : feature.data.data.passive.rangedPrecisionBonus);
+      if (isNaN(bonus)) continue;
+
+      weaponBonus += bonus;
+    }
+
     return this.getBaseRollFormula(item.data.firstAbility, item.data.secondAbility, item.data.precisionBonus);
   }
 
