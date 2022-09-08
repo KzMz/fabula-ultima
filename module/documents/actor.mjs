@@ -187,6 +187,8 @@ export class FabulaUltimaActor extends Actor {
 
     const features = this.items.filter(i => i.type === "feature");
     for (const feature of features) {
+      console.log(feature.name);
+      console.log("damage: " + feature.data.data.passive.meleeDamageBonus);
       const bonus = Number(isMelee ? feature.data.data.passive.meleeDamageBonus : feature.data.data.passive.rangedDamageBonus);
       if (isNaN(bonus)) continue;
 
@@ -239,6 +241,8 @@ export class FabulaUltimaActor extends Actor {
 
     const features = this.items.filter(i => i.type === "feature");
     for (const feature of features) {
+      console.log(feature.name);
+      console.log("bonus: " + feature.data.data.passive.meleePrecisionBonus);
       const bonus = Number(isMelee ? feature.data.data.passive.meleePrecisionBonus : feature.data.data.passive.rangedPrecisionBonus);
       if (isNaN(bonus)) continue;
 
