@@ -253,7 +253,7 @@ export class FabulaUltimaActor extends Actor {
   }
 
   checkFeatureCondition(feature) {
-    return feature.data.data.condition === "";
+    return !feature.data.data.condition || feature.data.data.condition === "";
   }
 
   getBaseRollFormula(firstAbility, secondAbility, bonus = 0) {
