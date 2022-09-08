@@ -66,6 +66,7 @@
   "FABULAULTIMA.RangedPrecisionBonus": "Bonus Precisione Distanza x LA",
   "FABULAULTIMA.MeleeDamageBonus":  "Bonus Danno Mischia x LA",
   "FABULAULTIMA.RangedDamageBonus": "Bonus Danno Distanza x LA",
+  "FABULAULTIMA.Condition": "Condizione",
 
   "FABULAULTIMA.ActiveEffects": "Effetti Attivi",
   "FABULAULTIMA.CustomFormula": "Formula Tiro Personalizzata",
