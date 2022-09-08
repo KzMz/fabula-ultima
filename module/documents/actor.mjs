@@ -192,7 +192,7 @@ export class FabulaUltimaActor extends Actor {
       if (isNaN(bonus) || isNaN(level)) continue;
       if (!this.checkFeatureCondition(feature)) continue;
 
-      baseDamage += bonus;
+      baseDamage += (bonus * level);
     }
 
     return baseDamage;
@@ -253,7 +253,19 @@ export class FabulaUltimaActor extends Actor {
   }
 
   checkFeatureCondition(feature) {
-    return !feature.data.data.condition || feature.data.data.condition === "";
+    if (!feature.data.data.condition || feature.data.data.condition === "")
+      return true;
+
+    if (feature.data.data.condition === "crisis")
+      return this.isCrisis();
+
+    if (feature.data.data.condition.includes("effect:")) {
+      const effect = feature.data.data.condition.split(":")[1];
+      if (effect && effect !== "")
+        return this.effects.some(e => e.name === effect || e.data.label === effect);
+    }
+
+    return false;
   }
 
   getBaseRollFormula(firstAbility, secondAbility, bonus = 0) {
