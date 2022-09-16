@@ -131,6 +131,22 @@ export class FabulaUltimaActor extends Actor {
     return ChatMessage.create(chatData);
   }  
 
+  async rollFeature(feature) {
+
+  }
+
+  async rollSpell(spell) {
+
+  }
+
+  async rest() {
+    const values = {
+      "data.health.value": this.data.data.health.max,
+      "data.mind.value": this.data.data.mind.max
+    };
+    return this.update(values);
+  }
+
   async rollWeapon(weapon) {
     const flavour = game.i18n.localize("FABULAULTIMA.RollPrecisionTest");
 

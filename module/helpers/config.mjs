@@ -4,7 +4,7 @@ export const FABULAULTIMA = {};
  * The set of Ability Scores used within the system.
  * @type {Object}
  */
- FABULAULTIMA.abilities = {
+FABULAULTIMA.abilities = {
     "dex": "FABULAULTIMA.AbilityDex",
     "int": "FABULAULTIMA.AbilityInt",
     "vig": "FABULAULTIMA.AbilityVig",
@@ -32,7 +32,10 @@ FABULAULTIMA.timings = {
     "beforeConflict": "FABULAULTIMA.BeforeConflict",
     "beforeDamage": "FABULAULTIMA.BeforeDamage",
     "guard": "FABULAULTIMA.OnGuard",
-    "crisis": "FABULAULTIMA.OnCrisis"
+    "crisis": "FABULAULTIMA.OnCrisis",
+    "arcanum": "FABULAULTIMA.OnArcanum",
+    "ipSpent": "FABULAULTIMA.OnInventoryPointsSpent",
+    "potionCreated": "FABULAULTIMA.OnPotionCreated"
 }
 
 FABULAULTIMA.actionTypes = {
@@ -76,6 +79,118 @@ FABULAULTIMA.damageTypes = {
     "ice": "FABULAULTIMA.DamageIce",
     "light": "FABULAULTIMA.DamageLight",
     "poison": "FABULAULTIMA.DamagePoison"
+}
+
+FABULAULTIMA.affinityTypes = {
+    "vulnerable": "FABULAULTIMA.Vulnerable",
+    "neutral": "FABULAULTIMA.Neutral",
+    "resistant": "FABULAULTIMA.Resistant",
+    "immune": "FABULAULTIMA.Immune",
+    "absorb": "FABULAULTIMA.Absorb"
+}
+
+FABULAULTIMA.npcRanks = {
+    "soldier": "FABULAULTIMA.RankSoldier",
+    "elite": "FABULAULTIMA.RankElite",
+    "champion": "FABULAULTIMA.RankChampion"
+}
+
+FABULAULTIMA.npcTypes = {
+    "beast": {
+        "label": "FABULAULTIMA.Beast",
+        "startingAbilities": 4,
+        "rules": {
+            "equippable": false
+        }
+    },
+    "construct": {
+        "label": "FABULAULTIMA.Construct",
+        "startingAbilities": 2,
+        "rules": {
+            "affinities": {
+                "poison": "immune",
+                "earth": "resistant"
+            },
+            "statusImmunities": {
+                "poisoned": true
+            }
+        }
+    },
+    "demon": {
+        "label": "FABULAULTIMA.Demon",
+        "startingAbilities": 3,
+        "rules": {
+            "affinities": {
+                "choose": {
+                    "from": "any",
+                    "qt": 2,
+                    "type": "resistant"
+                }
+            }
+        }
+    },
+    "elemental": {
+        "label": "FABULAULTIMA.Elemental",
+        "startingAbilities": 2,
+        "rules": {
+            "affinities": {
+                "poison": "immune",
+                "choose": {
+                    "from": "any",
+                    "qt": 1,
+                    "type": "resistant"
+                }
+            },
+            "statusImmunities": {
+                "poisoned": true
+            }
+        }
+    },
+    "monster": {
+        "label": "FABULAULTIMA.Monster",
+        "startingAbilities": 4,
+        "rules": {}
+    },
+    "undead": {
+        "label": "FABULAULTIMA.Undead",
+        "startingAbilities": 2,
+        "rules": {
+            "affinities": {
+                "dark": "immune",
+                "poison": "immune",
+                "light": "vulnerable"
+            },
+            "statusImmunities": {
+                "poison": true
+            },
+            "damagedByHealing": true
+        }
+    },
+    "plant": {
+        "label": "FABULAULTIMA.Plant",
+        "startingAbilities": 3,
+        "rules": {
+            "affinities": {
+                "choose": {
+                    "from": ["wind", "lightning", "fire", "cold"],
+                    "qt": 1,
+                    "type": "vulnerable"
+                }
+            },
+            "statusImmunities": {
+                "dazed": false,
+                "shaken": false,
+                "enraged": false
+            }
+        }
+    },
+    "humanoid": {
+        "label": "FABULAULTIMA.Humanoid",
+        "startingAbilities": 3,
+        "rules": {
+            "equippable": true
+        }
+    }
 }
 
 FABULAULTIMA.statuses = {

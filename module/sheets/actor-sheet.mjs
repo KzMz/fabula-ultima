@@ -198,7 +198,6 @@ export class FabulaUltimaActorSheet extends ActorSheet {
     const armor = [];
     const accessories = [];
     const classes = [];
-    const spells = {};
     const other = [];
 
     // Iterate through items, allocating to containers
@@ -255,7 +254,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
         armor.push(i);
       }
       else if (i.type === "accessory") {
-        if (context.data.equipped.accessory === i._id) {
+        if (context.data.equipped.accessory === i._id || context.data.equipped.accessory2 === i._id) {
           i.status = game.i18n.localize("FABULAULTIMA.Equipped");
         } else {
           i.status = "";
@@ -266,6 +265,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       // Append to features.
       else if (i.type === 'class') {
         i.skills = [];
+        i.spells = [];
         classes.push(i);
       }
       else if (i.type === 'bond') {
@@ -273,7 +273,6 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       }
       else if (i.type !== "feature" && i.type !== "spell") {
         other.push(i);
-        console.log(i);
       }
     }
 
@@ -290,11 +289,13 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       }
       // Append to spells.
       else if (i.type === 'spell') {
-        const cls = i.data.class;
-        if (!spells.hasOwnProperty(cls))
-          spells[cls] = [];
+        i.data.cost.resource = game.i18n.localize(CONFIG.FABULAULTIMA.costResources[i.data.cost.resource]);
 
-        spells[cls].push(i);
+        const cls = i.data.class;
+        const c = classes.find(cl => cl.data.abbr === cls);
+        if (c) {
+          c.spells.push(i);
+        }
       }
     }
 
@@ -308,7 +309,6 @@ export class FabulaUltimaActorSheet extends ActorSheet {
     context.other = other;
 
     context.classes = classes;
-    context.spells = spells;
   }
 
   _updateCharacterLevel(context) {
@@ -458,6 +458,20 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       };
       await this.actor.update(values);
     });
+    html.find('.item-equipAccessory2').click(async ev => {
+      const li = $(ev.currentTarget).parents(".item");
+      const item = this.actor.items.get(li.data("itemId"));
+
+      const gives = this.actor.items.filter(i => i.data.data.passive.givesAdditionalAccessorySlot);
+      if (gives && gives.length) {
+        const values = {
+          "data.equipped.accessory2": item.id
+        };
+        await this.actor.update(values);
+      }
+
+      return;
+    });
 
     // Delete Inventory Item
     html.find('.item-delete').click(ev => {
@@ -563,16 +577,19 @@ export class FabulaUltimaActorSheet extends ActorSheet {
     const element = event.currentTarget;
     const dataset = element.dataset;
 
+    const itemId = element.closest('.item').dataset.itemId;
+    const item = this.actor.items.get(itemId);
+
     // Handle item rolls.
     if (dataset.rollType) {
-      if (dataset.rollType == 'item') {
-        const itemId = element.closest('.item').dataset.itemId;
-        const item = this.actor.items.get(itemId);
-        if (item) return item.roll();
+      if (dataset.rollType === 'item') {
+        if (item) 
+          return item.roll();
+      } else if (dataset.rollType === "feature") {
+        return this.actor.rollFeature(item);
+      } else if (dataset.rollType === "spell") {
+        return this.actor.rollSpell(item);
       } else if (dataset.rollType === "weapon") {
-        const itemId = element.closest('.item').dataset.itemId;
-        const item = this.actor.items.get(itemId);
-
         return this.actor.rollWeapon(item);
       }
     }
@@ -608,6 +625,8 @@ export class FabulaUltimaActorSheet extends ActorSheet {
   }
 
   _onDropCharacter(event, data) {
+    console.log(data);
+
     const item = game.items.get(data["id"]);
     const other = this.actor.items.filter(i => i.name === item.name);
     if (item.type === "class") {

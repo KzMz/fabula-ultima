@@ -21,6 +21,25 @@
             "max": 60
           }
         },
+        "affinities": {
+          "normal": "neutral",
+          "wind": "neutral",
+          "lightning": "neutral",
+          "dark": "neutral",
+          "earth": "neutral",
+          "fire": "neutral",
+          "ice": "neutral",
+          "light": "neutral",
+          "poison": "neutral"
+        },
+        "statusImmunities": {
+          "slow": false,
+          "dazed": false,
+          "weak": false,
+          "shaken": false,
+          "enraged": false,
+          "poisoned": false
+        },
         "abilities": {
           "dex": {
             "value": 10,
@@ -47,7 +66,6 @@
           "enraged": false,
           "poisoned": false
         },
-        "affinities": [],
         "equipped": {
           "mainHand": "",
           "offHand": "",
@@ -76,18 +94,20 @@
     "npc": {
       "templates": ["base"],
       "type": "",
-      "rank": "",
+      "rank": "soldier",
+      "championLevel": 0,
       "traits": "",
       "specialRules": ""
     },
     "villain": {
       "templates": ["base"],
       "type": "",
-      "rank": "",
+      "rank": "soldier",
+      "championLevel": 0,
       "traits": "",
       "specialRules": "",
-      "ultimaPoints": "",
-      "ascensionLevel": ""
+      "ultimaPoints": "5",
+      "ascensionLevel": "minor"
     }
   },
   "Item": {
@@ -152,7 +172,8 @@
         "meleeDamageBonus": 0,
         "rangedDamageBonus": 0,
         "condition": "",
-        "givesAdditionalAccessorySlot": false
+        "givesAdditionalAccessorySlot": false,
+        "givesRituals": false
       },
       "active": {
         "customFormula": "",
