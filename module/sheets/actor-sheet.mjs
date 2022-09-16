@@ -625,7 +625,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
   }
 
   _onDropCharacter(event, data) {
-    const item = game.items.get(data["uuid"]);
+    const item = game.items.get(data["uuid"].replace("Item.", ""));
     const other = this.actor.items.filter(i => i.name === item.name);
     if (item.type === "class") {
       if (other.length === 0) {
