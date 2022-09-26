@@ -1,4 +1,6 @@
 export class FabulaUltimaCombatHud {
+    currentTurn = "";
+
     _getBattleElement() {
         return $('<div id="battle-hud">' +
             this._getFF7Hud() +
@@ -12,7 +14,23 @@ export class FabulaUltimaCombatHud {
         const battleHud = this._getBattleElement();
         setTimeout( () => {
             $("div#hud").append(battleHud);
+
+            if (game.user.isGM)
+                this._setupEvents();
         }, 500);
+    }
+
+    _setupEvents() {
+        $("#battle-hud .enemy-turn").on('click', () => {
+            if (!game.user.isGM) return;
+
+            this.currentTurn = "enemy";
+        });
+        $("#battle-hud .player-turn").on('click', () => {
+            if (!game.user.isGM) return;
+
+            this.currentTurn = "player";
+        });
     }
 
     deleteFromScreen() {
@@ -25,8 +43,13 @@ export class FabulaUltimaCombatHud {
     }
 
     _getFF7Hud() {
-        return '<div class=""><button>Player\'s Turn</button><button>Enemies\' Turn</div>' + 
-            '<div class="wrapper">' +
+        let hud = "<div id='turn-notice'>" + game.i18n.localize("FABULAULTIMA.PlayerTurn") +  "</div>";
+        if (game.user.isGM) {
+            hud = '<div class="turn-buttons"><button class="player-turn">' + game.i18n.localize("FABULAULTIMA.PlayerTurn") + '</button>' + 
+                '<button class="enemy-turn">' + game.i18n.localize("FABULAULTIMA.EnemyTurn") + '</button></div>';
+        } 
+        
+        return hud + '<div class="wrapper">' +
             this._getFF7EnemyList() +
             this._getFF7PlayerList() + '</div>';
     }
