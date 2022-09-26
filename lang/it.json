@@ -29,6 +29,9 @@
   "FABULAULTIMA.FabulaPoints": "Punti Fabula",
   "FABULAULTIMA.Condition": "Condizione",
 
+  "FABULAULTIMA.PlayerTurn": "Turno dei Giocatori",
+  "FABULAULTIMA.EnemyTurn": "Turno degli Avversari",
+
   "FABULAULTIMA.IsInitiative": "E' un Tiro Initiativa?",
   "FABULAULTIMA.GenericTest": "Test Generico",
   "FABULAULTIMA.InitiativeTest": "Test Iniziativa",

@@ -176,6 +176,9 @@
   "FABULAULTIMA.Equip": "Equipaggia",
   "FABULAULTIMA.Equipped": "Equipaggiato",
 
+  "FABULAULTIMA.PlayerTurn": "Turno dei Giocatori",
+  "FABULAULTIMA.EnemyTurn": "Turno degli Avversari",
+
   "FABULAULTIMA.Peculiarity": "Peculiarità",
   "FABULAULTIMA.Defense": "Difesa Fisica",
   "FABULAULTIMA.MagicDefense": "Difesa Magica",

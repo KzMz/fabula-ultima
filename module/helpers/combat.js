@@ -24,21 +24,23 @@ export class FabulaUltimaCombatHud {
         $("#battle-hud .enemy-turn").on('click', () => {
             if (!game.user.isGM) return;
 
-            this.currentTurn = "enemy";
-            $("#battle-hud #turn-notice").addClass("enemy");
-            setTimeout(() => {
-                $("#battle-hud #turn-notice").removeClass("enemy player");
-            }, 5000);
+            this.showNotice("enemy");
         });
         $("#battle-hud .player-turn").on('click', () => {
             if (!game.user.isGM) return;
 
-            this.currentTurn = "player";
-            $("#battle-hud #turn-notice").addClass("player");
-            setTimeout(() => {
-                $("#battle-hud #turn-notice").removeClass("enemy player");
-            }, 5000);
+            this.showNotice("player");
         });
+    }
+
+    showNotice(side) {
+        this.currentTurn = side;
+
+        $("#battle-hud #turn-notice").html(game.i18n.localize(side === "enemy" ? "FABULAULTIMA.EnemyTurn" : "FABULAULTIMA.PlayerTurn"));
+        $("#battle-hud #turn-notice").addClass(side);
+        setTimeout(() => {
+            $("#battle-hud #turn-notice").removeClass("enemy player");
+        }, 5000);
     }
 
     deleteFromScreen() {

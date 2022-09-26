@@ -227,9 +227,22 @@ export class FabulaUltimaActor extends Actor {
   }
 
   getWeaponFormula(item) {
+    let weaponBonus = item.data.precisionBonus;
+    const isMelee = item.data.type === "melee";
+
+    const features = this.items.filter(i => i.type === "feature");
+    for (const feature of features) {
+      const bonus = Number(isMelee ? feature.data.data.passive.meleePrecisionBonus : feature.data.data.passive.rangedPrecisionBonus);
+      const level = Number(feature.data.data.level);
+      if (isNaN(bonus) || isNaN(level)) continue;
+      if (!this.checkFeatureCondition(feature)) continue;
+
+      weaponBonus += (bonus * level);
+    }
+
     let base = "【" + item.data.firstAbility.toUpperCase() + " + " + item.data.secondAbility.toUpperCase() + "】"; 
-    if (item.data.precisionBonus !== 0) {
-      base += " + " + item.data.precisionBonus;
+    if (weaponBonus !== 0) {
+      base += " + " + weaponBonus;
     }
     return base;
   }

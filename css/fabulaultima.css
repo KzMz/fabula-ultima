@@ -610,9 +610,9 @@ progress[value].inventory-progress::-webkit-progress-value {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 5em;
+  font-size: 4em;
   pointer-events: none;
-  -webkit-text-stroke: 2px white;
+  -webkit-text-stroke: 1px white;
   transition: all 300ms linear;
   opacity: 0;
   transform: scale(0);
