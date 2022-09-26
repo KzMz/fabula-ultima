@@ -25,7 +25,8 @@ export class FabulaUltimaCombatHud {
     }
 
     _getFF7Hud() {
-        return '<div class="wrapper">' +
+        return '<div class=""><button>Player\'s Turn</button><button>Enemies\' Turn</div>' + 
+            '<div class="wrapper">' +
             this._getFF7EnemyList() +
             this._getFF7PlayerList() + '</div>';
     }
