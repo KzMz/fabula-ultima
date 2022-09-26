@@ -45,7 +45,7 @@ export class FabulaUltimaCombatHud {
     _getFF7Hud() {
         let hud = "<div id='turn-notice'>" + game.i18n.localize("FABULAULTIMA.PlayerTurn") +  "</div>";
         if (game.user.isGM) {
-            hud = '<div class="turn-buttons"><button class="player-turn">' + game.i18n.localize("FABULAULTIMA.PlayerTurn") + '</button>' + 
+            hud += '<div class="turn-buttons"><button class="player-turn">' + game.i18n.localize("FABULAULTIMA.PlayerTurn") + '</button>' + 
                 '<button class="enemy-turn">' + game.i18n.localize("FABULAULTIMA.EnemyTurn") + '</button></div>';
         } 
         

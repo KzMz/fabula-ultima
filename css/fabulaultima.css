@@ -593,7 +593,7 @@ progress[value].inventory-progress::-webkit-progress-value {
   height: 100%;
   color: white;
   display: flex;
-  align-items: end;
+  align-items: start;
   flex-direction: column;
   justify-content: end;
   position: absolute;
