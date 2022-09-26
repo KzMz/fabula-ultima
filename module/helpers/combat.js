@@ -25,11 +25,19 @@ export class FabulaUltimaCombatHud {
             if (!game.user.isGM) return;
 
             this.currentTurn = "enemy";
+            $("#battle-hud #turn-notice").addClass("enemy");
+            setTimeout(() => {
+                $("#battle-hud #turn-notice").removeClass("enemy player");
+            }, 5000);
         });
         $("#battle-hud .player-turn").on('click', () => {
             if (!game.user.isGM) return;
 
             this.currentTurn = "player";
+            $("#battle-hud #turn-notice").addClass("player");
+            setTimeout(() => {
+                $("#battle-hud #turn-notice").removeClass("enemy player");
+            }, 5000);
         });
     }
 
