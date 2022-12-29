@@ -29,9 +29,7 @@ export class FabulaUltimaActor extends Actor {
    * is queried and has a roll executed directly from it).
    */
   prepareDerivedData() {
-    const actorData = this.data;
-    const data = actorData.data;
-    const flags = actorData.flags.fabulaultima || {};
+    const actorData = this.system;
 
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
@@ -43,10 +41,10 @@ export class FabulaUltimaActor extends Actor {
    * Prepare Character type specific data
    */
   _prepareCharacterData(actorData) {
-    if (actorData.type !== 'character') return;
+    if (this.type !== 'character') return;
 
     // Make modifications to data here. For example:
-    const data = actorData.data;
+    //const data = actorData.data;
 
     // Loop through ability scores, and add their modifiers to our sheet output.
     //for (let [key, ability] of Object.entries(data.abilities)) {
@@ -80,7 +78,7 @@ export class FabulaUltimaActor extends Actor {
   }
 
   isCrisis() {
-    return this.data.data.health.value <= Math.floor(this.data.data.health.max / 2);
+    return this.system.health.value <= Math.floor(this.system.health.max / 2);
   }
 
   async initiativeRoll(bondBonus = 0) {
@@ -141,8 +139,8 @@ export class FabulaUltimaActor extends Actor {
 
   async rest() {
     const values = {
-      "data.health.value": this.data.data.health.max,
-      "data.mind.value": this.data.data.mind.max
+      "system.health.value": this.system.health.max,
+      "system.mind.value": this.system.mind.max
     };
     return this.update(values);
   }
@@ -293,7 +291,7 @@ export class FabulaUltimaActor extends Actor {
     if (feature.data.data.passive.condition === "crisis")
       return this.isCrisis();
     if (feature.data.data.passive.condition === "fullhealth")
-      return this.data.data.health.value === this.data.data.health.max;
+      return this.system.health.value === this.system.health.max;
 
     if (feature.data.data.passive.condition.includes("effect:")) {
       const effect = feature.data.data.passive.condition.split(":")[1];
@@ -307,16 +305,16 @@ export class FabulaUltimaActor extends Actor {
   getInitiativeBonus() {
     let bonus = 0;
 
-    if (this.data.data.equipped.armor !== "") {
-      const armor = this.items.get(this.data.data.equipped.armor);
+    if (this.system.equipped.armor !== "") {
+      const armor = this.items.get(this.system.equipped.armor);
       if (armor) {
         bonus += parseInt(armor.data.data.initiativeBonus);
       }
     }
 
     let mainHand;
-    if (this.data.data.equipped.mainHand !== "") {
-      mainHand = this.items.get(this.data.data.equipped.mainHand);
+    if (this.system.equipped.mainHand !== "") {
+      mainHand = this.items.get(this.system.equipped.mainHand);
       if (mainHand) {
         if (mainHand.data.data.quality) {
           bonus += parseInt(mainHand.data.data.quality.initiativeBonus);
@@ -324,8 +322,8 @@ export class FabulaUltimaActor extends Actor {
       }
     }
 
-    if (this.data.data.equipped.offHand !== "") {
-      const offHand = this.items.get(this.data.data.equipped.offHand);
+    if (this.system.equipped.offHand !== "") {
+      const offHand = this.items.get(this.system.equipped.offHand);
       if (offHand && mainHand && mainHand.id !== offHand.id) {
         if (offHand.data.data.quality) {
           bonus += parseInt(offHand.data.data.quality.initiativeBonus);
@@ -333,15 +331,15 @@ export class FabulaUltimaActor extends Actor {
       }
     }
 
-    if (this.data.data.equipped.accessory !== "") {
-      const acc = this.items.get(this.data.data.equipped.accessory);
+    if (this.system.equipped.accessory !== "") {
+      const acc = this.items.get(this.system.equipped.accessory);
       if (acc && acc.data.data.quality) {
         bonus += parseInt(acc.data.data.quality.initiativeBonus);
       }
     }
 
-    if (this.data.data.equipped.accessory2 !== "") {
-      const acc = this.items.get(this.data.data.equipped.accessory2);
+    if (this.system.equipped.accessory2 !== "") {
+      const acc = this.items.get(this.system.equipped.accessory2);
       if (acc && acc.data.data.quality) {
         bonus += parseInt(acc.data.data.quality.initiativeBonus);
       }

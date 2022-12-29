@@ -21,7 +21,9 @@ export class FabulaUltimaCombatHud {
     }
 
     _setupEvents() {
+        console.log("setup: " + game.user.isGM);
         $("#battle-hud .enemy-turn").on('click', () => {
+            console.log("enemy turn click " + game.user.isGM);
             if (!game.user.isGM) return;
 
             this.showNotice("enemy");
@@ -107,29 +109,29 @@ export class FabulaUltimaCombatHud {
                 p += '<div style="flex: 0 0 33%; margin: 0; padding: 0; display: flex; flex-direction: column;">';
                     p += '<div style="display: flex; justify-content: end; padding-right: 10px; margin: 0; margin-bottom: -3px;">' +
                         '<span' + add + '>' +
-                        player.actor.data.data.health.value + '</span>' +
+                        player.actor.system.health.value + '</span>' +
                         '<span' + add + '>/</span>' +
                         '<span' + add + '>' +
-                        player.actor.data.data.health.max + '</span></div>';
-                    p += '<progress class="health-progress" value="' + player.actor.data.data.health.value + '" max="' + player.actor.data.data.health.max + '"></progress>';
+                        player.actor.system.health.max + '</span></div>';
+                    p += '<progress class="health-progress" value="' + player.actor.system.health.value + '" max="' + player.actor.system.health.max + '"></progress>';
                 p += '</div>';
                 p += '<div style="flex: 0 0 33%; margin: 0; padding: 0; display: flex; flex-direction: column;">';
                     p += '<div style="display: flex; justify-content: end; padding-right: 10px; margin: 0; margin-bottom: -3px;">' +
                         '<span' + add + '>' +
-                        player.actor.data.data.mind.value + '</span>' +
+                        player.actor.system.mind.value + '</span>' +
                         '<span' + add + '>/</span>' +
                         '<span' + add + '>' +
-                        player.actor.data.data.mind.max + '</span></div>';
-                    p += '<progress class="mind-progress" value="' + player.actor.data.data.mind.value + '" max="' + player.actor.data.data.mind.max + '"></progress>';
+                        player.actor.system.mind.max + '</span></div>';
+                    p += '<progress class="mind-progress" value="' + player.actor.system.mind.value + '" max="' + player.actor.system.mind.max + '"></progress>';
                 p += '</div>';
                 p += '<div style="flex: 0 0 33%; margin: 0; padding: 0; display: flex; flex-direction: column;">';
                     p += '<div style="display: flex; justify-content: end; padding-right: 10px; margin: 0; margin-bottom: -3px;">' +
                         '<span' + add + '>' +
-                        player.actor.data.data.inventory.value + '</span>' +
+                        player.actor.system.inventory.value + '</span>' +
                         '<span' + add + '>/</span>' +
                         '<span' + add + '>' +
-                        player.actor.data.data.inventory.max + '</span></div>';
-                    p += '<progress class="inventory-progress" value="' + player.actor.data.data.inventory.value + '" max="' + player.actor.data.data.inventory.max + '"></progress>';
+                        player.actor.system.inventory.max + '</span></div>';
+                    p += '<progress class="inventory-progress" value="' + player.actor.system.inventory.value + '" max="' + player.actor.system.inventory.max + '"></progress>';
                 p += '</div>';
             p += '</div>';
         p += '</div>';

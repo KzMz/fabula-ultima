@@ -33,24 +33,24 @@ export class FabulaUltimaActorSheet extends ActorSheet {
     const context = super.getData();
 
     // Use a safe clone of the actor data for further operations.
-    const actorData = context.actor.data;
+    const actorData = context.actor.system;
 
-    // Add the actor's data to context.data for easier access, as well as flags.
-    context.data = actorData.data;
+    // Add the actor's data to context.system for easier access, as well as flags.
+    context.system = actorData;
     context.flags = actorData.flags;
 
     // Prepare character data and items.
-    if (actorData.type == 'character') {
+    if (context.actor.type == 'character') {
       this._prepareItems(context);
       await this._prepareCharacterData(context);
     }
 
     // Prepare NPC data and items.
-    if (actorData.type == 'npc') {
+    if (context.actor.type == 'npc') {
       this._prepareItems(context);
     }
 
-    context.data.crisisHealth = Math.floor(context.data.health.max / 2);
+    context.system.crisisHealth = Math.floor(context.system.health.max / 2);
 
     // Add roll data for TinyMCE editors.
     context.rollData = context.actor.getRollData();
@@ -70,17 +70,17 @@ export class FabulaUltimaActorSheet extends ActorSheet {
    */
   async _prepareCharacterData(context) {
     // Handle ability scores.
-    context.data.orderedAbilities = {};
+    context.system.orderedAbilities = {};
 
     for (const k in CONFIG.FABULAULTIMA.abilities) {
-      if (Number(context.data.abilities[k].value) > Number(context.data.abilities[k].max)) {
-        context.data.abilities[k].value = context.data.abilities[k].max;
+      if (Number(context.system.abilities[k].value) > Number(context.system.abilities[k].max)) {
+        context.system.abilities[k].value = context.system.abilities[k].max;
       }
 
-      context.data.abilities[k].label = game.i18n.localize(CONFIG.FABULAULTIMA.abilities[k]) ?? k;
-      context.data.abilities[k].abbrLabel = game.i18n.localize(CONFIG.FABULAULTIMA.abilityAbbreviations[k]) ?? k;
+      context.system.abilities[k].label = game.i18n.localize(CONFIG.FABULAULTIMA.abilities[k]) ?? k;
+      context.system.abilities[k].abbrLabel = game.i18n.localize(CONFIG.FABULAULTIMA.abilityAbbreviations[k]) ?? k;
 
-      context.data.orderedAbilities[k] = context.data.abilities[k];
+      context.system.orderedAbilities[k] = context.system.abilities[k];
     }
 
     const statuses1 = {};
@@ -90,17 +90,17 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       {
         statuses2[k] = v;
         statuses2[k].label = game.i18n.localize(v.label);
-        statuses2[k].value = context.data.status[k];
+        statuses2[k].value = context.system.status[k];
         continue;
       }
 
       statuses1[k] = v;
       statuses1[k].label = game.i18n.localize(v.label);
-      statuses1[k].value = context.data.status[k];
+      statuses1[k].value = context.system.status[k];
     }
 
-    context.data.statuses1 = statuses1;
-    context.data.statuses2 = statuses2;
+    context.system.statuses1 = statuses1;
+    context.system.statuses2 = statuses2;
 
     this._updateCharacterLevel(context);
     this._updateCharacterPoints(context);
@@ -109,76 +109,76 @@ export class FabulaUltimaActorSheet extends ActorSheet {
   }
 
   async _updateEquipmentBasedStats(context) {
-    context.data.initiativeBonus = 0;
-    context.data.defense = parseInt(context.data.abilities.dex.value);
-    context.data.magicDefense = parseInt(context.data.abilities.int.value);
+    context.system.initiativeBonus = 0;
+    context.system.defense = parseInt(context.system.abilities.dex.value);
+    context.system.magicDefense = parseInt(context.system.abilities.int.value);
 
-    if (context.data.equipped.armor !== "") {
-      const armor = this.actor.items.get(context.data.equipped.armor);
+    if (context.system.equipped.armor !== "") {
+      const armor = this.actor.items.get(context.system.equipped.armor);
       if (armor) {
-        context.data.initiativeBonus = parseInt(armor.data.data.initiativeBonus);
+        context.system.initiativeBonus = parseInt(armor.data.data.initiativeBonus);
         
         if (armor.data.data.defenseFormula.includes("@")) {
           const roll = await new Roll(armor.data.data.defenseFormula, this.actor.getRollData()).roll();
           console.log(roll);
-          context.data.defense = parseInt(roll.total);
+          context.system.defense = parseInt(roll.total);
         } else {
-          context.data.defense = parseInt(armor.data.data.defenseFormula);
+          context.system.defense = parseInt(armor.data.data.defenseFormula);
         }
 
         if (armor.data.data.magicDefenseFormula.includes("@")) {
           const roll = await new Roll(armor.data.data.magicDefenseFormula, this.actor.getRollData()).roll();
-          context.data.magicDefense = parseInt(roll.total);
+          context.system.magicDefense = parseInt(roll.total);
         } else {
-          context.data.magicDefense = parseInt(armor.data.data.defenseFormula);
+          context.system.magicDefense = parseInt(armor.data.data.defenseFormula);
         }
       }
     }
 
     let mainHand;
-    if (context.data.equipped.mainHand !== "") {
-      mainHand = this.actor.items.get(context.data.equipped.mainHand);
+    if (context.system.equipped.mainHand !== "") {
+      mainHand = this.actor.items.get(context.system.equipped.mainHand);
       if (mainHand) {
         if (mainHand.data.data.quality) {
-          context.data.initiativeBonus += parseInt(mainHand.data.data.quality.initiativeBonus);
-          context.data.defense += parseInt(mainHand.data.data.quality.defenseBonus);
-          context.data.magicDefense += parseInt(mainHand.data.data.quality.magicDefenseBonus);
+          context.system.initiativeBonus += parseInt(mainHand.data.data.quality.initiativeBonus);
+          context.system.defense += parseInt(mainHand.data.data.quality.defenseBonus);
+          context.system.magicDefense += parseInt(mainHand.data.data.quality.magicDefenseBonus);
         }
 
-        context.data.defense += parseInt(mainHand.data.data.defenseBonus);
-        context.data.magicDefense += parseInt(mainHand.data.data.magicDefenseBonus);
+        context.system.defense += parseInt(mainHand.data.data.defenseBonus);
+        context.system.magicDefense += parseInt(mainHand.data.data.magicDefenseBonus);
       }
     }
 
-    if (context.data.equipped.offHand !== "") {
-      const offHand = this.actor.items.get(context.data.equipped.offHand);
+    if (context.system.equipped.offHand !== "") {
+      const offHand = this.actor.items.get(context.system.equipped.offHand);
       if (offHand && mainHand && mainHand.id !== offHand.id) {
         if (offHand.data.data.quality) {
-          context.data.initiativeBonus += parseInt(offHand.data.data.quality.initiativeBonus);
-          context.data.defense += parseInt(offHand.data.data.quality.defenseBonus);
-          context.data.magicDefense += parseInt(offHand.data.data.quality.magicDefenseBonus);
+          context.system.initiativeBonus += parseInt(offHand.data.data.quality.initiativeBonus);
+          context.system.defense += parseInt(offHand.data.data.quality.defenseBonus);
+          context.system.magicDefense += parseInt(offHand.data.data.quality.magicDefenseBonus);
         }
 
-        context.data.defense += parseInt(offHand.data.data.defenseBonus);
-        context.data.magicDefense += parseInt(offHand.data.data.magicDefenseBonus);
+        context.system.defense += parseInt(offHand.data.data.defenseBonus);
+        context.system.magicDefense += parseInt(offHand.data.data.magicDefenseBonus);
       }
     }
 
-    if (context.data.equipped.accessory !== "") {
-      const acc = this.actor.items.get(context.data.equipped.accessory);
+    if (context.system.equipped.accessory !== "") {
+      const acc = this.actor.items.get(context.system.equipped.accessory);
       if (acc && acc.data.data.quality) {
-        context.data.initiativeBonus += parseInt(acc.data.data.quality.initiativeBonus);
-        context.data.defense += parseInt(acc.data.data.quality.defenseBonus);
-        context.data.magicDefense += parseInt(acc.data.data.quality.magicDefenseBonus);
+        context.system.initiativeBonus += parseInt(acc.data.data.quality.initiativeBonus);
+        context.system.defense += parseInt(acc.data.data.quality.defenseBonus);
+        context.system.magicDefense += parseInt(acc.data.data.quality.magicDefenseBonus);
       }
     }
 
-    if (context.data.equipped.accessory2 !== "") {
-      const acc = this.actor.items.get(context.data.equipped.accessory2);
+    if (context.system.equipped.accessory2 !== "") {
+      const acc = this.actor.items.get(context.system.equipped.accessory2);
       if (acc && acc.data.data.quality) {
-        context.data.initiativeBonus += parseInt(acc.data.data.quality.initiativeBonus);
-        context.data.defense += parseInt(acc.data.data.quality.defenseBonus);
-        context.data.magicDefense += parseInt(acc.data.data.quality.magicDefenseBonus);
+        context.system.initiativeBonus += parseInt(acc.data.data.quality.initiativeBonus);
+        context.system.defense += parseInt(acc.data.data.quality.defenseBonus);
+        context.system.magicDefense += parseInt(acc.data.data.quality.magicDefenseBonus);
       }
     }
   }
@@ -212,16 +212,16 @@ export class FabulaUltimaActorSheet extends ActorSheet {
         i.data.damage.type = game.i18n.localize(CONFIG.FABULAULTIMA.damageTypes[i.data.damage.type]);
 
         if (i.data.twoHanded) {
-          if (context.data.equipped.mainHand === i._id) {
+          if (context.system.equipped.mainHand === i._id) {
             i.status = game.i18n.localize("FABULAULTIMA.EquipTwoHanded");
-            context.data.equipped.offHand = context.data.equipped.mainHand;
+            context.system.equipped.offHand = context.system.equipped.mainHand;
           } else {
             i.status = "";
           }
         } else {
-          if (context.data.equipped.mainHand === i._id) {
+          if (context.system.equipped.mainHand === i._id) {
             i.status = game.i18n.localize("FABULAULTIMA.MainHand");
-          } else if (context.data.equipped.offHand === i._id) {
+          } else if (context.system.equipped.offHand === i._id) {
             i.status = game.i18n.localize("FABULAULTIMA.OffHand");
           } else {
             i.status = "";
@@ -231,9 +231,9 @@ export class FabulaUltimaActorSheet extends ActorSheet {
         weapons.push(i);
       }
       else if (i.type === "shield") {
-        if (context.data.equipped.mainHand === i._id) {
+        if (context.system.equipped.mainHand === i._id) {
           i.status = game.i18n.localize("FABULAULTIMA.MainHand");
-        } else if (context.data.equipped.offHand === i._id) {
+        } else if (context.system.equipped.offHand === i._id) {
           i.status = game.i18n.localize("FABULAULTIMA.OffHand");
         } else {
           i.status = "";
@@ -245,7 +245,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
         i.data.defenseFormula = this.actor.getArmorFormula(i, false);
         i.data.magicDefenseFormula = this.actor.getArmorFormula(i, true);
 
-        if (context.data.equipped.armor === i._id) {
+        if (context.system.equipped.armor === i._id) {
           i.status = game.i18n.localize("FABULAULTIMA.Equipped");
         } else {
           i.status = "";
@@ -254,7 +254,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
         armor.push(i);
       }
       else if (i.type === "accessory") {
-        if (context.data.equipped.accessory === i._id || context.data.equipped.accessory2 === i._id) {
+        if (context.system.equipped.accessory === i._id || context.system.equipped.accessory2 === i._id) {
           i.status = game.i18n.localize("FABULAULTIMA.Equipped");
         } else {
           i.status = "";
@@ -318,15 +318,15 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       level += c.data.level;
     }
 
-    context.data.attributes.level.value = level;
+    context.system.attributes.level.value = level;
   }
 
   _updateCharacterPoints(context) {
-    let startingHealth = context.data.abilities.vig.max * 5;
-    startingHealth += context.data.attributes.level.value;
+    let startingHealth = context.system.abilities.vig.max * 5;
+    startingHealth += context.system.attributes.level.value;
 
-    let startingMind = context.data.abilities.vol.max * 5;
-    startingMind += context.data.attributes.level.value;
+    let startingMind = context.system.abilities.vol.max * 5;
+    startingMind += context.system.attributes.level.value;
 
     let startingInventory = 6;
 
@@ -342,19 +342,19 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       }
     }
 
-    context.data.health.max = startingHealth;
-    context.data.mind.max = startingMind;
-    context.data.inventory.max = startingInventory;
+    context.system.health.max = startingHealth;
+    context.system.mind.max = startingMind;
+    context.system.inventory.max = startingInventory;
   }
 
   _updateCharacterAttributes(context) {
     const maxAbilities = {};
-    for (const ability in context.data.abilities) {
-      maxAbilities[ability] = context.data.abilities[ability].max;
+    for (const ability in context.system.abilities) {
+      maxAbilities[ability] = context.system.abilities[ability].max;
     }
 
-    for (let status in context.data.statuses1) {
-      const s = context.data.statuses1[status];
+    for (let status in context.system.statuses1) {
+      const s = context.system.statuses1[status];
       if (!s.value) continue; 
 
       for (let affected of s.affects) {
@@ -362,8 +362,8 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       }
     }
 
-    for (let status in context.data.statuses2) {
-      const s = context.data.statuses2[status];
+    for (let status in context.system.statuses2) {
+      const s = context.system.statuses2[status];
       if (!s.value) continue;
 
       for (let affected of s.affects) {
@@ -371,8 +371,8 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       }
     }
 
-    for (const ability in context.data.abilities) {
-      context.data.abilities[ability].value = maxAbilities[ability];
+    for (const ability in context.system.abilities) {
+      context.system.abilities[ability].value = maxAbilities[ability];
     }
   }
 
@@ -403,17 +403,17 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       const equipped = this.actor.items.get(this.actor.data.data.equipped.mainHand);
       const other = this.actor.items.get(this.actor.data.data.equipped.offHand);
       const values = {
-        "data.equipped.mainHand": item.id
+        "system.equipped.mainHand": item.id
       };
 
       if (item.data.data.twoHanded) {
-        values["data.equipped.offHand"] = item.id;
+        values["system.equipped.offHand"] = item.id;
       } else if (equipped && equipped.data.data.twoHanded) {
-        values["data.equipped.offHand"] = "";
+        values["system.equipped.offHand"] = "";
       }
       
       if (other && other.id === item.id) {
-        values["data.equipped.offHand"] = "";
+        values["system.equipped.offHand"] = "";
       }
 
       await this.actor.update(values);
@@ -425,17 +425,17 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       const equipped = this.actor.items.get(this.actor.data.data.equipped.offHand);
       const other = this.actor.items.get(this.actor.data.data.equipped.mainHand);
       const values = {
-        "data.equipped.offHand": item.id
+        "system.equipped.offHand": item.id
       };
 
       if (item.data.data.twoHanded) {
-        values["data.equipped.mainHand"] = item.id;
+        values["system.equipped.mainHand"] = item.id;
       } else if (equipped && equipped.data.data.twoHanded) {
-        values["data.equipped.mainHand"] = "";
+        values["system.equipped.mainHand"] = "";
       } 
 
       if (other && other.id === item.id) {
-        values["data.equipped.mainHand"] = "";
+        values["system.equipped.mainHand"] = "";
       }
 
       await this.actor.update(values);
@@ -445,7 +445,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       const item = this.actor.items.get(li.data("itemId"));
 
       const values = {
-        "data.equipped.armor": item.id
+        "system.equipped.armor": item.id
       };
       await this.actor.update(values);
     });
@@ -454,7 +454,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       const item = this.actor.items.get(li.data("itemId"));
 
       const values = {
-        "data.equipped.accessory": item.id
+        "system.equipped.accessory": item.id
       };
       await this.actor.update(values);
     });
@@ -465,7 +465,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       const gives = this.actor.items.filter(i => i.data.data.passive.givesAdditionalAccessorySlot);
       if (gives && gives.length) {
         const values = {
-          "data.equipped.accessory2": item.id
+          "system.equipped.accessory2": item.id
         };
         await this.actor.update(values);
       }
@@ -493,7 +493,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       const item = this.actor.items.get(li.data("itemId"));
 
       await item.update({
-          "data.who": $(ev.currentTarget).val()
+          "system.who": $(ev.currentTarget).val()
       });
     });
     html.find('.feeling-checkbox').click(async ev => {
@@ -502,7 +502,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       const item = this.actor.items.get(li.data("itemId"));
       const checkbox = $(ev.currentTarget);
 
-      const prop = "data." + ev.currentTarget.dataset.prop;
+      const prop = "system." + ev.currentTarget.dataset.prop;
       const feeling = checkbox.attr('name');
 
       $("[data-prop='" + ev.currentTarget.dataset.prop + "']").not("[name='" + feeling + "']")[0].checked = false;
@@ -632,7 +632,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
         return super._onDrop(event);
       } else {
         other[0].update({
-          "data.level": other[0].data.data.level + 1
+          "system.level": other[0].data.data.level + 1
         });
       }
     } else if (item.type === "feature") {
@@ -640,7 +640,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
         return super._onDrop(event);
       } else {
         other[0].update({
-          "data.level": other[0].data.data.level + 1
+          "system.level": other[0].data.data.level + 1
         });
       }
     } else if (item.type === "weapon" || item.type === "armor" || item.type === "accessory" || item.type === "shield" || item.type === "spell" || item.type === "item") {
