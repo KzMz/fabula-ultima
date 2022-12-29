@@ -9,20 +9,20 @@ export class FabulaUltimaCombatHud {
 
     addToScreen() {
         const exists = $("#battle-hud");
-        console.log(exists);
         if (exists.length) {
             this._setupEvents(exists);
             return;
         }
 
         const battleHud = this._getBattleElement();
+        this._setupEvents(battleHud);
         setTimeout( () => {
             $("div#hud").append(battleHud);
         }, 500);
     }
 
     _setupEvents(hud) {
-        console.log(hud);
+        console.log("setups " + hud);
         hud.find(".enemy-turn").on('click', () => {
             console.log("enemy turn click " + game.user.isGM);
             if (!game.user.isGM) return;
