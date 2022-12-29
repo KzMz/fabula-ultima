@@ -30,9 +30,7 @@ export class FabulaUltimaCombatHud {
     }
 
     _setupEvents(hud) {
-        console.log("setups " + hud);
         hud.find(".enemy-turn").on('click', () => {
-            console.log("enemy turn click " + game.user.isGM);
             if (!game.user.isGM) return;
 
             this.showNotice("enemy");
@@ -45,6 +43,9 @@ export class FabulaUltimaCombatHud {
     }
 
     static onMessage(side) {
+        if (game.user.isGM) return;
+        console.log(side);
+
         game.fabulaultima.combatHud.showNotice(side);
     }
 
