@@ -108,13 +108,17 @@ export class FabulaUltimaCombatHud {
         const maxMind = player.actor.getMaxMindPoints();
         const maxInventory = player.actor.getMaxInventoryPoints();
 
+        let flex = "33%";
+        if (game.settings.get("fabulaultima", "useLimits"))
+            flex = "25%";
+
         let p = "<div class='player-wrapper' data-player='" + player.id + "'><span class='combatant-name";
             if (player.actor.isCrisis())
                 p += " crisis";
 
             p += "'>" + player.name + "</span>";
             p += '<div class="player-stat-wrapper">';
-                p += '<div style="flex: 0 0 33%; margin: 0; padding: 0; display: flex; flex-direction: column;">';
+                p += '<div style="flex: 0 0 ' + flex + '; margin: 0; padding: 0; display: flex; flex-direction: column;">';
                     p += '<div style="display: flex; justify-content: end; padding-right: 10px; margin: 0; margin-bottom: -3px;">' +
                         '<span' + add + '>' +
                         player.actor.system.health.value + '</span>' +
@@ -123,7 +127,7 @@ export class FabulaUltimaCombatHud {
                         maxHealth + '</span></div>';
                     p += '<progress class="health-progress" value="' + player.actor.system.health.value + '" max="' + maxHealth + '"></progress>';
                 p += '</div>';
-                p += '<div style="flex: 0 0 33%; margin: 0; padding: 0; display: flex; flex-direction: column;">';
+                p += '<div style="flex: 0 0 ' + flex + '; margin: 0; padding: 0; display: flex; flex-direction: column;">';
                     p += '<div style="display: flex; justify-content: end; padding-right: 10px; margin: 0; margin-bottom: -3px;">' +
                         '<span' + add + '>' +
                         player.actor.system.mind.value + '</span>' +
@@ -132,7 +136,7 @@ export class FabulaUltimaCombatHud {
                         maxMind + '</span></div>';
                     p += '<progress class="mind-progress" value="' + player.actor.system.mind.value + '" max="' + maxMind + '"></progress>';
                 p += '</div>';
-                p += '<div style="flex: 0 0 33%; margin: 0; padding: 0; display: flex; flex-direction: column;">';
+                p += '<div style="flex: 0 0 ' + flex + '; margin: 0; padding: 0; display: flex; flex-direction: column;">';
                     p += '<div style="display: flex; justify-content: end; padding-right: 10px; margin: 0; margin-bottom: -3px;">' +
                         '<span' + add + '>' +
                         player.actor.system.inventory.value + '</span>' +
@@ -143,7 +147,7 @@ export class FabulaUltimaCombatHud {
                 p += '</div>';
 
                 if (game.settings.get("fabulaultima", "useLimits")) {
-                    p += '<div style="flex: 0 0 33%; margin: 0; padding: 0; display: flex; flex-direction: column;">';
+                    p += '<div style="flex: 0 0 ' + flex + '; margin: 0; padding: 0; display: flex; flex-direction: column;">';
                         p += '<div style="display: flex; justify-content: end; padding-right: 10px; margin: 0; margin-bottom: -3px;">' +
                             '<span' + add + '>' +
                             player.actor.system.limit.value + '</span>' +
