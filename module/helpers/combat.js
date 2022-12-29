@@ -15,20 +15,18 @@ export class FabulaUltimaCombatHud {
         setTimeout( () => {
             $("div#hud").append(battleHud);
 
-            if (game.user.isGM)
-                this._setupEvents();
+            this._setupEvents(battleHud);
         }, 500);
     }
 
-    _setupEvents() {
-        console.log("setup: " + game.user.isGM);
-        $("#battle-hud .enemy-turn").on('click', () => {
+    _setupEvents(hud) {
+        hud.find(".enemy-turn").on('click', () => {
             console.log("enemy turn click " + game.user.isGM);
             if (!game.user.isGM) return;
 
             this.showNotice("enemy");
         });
-        $("#battle-hud .player-turn").on('click', () => {
+        hud.find(".player-turn").on('click', () => {
             if (!game.user.isGM) return;
 
             this.showNotice("player");
@@ -100,6 +98,10 @@ export class FabulaUltimaCombatHud {
         if (player.actor.isCrisis())
             add = " class='crisis'";
 
+        const maxHealth = player.actor.getMaxHealthPoints();
+        const maxMind = player.actor.getMaxMindPoints();
+        const maxInventory = player.actor.getMaxInventoryPoints();
+
         let p = "<div class='player-wrapper' data-player='" + player.id + "'><span class='combatant-name";
             if (player.actor.isCrisis())
                 p += " crisis";
@@ -112,8 +114,8 @@ export class FabulaUltimaCombatHud {
                         player.actor.system.health.value + '</span>' +
                         '<span' + add + '>/</span>' +
                         '<span' + add + '>' +
-                        player.actor.system.health.max + '</span></div>';
-                    p += '<progress class="health-progress" value="' + player.actor.system.health.value + '" max="' + player.actor.system.health.max + '"></progress>';
+                        maxHealth + '</span></div>';
+                    p += '<progress class="health-progress" value="' + player.actor.system.health.value + '" max="' + maxHealth + '"></progress>';
                 p += '</div>';
                 p += '<div style="flex: 0 0 33%; margin: 0; padding: 0; display: flex; flex-direction: column;">';
                     p += '<div style="display: flex; justify-content: end; padding-right: 10px; margin: 0; margin-bottom: -3px;">' +
@@ -121,8 +123,8 @@ export class FabulaUltimaCombatHud {
                         player.actor.system.mind.value + '</span>' +
                         '<span' + add + '>/</span>' +
                         '<span' + add + '>' +
-                        player.actor.system.mind.max + '</span></div>';
-                    p += '<progress class="mind-progress" value="' + player.actor.system.mind.value + '" max="' + player.actor.system.mind.max + '"></progress>';
+                        maxMind + '</span></div>';
+                    p += '<progress class="mind-progress" value="' + player.actor.system.mind.value + '" max="' + maxMind + '"></progress>';
                 p += '</div>';
                 p += '<div style="flex: 0 0 33%; margin: 0; padding: 0; display: flex; flex-direction: column;">';
                     p += '<div style="display: flex; justify-content: end; padding-right: 10px; margin: 0; margin-bottom: -3px;">' +
@@ -130,8 +132,8 @@ export class FabulaUltimaCombatHud {
                         player.actor.system.inventory.value + '</span>' +
                         '<span' + add + '>/</span>' +
                         '<span' + add + '>' +
-                        player.actor.system.inventory.max + '</span></div>';
-                    p += '<progress class="inventory-progress" value="' + player.actor.system.inventory.value + '" max="' + player.actor.system.inventory.max + '"></progress>';
+                        maxInventory + '</span></div>';
+                    p += '<progress class="inventory-progress" value="' + player.actor.system.inventory.value + '" max="' + maxInventory + '"></progress>';
                 p += '</div>';
             p += '</div>';
         p += '</div>';

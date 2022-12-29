@@ -245,6 +245,56 @@ export class FabulaUltimaActor extends Actor {
     return base;
   }
 
+  getMaxHealthPoints() {
+    let startingHealth = this.system.abilities.vig.max * 5;
+    startingHealth += this.system.attributes.level.value;
+
+    const classes = this.items.filter(i => i.type === "class");
+    for (let c of classes) {
+      startingHealth += Number(c.data.healthBonus);
+    }
+
+    const skills = this.items.filter(i => i.type === "feature");
+    for (let f of skills) {
+      startingHealth += Number(f.data.passive.hpBonus) * f.data.level;
+    }
+
+    return startingHealth;
+  }
+
+  getMaxMindPoints() {
+    let startingMind = this.system.abilities.vol.max * 5;
+    startingMind += this.system.attributes.level.value;
+
+    const classes = this.items.filter(i => i.type === "class");
+    for (let c of classes) {
+      startingMind += Number(c.data.mindBonus);
+    }
+
+    const skills = this.items.filter(i => i.type === "feature");
+    for (let f of skills) {
+      startingMind += Number(f.data.passive.mpBonus) * f.data.level;
+    }
+
+    return startingMind;
+  }
+
+  getMaxInventoryPoints() {
+    let startingInventory = 6;
+
+    const classes = this.items.filter(i => i.type === "class");
+    for (let c of classes) {
+      startingInventory += Number(c.data.inventoryBonus);
+    }
+
+    const skills = this.items.filter(i => i.type === "feature");
+    for (let f of skills) {
+      startingInventory += Number(f.data.passive.ipBonus);
+    }
+
+    return startingInventory;
+  }
+
   getArmorFormula(item, magic) {
     let base = item.data.defenseFormula;
     if (magic)

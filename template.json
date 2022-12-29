@@ -82,12 +82,19 @@
         "min": 0,
         "max": 99
       },
+      "limit": {
+        "value": 0,
+        "min": 0,
+        "max": 4
+      },
       "proficiencies": [],
       "fabulaPoints": 3,
       "identity": "",
       "origin": "",
       "theme": "",
       "peculiarity": "",
+      "limitType": "",
+      "limitCondition": "",
       "zenit": 0,
       "exp": 0
     },
