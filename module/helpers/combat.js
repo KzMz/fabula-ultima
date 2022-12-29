@@ -9,12 +9,13 @@ export class FabulaUltimaCombatHud {
 
     addToScreen() {
         const exists = $("#battle-hud");
-        if (exists.length) return;
+        if (exists.length) {
+            this._setupEvents(exists);
+            return;
+        }
 
         const battleHud = this._getBattleElement();
         setTimeout( () => {
-            console.log("add to screen");
-            this._setupEvents(battleHud);
             $("div#hud").append(battleHud);
         }, 500);
     }
@@ -58,6 +59,8 @@ export class FabulaUltimaCombatHud {
         if (game.user.isGM) {
             hud += '<div class="turn-buttons"><button class="player-turn">' + game.i18n.localize("FABULAULTIMA.PlayerTurn") + '</button>' + 
                 '<button class="enemy-turn">' + game.i18n.localize("FABULAULTIMA.EnemyTurn") + '</button></div>';
+
+            this._setupEvents($("#battle-hud"));
         } 
         
         return hud + '<div class="wrapper">' +
