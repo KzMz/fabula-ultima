@@ -78,7 +78,7 @@ export class FabulaUltimaActor extends Actor {
   }
 
   isCrisis() {
-    return this.system.health.value <= Math.floor(this.system.health.max / 2);
+    return this.system.health.value <= Math.floor(this.getMaxHealthPoints() / 2);
   }
 
   async initiativeRoll(bondBonus = 0) {

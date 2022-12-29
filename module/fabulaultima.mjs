@@ -100,6 +100,7 @@ Hooks.once("socketlib.ready", () => {
   console.log("Fabula Ultima | Ready");
 
   FabulaUltimaGroupRoll.ready();
+  FabulaUltimaCombatHud.ready();
 });
 
 Hooks.on("createCombat", async function() {

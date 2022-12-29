@@ -1,5 +1,13 @@
 export class FabulaUltimaCombatHud {
     currentTurn = "";
+    static Socket;
+
+    static ready() {
+        FabulaUltimaCombatHud.Socket = socketlib.registerSystem("fabulaultima-combat");
+        FabulaUltimaCombatHud.Socket.register("notice", (side) => {
+            FabulaUltimaCombatHud.onMessage(side);
+        });
+    }
 
     _getBattleElement() {
         return $('<div id="battle-hud">' +
@@ -36,7 +44,15 @@ export class FabulaUltimaCombatHud {
         });
     }
 
+    static onMessage(side) {
+        game.fabulaultima.combatHud.showNotice(side);
+    }
+
     showNotice(side) {
+        if (game.user.isGm) {
+            FabulaUltimaCombatHud.Socket.executeForEveryone("notice", side);
+        }
+
         this.currentTurn = side;
 
         $("#battle-hud #turn-notice").html(game.i18n.localize(side === "enemy" ? "FABULAULTIMA.EnemyTurn" : "FABULAULTIMA.PlayerTurn"));
