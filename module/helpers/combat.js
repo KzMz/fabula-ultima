@@ -13,13 +13,14 @@ export class FabulaUltimaCombatHud {
 
         const battleHud = this._getBattleElement();
         setTimeout( () => {
-            $("div#hud").append(battleHud);
-
+            console.log("add to screen");
             this._setupEvents(battleHud);
+            $("div#hud").append(battleHud);
         }, 500);
     }
 
     _setupEvents(hud) {
+        console.log(hud);
         hud.find(".enemy-turn").on('click', () => {
             console.log("enemy turn click " + game.user.isGM);
             if (!game.user.isGM) return;
@@ -135,6 +136,19 @@ export class FabulaUltimaCombatHud {
                         maxInventory + '</span></div>';
                     p += '<progress class="inventory-progress" value="' + player.actor.system.inventory.value + '" max="' + maxInventory + '"></progress>';
                 p += '</div>';
+
+                if (game.settings.get("fabulaultima", "useLimits")) {
+                    p += '<div style="flex: 0 0 33%; margin: 0; padding: 0; display: flex; flex-direction: column;">';
+                        p += '<div style="display: flex; justify-content: end; padding-right: 10px; margin: 0; margin-bottom: -3px;">' +
+                            '<span' + add + '>' +
+                            player.actor.system.limit.value + '</span>' +
+                            '<span' + add + '>/</span>' +
+                            '<span' + add + '>' +
+                            player.actor.system.limit.max + '</span></div>';
+                        p += '<progress class="limit-progress" value="' + player.actor.system.limit.value + '" max="' + player.actor.system.limit.max + '"></progress>';
+                    p += '</div>';
+                }
+
             p += '</div>';
         p += '</div>';
 

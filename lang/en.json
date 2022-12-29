@@ -205,5 +205,7 @@
   "FABULAULTIMA.GenericItem": "Oggetto",
   "FABULAULTIMA.Description": "Descrizione",
 
-  "FABULAULTIMA.Other": "Altro"
+  "FABULAULTIMA.Other": "Altro",
+  "FABULAULTIMA.LimitType": "Potere Zero",
+  "FABULAULTIMA.LimitCondition": "Innesco"
 }

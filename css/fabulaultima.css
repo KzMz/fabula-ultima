@@ -543,7 +543,17 @@ progress[value].mind-progress::-webkit-progress-value {
   background-size: 35px 20px, 100% 100%, 100% 100%;
 }
 
-progress[value].health-progress, progress[value].mind-progress, progress[value].inventory-progress {
+progress[value].limit-progress::-webkit-progress-value {
+  background-image:
+          -webkit-linear-gradient(top,
+          rgba(255, 255, 255, .25),
+          rgba(0, 0, 0, .25)),
+          -webkit-linear-gradient(left, #FF333C, #E0888C);
+
+  background-size: 35px 20px, 100% 100%, 100% 100%;
+}
+
+progress[value].health-progress, progress[value].mind-progress, progress[value].inventory-progress,progress[value].limit-progress {
   height: 5px;
 }
 
@@ -556,6 +566,10 @@ progress[value].mind-progress::-webkit-progress-bar {
 }
 
 progress[value].inventory-progress::-webkit-progress-bar {
+  background-color: #4d0000;
+}
+
+progress[value].limit-progress::-webkit-progress-bar {
   background-color: #4d0000;
 }
 

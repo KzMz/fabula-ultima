@@ -256,7 +256,6 @@ export class FabulaUltimaActor extends Actor {
 
     const skills = this.items.filter(i => i.type === "feature");
     for (let f of skills) {
-      console.log(f);
       startingHealth += Number(f.system.passive.hpBonus) * f.system.level;
     }
 
