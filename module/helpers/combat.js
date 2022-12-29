@@ -3,8 +3,8 @@ export class FabulaUltimaCombatHud {
     static Socket;
 
     static ready() {
-        FabulaUltimaCombatHud.Socket = socketlib.registerSystem("fabulaultima");
-        FabulaUltimaCombatHud.Socket.register("notice", (side) => {
+        FabulaUltimaGroupRoll.Socket.register("notice", (side) => {
+            console.log(side);
             FabulaUltimaCombatHud.onMessage(side);
         });
     }
@@ -51,7 +51,8 @@ export class FabulaUltimaCombatHud {
 
     showNotice(side) {
         if (game.user.isGm) {
-            FabulaUltimaCombatHud.Socket.executeForEveryone("notice", side);
+            console.log("sending...");
+            FabulaUltimaGroupRoll.Socket.executeForEveryone("notice", side);
         }
 
         this.currentTurn = side;
@@ -71,7 +72,6 @@ export class FabulaUltimaCombatHud {
         $('#battle-hud').empty();
         $('#battle-hud').append(this._getFF7Hud());
 
-        console.log("update");
         this._setupEvents($("#battle-hud"));
     }
 
