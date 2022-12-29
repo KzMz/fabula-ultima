@@ -245,11 +245,22 @@ export class FabulaUltimaActor extends Actor {
     return base;
   }
 
+  getLevel() {
+    let level = 0;
+
+    const classes = this.items.filter(i => i.type === "class");
+    for (let c of classes) {
+      level += c.system.level;
+    }
+
+    return level;
+  }
+
   getMaxHealthPoints() {
     let startingHealth = this.system.abilities.vig.max * 5;
     console.log("vig " + startingHealth);
 
-    startingHealth += this.system.attributes.level.value;
+    startingHealth += this.getLevel();
     console.log("level " + startingHealth);
 
     const classes = this.items.filter(i => i.type === "class");
@@ -269,7 +280,7 @@ export class FabulaUltimaActor extends Actor {
 
   getMaxMindPoints() {
     let startingMind = this.system.abilities.vol.max * 5;
-    startingMind += this.system.attributes.level.value;
+    startingMind += this.getLevel();
 
     const classes = this.items.filter(i => i.type === "class");
     for (let c of classes) {
