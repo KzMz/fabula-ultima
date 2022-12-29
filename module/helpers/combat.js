@@ -3,7 +3,7 @@ export class FabulaUltimaCombatHud {
     static Socket;
 
     static ready() {
-        FabulaUltimaCombatHud.Socket = socketlib.registerSystem("fabulaultima-combat");
+        FabulaUltimaCombatHud.Socket = socketlib.registerSystem("fabulaultima");
         FabulaUltimaCombatHud.Socket.register("notice", (side) => {
             FabulaUltimaCombatHud.onMessage(side);
         });
