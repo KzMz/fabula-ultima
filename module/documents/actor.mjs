@@ -251,12 +251,13 @@ export class FabulaUltimaActor extends Actor {
 
     const classes = this.items.filter(i => i.type === "class");
     for (let c of classes) {
-      startingHealth += Number(c.data.healthBonus);
+      startingHealth += Number(c.system.healthBonus);
     }
 
     const skills = this.items.filter(i => i.type === "feature");
     for (let f of skills) {
-      startingHealth += Number(f.data.passive.hpBonus) * f.data.level;
+      console.log(f);
+      startingHealth += Number(f.system.passive.hpBonus) * f.system.level;
     }
 
     return startingHealth;
@@ -268,12 +269,12 @@ export class FabulaUltimaActor extends Actor {
 
     const classes = this.items.filter(i => i.type === "class");
     for (let c of classes) {
-      startingMind += Number(c.data.mindBonus);
+      startingMind += Number(c.system.mindBonus);
     }
 
     const skills = this.items.filter(i => i.type === "feature");
     for (let f of skills) {
-      startingMind += Number(f.data.passive.mpBonus) * f.data.level;
+      startingMind += Number(f.system.passive.mpBonus) * f.system.level;
     }
 
     return startingMind;
@@ -284,12 +285,12 @@ export class FabulaUltimaActor extends Actor {
 
     const classes = this.items.filter(i => i.type === "class");
     for (let c of classes) {
-      startingInventory += Number(c.data.inventoryBonus);
+      startingInventory += Number(c.system.inventoryBonus);
     }
 
     const skills = this.items.filter(i => i.type === "feature");
     for (let f of skills) {
-      startingInventory += Number(f.data.passive.ipBonus);
+      startingInventory += Number(f.system.passive.ipBonus);
     }
 
     return startingInventory;
