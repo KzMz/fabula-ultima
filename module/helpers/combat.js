@@ -52,10 +52,8 @@ export class FabulaUltimaCombatHud {
     }
 
     showNotice(side) {
-        if (game.user.isGm) {
-            console.log("sending...");
-            FabulaUltimaGroupRoll.Socket.executeForEveryone("notice", side);
-        }
+        console.log("sending...");
+        FabulaUltimaGroupRoll.Socket.executeForEveryone("notice", side);
 
         this.currentTurn = side;
 
