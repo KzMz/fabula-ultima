@@ -8,7 +8,7 @@
         </div>
         {{charClass.name}}
       </div>
-      <div class="item-name">{{localize "FABULAULTIMA.Level"}}: {{charClass.data.level}}</div>
+      <div class="item-name">{{localize "FABULAULTIMA.Level"}}: {{charClass.system.level}}</div>
       <div class="item-controls">
         <a class="item-control class-delete" title="{{localize 'FABULAULTIMA.DeleteClass'}}" data-type="class"><i class="fas fa-trash"></i> {{localize "FABULAULTIMA.DeleteClass"}}</a>
       </div>
@@ -32,13 +32,13 @@
           <h4>{{skill.name}}</h4>
         </div>
         <div class="item-name">
-          {{skill.data.level}} / {{skill.data.maxLevel}}
+          {{skill.system.level}} / {{skill.system.maxLevel}}
         </div>
         <div class="item-name">
-          {{#if (eq skill.data.cost.amount 0)}}
+          {{#if (eq skill.system.cost.amount 0)}}
             {{localize "FABULAULTIMA.None"}}
           {{else}}
-            {{skill.data.cost.amount}} {{skill.data.cost.resource}}
+            {{skill.system.cost.amount}} {{skill.system.cost.resource}}
           {{/if}}
         </div>
         <div class="item-controls">

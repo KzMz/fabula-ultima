@@ -47,9 +47,25 @@ Hooks.once('init', async function() {
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("fabulaultima", FabulaUltimaItemSheet, { makeDefault: true });
 
+  game.settings.register("fabulaultima", "usePeculiarities", {
+    name: "FABULAULTIMA.UsePeculiarities",
+    hint: "FABULAULTIMA.UsePeculiaritiesHint",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: true
+  });
   game.settings.register("fabulaultima", "useLimits", {
     name: "FABULAULTIMA.UseLimits",
     hint: "FABULAULTIMA.UseLimitsHint",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: false
+  });
+  game.settings.register("fabulaultima", "usePartnerLimits", {
+    name: "FABULAULTIMA.UsePartnerLimits",
+    hint: "FABULAULTIMA.UsePartnerLimitsHint",
     scope: "world",
     config: true,
     type: Boolean,

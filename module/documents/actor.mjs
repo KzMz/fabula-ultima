@@ -130,7 +130,33 @@ export class FabulaUltimaActor extends Actor {
   }  
 
   async rollFeature(feature) {
+    const templateData = {
+      actor: this,
+      feature: feature,
+      type: this.type,
+      flavor: feature.name
+    };
 
+    const template = "systems/fabulaultima/templates/chat/feature-card.html";
+    const html = await renderTemplate(template, templateData);
+
+    let token = this.token;
+    if (!token) {
+      token = this.getActiveTokens()[0];
+    }
+
+    const chatData = {
+      user: game.user._id,
+      type: CONST.CHAT_MESSAGE_TYPES.OTHER,
+      content: html,
+      speaker: {
+        token: this.token ? this.token.id : null,
+        alias: this.token ? this.token.name : this.name,
+        actor: this.id
+      }
+    };
+
+    return ChatMessage.create(chatData);
   }
 
   async rollSpell(spell) {

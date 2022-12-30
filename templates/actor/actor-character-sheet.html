@@ -186,9 +186,7 @@
               <label for="system.peculiarity" class="resource-label flexlarge align-left">{{localize "FABULAULTIMA.Peculiarity"}}</label>
               <input type="text" name="system.peculiarity" value="{{system.peculiarity}}" data-dtype="String"/>
             </div>
-            <div class="trait flexrow flex-group-center">
-              <label for="system.limitType" class="resource-label flexlarge align-left">{{localize "FABULAULTIMA.LimitType"}}</label>
-              <input type="text" name="system.limitType" value="{{system.limitType}}" data-dtype="String"/>
+            <div class="trait flexrow flex-group-center" style="margin-bottom: 10px;">
               <label for="system.limitCondition" class="resource-label flexlarge align-left">{{localize "FABULAULTIMA.LimitCondition"}}</label>
               <input type="text" name="system.limitCondition" value="{{system.limitCondition}}" data-dtype="String"/>
             </div>
@@ -225,12 +223,6 @@
       </section>
     </div>
 
-    {{!-- Biography Tab --}}
-    <div class="tab biography" data-group="primary" data-tab="description">
-      {{!-- If you want TinyMCE editors to output inline rolls when rendered, you need to pass the actor's roll data to the rollData property. --}}
-      {{editor content=system.biography target="system.biography" rollData=rollData button=true owner=owner editable=editable}}
-    </div>
-
     {{!-- Owned Items Tab --}}
     <div class="tab items" data-group="primary" data-tab="items">
        {{> "systems/fabulaultima/templates/actor/parts/actor-items.html"}}
@@ -244,6 +236,17 @@
     {{!-- Active Effects Tab --}}
     <div class="tab effects flexcol" data-group="primary" data-tab="effects">
       {{> "systems/fabulaultima/templates/actor/parts/actor-effects.html"}}
+    </div>
+
+    {{!-- Limits Tab --}}
+    <div class="tab limits flexcol" data-group="primary" data-tab="limits">
+      {{> "systems/fabulaultima/templates/actor/parts/actor-limits.html"}}
+    </div>
+
+    {{!-- Biography Tab --}}
+    <div class="tab biography" data-group="primary" data-tab="description">
+      {{!-- If you want TinyMCE editors to output inline rolls when rendered, you need to pass the actor's roll data to the rollData property. --}}
+      {{editor content=system.biography target="system.biography" rollData=rollData button=true owner=owner editable=editable}}
     </div>
 
   </section>

@@ -93,7 +93,6 @@
       "origin": "",
       "theme": "",
       "peculiarity": "",
-      "limitType": "",
       "limitCondition": "",
       "zenit": 0,
       "exp": 0
@@ -118,7 +117,7 @@
     }
   },
   "Item": {
-    "types": ["item", "consumable", "feature", "spell", "class", "bond", "baseAttack", "weapon", "armor", "shield", "accessory", "artifact"],
+    "types": ["item", "consumable", "feature", "spell", "class", "bond", "baseAttack", "weapon", "armor", "shield", "accessory", "artifact", "limit"],
     "templates": {
       "base": {
         "description": "",
@@ -262,6 +261,10 @@
     },
     "artifact": {
       "templates": ["base"]
+    },
+    "limit": {
+      "templates": ["base"],
+      "partner": ""
     }
   }
 }
