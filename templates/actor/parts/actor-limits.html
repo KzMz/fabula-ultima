@@ -1,27 +1,27 @@
 <ol class="items-list limits-list">
   <li class="items-header flexrow">
-    <h3 class="item-name limit-name flexrow">{{localize "FABULAULTIMA.LimitType"}}</h3>
+    <h4 class="item-name limit-name flexrow">{{localize "FABULAULTIMA.LimitType"}}</h3>
     <div class="effect-source">{{localize "FABULAULTIMA.LimitEffect"}}</div>
     <div class="effect-source">{{localize "FABULAULTIMA.Partner"}}</div>
     <div class="item-controls effect-controls flexrow">
-      <a class="effect-control" data-action="create" title="{{localize 'FABULAULTIMA.EffectCreate'}}">
+      <a class="item-create" data-action="create" title="{{localize 'FABULAULTIMA.EffectCreate'}}">
         <i class="fas fa-plus"></i> {{localize "FABULAULTIMA.Add"}}
       </a>
     </div>
   </li>
   {{#each limits as |limit sid|}}
-    <li class="item effect flexrow" data-effect-id="{{limit.id}}">
-      <div class="item-name effect-name flexrow">
+    <li class="item effect flexrow" data-itemId="{{limit.id}}">
+      <div class="item-name flexrow">
         <img class="item-image" src="{{limit.icon}}"/>
         <h4>{{limit.name}}</h4>
       </div>
       <div class="limit-effect">{{limit.description}}</div>
       <div class="limit-partner">{{limit.partner}}</div>
-      <div class="item-controls effect-controls flexrow">
-        <a class="effect-control" data-action="edit" title="{{localize 'FABULAULTIMA.LimitEdit'}}">
+      <div class="item-controls flexrow">
+        <a class="item-edit" data-action="edit" title="{{localize 'FABULAULTIMA.LimitEdit'}}">
           <i class="fas fa-edit"></i>
         </a>
-        <a class="effect-control" data-action="delete" title="{{localize 'FABULAULTIMA.LimitDelete'}}">
+        <a class="item-delete" data-action="delete" title="{{localize 'FABULAULTIMA.LimitDelete'}}">
           <i class="fas fa-trash"></i>
         </a>
       </div>

@@ -643,7 +643,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
           "system.level": other[0].data.data.level + 1
         });
       }
-    } else if (item.type === "weapon" || item.type === "armor" || item.type === "accessory" || item.type === "shield" || item.type === "spell" || item.type === "item") {
+    } else if (item.type === "weapon" || item.type === "armor" || item.type === "accessory" || item.type === "shield" || item.type === "spell" || item.type === "item" || item.type === "limit") {
       return super._onDrop(event);
     }
 
