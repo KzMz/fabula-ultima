@@ -199,6 +199,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
     const accessories = [];
     const classes = [];
     const other = [];
+    const limits = [];
 
     // Iterate through items, allocating to containers
     for (let i of context.items) {
@@ -271,6 +272,9 @@ export class FabulaUltimaActorSheet extends ActorSheet {
       else if (i.type === 'bond') {
         bonds.push(i);
       }
+      else if (i.type === 'limit') {
+        limits.push(i);
+      }
       else if (i.type !== "feature" && i.type !== "spell") {
         other.push(i);
       }
@@ -307,6 +311,7 @@ export class FabulaUltimaActorSheet extends ActorSheet {
     context.accessories = accessories;
     context.shields = shields;
     context.other = other;
+    context.limits = limits;
 
     context.classes = classes;
   }

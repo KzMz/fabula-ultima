@@ -207,5 +207,10 @@
 
   "FABULAULTIMA.Other": "Altro",
   "FABULAULTIMA.LimitType": "Potere Zero",
-  "FABULAULTIMA.LimitCondition": "Innesco"
+  "FABULAULTIMA.LimitCondition": "Innesco",
+  "FABULAULTIMA.Rituals": "Rituali",
+  "FABULAULTIMA.Limits": "Poteri Zero",
+  "FABULAULTIMA.LimitEffect": "Effetto",
+  "FABULAULTIMA.Partner": "Partner",
+  "FABULAULTIMA.Attributes": "Dettagli"
 }
