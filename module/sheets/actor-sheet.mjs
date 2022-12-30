@@ -482,6 +482,8 @@ export class FabulaUltimaActorSheet extends ActorSheet {
     html.find('.item-delete').click(ev => {
       const li = $(ev.currentTarget).parents(".item");
       const item = this.actor.items.get(li.data("itemId"));
+      console.log(li.data("itemId"));
+      console.log(item);
       item.delete();
       li.slideUp(200, () => this.render(false));
     });
