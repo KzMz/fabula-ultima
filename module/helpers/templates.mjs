@@ -12,5 +12,6 @@
       "systems/fabulaultima/templates/actor/parts/actor-spells.html",
       "systems/fabulaultima/templates/actor/parts/actor-effects.html",
       "systems/fabulaultima/templates/actor/parts/actor-bonds.html",
+      "systems/fabulaultima/templates/actor/parts/actor-limits.html"
   ]);
 };
