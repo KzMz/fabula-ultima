@@ -8,8 +8,8 @@
 
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
-    <a class="item" data-tab="description">Description</a>
-    <a class="item" data-tab="attributes">Attributes</a>
+    <a class="item" data-tab="description">{{localize "FABULAULTIMA.Description"}}</a>
+    <a class="item" data-tab="attributes">{{localize "FABULAULTIMA.Attributes"}}</a>
   </nav>
 
   {{!-- Sheet Body --}}
@@ -25,8 +25,9 @@
     <div class="tab attributes" data-group="primary" data-tab="attributes">
       {{!-- As you add new fields, add them in here! --}}
       <div class="resource">
-        <label class="resource-label">Roll Formula</label>
-        <input type="text" name="data.formula" value="{{data.formula}}" data-dtype="String"/>
+        <label class="resource-label">{{localize "FABULAULTIMA.Partner"}}</label>
+        <input type="text" name="data.partner" value="{{data.partner}}" data-dtype="String"/>
+        <!-- TODO: reference to actor -->
       </div>
     </div>
   </section>
