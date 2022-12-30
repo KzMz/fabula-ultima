@@ -8,13 +8,13 @@
     </div>
   </li>
   {{#each limits as |limit sid|}}
-    <li class="item effect flexrow" data-itemId="{{limit.id}}">
+    <li class="item effect flexrow" data-itemId="{{limit._id}}">
       <div class="item-name flexrow">
         <img class="item-image" src="{{limit.icon}}"/>
         <h4>{{limit.name}}</h4>
       </div>
-      <div class="limit-effect">{{limit.description}}</div>
-      <div class="limit-partner">{{limit.partner}}</div>
+      <div class="limit-effect">{{limit.system.description}}</div>
+      <div class="limit-partner">{{limit.system.partner}}</div>
       <div class="item-controls flexrow">
         <a class="item-edit" data-action="edit" title="{{localize 'FABULAULTIMA.LimitEdit'}}">
           <i class="fas fa-edit"></i>
