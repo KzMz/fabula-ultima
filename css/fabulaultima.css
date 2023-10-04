@@ -746,13 +746,61 @@ progress[value].inventory-progress::-webkit-progress-value {
   color: yellow;
 }
 
-.flex-row img {
+.flexrow img {
   flex: 0 0 36px;
   margin-right: 10px;
 }
 
-.dice-total ice {
+.dice-total.ice {
   -webkit-text-fill-color: white;
   -webkit-text-stroke-width: 1e-14px;
   -webkit-text-stroke-color: cyan;
+}
+
+.dice-total.fire {
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1e-14px;
+  -webkit-text-stroke-color: orange;
+}
+
+.dice-total.dark {
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1e-14px;
+  -webkit-text-stroke-color: darkred;
+}
+
+.dice-total.light {
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1e-14px;
+  -webkit-text-stroke-color: white;
+}
+
+.dice-total.poison {
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1e-14px;
+  -webkit-text-stroke-color: purple;
+}
+
+.dice-total.earth {
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1e-14px;
+  -webkit-text-stroke-color: brown;
+}
+
+.dice-total.wind {
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1e-14px;
+  -webkit-text-stroke-color: green;
+}
+
+.dice-total.lightning {
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1e-14px;
+  -webkit-text-stroke-color: yellow;
+}
+
+.dice-total.healing {
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1e-14px;
+  -webkit-text-stroke-color: blue;
 }
