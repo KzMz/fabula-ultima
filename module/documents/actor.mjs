@@ -205,6 +205,7 @@ export class FabulaUltimaActor extends Actor {
     templateData["isCritical"] = isCrit;
     templateData["description"] = weapon.data.data.description;
     templateData["isFumble"] = isFumble;
+    templateData["hasFabulaPoint"] = this.system.fabulaPoints > 0;
 
     const template = "systems/fabulaultima/templates/chat/weapon-card.html";
     const html = await renderTemplate(template, templateData);

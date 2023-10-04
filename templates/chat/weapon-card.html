@@ -4,7 +4,7 @@
     <header class="card-header flexrow">
         <img src="{{item.img}}" title="{{item.name}}" width="36" height="36" />
         <span>
-            <h2 class="item-name">{{#if prename}}{{prename}}: {{/if}}{{item.name}}{{#if postname}}: {{postname}}{{/if}}</h2>
+            <h2 class="item-name" class="margin: 0;">{{#if prename}}{{prename}}: {{/if}}{{item.name}}{{#if postname}}: {{postname}}{{/if}}</h2>
             <h4>{{type}} ⬥ {{category}}</h4>
         </span>
     </header>
@@ -48,7 +48,9 @@
             </h4>
 
             <div class="card-buttons">
+                {{#if hasFabulaPoint}}
                 <button data-action="fabula-reroll">{{localize "FABULAULTIMA.RerollWithFabulaPoint" }}</button>
+                {{/if}}
                 <!-- TODO fabula points usage -->
                 <!-- <button data-action="XXX"> -->
             </div>
