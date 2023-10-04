@@ -752,55 +752,59 @@ progress[value].inventory-progress::-webkit-progress-value {
 }
 
 .dice-total.ice {
-  -webkit-text-fill-color: white;
-  -webkit-text-stroke-width: 1e-14px;
-  -webkit-text-stroke-color: cyan;
+  -webkit-text-fill-color: lightblue;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: darkcyan;
 }
 
 .dice-total.fire {
-  -webkit-text-fill-color: white;
-  -webkit-text-stroke-width: 1e-14px;
-  -webkit-text-stroke-color: orange;
+  -webkit-text-fill-color: orange;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: orangered;
 }
 
 .dice-total.dark {
-  -webkit-text-fill-color: white;
-  -webkit-text-stroke-width: 1e-14px;
-  -webkit-text-stroke-color: darkred;
+  -webkit-text-fill-color: darkred;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: black;
 }
 
 .dice-total.light {
   -webkit-text-fill-color: white;
-  -webkit-text-stroke-width: 1e-14px;
-  -webkit-text-stroke-color: white;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: palegoldenrod;
 }
 
 .dice-total.poison {
-  -webkit-text-fill-color: white;
-  -webkit-text-stroke-width: 1e-14px;
-  -webkit-text-stroke-color: purple;
+  -webkit-text-fill-color: rebeccapurple;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: mediumpurple;
 }
 
 .dice-total.earth {
-  -webkit-text-fill-color: white;
-  -webkit-text-stroke-width: 1e-14px;
-  -webkit-text-stroke-color: brown;
+  -webkit-text-fill-color: darkgoldenrod;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: goldenrod;
 }
 
 .dice-total.wind {
-  -webkit-text-fill-color: white;
-  -webkit-text-stroke-width: 1e-14px;
+  -webkit-text-fill-color: lightgreen;
+  -webkit-text-stroke-width: 0.5px;
   -webkit-text-stroke-color: green;
 }
 
 .dice-total.lightning {
-  -webkit-text-fill-color: white;
-  -webkit-text-stroke-width: 1e-14px;
-  -webkit-text-stroke-color: yellow;
+  -webkit-text-fill-color: yellow;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: darkgoldenrod;
 }
 
 .dice-total.healing {
   -webkit-text-fill-color: white;
   -webkit-text-stroke-width: 1e-14px;
   -webkit-text-stroke-color: blue;
+}
+
+.card-header span {
+  display: flex;
 }
