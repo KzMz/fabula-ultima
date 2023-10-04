@@ -31,6 +31,7 @@ FABULAULTIMA.timings = {
     "free": "FABULAULTIMA.Free",
     "beforeConflict": "FABULAULTIMA.BeforeConflict",
     "beforeDamage": "FABULAULTIMA.BeforeDamage",
+    "onDamage": "FABULAULTIMA.OnDamage",
     "guard": "FABULAULTIMA.OnGuard",
     "crisis": "FABULAULTIMA.OnCrisis",
     "arcanum": "FABULAULTIMA.OnArcanum",
@@ -60,7 +61,8 @@ FABULAULTIMA.weaponCategories = {
     "heavy": "FABULAULTIMA.Heavy",
     "dagger": "FABULAULTIMA.Dagger",
     "fist": "FABULAULTIMA.Fist",
-    "sword": "FABULAULTIMA.Sword"
+    "sword": "FABULAULTIMA.Sword",
+    "custom": "FABULAULTIMA.Custom"
 }
 
 FABULAULTIMA.weaponTypes = {
@@ -78,7 +80,8 @@ FABULAULTIMA.damageTypes = {
     "fire": "FABULAULTIMA.DamageFire",
     "ice": "FABULAULTIMA.DamageIce",
     "light": "FABULAULTIMA.DamageLight",
-    "poison": "FABULAULTIMA.DamagePoison"
+    "poison": "FABULAULTIMA.DamagePoison",
+    "healing": "FABULAULTIMA.DamageHealing"
 }
 
 FABULAULTIMA.affinityTypes = {

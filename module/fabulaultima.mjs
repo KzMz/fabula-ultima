@@ -56,16 +56,32 @@ Hooks.once('init', async function() {
     default: true
   });
   game.settings.register("fabulaultima", "useLimits", {
-    name: "FABULAULTIMA.UseLimits",
-    hint: "FABULAULTIMA.UseLimitsHint",
+    name: "FABULAULTIMA.UseLimitBreaks",
+    hint: "FABULAULTIMA.UseLimitBreaksHint",
     scope: "world",
     config: true,
     type: Boolean,
     default: false
   });
   game.settings.register("fabulaultima", "usePartnerLimits", {
-    name: "FABULAULTIMA.UsePartnerLimits",
-    hint: "FABULAULTIMA.UsePartnerLimitsHint",
+    name: "FABULAULTIMA.UsePartnerLimitBreaks",
+    hint: "FABULAULTIMA.UsePartnerLimitBreaksHint",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: false
+  });
+  game.settings.register("fabulaultima", "useCampActivities", {
+    name: "FABULAULTIMA.UseCampActivities",
+    hint: "FABULAULTIMA.UseCampActivitiesHint",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: false
+  });
+  game.settings.register("fabulaultima", "useHeroicStyles", {
+    name: "FABULAULTIMA.UseHeroicStyles",
+    hint: "FABULAULTIMA.UseHeroicStyles",
     scope: "world",
     config: true,
     type: Boolean,
