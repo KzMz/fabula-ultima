@@ -747,9 +747,7 @@ progress[value].inventory-progress::-webkit-progress-value {
 }
 
 .flexrow img {
-  flex: 0 0 46px;
   margin-right: 10px;
-  height: 46px;
 }
 
 .dice-total.ice {
@@ -813,4 +811,13 @@ progress[value].inventory-progress::-webkit-progress-value {
 
 .card-header .item-name {
   border-bottom: 0;
+}
+
+.weapon-card .card-header .item-name {
+  margin: 0;
+}
+
+.weapon-card .flexrow img {
+  flex: 0 0 46px;
+  height: 46px;
 }
