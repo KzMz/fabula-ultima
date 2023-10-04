@@ -160,6 +160,10 @@ Hooks.on('getSceneControlButtons', async function (buttons) {
   FabulaUltimaGroupRoll.getSceneControlButtons(buttons);
 });
 
+Hooks.on('renderChatMessage', async function (message, html, data) {
+  FabulaUltimaActor.rerollWithFabulaPoints(message, html, data);
+});
+
 /* -------------------------------------------- */
 /*  Hotbar Macros                               */
 /* -------------------------------------------- */
