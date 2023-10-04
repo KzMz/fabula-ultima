@@ -200,9 +200,10 @@ export class FabulaUltimaActor extends Actor {
     templateData["damageTypeLoc"] = game.i18n.localize(CONFIG.FABULAULTIMA.damageTypes[templateData["damageType"]]);
     templateData["damage"] = maxVal + this.getWeaponTotalDamage(weapon);
     templateData["damage0"] = this.getWeaponTotalDamage(weapon);
-    templateData["category"] = weapon.data.data.category;
-    templateData["type"] = weapon.data.data.type;
+    templateData["category"] = game.i18n.localize(CONFIG.FABULAULTIMA.weaponCategories[weapon.data.data.category]);
+    templateData["type"] = game.i18n.localize(CONFIG.FABULAULTIMA.weaponTypes[weapon.data.data.type]);
     templateData["isCritical"] = isCrit;
+    templateData["description"] = weapon.data.data.description;
     templateData["isFumble"] = isFumble;
 
     const template = "systems/fabulaultima/templates/chat/weapon-card.html";

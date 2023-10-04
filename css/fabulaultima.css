@@ -807,4 +807,9 @@ progress[value].inventory-progress::-webkit-progress-value {
 
 .card-header span {
   display: flex;
+  align-items: center;
+}
+
+.card-header .item-name {
+  border-bottom: 0;
 }

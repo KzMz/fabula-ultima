@@ -3,10 +3,8 @@
     
     <header class="card-header flexrow">
         <img src="{{item.img}}" title="{{item.name}}" width="36" height="36" />
-        <span>
-            <h2 class="item-name">{{#if prename}}{{prename}}: {{/if}}{{item.name}}{{#if postname}}: {{postname}}{{/if}}</h2>
-            <h4>⬥ {{category}} ⬥ {{type}}</h4>
-        </span>
+        <h2 class="item-name">{{#if prename}}{{prename}}: {{/if}}{{item.name}}{{#if postname}}: {{postname}}{{/if}}</h2>
+        <h4>{{type}} ⬥ {{category}}</h4>
     </header>
 
     <div class="card-content">
@@ -37,17 +35,22 @@
                 {{total}} {{#if custom}}{{custom}}{{/if}}
             </h4>
 
-            <h3>{{localize "FABULAULTIMA.Damage"}}</h3>
+            <h3 class="margin-top: 5px">{{localize "FABULAULTIMA.Damage"}}</h3>
             <h4 class="dice-total {{damageType}}">
                 {{damage}} {{damageTypeLoc}}
             </h4>
 
-            <h3>{{localize "FABULAULTIMA.Damage0"}}</h3>
+            <h3 class="margin-top: 5px">{{localize "FABULAULTIMA.Damage0"}}</h3>
             <h4 class="dice-total {{damageType}}">
                 {{damage0}} {{damageTypeLoc}}
             </h4>
 
+            <p>
+                {{description}}
+            </p>
+
             <div class="card-buttons">
+                <button data-action="fabula-reroll">{{localize "FABULAULTIMA.RerollWithFabulaPoint" }}</button>
                 <!-- TODO fabula points usage -->
                 <!-- <button data-action="XXX"> -->
             </div>
