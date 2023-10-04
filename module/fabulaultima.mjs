@@ -163,7 +163,7 @@ Hooks.on('getSceneControlButtons', async function (buttons) {
 
 Hooks.on('renderChatMessage', async function (message, html, data) {
 
-  const rerollButton = html.find('data-action="fabula-reroll"');
+  const rerollButton = html.querySelector('data-action="fabula-reroll"');
   if (rerollButton)
   {
     rerollButton.click(function () {
