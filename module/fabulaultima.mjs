@@ -162,7 +162,14 @@ Hooks.on('getSceneControlButtons', async function (buttons) {
 });
 
 Hooks.on('renderChatMessage', async function (message, html, data) {
-  FabulaUltimaChatHelper.rerollWithFabulaPoint(message, html, data);
+
+  const rerollButton = html.find('data-action="fabula-reroll"');
+  if (rerollButton)
+  {
+    rerollButton.click(function () {
+      FabulaUltimaChatHelper.rerollWithFabulaPoint(message, html, data);
+    });
+  }
 });
 
 /* -------------------------------------------- */
