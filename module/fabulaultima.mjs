@@ -9,6 +9,7 @@ import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
 import { FABULAULTIMA } from "./helpers/config.mjs";
 import { FabulaUltimaCombatHud } from "./helpers/combat.js";
 import { FabulaUltimaGroupRoll } from "./helpers/groupRoll/groupRoll.mjs";
+import { FabulaUltimaChatHelper } from "./helpers/chat.mjs";
 
 /* -------------------------------------------- */
 /*  Init Hook                                   */
@@ -161,7 +162,7 @@ Hooks.on('getSceneControlButtons', async function (buttons) {
 });
 
 Hooks.on('renderChatMessage', async function (message, html, data) {
-  FabulaUltimaActor.rerollWithFabulaPoints(message, html, data);
+  FabulaUltimaChatHelper.rerollWithFabulaPoints(message, html, data);
 });
 
 /* -------------------------------------------- */

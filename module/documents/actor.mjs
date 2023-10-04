@@ -129,12 +129,6 @@ export class FabulaUltimaActor extends Actor {
     return ChatMessage.create(chatData);
   }  
 
-  static async rerollWithFabulaPoint(message, html, data) {
-    console.log(message);
-    console.log(html);
-    console.log(data);
-  }
-
   async rollFeature(feature) {
     const templateData = {
       actor: this,
