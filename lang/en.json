@@ -213,5 +213,8 @@
   "FABULAULTIMA.Limits": "Poteri Zero",
   "FABULAULTIMA.LimitEffect": "Effetto",
   "FABULAULTIMA.Partner": "Partner",
-  "FABULAULTIMA.Attributes": "Dettagli"
+  "FABULAULTIMA.Attributes": "Dettagli",
+
+  
+  "FABULAULTIMA.RerollWithFabulaPoint": "Ritira con Punto Fabula"
 }
