@@ -815,6 +815,7 @@ progress[value].inventory-progress::-webkit-progress-value {
 
 .weapon-card .card-header .item-name {
   margin: 0;
+  font-weight: bold;
 }
 
 .weapon-card .flexrow img {
