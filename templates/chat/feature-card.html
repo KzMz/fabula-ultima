@@ -16,13 +16,13 @@
     <div class="card-result dice-roll">
         <div class="dice-result">
             <div class="card-buttons">
-                {{#if feature.system.hasFreeAttack}}
+                {{#if feature.system.active.hasFreeAttack}}
                 <button data-action="roll-freeAttackMain">{{localize "FABULAULTIMA.FreeAttackWithMain"}}</button>
                     {{#if hasOffHandWeapon}}
                     <button data-action="roll-freeAttackOff">{{localize "FABULAULTIMA.FreeAttackWithOff"}}</button>
                     {{/if}}
                 {{/if}}
-                {{#if feature.system.hasRoll}}
+                {{#if feature.system.active.hasRoll}}
                 <button data-action="roll-feature">{{localize "FABULAULTIMA.RollFeature"}}</button>
                 {{/if}}
             </div>
