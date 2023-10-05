@@ -176,7 +176,8 @@
           "secondAbility": "",
           "hasFreeAttack": false,
           "addLevelToDamage": false,
-          "addLevelToPrecision": false
+          "addLevelToPrecision": false,
+          "additionalFormula": ""
         }
       }
     },

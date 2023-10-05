@@ -162,12 +162,36 @@ Hooks.on('getSceneControlButtons', async function (buttons) {
 });
 
 Hooks.on('renderChatMessage', async function (message, html, data) {
-  console.log(html);
-  const rerollButton = html.find('button[data-action="fabula-reroll"]');
-  if (rerollButton)
+  let button = html.find('button[data-action="fabula-reroll"]');
+  if (button)
   {
-    rerollButton.click(function () {
+    button.click(function (e) {
+      e.preventDefault();
       FabulaUltimaChatHelper.rerollWithFabulaPoint(message, html, data);
+    });
+  }
+
+  button = html.find('button[data-action="roll-freeAttackMain"]');
+  if (button)
+  {
+    button.click(function () {
+      FabulaUltimaChatHelper.rollFreeAttack(message, html, data, false);
+    });
+  }
+
+  button = html.find('button[data-action="roll-freeAttackOff"]');
+  if (button)
+  {
+    button.click(function () {
+      FabulaUltimaChatHelper.rollFreeAttack(message, html, data, true);
+    });
+  }
+
+  button = html.find('button[data-action="roll-feature"]');
+  if (button)
+  {
+    button.click(function () {
+      FabulaUltimaChatHelper.rollFeature(message, html, data);
     });
   }
 });

@@ -203,7 +203,11 @@ export class FabulaUltimaActor extends Actor {
     return this.update(values);
   }
 
-  async rollWeapon(weapon) {
+  async rollFreeAttack(weapon) {
+    return this.rollWeapon(weapon, false);
+  }
+
+  async rollWeapon(weapon, addTM = true) {
     const flavour = game.i18n.localize("FABULAULTIMA.RollPrecisionTest");
 
     const templateData = {
@@ -218,9 +222,12 @@ export class FabulaUltimaActor extends Actor {
     const roll = await new Roll(formula, this.getRollData()).roll({async: true});
     const d = roll.dice;
 
-    const maxVal = d.reduce(function (a, b) {
+    let maxVal = d.reduce(function (a, b) {
       return Math.max(a.total, b.total);
     });
+    
+    if (!addTM)
+      maxVal = 0;
 
     const isFumble = d.every(die => die.total === 1);
     const isCrit = d.every(die => die.total === d[0].total && die.total !== 1 && die.total > 5);

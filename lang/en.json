@@ -146,6 +146,7 @@
   "FABULAULTIMA.Spells": "Incantesimi",
   "FABULAULTIMA.Effects": "Effetti",
   "FABULAULTIMA.Biography": "Biografia & Info",
+  "FABULAULTIMA.Utility": "Utility",
 
   "FABULAULTIMA.Features": "Abilità",
   "FABULAULTIMA.Name": "Nome",
@@ -217,5 +218,9 @@
   "FABULAULTIMA.Attributes": "Dettagli",
 
   
-  "FABULAULTIMA.RerollWithFabulaPoint": "Ritira con Punto Fabula"
+  "FABULAULTIMA.RerollWithFabulaPoint": "Ritira con Punto Fabula",
+  "FABULAULTIMA.FreeAttackWithMain": "Attacco Gratuito",
+  "FABULAULTIMA.FreeAttackWithOff": "Attacco Gratuito con Mano Secondaria",
+  "FABULAULTIMA.RollFeature": "Test Abilità",
+  "FABULAULTIMA.AdditionalFormula": "Tiro Aggiuntivo"
 }

@@ -25,6 +25,9 @@
                 {{#if feature.system.active.hasRoll}}
                 <button data-action="roll-feature">{{localize "FABULAULTIMA.RollFeature"}}</button>
                 {{/if}}
+                {{#if feature.system.active.additionalFormula}}
+                <button data-action="roll-additional">{{localize "FABULAULTIMA.AdditionalFormula"}}</button>
+                {{/if}}
             </div>
         </div>
     </div>
