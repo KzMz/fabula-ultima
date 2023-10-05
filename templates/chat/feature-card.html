@@ -3,7 +3,10 @@
     
     <header class="card-header flexrow">
         <img src="{{feature.img}}" title="{{feature.name}}" width="36" height="36" />
-        <h3 class="item-name">{{#if prename}}{{prename}}: {{/if}}{{feature.name}}{{#if postname}}: {{postname}}{{/if}}</h3>
+        <span>
+            <h2 class="item-name">{{#if prename}}{{prename}}: {{/if}}{{feature.name}}{{#if postname}}: {{postname}}{{/if}}</h2>
+            <h4>{{class}} ⬥ {{localize "FABULAULTIMA.SkillLevelAbbr"}}{{abilityLevel}}</h4>
+        </span>
     </header>
 
     <div class="card-content">

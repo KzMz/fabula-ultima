@@ -813,12 +813,14 @@ progress[value].inventory-progress::-webkit-progress-value {
   border-bottom: 0;
 }
 
-.weapon-card .card-header .item-name {
+.weapon-card .card-header .item-name, 
+.feature-card .card-header .item-name {
   margin: 0;
   font-weight: bold;
 }
 
-.weapon-card .flexrow img {
+.weapon-card .flexrow img, 
+.feature-card .flexrow img {
   flex: 0 0 46px;
   height: 46px;
 }

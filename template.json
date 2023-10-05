@@ -121,10 +121,15 @@
     "templates": {
       "base": {
         "description": "",
-        "formula": ""
+        "formula": "",
+        "page": ""
       },
       "buyable": {
         "zenit": 0
+      },
+      "rollable": {
+        "firstAbility": "",
+        "secondAbility": ""
       },
       "rareable": { 
         "rarity": "",
@@ -236,9 +241,7 @@
       "type": ""
     },
     "weapon": {
-      "templates": ["base", "buyable", "rareable"],
-      "firstAbility": "",
-      "secondAbility": "",
+      "templates": ["base", "rollable", "buyable", "rareable"],
       "twoHanded": false,
       "category": "",
       "damage": {
