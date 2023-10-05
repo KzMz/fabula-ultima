@@ -184,6 +184,7 @@
           "additionalFormula": ""
         },
         "override": {
+          "overrideType": false,
           "damageTypeTurn": "",
           "damageTypeScene": ""
         }

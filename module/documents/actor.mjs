@@ -184,7 +184,7 @@ export class FabulaUltimaActor extends Actor {
       additional = roll.total;
     }
 
-    if (feature.system.override.damageTypeTurn) {
+    if (feature.system.override.damageTypeTurn && feature.system.override.overrideType) {
       await this.update({
         "system.override.damageTypeTurn": feature.system.override.damageTypeTurn
       });
