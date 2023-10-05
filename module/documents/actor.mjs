@@ -170,7 +170,7 @@ export class FabulaUltimaActor extends Actor {
     
     const chatData = {
       user: game.user._id,
-      type: CONST.CHAT_MESSAGE_TYPES.OTHER,
+      type: feature.system.active.hasRoll ? CONST.CHAT_MESSAGE_TYPES.ROLL : CONST.CHAT_MESSAGE_TYPES.OTHER,
       speaker: {
         token: this.token ? this.token.id : null,
         alias: this.token ? this.token.name : this.name,
@@ -201,8 +201,6 @@ export class FabulaUltimaActor extends Actor {
     const template = "systems/fabulaultima/templates/chat/feature-card.html";
     const html = await renderTemplate(template, templateData);
     chatData["content"] = html;
-
-    console.log(chatData);
 
     return ChatMessage.create(chatData);
   }
