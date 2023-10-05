@@ -160,6 +160,7 @@ export class FabulaUltimaActor extends Actor {
       const className = reqClass[0].name;
       templateData["className"] = className;
       templateData["abilityLevel"] = feature.system.level;
+      templateData["hasOffHandWeapon"] = this.system.equipped.offHand !== "";
     }
 
     const template = "systems/fabulaultima/templates/chat/feature-card.html";
@@ -191,7 +192,13 @@ export class FabulaUltimaActor extends Actor {
   async rest() {
     const values = {
       "system.health.value": this.system.health.max,
-      "system.mind.value": this.system.mind.max
+      "system.mind.value": this.system.mind.max,
+      "system.status.slow": false,
+      "system.status.dazed": false,
+      "system.status.weak": false,
+      "system.status.shaken": false,
+      "system.status.enraged": false,
+      "system.status.poisoned": false
     };
     return this.update(values);
   }

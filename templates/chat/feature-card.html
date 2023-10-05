@@ -16,11 +16,15 @@
     <div class="card-result dice-roll">
         <div class="dice-result">
             <div class="card-buttons">
+                {{#if feature.system.hasFreeAttack}}
                 <button data-action="roll-freeAttackMain">{{localize "FABULAULTIMA.FreeAttackWithMain"}}</button>
-                <button data-action="roll-freeAttackOff">{{localize "FABULAULTIMA.FreeAttackWithOff"}}</button>
+                    {{#if hasOffHandWeapon}}
+                    <button data-action="roll-freeAttackOff">{{localize "FABULAULTIMA.FreeAttackWithOff"}}</button>
+                    {{/if}}
+                {{/if}}
+                {{#if feature.system.hasRoll}}
                 <button data-action="roll-feature">{{localize "FABULAULTIMA.RollFeature"}}</button>
-                <!-- TODO fabula points usage -->
-                <!-- <button data-action="XXX"> -->
+                {{/if}}
             </div>
         </div>
     </div>

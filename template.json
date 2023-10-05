@@ -171,6 +171,7 @@
           "rituals": ""
         },
         "active": {
+          "hasRoll": false,
           "firstAbility": "",
           "secondAbility": "",
           "hasFreeAttack": false,
