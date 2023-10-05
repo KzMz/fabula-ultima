@@ -145,12 +145,12 @@ export class FabulaUltimaActor extends Actor {
       token = this.getActiveTokens()[0];
     }
 
-    const reqClass = this.items.filter(i => i.type === "class" && i.data.data.abbr === feature.data.data.class);
+    const reqClass = this.items.filter(i => i.type === "class" && i.system.abbr === feature.system.class);
     if (reqClass)
     {
       const className = reqClass.name;
       templateData["class"] = className;
-      templateData["abilityLevel"] = feature.data.data.level;
+      templateData["abilityLevel"] = feature.system.level;
     }
     
     const chatData = {
