@@ -222,5 +222,6 @@
   "FABULAULTIMA.FreeAttackWithMain": "Attacco Gratuito",
   "FABULAULTIMA.FreeAttackWithOff": "Attacco Gratuito con Mano Secondaria",
   "FABULAULTIMA.RollFeature": "Test Abilità",
-  "FABULAULTIMA.AdditionalFormula": "Tiro Aggiuntivo"
+  "FABULAULTIMA.AdditionalFormula": "Tiro Aggiuntivo",
+  "FABULAULTIMA.DamageTypeTurnOverride": "Sovrascrive il Tipo Danno fino a fine turno"
 }

@@ -15,6 +15,13 @@
 
     <div class="card-result dice-roll">
         <div class="dice-result">
+            {{#if feature.system.active.additionalFormula}}
+            <div class="dice-formula">{{feature.system.active.additionalFormula}}</div>
+            <h4 class="dice-total">
+                {{additionalFormula}}
+            </h4>
+            {{/if}}
+
             {{#if feature.system.active.hasRoll}}
             <div class="dice-formula">{{formula}}</div>
             {{#if dice.length}}

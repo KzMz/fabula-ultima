@@ -72,6 +72,10 @@
           "accessory": "",
           "accessory2": "",
           "armor": ""
+        },
+        "override": {
+          "damageTypeTurn": "",
+          "damageTypeScene": ""
         }
       }
     },
@@ -178,6 +182,10 @@
           "addLevelToDamage": false,
           "addLevelToPrecision": false,
           "additionalFormula": ""
+        },
+        "override": {
+          "damageTypeTurn": "",
+          "damageTypeScene": ""
         }
       }
     },

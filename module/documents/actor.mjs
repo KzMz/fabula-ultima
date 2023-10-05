@@ -178,6 +178,18 @@ export class FabulaUltimaActor extends Actor {
       }
     };
 
+    let additional = 0;
+    if (feature.system.active.additionalFormula) {
+      const roll = await new Roll(feature.system.active.additionalFormula, this.getRollData()).roll({async: true});
+      additional = roll.total;
+    }
+
+    if (feature.system.override.damageTypeTurn) {
+      await this.update({
+        "system.override.damageTypeTurn": feature.system.override.damageTypeTurn
+      });
+    }
+
     if (feature.system.active.hasRoll) {
       let formula = this.getBaseRollFormula(feature.system.active.firstAbility, feature.system.active.secondAbility, feature.system.active.addLevelToPrecision ? feature.system.level : 0);
 
@@ -193,6 +205,7 @@ export class FabulaUltimaActor extends Actor {
       templateData["isCritical"] = isCrit;
       templateData["isFumble"] = isFumble;
       templateData["hasFabulaPoint"] = this.system.fabulaPoints > 0;
+      templateData["additionalFormula"] = additional;
 
       chatData["rollMode"] = game.settings.get("core", "rollMode");
       chatData["roll"] = roll;
@@ -224,7 +237,17 @@ export class FabulaUltimaActor extends Actor {
   }
 
   async rollFreeAttack(weapon, additionalBonus = 0, additionalDamage = 0) {
-    return this.rollWeapon(weapon, false, additionalBonus, additionalDamage);
+    const r = await this.rollWeapon(weapon, false, additionalBonus, additionalDamage);
+    await this.update({
+      "system.override.damageTypeTurn": ""
+    });
+    return r;
+  }
+
+  async endTurn() {
+    await this.update({
+      "system.override.damageTypeTurn": ""
+    });
   }
 
   async rollWeapon(weapon, addTM = true, additionalBonus = 0, additionalDamage = 0) {
@@ -249,14 +272,18 @@ export class FabulaUltimaActor extends Actor {
     if (!addTM)
       maxVal = 0;
 
+    let damageType = weapon.system.damage.type;
+    if (this.system.override.damageTypeTurn !== "")
+      damageType = this.system.override.damageTypeTurn;
+
     const isFumble = d.every(die => die.total === 1);
     const isCrit = d.every(die => die.total === d[0].total && die.total !== 1 && die.total > 5);
 
     templateData["formula"] = this.getItemFormula(weapon.data);
     templateData["total"] = roll.total;
     templateData["dice"] = roll.dice;
-    templateData["damageType"] = weapon.system.damage.type;
-    templateData["damageTypeLoc"] = game.i18n.localize(CONFIG.FABULAULTIMA.damageTypes[templateData["damageType"]]);
+    templateData["damageType"] = damageType;
+    templateData["damageTypeLoc"] = game.i18n.localize(CONFIG.FABULAULTIMA.damageTypes[damageType]);
     templateData["damage"] = maxVal + this.getWeaponTotalDamage(weapon) + additionalDamage;
     templateData["damage0"] = this.getWeaponTotalDamage(weapon) + additionalDamage;
     templateData["category"] = game.i18n.localize(CONFIG.FABULAULTIMA.weaponCategories[weapon.system.category]);

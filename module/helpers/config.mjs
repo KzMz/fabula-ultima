@@ -19,6 +19,7 @@ FABULAULTIMA.abilityAbbreviations = {
 };
 
 FABULAULTIMA.costResources = {
+    "none": "FABULAULTIMA.None",
     "mp": "FABULAULTIMA.MindPoints",
     "hp": "FABULAULTIMA.HealthPoints",
     "fp": "FABULAULTIMA.FabulaPoints",
