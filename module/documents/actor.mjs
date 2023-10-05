@@ -171,7 +171,6 @@ export class FabulaUltimaActor extends Actor {
     const chatData = {
       user: game.user._id,
       type: CONST.CHAT_MESSAGE_TYPES.OTHER,
-      content: html,
       speaker: {
         token: this.token ? this.token.id : null,
         alias: this.token ? this.token.name : this.name,
@@ -201,6 +200,7 @@ export class FabulaUltimaActor extends Actor {
 
     const template = "systems/fabulaultima/templates/chat/feature-card.html";
     const html = await renderTemplate(template, templateData);
+    chatData["content"] = html;
 
     return ChatMessage.create(chatData);
   }
