@@ -43,14 +43,31 @@ export class FabulaUltimaActor extends Actor {
   _prepareCharacterData(actorData) {
     if (this.type !== 'character') return;
 
-    // Make modifications to data here. For example:
-    //const data = actorData.data;
+    let startingHealth = actorData.abilities.vig.max * 5;
+    startingHealth += actorData.attributes.level.value;
 
-    // Loop through ability scores, and add their modifiers to our sheet output.
-    //for (let [key, ability] of Object.entries(data.abilities)) {
-      // Calculate the modifier using d20 rules.
-      //ability.mod = Math.floor((ability.value - 10) / 2);
-    //}
+    let startingMind = actorData.abilities.vol.max * 5;
+    startingMind += actorData.attributes.level.value;
+
+    let startingInventory = 6;
+
+    const classes = this.items.filter(i => i.type === "class");
+    for (let c of classes) {
+      startingHealth += Number(c.system.healthBonus);
+      startingMind += Number(c.system.mindBonus);
+      startingInventory += Number(c.system.inventoryBonus);
+
+      const features = this.items.filter(i => i.type === "feature" && i.system.class === c.system.abbr);
+      for (let f of features) {
+        startingHealth += Number(f.system.passive.hpBonus) * f.system.level;
+        startingMind += Number(f.system.passive.mpBonus) * f.system.level;
+        startingInventory += Number(f.system.passive.ipBonus);
+      }
+    }
+
+    actorData.health.max = startingHealth;
+    actorData.mind.max = startingMind;
+    actorData.inventory.max = startingInventory;
   }
 
   /**
@@ -137,20 +154,20 @@ export class FabulaUltimaActor extends Actor {
       flavor: feature.name
     };
 
+    const reqClass = this.items.filter(i => i.type === "class" && i.system.abbr === feature.system.class);
+    if (reqClass && reqClass.length > 0)
+    {
+      const className = reqClass[0].name;
+      templateData["className"] = className;
+      templateData["abilityLevel"] = feature.system.level;
+    }
+
     const template = "systems/fabulaultima/templates/chat/feature-card.html";
     const html = await renderTemplate(template, templateData);
 
     let token = this.token;
     if (!token) {
       token = this.getActiveTokens()[0];
-    }
-
-    const reqClass = this.items.filter(i => i.type === "class" && i.system.abbr === feature.system.class);
-    if (reqClass)
-    {
-      const className = reqClass.name;
-      templateData["class"] = className;
-      templateData["abilityLevel"] = feature.system.level;
     }
     
     const chatData = {
@@ -204,14 +221,14 @@ export class FabulaUltimaActor extends Actor {
     templateData["formula"] = this.getItemFormula(weapon.data);
     templateData["total"] = roll.total;
     templateData["dice"] = roll.dice;
-    templateData["damageType"] = weapon.data.data.damage.type;
+    templateData["damageType"] = weapon.system.damage.type;
     templateData["damageTypeLoc"] = game.i18n.localize(CONFIG.FABULAULTIMA.damageTypes[templateData["damageType"]]);
     templateData["damage"] = maxVal + this.getWeaponTotalDamage(weapon);
     templateData["damage0"] = this.getWeaponTotalDamage(weapon);
-    templateData["category"] = game.i18n.localize(CONFIG.FABULAULTIMA.weaponCategories[weapon.data.data.category]);
-    templateData["type"] = game.i18n.localize(CONFIG.FABULAULTIMA.weaponTypes[weapon.data.data.type]);
+    templateData["category"] = game.i18n.localize(CONFIG.FABULAULTIMA.weaponCategories[weapon.system.category]);
+    templateData["type"] = game.i18n.localize(CONFIG.FABULAULTIMA.weaponTypes[weapon.system.type]);
     templateData["isCritical"] = isCrit;
-    templateData["description"] = weapon.data.data.description;
+    templateData["description"] = weapon.system.description;
     templateData["isFumble"] = isFumble;
     templateData["hasFabulaPoint"] = this.system.fabulaPoints > 0;
 
@@ -373,28 +390,31 @@ export class FabulaUltimaActor extends Actor {
 
     const features = this.items.filter(i => i.type === "feature");
     for (const feature of features) {
-      const bonus = Number(isMelee ? feature.data.data.passive.meleePrecisionBonus : feature.data.data.passive.rangedPrecisionBonus);
-      const level = Number(feature.data.data.level);
+      const baseBonus = Number(isMelee ? feature.system.passive.baseMeleePrecisionBonus : feature.system.passive.baseRangedPrecisionBonus);
+      const bonus = Number(isMelee ? feature.system.passive.meleePrecisionBonus : feature.system.passive.rangedPrecisionBonus);
+      const level = Number(feature.system.level);
       if (isNaN(bonus) || isNaN(level)) continue;
       if (!this.checkFeatureCondition(feature)) continue;
 
       weaponBonus += (bonus * level);
+      if (!isNaN(baseBonus))
+        weaponBonus += baseBonus;
     }
 
     return this.getBaseRollFormula(item.data.firstAbility, item.data.secondAbility, weaponBonus);
   }
 
   checkFeatureCondition(feature) {
-    if (!feature.data.data.passive.condition || feature.data.data.passive.condition === "")
+    if (!feature.system.passive.condition || feature.system.passive.condition === "")
       return true;
 
-    if (feature.data.data.passive.condition === "crisis")
+    if (feature.system.passive.condition === "crisis")
       return this.isCrisis();
-    if (feature.data.data.passive.condition === "fullhealth")
+    if (feature.system.passive.condition === "fullhealth")
       return this.system.health.value === this.system.health.max;
 
-    if (feature.data.data.passive.condition.includes("effect:")) {
-      const effect = feature.data.data.passive.condition.split(":")[1];
+    if (feature.system.passive.condition.includes("effect:")) {
+      const effect = feature.system.passive.condition.split(":")[1];
       if (effect && effect !== "")
         return this.effects.some(e => e.name === effect || e.data.label === effect);
     }
@@ -408,7 +428,7 @@ export class FabulaUltimaActor extends Actor {
     if (this.system.equipped.armor !== "") {
       const armor = this.items.get(this.system.equipped.armor);
       if (armor) {
-        bonus += parseInt(armor.data.data.initiativeBonus);
+        bonus += parseInt(armor.system.initiativeBonus);
       }
     }
 

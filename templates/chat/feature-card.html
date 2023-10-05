@@ -5,7 +5,7 @@
         <img src="{{feature.img}}" title="{{feature.name}}" width="36" height="36" />
         <span>
             <h2 class="item-name">{{#if prename}}{{prename}}: {{/if}}{{feature.name}}{{#if postname}}: {{postname}}{{/if}}</h2>
-            <h4>{{class}} ⬥ {{localize "FABULAULTIMA.SkillLevelAbbr"}}{{abilityLevel}}</h4>
+            <h4>{{className}} ⬥ {{localize "FABULAULTIMA.SkillLevelAbbr"}}{{abilityLevel}}</h4>
         </span>
     </header>
 
@@ -13,39 +13,15 @@
         {{{feature.system.description}}}
     </div>
 
-    <!-- div class="card-result dice-roll">
+    <div class="card-result dice-roll">
         <div class="dice-result">
-            <div class="dice-formula">{{formula}}</div>
-            {{#if dice.length}}
-                <div class="dice-tooltip" style="display: none;">
-                    <section class="tooltip-part">
-                        {{#each dice as |die id|}}
-                            <div class="dice">
-                                <ol class="dice-rolls">
-                                    {{#each die.results as |result id|}}
-                                        <li class="roll die d{{die.faces}} {{#if result.discarded}}discarded{{/if}} {{#if (eq result.result 1)}}min{{/if}} {{#if (eq result.result die.faces)}}max{{/if}}">{{result.result}}</li>
-                                    {{/each}}
-                                </ol>
-                            </div>
-                        {{/each}}
-                    </section>
-                </div>
-            {{/if}}
-
-            <h3>{{localize "FABULAULTIMA.PrecisionTest"}}</h3>
-            <h4 class="dice-total {{#if isCritical}}critical{{/if}} {{#if isFumble}}fumble{{/if}} {{#if isHealth}}health-recover{{/if}} {{#if isMana}}mana-recover{{/if}}">
-                {{total}} {{#if custom}}{{custom}}{{/if}}
-            </h4>
-
-            <h3>{{localize "FABULAULTIMA.Damage"}}</h3>
-            <h4 class="dice-total {{damageType}}">
-                {{damage}} {{damageTypeLoc}}
-            </h4>
-
-            <div class="card-buttons">-->
+            <div class="card-buttons">
+                <button data-action="roll-freeAttackMain">{{localize "FABULAULTIMA.FreeAttackWithMain"}}</button>
+                <button data-action="roll-freeAttackOff">{{localize "FABULAULTIMA.FreeAttackWithOff"}}</button>
+                <button data-action="roll-feature">{{localize "FABULAULTIMA.RollFeature"}}</button>
                 <!-- TODO fabula points usage -->
                 <!-- <button data-action="XXX"> -->
-            <!--</div>
+            </div>
         </div>
-    </div -->
+    </div>
 </div>
