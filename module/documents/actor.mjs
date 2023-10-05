@@ -163,26 +163,6 @@ export class FabulaUltimaActor extends Actor {
       templateData["hasOffHandWeapon"] = this.system.equipped.offHand !== "";
     }
 
-    if (feature.system.active.hasRoll) {
-      let formula = this.getBaseRollFormula(feature.system.active.firstAbility, feature.system.active.secondAbility, feature.system.active.addLevelToPrecision ? feature.system.level : 0);
-
-      const roll = await new Roll(formula, this.getRollData()).roll({async: true});
-      const d = roll.dice;
-
-      const isFumble = d.every(die => die.total === 1);
-      const isCrit = d.every(die => die.total === d[0].total && die.total !== 1 && die.total > 5);
-
-      templateData["formula"] = this.getGenericFormula(feature.system.active.firstAbility, feature.system.active.secondAbility, feature.system.active.addLevelToPrecision ? feature.system.level : 0);
-      templateData["total"] = roll.total;
-      templateData["dice"] = roll.dice;
-      templateData["isCritical"] = isCrit;
-      templateData["isFumble"] = isFumble;
-      templateData["hasFabulaPoint"] = this.system.fabulaPoints > 0;
-    }
-
-    const template = "systems/fabulaultima/templates/chat/feature-card.html";
-    const html = await renderTemplate(template, templateData);
-
     let token = this.token;
     if (!token) {
       token = this.getActiveTokens()[0];
@@ -198,6 +178,29 @@ export class FabulaUltimaActor extends Actor {
         actor: this.id
       }
     };
+
+    if (feature.system.active.hasRoll) {
+      let formula = this.getBaseRollFormula(feature.system.active.firstAbility, feature.system.active.secondAbility, feature.system.active.addLevelToPrecision ? feature.system.level : 0);
+
+      const roll = await new Roll(formula, this.getRollData()).roll({async: true});
+      const d = roll.dice;
+
+      const isFumble = d.every(die => die.total === 1);
+      const isCrit = d.every(die => die.total === d[0].total && die.total !== 1 && die.total > 5);
+
+      templateData["formula"] = this.getGenericFormula(feature.system.active.firstAbility, feature.system.active.secondAbility, feature.system.active.addLevelToPrecision ? feature.system.level : 0);
+      templateData["total"] = roll.total;
+      templateData["dice"] = roll.dice;
+      templateData["isCritical"] = isCrit;
+      templateData["isFumble"] = isFumble;
+      templateData["hasFabulaPoint"] = this.system.fabulaPoints > 0;
+
+      chatData["rollMode"] = game.settings.get("core", "rollMode");
+      chatData["roll"] = roll;
+    }
+
+    const template = "systems/fabulaultima/templates/chat/feature-card.html";
+    const html = await renderTemplate(template, templateData);
 
     return ChatMessage.create(chatData);
   }

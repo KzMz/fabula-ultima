@@ -27,15 +27,18 @@ export class FabulaUltimaChatHelper {
       const itemId = featureRoot.data("item-id");
       const item = actor.items.get(itemId);
 
-      let bonus = 0;
+      let bonus = 0, damage = 0;
       if (item)
+      {
         bonus = item.system.active.addLevelToPrecision ? item.system.level : 0;
+        damage = item.system.active.addLevelToDamage ? item.system.level : 0;
+      }
 
       let weapon = actor.items.find(item => item.id === actor.system.equipped.mainHand);
       if (isOffHand && actor.system.equipped.offHand)
         weapon = actor.items.find(item => item.id === actor.system.equipped.offHand);
 
-      return actor.rollFreeAttack(weapon, bonus);
+      return actor.rollFreeAttack(weapon, bonus, damage);
     }
   }
 }
