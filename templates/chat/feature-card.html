@@ -9,25 +9,46 @@
         </span>
     </header>
 
-    <h3 style="margin-top: 5px; border-bottom: 0; margin-bottom: 0;">{{localize "FABULAULTIMA.Description"}}</h3>
     <div class="card-content">
         {{{feature.system.description}}}
     </div>
 
     <div class="card-result dice-roll">
         <div class="dice-result">
+            {{#if feature.system.active.hasRoll}}
+            <div class="dice-formula">{{formula}}</div>
+            {{#if dice.length}}
+                <div class="dice-tooltip" style="display: none;">
+                    <section class="tooltip-part">
+                        {{#each dice as |die id|}}
+                            <div class="dice">
+                                <ol class="dice-rolls">
+                                    {{#each die.results as |result id|}}
+                                        <li class="roll die d{{die.faces}} {{#if result.discarded}}discarded{{/if}} {{#if (eq result.result 1)}}min{{/if}} {{#if (eq result.result die.faces)}}max{{/if}}">{{result.result}}</li>
+                                    {{/each}}
+                                </ol>
+                            </div>
+                        {{/each}}
+                    </section>
+                </div>
+            {{/if}}
+
+            <h3 style="margin-top: 5px; border-bottom: 0; margin-bottom: 0;">{{localize "FABULAULTIMA.RollFeature"}}</h3>
+            <h4 class="dice-total {{#if isCritical}}critical{{/if}} {{#if isFumble}}fumble{{/if}} {{#if isHealth}}health-recover{{/if}} {{#if isMana}}mana-recover{{/if}}">
+                {{total}} {{#if custom}}{{custom}}{{/if}}
+            </h4>
+            {{/if}}
+
             <div class="card-buttons">
+                {{#if hasFabulaPoint}}
+                <button data-action="fabula-reroll">{{localize "FABULAULTIMA.RerollWithFabulaPoint" }}</button>
+                {{/if}}
+
                 {{#if feature.system.active.hasFreeAttack}}
                 <button data-action="roll-freeAttackMain">{{localize "FABULAULTIMA.FreeAttackWithMain"}}</button>
                     {{#if hasOffHandWeapon}}
                     <button data-action="roll-freeAttackOff">{{localize "FABULAULTIMA.FreeAttackWithOff"}}</button>
                     {{/if}}
-                {{/if}}
-                {{#if feature.system.active.hasRoll}}
-                <button data-action="roll-feature">{{localize "FABULAULTIMA.RollFeature"}}</button>
-                {{/if}}
-                {{#if feature.system.active.additionalFormula}}
-                <button data-action="roll-additional">{{localize "FABULAULTIMA.AdditionalFormula"}}</button>
                 {{/if}}
             </div>
         </div>

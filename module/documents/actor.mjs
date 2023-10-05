@@ -163,6 +163,24 @@ export class FabulaUltimaActor extends Actor {
       templateData["hasOffHandWeapon"] = this.system.equipped.offHand !== "";
     }
 
+    if (feature.system.active.hasRoll) {
+      let formula = this.getBaseRollFormula(feature.system.active.firstAbility, feature.system.active.secondAbility, feature.system.active.addLevelToPrecision ? feature.system.level : 0);
+
+      const roll = await new Roll(formula, this.getRollData()).roll({async: true});
+      const d = roll.dice;
+
+      const isFumble = d.every(die => die.total === 1);
+      const isCrit = d.every(die => die.total === d[0].total && die.total !== 1 && die.total > 5);
+
+      templateData["formula"] = this.getGenericFormula(feature.system.active.firstAbility, feature.system.active.secondAbility, feature.system.active.addLevelToPrecision ? feature.system.level : 0);
+      templateData["total"] = roll.total;
+      templateData["dice"] = roll.dice;
+      templateData["isCritical"] = isCrit;
+      templateData["description"] = weapon.system.description;
+      templateData["isFumble"] = isFumble;
+      templateData["hasFabulaPoint"] = this.system.fabulaPoints > 0;
+    }
+
     const template = "systems/fabulaultima/templates/chat/feature-card.html";
     const html = await renderTemplate(template, templateData);
 
@@ -203,11 +221,11 @@ export class FabulaUltimaActor extends Actor {
     return this.update(values);
   }
 
-  async rollFreeAttack(weapon) {
-    return this.rollWeapon(weapon, false);
+  async rollFreeAttack(weapon, additionalBonus = 0) {
+    return this.rollWeapon(weapon, false, additionalBonus);
   }
 
-  async rollWeapon(weapon, addTM = true) {
+  async rollWeapon(weapon, addTM = true, additionalBonus = 0) {
     const flavour = game.i18n.localize("FABULAULTIMA.RollPrecisionTest");
 
     const templateData = {
@@ -217,7 +235,7 @@ export class FabulaUltimaActor extends Actor {
       flavor: flavour
     };
     
-    let formula = this.getRollFormula(weapon.data);
+    let formula = this.getRollFormula(weapon.data, additionalBonus);
 
     const roll = await new Roll(formula, this.getRollData()).roll({async: true});
     const d = roll.dice;
@@ -225,7 +243,7 @@ export class FabulaUltimaActor extends Actor {
     let maxVal = d.reduce(function (a, b) {
       return Math.max(a.total, b.total);
     });
-    
+
     if (!addTM)
       maxVal = 0;
 
@@ -398,7 +416,7 @@ export class FabulaUltimaActor extends Actor {
     return base;
   }
 
-  getRollFormula(item) {
+  getRollFormula(item, additionalBonus = 0) {
     let weaponBonus = item.data.precisionBonus;
     const isMelee = item.data.type === "melee";
 
@@ -415,6 +433,7 @@ export class FabulaUltimaActor extends Actor {
         weaponBonus += baseBonus;
     }
 
+    weaponBonus += additionalBonus;
     return this.getBaseRollFormula(item.data.firstAbility, item.data.secondAbility, weaponBonus);
   }
 

@@ -24,15 +24,18 @@ export class FabulaUltimaChatHelper {
       const actorId = featureRoot.data("actor-id");
       const actor = game.actors.get(actorId);
       
+      const itemId = featureRoot.data("item-id");
+      const item = actor.items.get(itemId);
+
+      let bonus = 0;
+      if (item)
+        bonus = item.system.active.addLevelToPrecision ? item.system.level : 0;
+
       let weapon = actor.items.find(item => item.id === actor.system.equipped.mainHand);
       if (isOffHand && actor.system.equipped.offHand)
         weapon = actor.items.find(item => item.id === actor.system.equipped.offHand);
 
-      return actor.rollFreeAttack(weapon);
+      return actor.rollFreeAttack(weapon, bonus);
     }
-  }
-
-  static async rollFeature(message, html, data) {
-
   }
 }

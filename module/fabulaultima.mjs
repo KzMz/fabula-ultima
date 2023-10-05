@@ -186,14 +186,6 @@ Hooks.on('renderChatMessage', async function (message, html, data) {
       FabulaUltimaChatHelper.rollFreeAttack(message, html, data, true);
     });
   }
-
-  button = html.find('button[data-action="roll-feature"]');
-  if (button)
-  {
-    button.click(function () {
-      FabulaUltimaChatHelper.rollFeature(message, html, data);
-    });
-  }
 });
 
 /* -------------------------------------------- */
