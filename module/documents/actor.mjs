@@ -176,7 +176,6 @@ export class FabulaUltimaActor extends Actor {
       templateData["total"] = roll.total;
       templateData["dice"] = roll.dice;
       templateData["isCritical"] = isCrit;
-      templateData["description"] = weapon.system.description;
       templateData["isFumble"] = isFumble;
       templateData["hasFabulaPoint"] = this.system.fabulaPoints > 0;
     }
@@ -221,11 +220,11 @@ export class FabulaUltimaActor extends Actor {
     return this.update(values);
   }
 
-  async rollFreeAttack(weapon, additionalBonus = 0) {
-    return this.rollWeapon(weapon, false, additionalBonus);
+  async rollFreeAttack(weapon, additionalBonus = 0, additionalDamage = 0) {
+    return this.rollWeapon(weapon, false, additionalBonus, additionalDamage);
   }
 
-  async rollWeapon(weapon, addTM = true, additionalBonus = 0) {
+  async rollWeapon(weapon, addTM = true, additionalBonus = 0, additionalDamage = 0) {
     const flavour = game.i18n.localize("FABULAULTIMA.RollPrecisionTest");
 
     const templateData = {
@@ -255,8 +254,8 @@ export class FabulaUltimaActor extends Actor {
     templateData["dice"] = roll.dice;
     templateData["damageType"] = weapon.system.damage.type;
     templateData["damageTypeLoc"] = game.i18n.localize(CONFIG.FABULAULTIMA.damageTypes[templateData["damageType"]]);
-    templateData["damage"] = maxVal + this.getWeaponTotalDamage(weapon);
-    templateData["damage0"] = this.getWeaponTotalDamage(weapon);
+    templateData["damage"] = maxVal + this.getWeaponTotalDamage(weapon) + additionalDamage;
+    templateData["damage0"] = this.getWeaponTotalDamage(weapon) + additionalDamage;
     templateData["category"] = game.i18n.localize(CONFIG.FABULAULTIMA.weaponCategories[weapon.system.category]);
     templateData["type"] = game.i18n.localize(CONFIG.FABULAULTIMA.weaponTypes[weapon.system.type]);
     templateData["isCritical"] = isCrit;
