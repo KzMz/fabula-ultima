@@ -34,6 +34,8 @@ export class FabulaUltimaChatHelper {
         damage = item.system.active.addLevelToDamage ? item.system.level : 0;
       }
 
+      console.log(item);
+
       let weapon = actor.items.find(item => item.id === actor.system.equipped.mainHand);
       if (isOffHand && actor.system.equipped.offHand)
         weapon = actor.items.find(item => item.id === actor.system.equipped.offHand);

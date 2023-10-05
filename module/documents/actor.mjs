@@ -202,6 +202,8 @@ export class FabulaUltimaActor extends Actor {
     const html = await renderTemplate(template, templateData);
     chatData["content"] = html;
 
+    console.log(chatData);
+
     return ChatMessage.create(chatData);
   }
 
