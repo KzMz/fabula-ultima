@@ -116,6 +116,7 @@
   "FABULAULTIMA.WeaponName": "Arma",
   "FABULAULTIMA.PrecisionTest": "Test Precisione",
   "FABULAULTIMA.Damage": "Danni",
+  "FABULAULTIMA.Damage0": "Danni a TM=0",
   "FABULAULTIMA.EquipStatus": "Equipaggiato?",
 
   "FABULAULTIMA.Arcane": "Arcana",
@@ -148,12 +149,14 @@
   "FABULAULTIMA.Spells": "Incantesimi",
   "FABULAULTIMA.Effects": "Effetti",
   "FABULAULTIMA.Biography": "Biografia & Info",
+  "FABULAULTIMA.Utility": "Utility",
 
   "FABULAULTIMA.Features": "Abilità",
   "FABULAULTIMA.Name": "Nome",
   "FABULAULTIMA.Level": "Livello",
   "FABULAULTIMA.DeleteClass": "Cancella",
   "FABULAULTIMA.SkillLevel": "Livello Abilità (LA)",
+  "FABULAULTIMA.SkillLevelAbbr": "LA",
   "FABULAULTIMA.Cost": "Costo",
 
   "FABULAULTIMA.Weapons": "Armi",
@@ -213,5 +216,12 @@
   "FABULAULTIMA.Limits": "Poteri Zero",
   "FABULAULTIMA.LimitEffect": "Effetto",
   "FABULAULTIMA.Partner": "Partner",
-  "FABULAULTIMA.Attributes": "Dettagli"
+  "FABULAULTIMA.Attributes": "Dettagli",
+
+  "FABULAULTIMA.RerollWithFabulaPoint": "Ritira con Punto Fabula",
+  "FABULAULTIMA.FreeAttackWithMain": "Attacco Gratuito",
+  "FABULAULTIMA.FreeAttackWithOff": "Attacco Gratuito con Mano Secondaria",
+  "FABULAULTIMA.RollFeature": "Test Abilità",
+  "FABULAULTIMA.AdditionalFormula": "Tiro Aggiuntivo",
+  "FABULAULTIMA.DamageTypeTurnOverride": "Sovrascrive il Tipo Danno fino a fine turno"
 }

@@ -72,6 +72,10 @@
           "accessory": "",
           "accessory2": "",
           "armor": ""
+        },
+        "override": {
+          "damageTypeTurn": "",
+          "damageTypeScene": ""
         }
       }
     },
@@ -117,14 +121,19 @@
     }
   },
   "Item": {
-    "types": ["item", "consumable", "feature", "spell", "class", "bond", "baseAttack", "weapon", "armor", "shield", "accessory", "artifact", "limit"],
+    "types": ["item", "consumable", "feature", "heroicFeature", "spell", "class", "bond", "baseAttack", "weapon", "armor", "shield", "accessory", "artifact", "limit"],
     "templates": {
       "base": {
         "description": "",
-        "formula": ""
+        "formula": "",
+        "page": ""
       },
       "buyable": {
         "zenit": 0
+      },
+      "rollable": {
+        "firstAbility": "",
+        "secondAbility": ""
       },
       "rareable": { 
         "rarity": "",
@@ -138,7 +147,46 @@
           "rangedDamageBonus": 0,
           "meleePrecisionBonus": 0,
           "rangedPrecisionBonus": 0,
-          "condition": ""
+          "condition": "",
+          "rituals": ""
+        }
+      },
+      "featureBase": {
+        "timing": "",
+        "cost": {
+          "amount": 0,
+          "resource": ""
+        },
+        "passive": {
+          "hpBonus": 0,
+          "mpBonus": 0,
+          "ipBonus": 0,
+          "openTestBonus": 0,
+          "meleePrecisionBonus": 0,
+          "rangedPrecisionBonus": 0,
+          "spellBonus": 0,
+          "baseMeleeDamageBonus": 0,
+          "meleeDamageBonus": 0,
+          "baseRangedDamageBonus": 0,
+          "rangedDamageBonus": 0,
+          "baseSpellDamageBonus": 0,
+          "spellDamageBonus": 0,
+          "condition": "",
+          "rituals": ""
+        },
+        "active": {
+          "hasRoll": false,
+          "firstAbility": "",
+          "secondAbility": "",
+          "hasFreeAttack": false,
+          "addLevelToDamage": false,
+          "addLevelToPrecision": false,
+          "additionalFormula": ""
+        },
+        "override": {
+          "overrideType": false,
+          "damageTypeTurn": "",
+          "damageTypeScene": ""
         }
       }
     },
@@ -159,33 +207,19 @@
       "inventoryCost": 0
     },
     "feature": {
-      "templates": ["base"],
+      "templates": ["base, featureBase"],
       "class": "",
       "level": 1,
-      "maxLevel": 1,
-      "timing": "",
-      "cost": {
-        "amount": 0,
-        "resource": ""
-      },
-      "passive": {
-        "hpBonus": 0,
-        "mpBonus": 0,
-        "ipBonus": 0,
-        "openTestBonus": 0,
-        "meleePrecisionBonus": 0,
-        "rangedPrecisionBonus": 0,
-        "meleeDamageBonus": 0,
-        "rangedDamageBonus": 0,
-        "condition": "",
-        "givesAdditionalAccessorySlot": false,
-        "givesRituals": false
-      },
-      "active": {
-        "customFormula": "",
-        "givesFreeAttack": false,
-        "actionType": ""
-      }
+      "maxLevel": 1
+    },
+    "heroicFeature": {
+      "templates": ["base, featureBase"],
+      "requiredClass1": "",
+      "requiredClass2": "",
+      "requiredClass3": "",
+      "requiredFeature1": "",
+      "requiredFeature2": "",
+      "requiredFeature3": ""
     },
     "spell": {
       "templates": ["base"],
@@ -197,12 +231,6 @@
         "amount": 0,
         "resource": ""
       }
-    },
-    "freeBenefit": {
-      "templates": ["base"],
-      "property": "",
-      "value": "",
-      "class": ""
     },
     "class": {
       "description": "",
@@ -228,9 +256,7 @@
       "type": ""
     },
     "weapon": {
-      "templates": ["base", "buyable", "rareable"],
-      "firstAbility": "",
-      "secondAbility": "",
+      "templates": ["base", "rollable", "buyable", "rareable"],
       "twoHanded": false,
       "category": "",
       "damage": {

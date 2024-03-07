@@ -9,6 +9,7 @@ import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
 import { FABULAULTIMA } from "./helpers/config.mjs";
 import { FabulaUltimaCombatHud } from "./helpers/combat.js";
 import { FabulaUltimaGroupRoll } from "./helpers/groupRoll/groupRoll.mjs";
+import { FabulaUltimaChatHelper } from "./helpers/chat.mjs";
 
 /* -------------------------------------------- */
 /*  Init Hook                                   */
@@ -56,16 +57,32 @@ Hooks.once('init', async function() {
     default: true
   });
   game.settings.register("fabulaultima", "useLimits", {
-    name: "FABULAULTIMA.UseLimits",
-    hint: "FABULAULTIMA.UseLimitsHint",
+    name: "FABULAULTIMA.UseLimitBreaks",
+    hint: "FABULAULTIMA.UseLimitBreaksHint",
     scope: "world",
     config: true,
     type: Boolean,
     default: false
   });
   game.settings.register("fabulaultima", "usePartnerLimits", {
-    name: "FABULAULTIMA.UsePartnerLimits",
-    hint: "FABULAULTIMA.UsePartnerLimitsHint",
+    name: "FABULAULTIMA.UsePartnerLimitBreaks",
+    hint: "FABULAULTIMA.UsePartnerLimitBreaksHint",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: false
+  });
+  game.settings.register("fabulaultima", "useCampActivities", {
+    name: "FABULAULTIMA.UseCampActivities",
+    hint: "FABULAULTIMA.UseCampActivitiesHint",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: false
+  });
+  game.settings.register("fabulaultima", "useHeroicStyles", {
+    name: "FABULAULTIMA.UseHeroicStyles",
+    hint: "FABULAULTIMA.UseHeroicStyles",
     scope: "world",
     config: true,
     type: Boolean,
@@ -142,6 +159,33 @@ Hooks.on("updateActor", async function (actor) {
 
 Hooks.on('getSceneControlButtons', async function (buttons) {
   FabulaUltimaGroupRoll.getSceneControlButtons(buttons);
+});
+
+Hooks.on('renderChatMessage', async function (message, html, data) {
+  let button = html.find('button[data-action="fabula-reroll"]');
+  if (button)
+  {
+    button.click(function (e) {
+      e.preventDefault();
+      FabulaUltimaChatHelper.rerollWithFabulaPoint(message, html, data);
+    });
+  }
+
+  button = html.find('button[data-action="roll-freeAttackMain"]');
+  if (button)
+  {
+    button.click(function () {
+      FabulaUltimaChatHelper.rollFreeAttack(message, html, data, false);
+    });
+  }
+
+  button = html.find('button[data-action="roll-freeAttackOff"]');
+  if (button)
+  {
+    button.click(function () {
+      FabulaUltimaChatHelper.rollFreeAttack(message, html, data, true);
+    });
+  }
 });
 
 /* -------------------------------------------- */

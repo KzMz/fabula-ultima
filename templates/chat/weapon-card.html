@@ -3,10 +3,13 @@
     
     <header class="card-header flexrow">
         <img src="{{item.img}}" title="{{item.name}}" width="36" height="36" />
-        <h3 class="item-name">{{#if prename}}{{prename}}: {{/if}}{{item.name}}{{#if postname}}: {{postname}}{{/if}}</h3>
+        <span>
+            <h2 class="item-name">{{#if prename}}{{prename}}: {{/if}}{{item.name}}{{#if postname}}: {{postname}}{{/if}}</h2>
+            <h4>{{type}} ⬥ {{category}}</h4>
+        </span>
     </header>
 
-    <div class="card-content">
+    <div class="card-content" style="font-size: 1.3em;">
         {{{item.data.description}}}
     </div>
 
@@ -29,19 +32,25 @@
                 </div>
             {{/if}}
 
-            <h3>{{localize "FABULAULTIMA.PrecisionTest"}}</h3>
+            <h3 style="margin-top: 5px; border-bottom: 0; margin-bottom: 0;">{{localize "FABULAULTIMA.PrecisionTest"}}</h3>
             <h4 class="dice-total {{#if isCritical}}critical{{/if}} {{#if isFumble}}fumble{{/if}} {{#if isHealth}}health-recover{{/if}} {{#if isMana}}mana-recover{{/if}}">
                 {{total}} {{#if custom}}{{custom}}{{/if}}
             </h4>
 
-            <h3>{{localize "FABULAULTIMA.Damage"}}</h3>
+            <h3 style="margin-top: 5px; border-bottom: 0; margin-bottom: 0;">{{localize "FABULAULTIMA.Damage"}}</h3>
             <h4 class="dice-total {{damageType}}">
                 {{damage}} {{damageTypeLoc}}
             </h4>
 
+            <h3 style="margin-top: 5px; border-bottom: 0; margin-bottom: 0;">{{localize "FABULAULTIMA.Damage0"}}</h3>
+            <h4 class="dice-total {{damageType}}">
+                {{damage0}} {{damageTypeLoc}}
+            </h4>
+
             <div class="card-buttons">
-                <!-- TODO fabula points usage -->
-                <!-- <button data-action="XXX"> -->
+                {{#if hasFabulaPoint}}
+                <button data-action="fabula-reroll">{{localize "FABULAULTIMA.RerollWithFabulaPoint" }}</button>
+                {{/if}}
             </div>
         </div>
     </div>

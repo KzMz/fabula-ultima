@@ -47,8 +47,7 @@
         <input type="text" name="data.maxLevel" value="{{data.maxLevel}}" data-dtype="Number"/>
       </div>
 
-      <br>
-      <span class="resource-label">{{localize "FABULAULTIMA.FeatureCost"}}</span>
+      <h2>{{localize "FABULAULTIMA.FeatureCost"}}</h2>
       <div class="resource-content flexrow flex-center flex-between">
         <label for="data.cost.resource" class="resource-label long">{{localize "FABULAULTIMA.FeatureResource"}}</label>
         <select name="data.cost.resource">
@@ -60,8 +59,8 @@
         <label for="data.cost.amount" class="resource-label long">{{localize "FABULAULTIMA.FeatureAmount"}}</label>
         <input type="text" name="data.cost.amount" value="{{data.cost.amount}}" data-dtype="Number"/>
       </div>
-      <br>
-      <span class="resource-label">{{localize "FABULAULTIMA.PassiveBonuses"}}</span>
+
+      <h2>{{localize "FABULAULTIMA.PassiveBonuses"}}</h2>
       <div class="resource-content flexrow flex-center flex-between">
         <label for="data.passive.hpBonus" class="resource-label long">{{localize "FABULAULTIMA.HealthBonus"}}</label>
         <input type="text" name="data.passive.hpBonus" value="{{data.passive.hpBonus}}" data-dtype="Number"/>
@@ -79,6 +78,10 @@
         <input type="text" name="data.passive.openTestBonus" value="{{data.passive.openTestBonus}}" data-dtype="Number"/>
       </div>
       <div class="resource-content flexrow flex-center flex-between">
+        <label for="data.passive.spellBonus" class="resource-label long">{{localize "FABULAULTIMA.SpellBonus"}}</label>
+        <input type="text" name="data.passive.spellBonus" value="{{data.passive.spellBonus}}" data-dtype="Number"/>
+      </div>
+      <div class="resource-content flexrow flex-center flex-between">
         <label for="data.passive.meleePrecisionBonus" class="resource-label long">{{localize "FABULAULTIMA.MeleePrecisionBonus"}}</label>
         <input type="text" name="data.passive.meleePrecisionBonus" value="{{data.passive.meleePrecisionBonus}}" data-dtype="Number"/>
       </div>
@@ -87,42 +90,111 @@
         <input type="text" name="data.passive.rangedPrecisionBonus" value="{{data.passive.rangedPrecisionBonus}}" data-dtype="Number"/>
       </div>
       <div class="resource-content flexrow flex-center flex-between">
+        <label for="data.passive.baseMeleeDamageBonus" class="resource-label long">{{localize "FABULAULTIMA.BaseMeleeDamageBonus"}}</label>
+        <input type="text" name="data.passive.baseMeleeDamageBonus" value="{{data.passive.baseMeleeDamageBonus}}" data-dtype="Number"/>
+      </div>
+      <div class="resource-content flexrow flex-center flex-between">
         <label for="data.passive.meleeDamageBonus" class="resource-label long">{{localize "FABULAULTIMA.MeleeDamageBonus"}}</label>
         <input type="text" name="data.passive.meleeDamageBonus" value="{{data.passive.meleeDamageBonus}}" data-dtype="Number"/>
+      </div>
+      <div class="resource-content flexrow flex-center flex-between">
+        <label for="data.passive.baseRangedDamageBonus" class="resource-label long">{{localize "FABULAULTIMA.BaseRangedDamageBonus"}}</label>
+        <input type="text" name="data.passive.baseRangedDamageBonus" value="{{data.passive.baseRangedDamageBonus}}" data-dtype="Number"/>
       </div>
       <div class="resource-content flexrow flex-center flex-between">
         <label for="data.passive.rangedDamageBonus" class="resource-label long">{{localize "FABULAULTIMA.RangedDamageBonus"}}</label>
         <input type="text" name="data.passive.rangedDamageBonus" value="{{data.passive.rangedDamageBonus}}" data-dtype="Number"/>
       </div>
       <div class="resource-content flexrow flex-center flex-between">
+        <label for="data.passive.baseSpellDamageBonus" class="resource-label long">{{localize "FABULAULTIMA.BaseSpellDamageBonus"}}</label>
+        <input type="text" name="data.passive.baseSpellDamageBonus" value="{{data.passive.baseSpellDamageBonus}}" data-dtype="Number"/>
+      </div>
+      <div class="resource-content flexrow flex-center flex-between">
+        <label for="data.passive.spellDamageBonus" class="resource-label long">{{localize "FABULAULTIMA.SpellDamageBonus"}}</label>
+        <input type="text" name="data.passive.spellDamageBonus" value="{{data.passive.spellDamageBonus}}" data-dtype="Number"/>
+      </div>
+      <div class="resource-content flexrow flex-center flex-between">
         <label for="data.passive.condition" class="resource-label long">{{localize "FABULAULTIMA.Condition"}}</label>
         <input type="text" name="data.passive.condition" value="{{data.passive.condition}}" data-dtype="String"/>
       </div>
 
-      <br>
-      <span class="resource-label">{{localize "FABULAULTIMA.ActiveEffects"}}</span>
+      <h2>{{localize "FABULAULTIMA.ActiveEffects"}}</h2>
       <div class="resource-content flexrow flex-center flex-between">
-        <label for="data.active.customFormula" class="resource-label long">{{localize "FABULAULTIMA.CustomFormula"}}</label>
-        <input type="text" name="data.active.customFormula" value="{{data.active.customFormula}}" data-dtype="String"/>
+        <label for="data.active.hasRoll" class="resource-label long">{{localize "FABULAULTIMA.HasRoll"}}</label>
+        {{#if data.active.hasRoll}}
+          <input type="checkbox" checked="checked" name="data.active.hasRoll" data-dtype="Boolean"/>
+        {{else}}
+          <input type="checkbox" name="data.active.hasRoll" data-dtype="Boolean"/>
+        {{/if}}
       </div>
 
       <div class="resource-content flexrow flex-center flex-between">
-        <label for="data.active.actionType" class="resource-label long">{{localize "FABULAULTIMA.ActionType"}}</label>
-        <select name="data.active.actionType" id="class-select">
-          {{#each data.actionTypes as |actionType key|}}
-            {{option key (localize actionType) ../data.active.actionType}}
+        <label for="data.active.firstAbility" class="resource-label long">{{localize "FABULAULTIMA.FirstAbility"}}</label>
+        <select name="data.active.firstAbility" id="first-ability">
+          {{#each data.abilities as |ability key|}}
+            {{option key (localize ability) ../data.active.firstAbility}}
           {{/each}}
         </select>
       </div>
 
       <div class="resource-content flexrow flex-center flex-between">
-        <label for="data.active.givesFreeAttack" class="resource-label long">{{localize "FABULAULTIMA.GivesFreeAttack"}}</label>
-        {{#if data.active.givesFreeAttack}}
-          <input type="checkbox" checked="checked" name="data.active.givesFreeAttack" data-dtype="Boolean"/>
+          <label for="data.active.secondAbility" class="resource-label long">{{localize "FABULAULTIMA.SecondAbility"}}</label>
+          <select name="data.active.secondAbility" id="first-ability">
+              {{#each data.abilities as |ability key|}}
+              {{option key (localize ability) ../data.active.secondAbility}}
+              {{/each}}
+          </select>
+      </div>
+
+      <div class="resource-content flexrow flex-center flex-between">
+        <label for="data.active.hasFreeAttack" class="resource-label long">{{localize "FABULAULTIMA.GivesFreeAttack"}}</label>
+        {{#if data.active.hasFreeAttack}}
+          <input type="checkbox" checked="checked" name="data.active.hasFreeAttack" data-dtype="Boolean"/>
         {{else}}
-          <input type="checkbox" name="data.active.givesFreeAttack" data-dtype="Boolean"/>
+          <input type="checkbox" name="data.active.hasFreeAttack" data-dtype="Boolean"/>
         {{/if}}
-        </div>
+      </div>
+
+      <div class="resource-content flexrow flex-center flex-between">
+        <label for="data.active.addLevelToDamage" class="resource-label long">{{localize "FABULAULTIMA.AddAbilityLevelToDamage"}}</label>
+        {{#if data.active.addLevelToDamage}}
+          <input type="checkbox" checked="checked" name="data.active.addLevelToDamage" data-dtype="Boolean"/>
+        {{else}}
+          <input type="checkbox" name="data.active.addLevelToDamage" data-dtype="Boolean"/>
+        {{/if}}
+      </div>
+
+      <div class="resource-content flexrow flex-center flex-between">
+        <label for="data.active.addLevelToPrecision" class="resource-label long">{{localize "FABULAULTIMA.AddAbilityLevelToPrecision"}}</label>
+        {{#if data.active.addLevelToPrecision}}
+          <input type="checkbox" checked="checked" name="data.active.addLevelToPrecision" data-dtype="Boolean"/>
+        {{else}}
+          <input type="checkbox" name="data.active.addLevelToPrecision" data-dtype="Boolean"/>
+        {{/if}}
+      </div>
+
+      <div class="resource-content flexrow flex-center flex-between">
+        <label for="data.active.additionalFormula" class="resource-label long">{{localize "FABULAULTIMA.AdditionalFormula"}}</label>
+        <input type="text" name="data.active.additionalFormula" value="{{data.active.additionalFormula}}" data-dtype="String"/>
+      </div>
+
+      <div class="resource-content flexrow flex-center flex-between">
+        <label for="data.override.overrideType" class="resource-label long">{{localize "FABULAULTIMA.OverrideDamageType"}}</label>
+        {{#if data.override.overrideType}}
+          <input type="checkbox" checked="checked" name="data.override.overrideType" data-dtype="Boolean"/>
+        {{else}}
+          <input type="checkbox" name="data.override.overrideType" data-dtype="Boolean"/>
+        {{/if}}
+      </div>
+
+      <div class="resource-content flexrow flex-center flex-between">
+        <label for="data.override.damageTypeTurn" class="resource-label long">{{localize "FABULAULTIMA.DamageTypeTurnOverride"}}</label>
+        <select name="data.override.damageTypeTurn" id="type-select">
+            {{#each data.damageTypes as |damageType key|}}
+              {{option key (localize damageType) ../data.override.damageTypeTurn}}
+            {{/each}}
+        </select>
+      </div>
     </div>
   </section>
 
